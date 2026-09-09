@@ -350,12 +350,29 @@
       "lat": null,
       "lon": null,
       "feeders_seen": [
+        "belize-city-2",
         "belize-city-6"
       ],
       "source_phrases": [
         "Newtown Barracks"
       ],
       "match": "ungeocoded:no_geonames_entry"
+    },
+    {
+      "id": "txt-north-front-street",
+      "name": "North Front Street",
+      "aliases": [],
+      "district": "Belize",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "belize-city-2"
+      ],
+      "source_phrases": [
+        "North Front Street"
+      ],
+      "match": "ungeocoded:street"
     },
     {
       "id": "txt-nurse-shark-street",
@@ -414,6 +431,7 @@
       "lat": null,
       "lon": null,
       "feeders_seen": [
+        "belize-city-2",
         "belize-city-8"
       ],
       "source_phrases": [
@@ -768,6 +786,22 @@
       "match": "ungeocoded:street"
     },
     {
+      "id": "txt-j-w",
+      "name": "J&W",
+      "aliases": [],
+      "district": "Cayo",
+      "type": "landmark",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "belmopan-4"
+      ],
+      "source_phrases": [
+        "J&W"
+      ],
+      "match": "ungeocoded:no_geonames_entry"
+    },
+    {
       "id": "txt-kontiki-area",
       "name": "Kontiki area",
       "aliases": [],
@@ -910,6 +944,22 @@
         "Power Lane"
       ],
       "match": "ungeocoded:street"
+    },
+    {
+      "id": "txt-rivera-area",
+      "name": "Rivera area",
+      "aliases": [],
+      "district": "Cayo",
+      "type": "landmark",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "belmopan-4"
+      ],
+      "source_phrases": [
+        "Rivera area"
+      ],
+      "match": "ungeocoded:landmark"
     },
     {
       "id": "gn-3581194",

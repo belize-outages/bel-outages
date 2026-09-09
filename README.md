@@ -27,6 +27,7 @@ app.js                map projection, search, result states
 vendor/fuse.min.js    fuzzy search, vendored (Fuse.js 7.0.0, Apache 2.0)
 data/
   outages.json        current outages, written by the scraper
+  history.json        every notice seen finish, append-only evidence
   areas.json          gazetteer: place names, aliases, coordinates, feeders
   feeders.json        load centres, substations, feeder inventory
   feeder_shapes.json  derived feeder service-area shapes
@@ -241,6 +242,32 @@ paint never waits on them.
 python scraper/build_roads.py
 python scraper/build_bundle.py
 ```
+
+---
+
+## Learning which feeder serves which street
+
+BEL does not publish it, and no amount of map geometry can infer it: a feeder
+boundary is electrical, set by switchgear positions and load balancing, and
+utilities reconfigure them. Two houses on the same street can sit on different
+feeders.
+
+What does work is BEL's own notices. Each one states a load centre, a feeder, a
+zone and the areas it cut power to, which is a labelled observation of what that
+feeder serves. One notice tells you little. A year of them is a dataset.
+
+`data/history.json` is that corpus. Every notice the scraper sees finish is
+appended before it leaves the live file. It is append-only and nothing is
+removed. Until this existed the scraper deleted finished notices outright, which
+threw away the only evidence that could ever answer the question.
+
+Coverage today: 34 feeders, about 220 area-to-feeder observations, and roughly
+40 of 3,451 streets tied to a feeder. That grows on its own once the refresh
+workflow is connected.
+
+Google Maps was considered as a shortcut and rejected. It carries nothing
+OpenStreetMap lacks for this, and its terms forbid deriving and caching a
+dataset from it, which would break the zero-cost, no-account model.
 
 ---
 

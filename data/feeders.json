@@ -158,8 +158,8 @@
     {
       "id": "belize-city-2", "load_center": "Belize City", "feeder": "2", "district": "Belize",
       "zones_seen": [],
-      "areas": ["Northside Belize City"],
-      "notes": "Always announced jointly with Feeder 4 as 'Belize City Feeder 2 & 4: Northside Belize City'. The two service areas have never been separated in any notice seen.",
+      "areas": ["Northside Belize City", "North Front Street", "Princess Margaret Drive", "Newtown Barracks"],
+      "notes": "Usually announced jointly with Feeder 4 as 'Belize City Feeder 2 & 4: Northside Belize City'. One BEL press release of 6 May 2024 describes Feeder 02 on its own as 'Northside Belize City including areas between North Front Street and Princess Margaret Drive, Newtown Barracks', which is the only boundary description seen for either.",
       "truncated": true, "confidence": "bel_reposted"
     },
     {
@@ -244,7 +244,8 @@
     {
       "id": "belmopan-4", "load_center": "Belmopan", "feeder": "4", "district": "Cayo",
       "zones_seen": [],
-      "areas": ["University Heights", "Maya Mopan", "Las Flores"],
+      "areas": ["University Heights", "Maya Mopan", "Las Flores", "J&W", "Rivera area"],
+      "notes": "J&W and the Rivera area come from BEL's emergency load-shedding schedule of 1 Sep 2026, which lists them alongside the three areas already attributed to this feeder.",
       "truncated": true, "confidence": "bel_reposted"
     },
 

@@ -325,6 +325,61 @@ def build_records(rows, idx, now):
     return records, unknown_all
 
 
+def read_history():
+    path = os.path.join(DATA, "history.json")
+    if not os.path.exists(path):
+        return {"meta": {}, "notices": []}
+    with io.open(path, encoding="utf-8") as f:
+        return json.load(f)
+
+
+_history = None
+
+
+def archive(rec):
+    """Append a finished notice to data/history.json, keyed by id.
+
+    This is the corpus. Each notice states a load centre, a feeder, a zone and
+    the areas BEL cut power to, which is a labelled observation of what that
+    feeder serves. One notice tells you little. A year of them is the only
+    honest way to learn which streets sit on which feeder, because BEL does not
+    publish that and no amount of map geometry can infer an electrical boundary.
+    """
+    global _history
+    if _history is None:
+        _history = read_history()
+    seen = {n["id"] for n in _history["notices"]}
+    if rec["id"] in seen:
+        return
+    _history["notices"].append({
+        k: rec.get(k) for k in (
+            "id", "type", "district", "load_center", "feeder", "zone",
+            "area_ids", "date", "start", "end", "purpose", "raw_text",
+            "first_seen", "last_seen",
+        )
+    })
+
+
+def write_history(now):
+    if _history is None:
+        return False
+    _history["meta"] = {
+        "schema_version": 1,
+        "what": (
+            "Every BEL notice this scraper has seen finish, kept as evidence of "
+            "which areas sit on which feeder. Append-only; nothing is removed."
+        ),
+        "updated": now.replace(microsecond=0).isoformat(),
+        "count": len(_history["notices"]),
+    }
+    _history["notices"].sort(key=lambda n: (n.get("date") or "", n.get("start") or ""))
+    path = os.path.join(DATA, "history.json")
+    with io.open(path, "w", encoding="utf-8") as f:
+        json.dump(_history, f, indent=1, ensure_ascii=False)
+        f.write("\n")
+    return True
+
+
 def merge(existing, scraped, now):
     """Merge scraped rows over the committed file.
 
@@ -367,7 +422,11 @@ def merge(existing, scraped, now):
             except ValueError:
                 pass
         elif rec.get("status") == "restored":
-            # Finished and gone from the page. Nothing left to tell anyone.
+            # Finished and gone from the page. Nothing left to tell a visitor,
+            # but every notice is a labelled example of which areas sit on
+            # which feeder, and that is the only route to a real street-level
+            # feeder map. Archive it before dropping it from the live file.
+            archive(rec)
             del by_id[rid]
 
     return sorted(
@@ -488,6 +547,20 @@ def self_test():
     check("exclusion drops all five", len(excl), 0)
     incl = split_areas("Placencia Village and Seine Bight, Independence")
     check("normal list still splits", len(incl) >= 3, True)
+
+    # A finished notice must survive into the archive. It is the only record
+    # of which areas that feeder actually serves.
+    global _history
+    _history = {"meta": {}, "notices": []}
+    done = {"id": "zz1", "date": "2026-01-01", "start": "08:00", "end": "09:00",
+            "status": "announced", "load_center": "Dangriga", "feeder": "3",
+            "area_ids": ["gn-1"], "raw_text": "x"}
+    after = merge([done], [], dt.datetime(2026, 6, 1, 12, 0))
+    check("finished notice leaves live file", len(after), 0)
+    check("finished notice archived", len(_history["notices"]), 1)
+    check("archive keeps the feeder", _history["notices"][0]["feeder"], "3")
+    check("archive keeps the areas", _history["notices"][0]["area_ids"], ["gn-1"])
+    _history = None
 
     check("type planned", normalise_type("Planned"), "planned")
     check("type unscheduled", normalise_type("Unscheduled"), "unscheduled")

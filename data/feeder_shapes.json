@@ -23,8 +23,8 @@
     "feeder": "2",
     "district": "Belize",
     "point_count": 1,
-    "named_areas_total": 1,
-    "geocoded_fraction": 1.0,
+    "named_areas_total": 4,
+    "geocoded_fraction": 0.25,
     "span_km": 0.0,
     "centroid": [
      -88.19756,
@@ -220,8 +220,8 @@
     "feeder": "4",
     "district": "Cayo",
     "point_count": 1,
-    "named_areas_total": 3,
-    "geocoded_fraction": 0.33,
+    "named_areas_total": 5,
+    "geocoded_fraction": 0.2,
     "span_km": 0.0,
     "centroid": [
      -88.76401,
