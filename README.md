@@ -193,9 +193,11 @@ BEL happened to name it. Someone searching for their own road got nothing back, 
 question this site exists to answer. So `build_streets.py` pulls about 3,400 named roads for Belize
 from OpenStreetMap and attaches each to its nearest load centre.
 
-**A street resolves to its town, not to a feeder.** BEL does not publish which feeder serves which
-street, so the panel says plainly that it is showing everything listed for that load centre and that
-your street may be on any of its feeders. That is a prompt to check, not a confirmation.
+**A street never inherits its town's outage.** BEL does not publish which feeder serves which street,
+so a street search answers "Your street is not named", explains why, and then lists what BEL did
+publish for that town with the places each notice actually names. Saying "Outage scheduled" told every
+street in Corozal Town it was affected by a Feeder 6 notice covering two rural villages fifteen
+kilometres away. A village BEL names by name still gets a definite answer; only the guess is removed.
 
 Searching an address moves the map to that address. Street coordinates are stored as integer offsets
 from the load centre at 1/1000 degree, about 110 metres, which is enough to land on the right street

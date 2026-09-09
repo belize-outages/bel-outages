@@ -946,25 +946,57 @@
     list.sort(function (x, y) { return RANK[y._state] - RANK[x._state]; });
 
     if (s.x == null && lc.y != null) { focusOn(lc.x, lc.y); pinAt(lc.x, lc.y); }
-    select(fids[0] || null);
+    /* Do not highlight one of the town's feeders. Picking the first was
+       arbitrary and made the map look like it knew which one this street is on. */
+    select(null);
 
     head += '<p class="sub">' + esc(lc.n) + (lc.d ? ", " + esc(lc.d) + " District" : "") + "</p>";
 
-    var caveat = '<p class="caveat"><strong>BEL has not named this street in a notice.</strong> ' +
-      "Showing everything listed for " + esc(lc.n) +
-      ", which is " + fids.length + " feeder" + (fids.length === 1 ? "" : "s") +
-      ". Your street may be on any of them, so treat this as a warning to check, " +
-      "not a confirmation.</p>";
-
     if (!list.length) {
       openSheet(head +
-        '<p class="status clear">No outage listed for ' + esc(lc.n) + "</p>" +
-        '<p class="sub">Nothing on BEL\'s page for any ' + esc(lc.n) + " feeder right now.</p>" +
-        caveat, { back: 1 });
+        '<p class="status clear">Nothing listed for ' + esc(lc.n) + "</p>" +
+        '<p class="sub">BEL has nothing on its page for any ' + esc(lc.n) +
+        " feeder right now.</p>" +
+        '<p class="caveat">BEL does not publish which feeder serves which street, ' +
+        "so this answers for " + esc(lc.n) + " as a whole.</p>", { back: 1 });
       return;
     }
-    openSheet(head + caveat + list.map(outageBlock).join(
-      '<hr class="sep">'), { back: 1 });
+
+    /* The town has something listed, but we do not know this street's feeder.
+       Saying "Outage scheduled" here told every street in Corozal Town it was
+       affected by a Feeder 6 notice covering two rural villages fifteen
+       kilometres away. State the uncertainty first, then show what BEL actually
+       named so the reader can judge for themselves. */
+    var worst = list[0]._state;
+    var when = worst === "off" ? "right now"
+      : worst === "today" ? "later today" : "coming up";
+
+    var body =
+      '<p class="status clear">Your street is not named</p>' +
+      '<p class="sub">BEL does not publish which feeder serves which street, so ' +
+      "this cannot tell you yes or no. There " + (list.length === 1 ? "is" : "are") +
+      " " + list.length + " notice" + (list.length === 1 ? "" : "s") + " for " +
+      esc(lc.n) + " " + when + ". Check whether any of them names somewhere near you.</p>" +
+      '<h3 class="hd">Listed for ' + esc(lc.n) + "</h3>" +
+      list.map(function (o) {
+        var named = (o.area_ids || []).map(function (id) {
+          return (areaById[id] || {}).n;
+        }).filter(Boolean);
+        return '<div class="card" style="cursor:default">' +
+          '<div class="bar ' + o._state + '"></div>' +
+          '<div class="cardtop"><span class="who">' +
+          esc(o.load_center || "?") +
+          (o.feeder ? (o.feeder === "ALL" ? ", all feeders" : " Feeder " + esc(o.feeder)) : "") +
+          (o._ls ? " (load shedding)" : "") +
+          '</span><span class="when">' + esc(prettyDate(o.date)) + ", " +
+          esc(pretty(o.start)) + "</span></div>" +
+          '<p class="areas" style="-webkit-line-clamp:4">' +
+          (named.length ? "Names: " + esc(named.join(", "))
+                        : esc((o.areas_text || o.district || "").slice(0, 220))) +
+          "</p></div>";
+      }).join("");
+
+    openSheet(head + body, { back: 1 });
   }
 
   /* ---------------------------------------------------------------- search */
@@ -1058,11 +1090,21 @@
       return;
     }
     results.innerHTML = items.map(function (a, i) {
-      var fids = a._street ? ((lcByName[a.lc] || {}).f || []) : (a.f || []);
+      /* A street never carries the town's state. Marking every street in
+         Corozal "Scheduled" because one rural feeder has a notice is a false
+         alarm, and the row is the first thing anyone reads. */
       var st = "none";
-      fids.forEach(function (fid) {
-        var s = feederState(fid); if (RANK[s] > RANK[st]) st = s;
-      });
+      if (!a._street) {
+        (a.f || []).forEach(function (fid) {
+          var s = feederState(fid); if (RANK[s] > RANK[st]) st = s;
+        });
+        ALL.forEach(function (o) {
+          if (o._state === "past") return;
+          if ((o.area_ids || []).indexOf(a.id) !== -1 && RANK[o._state] > RANK[st]) {
+            st = o._state;
+          }
+        });
+      }
       var badge = st === "off" ? "Off now" : st === "today" ? "Off today"
         : st === "soon" ? "Scheduled" : "";
       var where = a._street ? (a.lc || "no nearby town") : (a.d || "");
