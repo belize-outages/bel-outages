@@ -52,6 +52,16 @@ research/             source PDFs, not used at runtime
 .github/workflows/refresh.yml   hourly refresh (currently disabled)
 ```
 
+### The app.js syntax guard
+
+`build_bundle.py` refuses to build when `app.js` has a quoted string left open
+at the end of a line, and names the line. A JavaScript string in single or
+double quotes cannot contain a raw newline, so this is always a bug, and it is
+the bug that broke the file three times, every time from an apostrophe in a word
+like "BEL's" inside a single-quoted string. Each time it hid behind a cached copy
+in the browser before anyone noticed. The check skips regex literals, so
+`/[&<>"]/` does not trip it.
+
 ### Cache busting
 
 `build_bundle.py` stamps a content hash into `index.html` as `?v=<hash>` on

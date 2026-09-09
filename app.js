@@ -839,6 +839,9 @@
 
     $("sheetBody").innerHTML = head +
       '<p class="sub">Checked ' + esc(ago(BEL.generated)) + ". Search above for your own area.</p>" +
+      '<p class="caveat"><strong>A feeder</strong> is one of the power lines out of a substation. ' +
+      'BEL switches power off a feeder at a time, which is why its notices name one rather ' +
+      'than a street.</p>' +
       '<p class="caveat"><strong>Load shedding</strong> is the rolling blackout BEL runs when ' +
       "generation falls short. It is not on BEL's outage page, so it is gathered from Belize " +
       'news reports and is always tentative. ' +
@@ -1055,6 +1058,22 @@
   var placeNames = {};
   BEL.areas.forEach(function (a) { placeNames[a.n.toLowerCase()] = 1; });
 
+  /* Feeders are searchable too. Someone who already knows theirs should be able
+     to type it, and it is what makes "feeder 6" a useful query rather than
+     "Nothing matches that name". */
+  var feederItems = BEL.feeders.map(function (f) {
+    return {
+      n: feederLabel(f),
+      alt: [f.lc + " F" + f.f, "Feeder " + f.f, f.lc + " feeder " + f.f],
+      d: f.d,
+      _feeder: f.id
+    };
+  });
+  var feederFuse = new Fuse(feederItems, {
+    keys: [{ name: "n", weight: 3 }, { name: "alt", weight: 2 }],
+    threshold: 0.34, ignoreLocation: true, minMatchCharLength: 2, includeScore: true
+  });
+
   function combinedSearch(v) {
     var hits = fuse.search(v, { limit: 8 }).map(function (r) {
       return { item: r.item, score: r.score };
@@ -1071,13 +1090,40 @@
         hits.push({ item: r.item, score: r.score + 0.15 });
       });
     }
+    feederFuse.search(v, { limit: 5 }).forEach(function (r) {
+      hits.push({ item: r.item, score: r.score + 0.05 });
+    });
+
     hits.sort(function (a, b) { return a.score - b.score; });
     var out = [], seen = {};
     hits.forEach(function (h) {
       var k = (h.item._street ? "s:" : "a:") + h.item.n + "|" + (h.item.lc || h.item.d || "");
       if (!seen[k]) { seen[k] = 1; out.push(h.item); }
     });
+    out = out.slice(0, 8);
+
+    /* Concept words are what someone types when they have seen a post about
+       load shedding, not a place name. Answering "Nothing matches that name"
+       to "load shedding" was the least helpful thing this box could do. */
+    var help = helpFor(v);
+    if (help) out.unshift(help);
     return out.slice(0, 8);
+  }
+
+  function helpFor(v) {
+    var t = v.toLowerCase();
+    if (/shed|black\s*out|blackout/.test(t)) {
+      return { n: "What is load shedding?", _help: "shedding", d: "explain" };
+    }
+    /* Only when the word is the whole question. "feeder 6" wants the feeder,
+       not the definition, and should lead with Corozal F6. */
+    if (/^feeders?$|what.*feeder|feeder\?/.test(t)) {
+      return { n: "What is a feeder?", _help: "feeder", d: "explain" };
+    }
+    if (/^(power|outage|electricity|bel|current|light)s?$/.test(t)) {
+      return { n: "What is listed right now", _help: "now", d: "show" };
+    }
+    return null;
   }
 
   var q = $("q"), results = $("results"), cur = -1, shown = [];
@@ -1085,7 +1131,10 @@
   function renderResults(items) {
     shown = items; cur = -1;
     if (!items.length) {
-      results.innerHTML = '<li class="none">Nothing matches that name.</li>';
+      results.innerHTML =
+        '<li class="none">Nothing here by that name. Try your village or town ' +
+        'instead of a street, or check the spelling. Only places BEL has named ' +
+        'in a notice can be answered for.</li>';
       results.hidden = false; q.setAttribute("aria-expanded", "true");
       return;
     }
@@ -1107,7 +1156,9 @@
       }
       var badge = st === "off" ? "Off now" : st === "today" ? "Off today"
         : st === "soon" ? "Scheduled" : "";
-      var where = a._street ? (a.lc || "no nearby town") : (a.d || "");
+      var where = a._help ? "" : a._feeder ? "feeder" :
+                  a._street ? (a.lc || "no nearby town") : (a.d || "");
+      if (a._help) badge = "";
       return '<li role="option" id="opt' + i + '" data-i="' + i + '" aria-selected="false">' +
         "<span>" + esc(a.n) + "</span><span class=\"where\">" +
         (badge ? esc(badge) + " &middot; " : "") + esc(where) + "</span></li>";
@@ -1127,9 +1178,66 @@
   function choose(i) {
     var a = shown[i];
     if (!a) return;
-    q.value = a.n;
     closeResults();
+    if (a._help) { q.value = ""; $("clear").hidden = true; showHelp(a._help); return; }
+    q.value = a.n;
+    if (a._feeder) { showFeeder(a._feeder); return; }
     if (a._street) showStreet(a); else showArea(a);
+  }
+
+  /* Answers for the words people type when they have seen a post rather than a
+     place name. "Feeder" is the whole vocabulary of this site and was never
+     explained anywhere a reader would look. */
+  function showHelp(kind) {
+    clearPin();
+    select(null);
+    if (kind === "now") { showIdle(); return; }
+
+    if (kind === "feeder") {
+      openSheet(
+        '<p class="where2">Plain English</p>' +
+        '<p class="status clear" style="font-size:1.3rem">What is a feeder?</p>' +
+        '<p class="sub">A feeder is one of the power lines running out of a ' +
+        'substation. Yours carries electricity to your street.</p>' +
+        '<p class="kv">BEL switches power off a feeder at a time, so its notices ' +
+        'name a feeder rather than a street. That is why this site is built ' +
+        'around them.</p>' +
+        '<h3 class="hd">The catch</h3>' +
+        '<p class="kv">BEL does not publish which feeder serves which street, and ' +
+        'a feeder boundary is electrical rather than geographic, so two houses on ' +
+        'one street can sit on different feeders. If you know your feeder number ' +
+        'you can search it, for example "Corozal 6".</p>' +
+        '<p class="kv">Otherwise search your village or town: when BEL names your ' +
+        'place, this can answer properly.</p>', { back: 1 });
+      return;
+    }
+
+    var live = ALL.filter(function (o) { return o._ls && o._state !== "past"; });
+    openSheet(
+      '<p class="where2">Plain English</p>' +
+      '<p class="status clear" style="font-size:1.3rem">What is load shedding?</p>' +
+      '<p class="sub">Rolling blackouts. When BEL cannot generate or buy enough ' +
+      'power, it switches areas off in turn to protect the grid.</p>' +
+      "<p class=\"kv\">It is different from the planned outages on BEL's Power " +
+      'Updates page, which are maintenance booked in advance. BEL announces load ' +
+      'shedding on Facebook at short notice, so this site gathers it from Belize ' +
+      'news reports instead, and it is always tentative.</p>' +
+      '<h3 class="hd">' + (live.length ? "Listed now" : "Nothing listed now") + "</h3>" +
+      (live.length
+        ? live.map(function (o) {
+            return '<div class="card tentative" style="cursor:default">' +
+              '<div class="bar ' + o._state + '"></div>' +
+              '<div class="cardtop"><span class="who">' + esc(o.load_center || "?") +
+              (o.feeder ? " Feeder " + esc(o.feeder) : "") + "</span>" +
+              '<span class="when">' + esc(pretty(o.start)) + " to " +
+              esc(pretty(o.end)) + "</span></div>" +
+              '<p class="areas">' + esc((o.areas_text || "").slice(0, 200)) + "</p></div>";
+          }).join("")
+        : '<p class="kv">No load-shedding schedule has been published recently. ' +
+          'That does not guarantee there will be none tonight.</p>') +
+      '<p class="meta">Checked ' +
+      esc(BEL.loadshedding_checked ? ago(BEL.loadshedding_checked) : "never") +
+      ".</p>", { back: 1 });
   }
 
   q.addEventListener("input", function () {

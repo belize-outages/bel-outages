@@ -32,6 +32,80 @@ def load(name):
         return json.load(f)
 
 
+def check_js(path):
+    """Flag any quoted string left open at the end of a line.
+
+    A JavaScript string in single or double quotes cannot contain a raw
+    newline, so an unterminated one is always a bug. It is also the bug that
+    broke app.js three times in a row, each time from an apostrophe in a word
+    like "BEL's" inside a single-quoted string, and each time it hid behind a
+    cached copy in the browser before anyone noticed. Backticks are skipped
+    because a template literal may legitimately span lines.
+    """
+    with io.open(path, encoding="utf-8") as f:
+        lines = f.read().split("\n")
+
+    bad = []
+    quote = None
+    tick = False
+    bcomment = False
+
+    # A slash starts a regex rather than a division when what came before it
+    # cannot end an expression. Without this, /[&<>"]/ reads as the start of a
+    # string and the whole rest of the line looks unterminated.
+    REGEX_AFTER = set("(,=:[!&|?{};+-*%~^<>") | {""}
+
+    for no, text in enumerate(lines, 1):
+        i, n = 0, len(text)
+        prev = ""
+        while i < n:
+            c = text[i]
+            nxt = text[i + 1] if i + 1 < n else ""
+            if bcomment:
+                if c == "*" and nxt == "/":
+                    bcomment = False
+                    i += 1
+            elif quote:
+                if c == "\\":
+                    i += 1
+                elif c == quote:
+                    quote = None
+            elif tick:
+                if c == "\\":
+                    i += 1
+                elif c == "`":
+                    tick = False
+            elif c == "/" and nxt == "/":
+                break                       # rest of the line is a comment
+            elif c == "/" and nxt == "*":
+                bcomment = True
+                i += 1
+            elif c == "/" and (prev in REGEX_AFTER
+                               or text[:i].rstrip().endswith("return")):
+                i += 1                      # skip the regex body
+                while i < n:
+                    if text[i] == "\\":
+                        i += 1
+                    elif text[i] == "[":
+                        while i < n and text[i] != "]":
+                            i += 1 if text[i] != "\\" else 2
+                    elif text[i] == "/":
+                        break
+                    i += 1
+            elif c == "'" or c == '"':
+                quote = c
+            elif c == "`":
+                tick = True
+            if not c.isspace():
+                prev = c
+            i += 1
+
+        if quote:                           # a string cannot cross a newline
+            bad.append((no, text.strip()[:70]))
+            quote = None
+    return bad
+
+
 def stamp_index(version):
     """Point index.html at the versioned assets."""
     p = os.path.join(ROOT, "index.html")
@@ -201,6 +275,13 @@ def main():
     with io.open(path, "w", encoding="utf-8") as f:
         f.write("window.BELV=" + json.dumps(version) + ";\n")
         f.write("window.BEL=" + payload + ";\n")
+
+    bad = check_js(os.path.join(ROOT, "app.js"))
+    if bad:
+        print("app.js has an unterminated string, refusing to build:", file=sys.stderr)
+        for no, text in bad:
+            print("  line %d: %s" % (no, text), file=sys.stderr)
+        return 1
 
     stamp_index(version)
 
