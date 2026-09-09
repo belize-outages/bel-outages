@@ -1,3 +1,7 @@
+# The hourly refresh needs only these two.
 requests>=2.31
 beautifulsoup4>=4.12
+
+# Build-only, for scraper/build_feeder_shapes.py. Not needed by the workflow,
+# which never rebuilds the shapes.
 shapely>=2.0

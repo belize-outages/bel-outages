@@ -176,6 +176,13 @@ def parse_table(html):
         areas_raw = cells[4].get_text(" ", strip=True)
         if not (district or areas_raw):
             continue
+
+        # The GridView renders a pager row as a run of page-number links, which
+        # has enough cells to look like data. One reached the live file as a
+        # record whose every field was null, district "1 2 3 4". A real notice
+        # always carries a parseable date, so that is the test.
+        if not parse_date(date_s):
+            continue
         rows.append(
             {
                 "district": district,
@@ -561,6 +568,20 @@ def self_test():
     check("archive keeps the feeder", _history["notices"][0]["feeder"], "3")
     check("archive keeps the areas", _history["notices"][0]["area_ids"], ["gn-1"])
     _history = None
+
+    # A pager row has five cells and no date. It must not become a record.
+    pager = (
+        '<table id="GridView1"><tr><td>Districts</td><td>Date</td><td>a</td>'
+        '<td>b</td><td>c</td></tr>'
+        '<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>'
+        '<tr><td>Toledo District</td><td>Sunday 30 Aug 2026</td><td>7:00AM</td>'
+        '<td>3:00PM</td><td>Load Center: Punta Gorda. Feeder: ALL. Zone: ALL. '
+        'Areas to be affected: entire Toledo District.</td></tr></table>'
+    )
+    rows = parse_table(pager)
+    check("pager row skipped", len(rows), 1)
+    if rows:
+        check("real row kept", rows[0]["date_raw"], "Sunday 30 Aug 2026")
 
     check("type planned", normalise_type("Planned"), "planned")
     check("type unscheduled", normalise_type("Unscheduled"), "unscheduled")

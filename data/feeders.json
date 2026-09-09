@@ -35,6 +35,7 @@
     { "id": "ladyville",    "name": "Ladyville",    "district": "Belize",      "feeders_known": ["1", "2", "3"] },
     { "id": "san-pedro",    "name": "San Pedro",    "district": "Belize",      "feeders_known": ["1", "2", "3", "4"] },
     { "id": "caye-caulker", "name": "Caye Caulker", "district": "Belize",      "feeders_known": [] },
+    { "id": "west",         "name": "West",         "district": "Belize",      "feeders_known": ["1"] },
     { "id": "belmopan",     "name": "Belmopan",     "district": "Cayo",        "feeders_known": ["3", "4"] },
     { "id": "san-ignacio",  "name": "San Ignacio",  "district": "Cayo",        "feeders_known": ["1", "2"] },
     { "id": "dangriga",     "name": "Dangriga",     "district": "Stann Creek", "feeders_known": ["1", "2", "3"] },
@@ -235,6 +236,13 @@
       "truncated": true, "confidence": "bel_reposted"
     },
 
+    {
+      "id": "west-1", "load_center": "West", "feeder": "1", "district": "Belize",
+      "zones_seen": ["2"],
+      "areas": ["portion of Hattieville", "Dollar Bank Road", "Gracie Rock", "Butcher Burns", "Rockville", "Cedar Bank", "Ji Chan Community"],
+      "notes": "BEL calls this load centre 'West' in its notices, and it is the Westlake substation. The Integrated Resource Plan's demand table lists only eleven load centres and Westlake is not among them, which is why this file first recorded Westlake as a substation alone. A live notice of 9 Sep 2026 proves BEL dispatches against it as a load centre, so it is both.",
+      "truncated": true, "confidence": "bel_direct"
+    },
     {
       "id": "belmopan-3", "load_center": "Belmopan", "feeder": "3", "district": "Cayo",
       "zones_seen": [],

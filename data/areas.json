@@ -148,6 +148,25 @@
       "match": "district_match"
     },
     {
+      "id": "gn-3582512",
+      "name": "Butcher Burns",
+      "aliases": [
+        "Butcher Burn",
+        "Butcher Burns"
+      ],
+      "district": "Belize",
+      "type": "village",
+      "lat": 17.41091,
+      "lon": -88.44527,
+      "feeders_seen": [
+        "west-1"
+      ],
+      "source_phrases": [
+        "Butcher Burns"
+      ],
+      "match": "district_match"
+    },
+    {
       "id": "gn-3582431",
       "name": "Caye Caulker",
       "aliases": [
@@ -163,6 +182,22 @@
       "source_phrases": [],
       "match": "load_centre",
       "is_load_center": true
+    },
+    {
+      "id": "gn-3582425",
+      "name": "Cedar Bank",
+      "aliases": [],
+      "district": "Belize",
+      "type": "village",
+      "lat": 17.38576,
+      "lon": -88.43873,
+      "feeders_seen": [
+        "west-1"
+      ],
+      "source_phrases": [
+        "Cedar Bank"
+      ],
+      "match": "unique_name"
     },
     {
       "id": "txt-collet",
@@ -207,6 +242,22 @@
       "feeders_seen": [],
       "source_phrases": [],
       "match": "osm_settlement"
+    },
+    {
+      "id": "txt-dollar-bank-road",
+      "name": "Dollar Bank Road",
+      "aliases": [],
+      "district": "Belize",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "west-1"
+      ],
+      "source_phrases": [
+        "Dollar Bank Road"
+      ],
+      "match": "ungeocoded:street"
     },
     {
       "id": "txt-dolphin-street",
@@ -295,6 +346,58 @@
       "feeders_seen": [],
       "source_phrases": [],
       "match": "osm_settlement"
+    },
+    {
+      "id": "gn-13286664",
+      "name": "Gracie Rock",
+      "aliases": [
+        "Gracy Rock"
+      ],
+      "district": "Belize",
+      "type": "village",
+      "lat": 17.3746,
+      "lon": -88.44892,
+      "feeders_seen": [
+        "west-1"
+      ],
+      "source_phrases": [
+        "Gracie Rock"
+      ],
+      "match": "unique_name"
+    },
+    {
+      "id": "gn-3581968",
+      "name": "Hattieville",
+      "aliases": [
+        "Hattieville"
+      ],
+      "district": "Belize",
+      "type": "town",
+      "lat": 17.44779,
+      "lon": -88.39355,
+      "feeders_seen": [
+        "west-1"
+      ],
+      "source_phrases": [
+        "portion of Hattieville"
+      ],
+      "match": "district_match"
+    },
+    {
+      "id": "txt-ji-chan-community",
+      "name": "Ji Chan Community",
+      "aliases": [],
+      "district": "Belize",
+      "type": "landmark",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "west-1"
+      ],
+      "source_phrases": [
+        "Ji Chan Community"
+      ],
+      "match": "ungeocoded:landmark"
     },
     {
       "id": "txt-kelly-street",
@@ -538,6 +641,22 @@
       "feeders_seen": [],
       "source_phrases": [],
       "match": "osm_settlement"
+    },
+    {
+      "id": "gn-3581287",
+      "name": "Rockville",
+      "aliases": [],
+      "district": "Belize",
+      "type": "village",
+      "lat": 17.4,
+      "lon": -88.46667,
+      "feeders_seen": [
+        "west-1"
+      ],
+      "source_phrases": [
+        "Rockville"
+      ],
+      "match": "unique_name"
     },
     {
       "id": "txt-san-pedrito",

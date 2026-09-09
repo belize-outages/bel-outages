@@ -1,4 +1,5 @@
-# Refresh data/outages.json from BEL's Power Updates page.
+# Refresh the outage data: BEL's Power Updates page, and the load-shedding
+# schedules Belize news outlets republish.
 #
 # ─────────────────────────────────────────────────────────────────────────────
 #  THIS WORKFLOW IS NOT CONNECTED YET.
@@ -35,7 +36,7 @@ concurrency:
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
 
     steps:
       - uses: actions/checkout@v4
@@ -45,33 +46,56 @@ jobs:
           python-version: "3.12"
 
       - name: Install dependencies
-        run: pip install -r scraper/requirements.txt
+        run: pip install requests beautifulsoup4
 
       - name: Run the parser tests first
-        # If BEL changes the page shape, fail loudly here rather than commit
-        # a file full of nulls.
-        run: python scraper/scrape.py --self-test
+        # If BEL or an outlet changes its page shape, fail loudly here rather
+        # than commit a file full of nulls.
+        run: |
+          python scraper/scrape.py --self-test
+          python scraper/scrape_loadshedding.py --self-test
 
-      - name: Scrape
+      - name: Scrape BEL's planned outages
         run: python scraper/scrape.py
 
+      - name: Scrape load shedding
+        # Not on BEL's outage page, and it is the thing people check for during
+        # a shortage. Never allowed to fail the run: the outlets are third
+        # parties and one being down must not block the planned-outage refresh.
+        continue-on-error: true
+        run: python scraper/scrape_loadshedding.py
+
       - name: Repack the browser bundle
-        # The page reads data/bundle.js, not the JSON. Skipping this step
-        # scrapes new data and then serves the old data forever.
+        # The page reads data/bundle.js, not the JSON, and this also stamps the
+        # cache-busting version into index.html. Skipping it scrapes new data
+        # and then serves the old data forever. It exits non-zero if app.js has
+        # an unterminated string, so a broken page cannot be published.
         run: python scraper/build_bundle.py
 
       - name: Commit only if the data actually changed
         run: |
-          if git diff --quiet -- data/outages.json data/bundle.js; then
-            echo "No change to the outage data. Nothing to commit."
+          FILES="data/outages.json data/loadshedding.json data/history.json data/bundle.js index.html"
+          EXISTING=""
+          for f in $FILES; do [ -f "$f" ] && EXISTING="$EXISTING $f"; done
+          if git diff --quiet -- $EXISTING; then
+            echo "No change to the data. Nothing to commit."
             exit 0
           fi
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/outages.json data/bundle.js
-          git commit -m "data: refresh outages $(date -u +'%Y-%m-%dT%H:%MZ')"
+          git add $EXISTING
+          git commit -m "data: refresh $(date -u +'%Y-%m-%dT%H:%MZ')"
           git push
 
+# Why index.html is in that list: build_bundle.py stamps a content hash into the
+# script and stylesheet URLs. Without committing it, GitHub Pages would keep
+# serving a returning visitor the cached bundle.js and they would read stale
+# outages.
+#
+# Why history.json is: every finished notice is archived there as evidence of
+# which areas sit on which feeder. It is append-only and it is the only route
+# to a street-level feeder map.
+#
 # Note on the 60-day rule: GitHub disables scheduled workflows after 60 days of
 # repository inactivity. This workflow's own data commits count as activity, so
 # once connected it keeps itself alive. If BEL publishes nothing for two solid
