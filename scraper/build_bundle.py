@@ -145,8 +145,13 @@ def main():
         jspath = os.path.join(DATA, "streets.js")
         with io.open(jspath, "w", encoding="utf-8") as f:
             f.write("window.BEL_STREETS=" + json.dumps(
-                sdoc["by_load_centre"], separators=(",", ":"),
-                ensure_ascii=False) + ";\n")
+                {
+                    "scale": sdoc["meta"]["scale"],
+                    "centres": sdoc["centres"],
+                    "byLc": sdoc["by_load_centre"],
+                    "loose": sdoc["unanchored"],
+                },
+                separators=(",", ":"), ensure_ascii=False) + ";\n")
         print("streets.js     : %.1f KB (%d streets, lazy loaded)"
               % (os.path.getsize(jspath) / 1024, sdoc["meta"]["count"]))
 

@@ -30,7 +30,7 @@ data/
   areas.json          gazetteer: place names, aliases, coordinates, feeders
   feeders.json        load centres, substations, feeder inventory
   feeder_shapes.json  derived feeder service-area shapes
-  streets.json        3,451 street names, grouped by load centre
+  streets.json        3,451 streets with coordinates, grouped by load centre
   streets.js          the street index, loaded only when someone searches
   places.json         110 settlement outlines
   roads.json          177 highway polylines
@@ -170,10 +170,12 @@ from OpenStreetMap and attaches each to its nearest load centre.
 street, so the panel says plainly that it is showing everything listed for that load centre and that
 your street may be on any of its feeders. That is a prompt to check, not a confirmation.
 
-The index is 63KB, and most visits are a glance at the map that never needs it, so it loads on the
-first keystroke rather than on page load. It arrives through a `<script>` tag appended at runtime,
-which keeps working when the page is opened as a local file.
+Searching an address moves the map to that address. Street coordinates are stored as integer offsets
+from the load centre at 1/1000 degree, about 110 metres, which is enough to land on the right street
+and keeps the index at 93KB instead of the ~135KB absolute coordinates would cost. The page
+reconstructs `lon = centres[lc][0] + dlon/1000`.
 
+Most visits are a glance at the map that never needs any of this, so the index loads on the
 Three different towns have a Sarstoon Street, so results are labelled by town. OpenStreetMap also
 carries occasional typos, "Sartsoon Street" in Belmopan among them, which the fuzzy search absorbs.
 

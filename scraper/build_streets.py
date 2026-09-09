@@ -55,6 +55,11 @@ MAX_LC_KM = 30.0
 SKIP_HIGHWAY = {"track", "path", "footway", "cycleway", "steps", "bridleway",
                 "construction", "proposed", "raceway", "escape", "corridor"}
 
+# Street coordinates are stored as integer offsets from the load centre at
+# 1/SCALE degree. 1e-3 degrees is about 110 metres, enough to put the map on
+# the right street without paying for precision nobody needs.
+SCALE = 1000
+
 
 def km(a, b):
     dx = (b[0] - a[0]) * 111.32 * math.cos(math.radians((a[1] + b[1]) / 2))
@@ -138,33 +143,56 @@ def main():
 
     streets = sorted(best.values(), key=lambda s: (s["lc"] or "~", s["name"]))
 
-    # Grouped by load centre, names only.
+    # Grouped by load centre, with coordinates stored as integer offsets from
+    # that load centre at 1/SCALE degree, roughly 110 metres.
     #
-    # Coordinates are deliberately left out. A street resolves to its load
-    # centre and the answer shown is the load centre's, so pinning the exact
-    # kerb would imply a precision this data does not have. It also keeps the
-    # index at a third of the size, which matters on mobile data.
-    by_lc = {}
+    # Searching an address should move the map to the address. Absolute
+    # coordinates at full precision would nearly double this file for accuracy
+    # nobody needs: the job is to put the map on the right street, and every
+    # street here is within 30km of its load centre, so the offsets stay small.
+    centre_pt = {c["name"]: c["pt"] for c in load_centres}
+    centres, packed, unanchored = {}, {}, []
+
     for s in streets:
-        by_lc.setdefault(s["lc"] or "", []).append(s["name"])
-    for k in by_lc:
-        by_lc[k] = sorted(set(by_lc[k]))
+        if not s["lc"]:
+            unanchored.append([s["name"], round(s["lon"], 4), round(s["lat"], 4)])
+            continue
+        lc = s["lc"]
+        if lc not in centres:
+            cx0, cy0 = centre_pt[lc]
+            centres[lc] = [round(cx0, 4), round(cy0, 4)]
+        cx, cy = centres[lc]
+        packed.setdefault(lc, []).append([
+            s["name"],
+            int(round((s["lon"] - cx) * SCALE)),
+            int(round((s["lat"] - cy) * SCALE)),
+        ])
+    for lc in packed:
+        packed[lc].sort(key=lambda r: r[0])
 
     out = {
         "meta": {
-            "schema_version": 1,
+            "schema_version": 2,
             "built_by": "scraper/build_streets.py",
             "source": "OpenStreetMap via Overpass, ODbL",
             "note": (
                 "A street is attached to its nearest load centre, not to a feeder. "
                 "BEL does not publish which feeder serves which street, so the site "
-                "answers at load-centre level and says so. Streets under the empty "
-                "key had no load centre within %g km." % MAX_LC_KM
+                "answers at load-centre level and says so."
             ),
+            "coordinates": (
+                "by_load_centre rows are [name, dlon, dlat], integer offsets from "
+                "centres[lc] at 1/%d degree, so lon = centres[lc][0] + dlon/%d. "
+                "unanchored rows are [name, lon, lat] absolute, for streets with "
+                "no load centre within %g km."
+            ) % (SCALE, SCALE, MAX_LC_KM),
+            "scale": SCALE,
             "max_load_centre_km": MAX_LC_KM,
-            "count": sum(len(v) for v in by_lc.values()),
+            "count": sum(len(v) for v in packed.values()) + len(unanchored),
         },
-        "by_load_centre": by_lc,
+        "centres": centres,
+        "by_load_centre": packed,
+        "unanchored": unanchored,
     }
     path = os.path.join(DATA, "streets.json")
     with io.open(path, "w", encoding="utf-8") as f:
@@ -173,14 +201,18 @@ def main():
 
     print("streets indexed : %d" % out["meta"]["count"])
     print("file size       : %.1f KB" % (os.path.getsize(path) / 1024))
-    for k, v in sorted(by_lc.items(), key=lambda kv: -len(kv[1])):
-        print("  %-34s %5d" % (k or "(no load centre within %gkm)" % MAX_LC_KM, len(v)))
+    for k, v in sorted(packed.items(), key=lambda kv: -len(kv[1])):
+        print("  %-34s %5d" % (k, len(v)))
+    if unanchored:
+        print("  %-34s %5d" % ("(no load centre within %gkm)" % MAX_LC_KM,
+                               len(unanchored)))
 
     probe = [s for s in streets if "sarstoon" in s["name"].lower()]
-    print("\nSarstoon check:")
+    print()
+    print("Sarstoon check:")
     for s in probe:
-        print("  %-22s -> %-14s %-12s %.1f km  feeders=%s"
-              % (s["name"], s["lc"], s["district"], s["km"], s["feeders"]))
+        print("  %-22s -> %-14s %-12s %5.1f km  %.4f %.4f"
+              % (s["name"], s["lc"], s["district"], s["km"], s["lon"], s["lat"]))
     return 0
 
 

@@ -142,6 +142,7 @@
     svg.setAttribute("viewBox", view.x + " " + view.y + " " + view.w + " " + view.h);
     if (view.w < HOME.w * 0.98) loadPlaces();   /* any zoom in at all */
     sizeLabels();
+    sizeMarkers();
   }
 
   /* Settlement outlines.
@@ -312,7 +313,7 @@
     $("layerDistricts").appendChild(p);
   });
 
-  var feederEls = {};
+  var feederEls = {}, feederDots = [];
   BEL.feeders.slice().sort(function (a, b) {
     return RANK[feederState(a.id)] - RANK[feederState(b.id)];   // urgent drawn last
   }).forEach(function (f) {
@@ -323,8 +324,9 @@
     if (f.g.type === "Point") {
       node = el("circle", {
         cx: px(f.g.coordinates[0]).toFixed(1), cy: py(f.g.coordinates[1]).toFixed(1),
-        r: 7, class: "feeder " + st
+        class: "feeder " + st
       });
+      feederDots.push(node);
     } else {
       node = el("path", { d: geomPath(f.g), class: "feeder " + st + (isLine ? " line" : "") });
     }
@@ -354,6 +356,8 @@
     if (!f) return "";
     return f.f === "ALL" ? f.lc + ", all feeders" : f.lc + " Feeder " + f.f;
   }
+
+  sizeMarkers();
 
   function stateWords(s) {
     return s === "off" ? "off now" : s === "today" ? "off later today"
@@ -439,10 +443,42 @@
   function pinAt(lon, lat) {
     clearPin();
     var g = $("layerPin"), x = px(lon), y = py(lat);
-    g.appendChild(el("circle", { cx: x, cy: y, r: 11, class: "pin" }));
-    g.appendChild(el("circle", { cx: x, cy: y, r: 3.2, class: "pin-core" }));
+    g.appendChild(el("circle", { cx: x, cy: y, class: "pin" }));
+    g.appendChild(el("circle", { cx: x, cy: y, class: "pin-core" }));
+    sizeMarkers();
   }
   function clearPin() { $("layerPin").innerHTML = ""; }
+
+  /* Circle radii are in user units, so they grow with the zoom. At street level
+     the pin swelled to fill the map. These are recomputed as a fixed number of
+     screen pixels instead. Place dots only change when the zoom does, so a pan
+     does not touch a hundred attributes per frame. */
+  var lastDotZoom = null;
+
+  function sizeMarkers() {
+    var rect = svg.getBoundingClientRect();
+    if (!rect.width) return;
+    var perPx = view.w / rect.width;
+
+    var pin = $("layerPin").childNodes;
+    if (pin.length === 2) {
+      pin[0].setAttribute("r", (13 * perPx).toFixed(2));
+      pin[1].setAttribute("r", (3.6 * perPx).toFixed(2));
+      pin[0].setAttribute("stroke-width", (3 * perPx).toFixed(2));
+    }
+
+    var z = Math.round(view.w * 100);
+    if (z === lastDotZoom) return;
+    lastDotZoom = z;
+    var r = (2.6 * perPx).toFixed(2);
+    var dots = $("layerPoints").childNodes;
+    for (var i = 0; i < dots.length; i++) dots[i].setAttribute("r", r);
+
+    /* A feeder with only one geocoded place is drawn as a circle, and it has
+       the same user-unit problem: at street zoom it covered the whole town. */
+    var fr = (8 * perPx).toFixed(2);
+    for (var k = 0; k < feederDots.length; k++) feederDots[k].setAttribute("r", fr);
+  }
 
   var selected = null;
   function select(fid) {
@@ -570,8 +606,12 @@
     var lc = lcByName[s.lc];
     var head = '<h2 class="state clear" style="font-size:1.1rem">' + esc(s.n) + "</h2>";
 
+    /* Go to the street itself. The outage answer is still the load centre's,
+       but the map should land where the person actually lives. */
+    if (s.x != null) { focusOn(s.x, s.y, HOME.w / 16); pinAt(s.x, s.y); }
+
     if (!lc) {
-      clearPin(); select(null);
+      select(null);
       openSheet(head +
         '<p class="sub">Not near any BEL load centre in the data.</p>' +
         '<p class="state clear">No outage information</p>' +
@@ -588,7 +628,7 @@
     });
     list.sort(function (x, y) { return RANK[y._state] - RANK[x._state]; });
 
-    if (lc.y != null) { focusOn(lc.x, lc.y); pinAt(lc.x, lc.y); }
+    if (s.x == null && lc.y != null) { focusOn(lc.x, lc.y); pinAt(lc.x, lc.y); }
     select(fids[0] || null);
 
     head += '<p class="sub">' + esc(lc.n) + (lc.d ? ", " + esc(lc.d) + " District" : "") + "</p>";
@@ -630,9 +670,22 @@
     var s = document.createElement("script");
     s.src = "data/streets.js";          /* a script tag, so file:// works too */
     s.onload = function () {
-      var flat = [], byLc = window.BEL_STREETS || {};
-      Object.keys(byLc).forEach(function (lc) {
-        byLc[lc].forEach(function (name) { flat.push({ n: name, lc: lc, _street: 1 }); });
+      var flat = [], S = window.BEL_STREETS || {};
+      var scale = S.scale || 1000, centres = S.centres || {};
+      /* Rows are [name, dlon, dlat] as integer offsets from the load centre,
+         so a street's real position comes back as centre + offset / scale. */
+      Object.keys(S.byLc || {}).forEach(function (lc) {
+        var c = centres[lc] || [0, 0];
+        S.byLc[lc].forEach(function (row) {
+          flat.push({
+            n: row[0], lc: lc, _street: 1,
+            x: c[0] + row[1] / scale,
+            y: c[1] + row[2] / scale
+          });
+        });
+      });
+      (S.loose || []).forEach(function (row) {
+        flat.push({ n: row[0], lc: null, _street: 1, x: row[1], y: row[2] });
       });
       streetFuse = new Fuse(flat, {
         keys: [{ name: "n", weight: 3 }, { name: "lc", weight: 0.4 }],
