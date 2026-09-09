@@ -134,9 +134,10 @@
 
   var svg = $("map");
   svg.setAttribute("viewBox", [-VW * PAD, -VH * PAD, VW * (1 + 2 * PAD), VH * (1 + 2 * PAD)].join(" "));
-  svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
+  svg.setAttribute("preserveAspectRatio", "xMidYMin meet");
   var HOME = { x: -VW * PAD, y: -VH * PAD, w: VW * (1 + 2 * PAD), h: VH * (1 + 2 * PAD) };
-  var view = Object.assign({}, HOME);
+  var view = Object.assign({}, HOME);   /* replaced by homeView() once laid out */
+  var isHome = true;   /* so a sheet resize only refits when nobody has panned */
 
   function applyView() {
     svg.setAttribute("viewBox", view.x + " " + view.y + " " + view.w + " " + view.h);
@@ -366,6 +367,7 @@
 
   /* ------------------------------------------------------------- pan, zoom */
   function zoomBy(k, cx, cy) {
+    isHome = false;
     var nw = Math.min(HOME.w * 1.2, Math.max(HOME.w / 40, view.w * k));
     var nh = nw * (view.h / view.w);
     if (cx == null) { cx = view.x + view.w / 2; cy = view.y + view.h / 2; }
@@ -383,7 +385,9 @@
   }
   $("zin").onclick = function () { zoomBy(1 / 1.6); };
   $("zout").onclick = function () { zoomBy(1.6); };
-  $("zfit").onclick = function () { view = Object.assign({}, HOME); applyView(); clearPin(); };
+  $("zfit").onclick = function () {
+    view = homeView(); isHome = true; applyView(); clearPin();
+  };
 
   svg.addEventListener("wheel", function (e) {
     e.preventDefault();
@@ -395,7 +399,7 @@
   svg.addEventListener("pointerdown", function (e) {
     pointers[e.pointerId] = e;
     var ids = Object.keys(pointers);
-    if (ids.length === 1) { drag = { p: svgPoint(e), x: view.x, y: view.y, moved: false }; }
+    if (ids.length === 1) { isHome = false; drag = { p: svgPoint(e), x: view.x, y: view.y, moved: false }; }
     else if (ids.length === 2) { drag = null; pinch = spread(); }
     svg.setPointerCapture(e.pointerId);
   });
@@ -434,11 +438,65 @@
 
   function focusOn(lon, lat, span) {
     loadPlaces();
+    isHome = false;
     span = span || HOME.w / 5;   /* enough of the surroundings to orient by */
     view.w = span; view.h = span * (HOME.h / HOME.w);
-    view.x = px(lon) - view.w / 2;
-    view.y = py(lat) - view.h / 2;
+    view.x = px(lon) - view.w * visibleXBand();
+    /* The sheet covers the lower part of the map, so centring vertically would
+       drop the pin behind it. Sit the target in the visible upper band. */
+    view.y = py(lat) - view.h * visibleBand();
     applyView();
+  }
+
+  function homeView() {
+    /* Fit the country into whatever part of the map the sheet is not covering.
+       On a phone that is the band above the sheet; on a wide screen the sheet
+       becomes a right-hand panel, so it is the band to its left. Both come out
+       of the same calculation. */
+    var v = { x: HOME.x, y: HOME.y, w: HOME.w, h: HOME.h };
+    var app = $("app"), sheet = $("sheet");
+    if (!app || !sheet) return v;
+
+    var wpx = app.clientWidth, hpx = app.clientHeight;
+    if (!wpx || !hpx) return v;
+
+    var sr = sheet.getBoundingClientRect();
+    var side = window.matchMedia && window.matchMedia("(min-width:760px)").matches;
+    var visW = side ? wpx - sr.width : wpx;
+    var visH = side ? hpx : hpx - sr.height;
+    if (visW < 200) visW = wpx;
+    if (visH < 160) visH = hpx * 0.5;
+
+    /* Largest scale at which the country still fits the visible rectangle. */
+    var sc = Math.min(visW / HOME.w, visH / HOME.h);
+    var offX = (visW - HOME.w * sc) / 2;
+    var offY = (visH - HOME.h * sc) / 2;
+
+    return {
+      x: HOME.x - offX / sc,
+      y: HOME.y - offY / sc,
+      w: wpx / sc,
+      h: hpx / sc
+    };
+  }
+
+  function visibleBand() {
+    var sheet = $("sheet"), app = $("app");
+    if (!sheet || !app) return 0.5;
+    if (window.matchMedia && window.matchMedia("(min-width:760px)").matches) return 0.5;
+    var covered = sheet.getBoundingClientRect().height / app.getBoundingClientRect().height;
+    if (!isFinite(covered) || covered <= 0 || covered >= 0.95) return 0.5;
+    return Math.max(0.22, (1 - covered) / 2);
+  }
+
+  /* Same idea horizontally, for the wide layout where the sheet is a panel. */
+  function visibleXBand() {
+    var sheet = $("sheet"), app = $("app");
+    if (!sheet || !app) return 0.5;
+    if (!(window.matchMedia && window.matchMedia("(min-width:760px)").matches)) return 0.5;
+    var covered = sheet.getBoundingClientRect().width / app.clientWidth;
+    if (!isFinite(covered) || covered <= 0 || covered >= 0.9) return 0.5;
+    return (1 - covered) / 2;
   }
   function pinAt(lon, lat) {
     clearPin();
@@ -470,13 +528,20 @@
     var z = Math.round(view.w * 100);
     if (z === lastDotZoom) return;
     lastDotZoom = z;
+    /* Place dots are orientation detail. At country zoom a hundred of them
+       just speckle the map, so they appear once you are close enough for the
+       individual settlements to matter. */
+    var show = HOME.w / view.w >= 1.6;
     var r = (2.6 * perPx).toFixed(2);
     var dots = $("layerPoints").childNodes;
-    for (var i = 0; i < dots.length; i++) dots[i].setAttribute("r", r);
+    for (var i = 0; i < dots.length; i++) {
+      dots[i].setAttribute("r", r);
+      dots[i].style.display = show ? "" : "none";
+    }
 
     /* A feeder with only one geocoded place is drawn as a circle, and it has
        the same user-unit problem: at street zoom it covered the whole town. */
-    var fr = (8 * perPx).toFixed(2);
+    var fr = (5.5 * perPx).toFixed(2);
     for (var k = 0; k < feederDots.length; k++) feederDots[k].setAttribute("r", fr);
   }
 
@@ -495,16 +560,16 @@
   }
 
   function headline(st, o) {
-    if (st === "off") return ['<p class="state off">OFF NOW</p>',
-      '<p class="sub">Power expected back at ' + esc(pretty(o.end)) + '.</p>'].join("");
-    if (st === "today") return ['<p class="state today">OFF TODAY</p>',
-      '<p class="sub">' + esc(pretty(o.start)) + " to " + esc(pretty(o.end)) + '.</p>'].join("");
-    if (st === "soon") return ['<p class="state soon">Outage scheduled</p>',
+    if (st === "off") return '<p class="status off">OFF NOW</p>' +
+      '<p class="sub">Power expected back at ' + esc(pretty(o.end)) + '.</p>';
+    if (st === "today") return '<p class="status today">OFF TODAY</p>' +
+      '<p class="sub">' + esc(pretty(o.start)) + " to " + esc(pretty(o.end)) + '.</p>';
+    if (st === "soon") return '<p class="status soon">Outage scheduled</p>' +
       '<p class="sub">' + esc(prettyDate(o.date)) + ", " + esc(pretty(o.start)) +
-      " to " + esc(pretty(o.end)) + '.</p>'].join("");
-    if (st === "cancelled") return ['<p class="state cancelled">Cancelled</p>',
+      " to " + esc(pretty(o.end)) + '.</p>';
+    if (st === "cancelled") return '<p class="status cancelled">Cancelled</p>' +
       '<p class="sub">BEL removed this notice. It was listed for ' + esc(prettyDate(o.date)) +
-      ", " + esc(pretty(o.start)) + " to " + esc(pretty(o.end)) + '.</p>'].join("");
+      ", " + esc(pretty(o.start)) + " to " + esc(pretty(o.end)) + '.</p>';
     return "";
   }
 
@@ -520,29 +585,141 @@
       return r[1] ? "<div><dt>" + esc(r[0]) + "</dt><dd>" + esc(r[1]) + "</dd></div>" : "";
     }).join("");
 
-    var tags = '<span class="tag ' + (o.type === "unscheduled" ? "unscheduled" : "") + '">' +
-      esc(o.type) + "</span>" +
-      (o.status === "cancelled" ? ' <span class="tag cancelled">cancelled</span>' : "");
+    var chips = '<span class="chip ' + (o.type === "unscheduled" ? "unscheduled" : "planned") +
+      '">' + esc(o.type) + "</span>" +
+      (o.status === "cancelled" ? '<span class="chip cancelled">cancelled</span>' : "");
 
-    return headline(o._state, o) + tags +
-      "<h3>Details</h3><dl class=\"kv\">" + rows + "</dl>" +
-      (o.purpose ? "<h3>Why</h3><p class=\"kv\">" + esc(o.purpose) + "</p>" : "") +
-      "<h3>What BEL actually wrote</h3><p class=\"raw\">" + esc(o.raw_text) + "</p>";
+    return headline(o._state, o) +
+      '<div class="chips">' + chips + "</div>" +
+      '<h3 class="hd">Details</h3><dl class="kv">' + rows + "</dl>" +
+      (o.purpose ? '<h3 class="hd">Why</h3><p class="kv">' + esc(o.purpose) + "</p>" : "") +
+      '<h3 class="hd">What BEL actually wrote</h3><p class="raw">' + esc(o.raw_text) + "</p>";
   }
 
-  function openSheet(html) {
-    $("sheetBody").innerHTML = html +
-      '<p><a class="src" href="' + esc(BEL.source_url) + '" rel="noopener">Source: bel.com.bz/PowerUpdates</a></p>' +
-      '<p class="caveat">Checked ' + esc(ago(BEL.generated)) +
-      '. Times are as BEL printed them and can shift without notice.</p>';
-    $("sheet").hidden = false;
-    /* On a phone the answer lands below the map, off screen. Someone checking
-       during an outage should not have to know to scroll for it. */
-    if (typeof $("sheet").scrollIntoView === "function") {
-      $("sheet").scrollIntoView({ block: "nearest", behavior: "smooth" });
+  /* ----------------------------------------------------------- the sheet
+     The answer rides over the map rather than sitting below it. On a phone the
+     old layout put the status line about 800px down a 1500px page, so someone
+     searching during an outage saw a map and had to know to scroll. */
+  var SNAP = { peek: 0.15, half: 0.40, full: 0.86 };
+  var snap = "half";
+
+  function setSnap(name) {
+    snap = name;
+    $("sheet").style.setProperty("--sheet-h", (SNAP[name] * 100) + "dvh");
+  }
+
+  function openSheet(html, opts) {
+    opts = opts || {};
+    $("sheetBody").innerHTML =
+      (opts.back ? '<button class="back" type="button" data-back="1">&larr; What is on now</button>' : "") +
+      html +
+      '<p class="meta"><a href="' + esc(BEL.source_url) + '" rel="noopener">Source: bel.com.bz/PowerUpdates</a></p>' +
+      '<p class="meta">Checked ' + esc(ago(BEL.generated)) +
+      ". Times are as BEL printed them and can shift without notice.</p>";
+    $("sheetBody").scrollTop = 0;
+    if (snap === "peek") setSnap("half");
+  }
+
+  $("sheetBody").addEventListener("click", function (e) {
+    var b = e.target.closest("[data-back]");
+    if (b) { showIdle(); select(null); clearPin(); return; }
+    var card = e.target.closest("[data-feeder]");
+    if (card) showFeeder(card.getAttribute("data-feeder"));
+  });
+
+  /* Drag the handle between the three snap points. */
+  (function () {
+    var grab = $("grab"), sheet = $("sheet"), startY = 0, startH = 0, dragging = false;
+    grab.addEventListener("pointerdown", function (e) {
+      dragging = true; startY = e.clientY;
+      startH = sheet.getBoundingClientRect().height;
+      sheet.classList.add("dragging");
+      grab.setPointerCapture(e.pointerId);
+    });
+    grab.addEventListener("pointermove", function (e) {
+      if (!dragging) return;
+      var h = startH + (startY - e.clientY);
+      var vh = $("app").getBoundingClientRect().height;
+      h = Math.max(vh * 0.1, Math.min(vh * SNAP.full, h));
+      sheet.style.setProperty("--sheet-h", h + "px");
+    });
+    function end(e) {
+      if (!dragging) return;
+      dragging = false;
+      sheet.classList.remove("dragging");
+      var vh = $("app").getBoundingClientRect().height;
+      var frac = sheet.getBoundingClientRect().height / vh;
+      var best = "half", bestD = 9;
+      Object.keys(SNAP).forEach(function (k) {
+        var d = Math.abs(SNAP[k] - frac);
+        if (d < bestD) { bestD = d; best = k; }
+      });
+      setSnap(best);
+      setTimeout(function () {
+        if (isHome) { view = homeView(); }
+        applyView();
+      }, 240);
     }
+    grab.addEventListener("pointerup", end);
+    grab.addEventListener("pointercancel", end);
+    grab.addEventListener("click", function () {
+      if (!dragging) setSnap(snap === "full" ? "half" : snap === "half" ? "peek" : "full");
+    });
+  })();
+
+  /* Landing view: what is happening right now, without anyone typing. */
+  function showIdle() {
+    var live = BEL.outages.filter(function (o) { return o._state !== "past"; })
+      .sort(function (a, b) {
+        return RANK[b._state] - RANK[a._state] ||
+          (a.date || "").localeCompare(b.date || "") ||
+          (a.start || "").localeCompare(b.start || "");
+      });
+
+    var off = live.filter(function (o) { return o._state === "off"; }).length;
+    var today = live.filter(function (o) { return o._state === "today"; }).length;
+
+    var head;
+    if (off) {
+      head = '<p class="status off">' + off + " outage" + (off === 1 ? "" : "s") +
+        " running now</p>";
+    } else if (today) {
+      head = '<p class="status today">' + today + " outage" + (today === 1 ? "" : "s") +
+        " later today</p>";
+    } else if (live.length) {
+      head = '<p class="status clear">Nothing off right now</p>' +
+        '<p class="sub">' + live.length + " scheduled outage" +
+        (live.length === 1 ? "" : "s") + " ahead.</p>";
+    } else {
+      head = '<p class="status clear">Nothing listed</p>' +
+        '<p class="sub">BEL has no outages on its page right now.</p>';
+    }
+
+    var cards = live.map(function (o) {
+      var st = o._state;
+      var when = st === "off" ? "until " + pretty(o.end)
+        : st === "today" ? pretty(o.start) + " today"
+        : prettyDate(o.date) + ", " + pretty(o.start);
+      var fids = feedersFor(o);
+      var areas = (o.area_ids || []).map(function (id) {
+        return (areaById[id] || {}).n;
+      }).filter(Boolean);
+      return '<button class="card" type="button" data-feeder="' + esc(fids[0] || "") + '">' +
+        '<div class="bar ' + st + '"></div>' +
+        '<div class="cardtop"><span class="who">' +
+        esc(o.load_center || "?") +
+        (o.feeder ? (o.feeder === "ALL" ? ", all feeders" : " Feeder " + esc(o.feeder)) : "") +
+        '</span><span class="when">' + esc(when) + "</span></div>" +
+        '<p class="areas">' + esc(areas.length ? areas.join(", ") : (o.district || "")) + "</p>" +
+        "</button>";
+    }).join("");
+
+    $("sheetBody").innerHTML = head +
+      '<p class="sub">Checked ' + esc(ago(BEL.generated)) + ". Search above for your own area.</p>" +
+      (cards ? '<h3 class="hd">Listed by BEL</h3>' + cards : "") +
+      '<p class="meta"><a href="' + esc(BEL.source_url) + '" rel="noopener">Source: bel.com.bz/PowerUpdates</a></p>';
+    $("sheetBody").scrollTop = 0;
   }
-  $("sheetClose").onclick = function () { $("sheet").hidden = true; select(null); clearPin(); };
 
   function showFeeder(fid) {
     var f = feederById[fid];
@@ -552,21 +729,21 @@
       return RANK[b._state] - RANK[a._state] || (a.date || "").localeCompare(b.date || "");
     }).filter(function (o) { return o._state !== "past"; });
 
-    var head = "<h2 class=\"state clear\" style=\"font-size:1.1rem\">" +
-      esc(feederLabel(f)) + "</h2>" +
+    var head = '<p class="where2">Feeder</p><p class="status clear" style="font-size:1.18rem">' +
+      esc(feederLabel(f)) + "</p>" +
       '<p class="sub">' + esc(f.d || "") + " District. " +
       (f.n ? "Drawn from " + f.n + " place" + (f.n === 1 ? "" : "s") + " BEL has named"
            : "No mapped places yet") +
       (f.total ? " of " + f.total + " listed" : "") + ".</p>";
 
     var body = list.length
-      ? list.map(outageBlock).join('<hr style="border:0;border-top:1px solid var(--line);margin:1rem 0">')
-      : '<p class="state clear">No outage listed</p><p class="sub">Nothing on BEL\'s page for this feeder right now.</p>';
+      ? list.map(outageBlock).join('<hr class="sep">')
+      : '<p class="status clear">No outage listed</p><p class="sub">Nothing on BEL\'s page for this feeder right now.</p>';
 
     var caveat = f.trunc
       ? '<p class="caveat">BEL\'s published area list for this feeder is partial, so this shape is smaller than the real service area.</p>'
       : "";
-    openSheet(head + body + caveat);
+    openSheet(head + body + caveat, { back: 1 });
   }
 
   function showArea(a) {
@@ -582,21 +759,22 @@
     if (a.y != null) { focusOn(a.x, a.y); pinAt(a.x, a.y); } else { clearPin(); }
     select(fids[0] || null);
 
-    var head = '<h2 class="state clear" style="font-size:1.1rem">' + esc(a.n) + "</h2>" +
+    var head = '<p class="where2">' + esc(a.t === "town" ? "Town" : a.t === "village" ? "Village" : "Place") +
+      '</p><p class="status clear" style="font-size:1.35rem">' + esc(a.n) + "</p>" +
       '<p class="sub">' + esc(a.d || "") + (a.d ? " District" : "") +
       (a.y == null ? ". No map location for this one, so it is not drawn." : "") + "</p>";
 
     if (!list.length) {
       openSheet(head +
-        '<p class="state clear">No outage listed for this area</p>' +
+        '<p class="status clear">No outage listed for this area</p>' +
         '<p class="sub">Nothing on BEL\'s page that names ' + esc(a.n) + " or its feeder.</p>" +
         (fids.length ? '<p class="caveat">Seen on: ' + esc(fids.map(function (i) {
           var f = feederById[i]; return f ? feederLabel(f) : i;
-        }).join(", ")) + ".</p>" : ""));
+        }).join(", ")) + ".</p>" : ""), { back: 1 });
       return;
     }
     openSheet(head + list.map(outageBlock).join(
-      '<hr style="border:0;border-top:1px solid var(--line);margin:1rem 0">'));
+      '<hr class="sep">'), { back: 1 });
   }
 
   /* A street from the OpenStreetMap index. We know the town it is in, and we do
@@ -604,7 +782,8 @@
      panel says so rather than picking a feeder and hoping. */
   function showStreet(s) {
     var lc = lcByName[s.lc];
-    var head = '<h2 class="state clear" style="font-size:1.1rem">' + esc(s.n) + "</h2>";
+    var head = '<p class="where2">Street</p><p class="status clear" style="font-size:1.35rem">' +
+      esc(s.n) + "</p>";
 
     /* Go to the street itself. The outage answer is still the load centre's,
        but the map should land where the person actually lives. */
@@ -614,9 +793,9 @@
       select(null);
       openSheet(head +
         '<p class="sub">Not near any BEL load centre in the data.</p>' +
-        '<p class="state clear">No outage information</p>' +
+        '<p class="status clear">No outage information</p>' +
         '<p class="sub">This road is more than 30km from the nearest load centre, ' +
-        'so there is nothing here to match it against.</p>');
+        'so there is nothing here to match it against.</p>', { back: 1 });
       return;
     }
 
@@ -641,13 +820,13 @@
 
     if (!list.length) {
       openSheet(head +
-        '<p class="state clear">No outage listed for ' + esc(lc.n) + "</p>" +
+        '<p class="status clear">No outage listed for ' + esc(lc.n) + "</p>" +
         '<p class="sub">Nothing on BEL\'s page for any ' + esc(lc.n) + " feeder right now.</p>" +
-        caveat);
+        caveat, { back: 1 });
       return;
     }
     openSheet(head + caveat + list.map(outageBlock).join(
-      '<hr style="border:0;border-top:1px solid var(--line);margin:1rem 0">'));
+      '<hr class="sep">'), { back: 1 });
   }
 
   /* ---------------------------------------------------------------- search */
@@ -787,28 +966,62 @@
   });
   $("clear").onclick = function () {
     q.value = ""; $("clear").hidden = true; closeResults(); q.focus();
-    $("sheet").hidden = true; clearPin(); select(null);
+    clearPin(); select(null); showIdle();
   };
   document.addEventListener("click", function (e) {
-    if (!e.target.closest(".search")) closeResults();
+    if (!e.target.closest(".topbar")) closeResults();
   });
 
-  /* ------------------------------------------------------------- freshness */
-  var offCount = BEL.outages.filter(function (o) { return o._state === "off"; }).length;
-  var todayCount = BEL.outages.filter(function (o) { return o._state === "today"; }).length;
-  $("freshness").textContent =
-    (offCount ? offCount + " outage" + (offCount === 1 ? "" : "s") + " running now. "
-      : todayCount ? todayCount + " outage" + (todayCount === 1 ? "" : "s") + " later today. "
-      : BEL.outages.length ? BEL.outages.length + " outage" + (BEL.outages.length === 1 ? "" : "s") + " listed. "
-      : "Nothing listed right now. ") +
-    "Checked " + ago(BEL.generated) + ".";
+  /* --------------------------------------------------------- chrome, state */
+  $("legendBtn").onclick = function () {
+    var open = $("legend").hidden;
+    $("legend").hidden = !open;
+    $("legendBtn").setAttribute("aria-expanded", open ? "true" : "false");
+  };
+
+  $("aboutBtn").onclick = function () {
+    var open = $("aboutBtn").getAttribute("aria-expanded") !== "true";
+    $("aboutBtn").setAttribute("aria-expanded", open ? "true" : "false");
+    if (!open) { showIdle(); return; }
+    setSnap("full");
+    $("sheetBody").innerHTML =
+      '<button class="back" type="button" data-back="1">&larr; What is on now</button>' +
+      '<p class="where2">About</p>' +
+      '<p class="status clear" style="font-size:1.2rem">How this map is made</p>' +
+      '<p class="sub">Compiled from BEL\'s own public notices. Not affiliated with ' +
+      'Belize Electricity Limited. Verify with the BEL 24-7 app before you rely on it.</p>' +
+      '<h3 class="hd">Feeder areas are approximate</h3>' +
+      '<p class="kv">BEL does not publish feeder boundaries, so each shape is drawn around ' +
+      'the places BEL has named in its own notices. It is a floor on where a feeder reaches, ' +
+      'not its edge.</p>' +
+      '<h3 class="hd">Streets</h3>' +
+      '<p class="kv">A street resolves to its town, not to a feeder. BEL does not publish ' +
+      'which feeder serves which street.</p>' +
+      '<h3 class="hd">Coverage</h3>' +
+      '<p class="kv">Town and village outlines cover about 110 settlements. Anywhere without ' +
+      'one is shown as a point rather than an invented shape. Load shedding is announced on ' +
+      'BEL\'s Facebook page, not the Power Updates page, so it is not covered here.</p>' +
+      '<h3 class="hd">Sources</h3>' +
+      '<p class="kv">Outages from <a href="' + esc(BEL.source_url) + '" rel="noopener">' +
+      'bel.com.bz/PowerUpdates</a>. Place coordinates from GeoNames (CC BY 4.0). Streets, ' +
+      'settlement outlines and roads from OpenStreetMap contributors (ODbL). District ' +
+      'outlines from geoBoundaries (CC BY 4.0). Search by Fuse.js (Apache 2.0).</p>' +
+      '<p class="meta">Data checked ' + esc(ago(BEL.generated)) + ".</p>";
+    $("sheetBody").scrollTop = 0;
+  };
 
   if (hoursSince(BEL.generated) > 12) {
     $("staleWhen").textContent = "Last checked " + ago(BEL.generated) + ".";
     $("stale").hidden = false;
   }
-  $("srcLink").href = BEL.source_url;
   $("staleLink").href = BEL.source_url;
+
+  setSnap("half");
+  showIdle();
+  view = homeView();
+  isHome = true;
+  applyView();
+  window.addEventListener("resize", function () { sizeMarkers(); sizeLabels(); });
 
   /* Pull the roads and outlines in once the page has settled. Belize's map is
      hard to read without its highways on it, and BEL describes outage areas in

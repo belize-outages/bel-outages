@@ -11,69 +11,64 @@
 </head>
 <body>
 
-<div id="stale" class="banner" hidden>
-  <strong>This data may be out of date.</strong>
-  <span id="staleWhen"></span>
-  <a id="staleLink" href="https://www.bel.com.bz/PowerUpdates/" rel="noopener">Check bel.com.bz</a>
-</div>
+<div id="app">
 
-<header class="bar">
-  <h1>Belize power outages</h1>
-  <p id="freshness" class="freshness"></p>
-</header>
+  <main id="mapWrap">
+    <svg id="map" role="img" aria-label="Map of Belize showing electricity feeder service areas">
+      <g id="layerDistricts"></g>
+      <g id="layerPlaces"></g>
+      <g id="layerRoads"></g>
+      <g id="layerFeeders"></g>
+      <g id="layerPoints"></g>
+      <g id="layerRoadLabels"></g>
+      <g id="layerLabels"></g>
+      <g id="layerPin"></g>
+    </svg>
+  </main>
 
-<div class="search">
-  <input id="q" type="search" autofocus autocomplete="off" autocapitalize="off"
-         spellcheck="false" placeholder="your village, town or street"
-         aria-label="Search for your village, town or street"
-         role="combobox" aria-expanded="false" aria-controls="results">
-  <button id="clear" type="button" aria-label="Clear search" hidden>&times;</button>
-  <ul id="results" role="listbox" hidden></ul>
-</div>
+  <div id="stale" class="banner" hidden>
+    <strong>This data may be out of date.</strong>
+    <span id="staleWhen"></span>
+    <a id="staleLink" href="https://www.bel.com.bz/PowerUpdates/" rel="noopener">Check bel.com.bz</a>
+  </div>
 
-<main id="mapWrap">
-  <svg id="map" role="img" aria-label="Map of Belize showing electricity feeder service areas">
-    <g id="layerDistricts"></g>
-    <g id="layerPlaces"></g>
-    <g id="layerRoads"></g>
-    <g id="layerFeeders"></g>
-    <g id="layerPoints"></g>
-    <g id="layerRoadLabels"></g>
-    <g id="layerLabels"></g>
-    <g id="layerPin"></g>
-  </svg>
+  <div class="topbar">
+    <div class="searchwrap">
+      <svg class="mag" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5 21 21"/></svg>
+      <input id="q" type="search" autofocus autocomplete="off" autocapitalize="off"
+             spellcheck="false" placeholder="your village, town or street"
+             aria-label="Search for your village, town or street"
+             role="combobox" aria-expanded="false" aria-controls="results">
+      <button id="clear" type="button" aria-label="Clear search" hidden>&times;</button>
+    </div>
+    <ul id="results" role="listbox" hidden></ul>
+  </div>
 
   <div class="mapctl">
     <button id="zin"  type="button" aria-label="Zoom in">+</button>
     <button id="zout" type="button" aria-label="Zoom out">&minus;</button>
-    <button id="zfit" type="button" aria-label="Reset the map">Reset</button>
+    <button id="zfit" type="button" aria-label="Reset the map">&#9678;</button>
+    <button id="legendBtn" type="button" aria-expanded="false" aria-controls="legend" aria-label="Map key">?</button>
   </div>
 
-  <ul class="legend" aria-label="Map legend">
+  <ul class="legend" id="legend" aria-label="Map key" hidden>
     <li><i class="sw off"></i>Off now</li>
     <li><i class="sw today"></i>Off today</li>
     <li><i class="sw soon"></i>Scheduled</li>
     <li><i class="sw none"></i>Nothing listed</li>
   </ul>
-</main>
 
-<section id="sheet" class="sheet" aria-live="polite" hidden>
-  <button id="sheetClose" type="button" class="sheetclose" aria-label="Close">&times;</button>
-  <div id="sheetBody"></div>
-</section>
+  <section id="sheet" class="sheet" aria-label="Outage details">
+    <button id="grab" class="grab" type="button" aria-label="Expand or collapse the panel"><span></span></button>
+    <div id="sheetBody" class="sheetbody" aria-live="polite"></div>
+    <p class="disclaim">
+      <strong>Not affiliated with Belize Electricity Limited.</strong>
+      Verify with the BEL 24-7 app.
+      <button id="aboutBtn" class="linky" type="button" aria-expanded="false">About</button>
+    </p>
+  </section>
 
-<footer class="foot">
-  <p><strong>Not affiliated with Belize Electricity Limited.</strong> Compiled from public
-     notices. Verify with the BEL 24-7 app before you rely on it.</p>
-  <p class="approx">Feeder areas on this map are approximate. BEL does not publish feeder
-     boundaries, so each shape is drawn around the places BEL has named in its own notices.
-     It is a floor on where a feeder reaches, not its edge. Town and village outlines come
-     from OpenStreetMap and cover about 110 settlements; anywhere without one is shown as a
-     point rather than an invented shape.</p>
-  <p class="credits">Outage data from <a id="srcLink" href="https://www.bel.com.bz/PowerUpdates/" rel="noopener">bel.com.bz/PowerUpdates</a>.
-     Place coordinates from GeoNames (CC BY 4.0). Street names and settlement outlines from OpenStreetMap contributors (ODbL).
-     District outlines from geoBoundaries (CC BY 4.0). Search by Fuse.js (Apache 2.0).</p>
-</footer>
+</div>
 
 <script src="vendor/fuse.min.js"></script>
 <script src="data/bundle.js"></script>
