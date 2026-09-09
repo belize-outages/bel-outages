@@ -18,6 +18,7 @@ phone on mobile data during an outage.
 import io
 import json
 import os
+import re
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -37,6 +38,25 @@ def main():
     districts = load("belize.json")
     feeders = load("feeders.json")
 
+    # A street BEL named often has no coordinates in the gazetteer, because
+    # GeoNames does not carry streets. The OpenStreetMap street index does, so
+    # borrow them: otherwise searching "Kelly Street" finds the record BEL's
+    # notices created and reports that it cannot be drawn, while the very same
+    # street sits in streets.json with a position.
+    street_pt = {}
+    sj = os.path.join(DATA, "streets.json")
+    if os.path.exists(sj):
+        with io.open(sj, encoding="utf-8") as f:
+            sd = json.load(f)
+        scale = sd["meta"].get("scale", 1000)
+        for lc, rows in sd.get("by_load_centre", {}).items():
+            c = sd["centres"].get(lc, [0, 0])
+            for row in rows:
+                street_pt.setdefault(row[0].lower(),
+                                     (c[0] + row[1] / scale, c[1] + row[2] / scale))
+        for row in sd.get("unanchored", []):
+            street_pt.setdefault(row[0].lower(), (row[1], row[2]))
+
     # Only areas that a user could plausibly type. Keep ungeocoded ones: the
     # search must still answer for a street it cannot draw.
     slim_areas = []
@@ -54,6 +74,15 @@ def main():
         if a["lat"] is not None:
             rec["y"] = round(a["lat"], 4)
             rec["x"] = round(a["lon"], 4)
+        else:
+            base = re.sub(r"^(portion of|part of|all areas along|areas along|"
+                          r"sections of|all areas north of)\s+", "",
+                          a["name"], flags=re.I).strip().lower()
+            pt = street_pt.get(a["name"].lower()) or street_pt.get(base)
+            if pt:
+                rec["x"] = round(pt[0], 4)
+                rec["y"] = round(pt[1], 4)
+                rec["approx"] = 1
         if a.get("is_load_center"):
             rec["lc"] = 1
         slim_areas.append(rec)

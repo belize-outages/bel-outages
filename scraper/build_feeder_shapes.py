@@ -1,21 +1,26 @@
 """
-Derive approximate feeder service areas from the geocoded areas in data/areas.json
-and write them to data/feeder_shapes.json as GeoJSON.
+Derive approximate feeder service areas and write them to data/feeder_shapes.json.
 
 Run:  python scraper/build_feeder_shapes.py
 
-These are NOT BEL's feeder boundaries. BEL does not publish those. Each shape is
-the hull enclosing the places BEL has named in notices for that feeder, which is
-a floor on the feeder's extent, never the true edge. Every feature carries
-point_count and confidence so the map can say so out loud.
+These are NOT BEL's feeder boundaries. BEL does not publish those, and a feeder
+boundary is electrical anyway: set by switchgear positions and load balancing,
+and reconfigurable. Two houses on one street can sit on different feeders.
 
-Geometry by point count:
-  >= 3 points : Polygon, convex hull
-     2 points : LineString, the corridor between them
-     1 point  : Point
-     0 points : no feature emitted
+What this does instead is take what BEL actually names in a notice and mark out
+the ground it covers, using the real shape of each named thing:
 
-No dependencies. Convex hull is Andrew's monotone chain.
+  a village or town  ->  its OpenStreetMap boundary, where one exists
+  a street           ->  that street's real line, nearest the load centre
+  anything else      ->  its point
+
+Each is buffered by a plausible service distance and the results are unioned,
+so the shape follows the settlements and roads BEL listed. The previous version
+drew a convex hull around a scatter of points, which both missed the real
+footprint and filled in ground between named places that the feeder may not
+serve at all.
+
+Requires shapely, a build-time dependency only. Nothing at runtime needs it.
 """
 
 import io
@@ -26,246 +31,253 @@ import re
 import sys
 from collections import defaultdict
 
+from shapely.geometry import Point, LineString, Polygon, mapping
+from shapely.ops import unary_union
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 DATA = os.path.join(ROOT, "data")
+CACHE = os.path.join(HERE, "cache")
+
+# Service distances in kilometres, added around each named thing. A feeder that
+# runs down a street serves the buildings either side of it, not a bare line.
+BUF_SETTLEMENT = 0.15
+BUF_STREET = 0.25
+BUF_POINT = 0.80
+BUF_LANDMARK = 0.50
+
+SIMPLIFY_KM = 0.12          # about 120m, well under a pixel at usable zooms
+
+# Shapely's default buffer draws 32 points per circle. At the scale this map is
+# ever drawn, 12 is indistinguishable and the file is a third of the size.
+QUAD = 3
+OUTLIER_KM = 45.0           # past this it is a geocoding collision, not a feeder
+
+LAT0 = 17.15                # middle of Belize, for the local projection
+KX = 111.32 * math.cos(math.radians(LAT0))
+KY = 110.57
 
 
-def convex_hull(pts):
-    """Andrew's monotone chain. Input/returns list of (lon, lat). CCW, closed."""
-    pts = sorted(set(pts))
-    if len(pts) <= 2:
-        return pts
-
-    def cross(o, a, b):
-        return (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0])
-
-    lower = []
-    for p in pts:
-        while len(lower) >= 2 and cross(lower[-2], lower[-1], p) <= 0:
-            lower.pop()
-        lower.append(p)
-    upper = []
-    for p in reversed(pts):
-        while len(upper) >= 2 and cross(upper[-2], upper[-1], p) <= 0:
-            upper.pop()
-        upper.append(p)
-    return lower[:-1] + upper[:-1]
+def to_km(lon, lat):
+    return (lon * KX, lat * KY)
 
 
-def centroid(pts):
-    return (sum(p[0] for p in pts) / len(pts), sum(p[1] for p in pts) / len(pts))
+def to_deg(x, y):
+    return (round(x / KX, 5), round(y / KY, 5))
+
+
+def proj_ring(ring):
+    return [to_km(c[0], c[1]) for c in ring]
+
+
+def unproj(geom):
+    """Shapely geometry in km back to lon/lat GeoJSON."""
+    def ring(r):
+        return [list(to_deg(x, y)) for x, y in r]
+    gj = mapping(geom)
+    if gj["type"] == "Polygon":
+        return {"type": "Polygon",
+                "coordinates": [ring(r) for r in gj["coordinates"]]}
+    if gj["type"] == "MultiPolygon":
+        return {"type": "MultiPolygon",
+                "coordinates": [[ring(r) for r in p] for p in gj["coordinates"]]}
+    return None
+
+
+def norm(s):
+    return re.sub(r"[^a-z0-9]+", " ", (s or "").lower()).strip()
 
 
 def km_between(a, b):
-    dx = (b[0] - a[0]) * 111.32 * math.cos(math.radians((a[1] + b[1]) / 2))
-    dy = (b[1] - a[1]) * 110.57
-    return math.hypot(dx, dy)
+    return math.hypot(a[0] - b[0], a[1] - b[1])
 
 
-def median_center(pts):
-    lons = sorted(p[0] for p in pts)
-    lats = sorted(p[1] for p in pts)
-    m = len(pts) // 2
-    return (lons[m], lats[m])
+def load(name, default=None):
+    p = os.path.join(DATA, name)
+    if not os.path.exists(p):
+        return default
+    with io.open(p, encoding="utf-8") as f:
+        return json.load(f)
 
 
-# A Belize distribution feeder does not run 45km from the middle of its own
-# cluster. Anything past this is a geocoding collision, not a service area.
-OUTLIER_KM = 45.0
-
-
-def reject_outliers(pts, names, anchor=None):
-    """Drop points implausibly far from the feeder. Returns (kept, rejected).
-
-    GeoNames alternate names collide across districts: "Santa Ana" resolves to a
-    "Santana" in Belize District, "Santa Marta" to "Santa Martha" in Orange Walk,
-    and Belmopan's own "Maya Mopan" neighbourhood to a village in Stann Creek.
-    Each collision dragged a shape tens of kilometres across the country.
-    District matching alone does not catch these, because plenty of feeders
-    genuinely do cross a district line, so distance is the honest test.
-
-    The anchor is the load centre, which is where the feeder physically starts.
-    That works even for a two-point feeder, where there is no cluster to take a
-    median of and the earlier version simply gave up.
-    """
-    if len(pts) < 2:
-        return pts, []
-    c = anchor or median_center(pts)
-    kept, bad = [], []
-    for p, n in zip(pts, names):
-        (kept if km_between(c, p) <= OUTLIER_KM else bad).append((p, n))
-    if not kept:
-        # Every point failed, so the anchor is more likely wrong than the data.
-        return pts, []
-    return [p for p, _ in kept], [(n, round(km_between(c, p), 1)) for p, n in bad]
-
-
-def span_km(pts):
-    """Rough greatest distance between any two points, for a size sanity check."""
-    if len(pts) < 2:
-        return 0.0
-    best = 0.0
-    for i in range(len(pts)):
-        for j in range(i + 1, len(pts)):
-            dx = (pts[j][0] - pts[i][0]) * 111.32 * math.cos(math.radians(pts[i][1]))
-            dy = (pts[j][1] - pts[i][1]) * 110.57
-            best = max(best, math.hypot(dx, dy))
-    return round(best, 1)
+STRIP = re.compile(r"^(portion of|part of|all areas along|areas along|"
+                   r"sections of|all areas north of)\s+", re.I)
 
 
 def main():
-    with io.open(os.path.join(DATA, "areas.json"), encoding="utf-8") as f:
-        areas = json.load(f)["areas"]
+    areas = load("areas.json")["areas"]
+    fdoc = load("feeders.json")
+    places = (load("places.json", {"places": []}) or {"places": []})["places"]
 
-    # A feeder starts at its load centre's substation, so that is the anchor
-    # the distance test is measured from.
-    def key(s):
-        return re.sub(r"[^a-z0-9]+", "", (s or "").lower())
+    street_ways = defaultdict(list)
+    sp = os.path.join(CACHE, "bz-named-streets.json")
+    if os.path.exists(sp):
+        with io.open(sp, encoding="utf-8") as f:
+            for e in json.load(f).get("elements", []):
+                g = e.get("geometry")
+                if g and e.get("tags", {}).get("name"):
+                    street_ways[norm(e["tags"]["name"])].append(
+                        [(p["lon"], p["lat"]) for p in g])
+
+    place_polys = defaultdict(list)
+    for p in places:
+        place_polys[norm(p["n"])].append(p["r"])
+
+    by_phrase = {}
+    for a in areas:
+        for ph in a.get("source_phrases", []):
+            by_phrase.setdefault(ph, a)
+
     anchors = {}
     for a in areas:
         if a.get("is_load_center") and a.get("lat") is not None:
-            anchors[key(a["name"])] = (a["lon"], a["lat"])
-    with io.open(os.path.join(DATA, "feeders.json"), encoding="utf-8") as f:
-        fdoc = json.load(f)
+            anchors[norm(a["name"])] = to_km(a["lon"], a["lat"])
 
-    groups = {g["id"]: g for g in fdoc["feeders"]}
-    groups.update({g["id"]: g for g in fdoc.get("unassigned_groups", [])})
+    groups = list(fdoc["feeders"]) + list(fdoc.get("unassigned_groups", []))
+    features, stats = [], defaultdict(int)
 
-    pts_by_feeder = defaultdict(list)
-    names_by_feeder = defaultdict(list)
-    for a in areas:
-        if a["lat"] is None:
+    for g in groups:
+        anchor, lck = None, norm(g.get("load_center"))
+        for k, v in anchors.items():
+            if k.startswith(lck) or lck.startswith(k):
+                anchor = v
+                break
+
+        parts, kinds, used, rejected = [], defaultdict(int), [], []
+
+        for phrase in g.get("areas", []):
+            rec = by_phrase.get(phrase)
+            name = rec["name"] if rec else phrase
+            key = norm(STRIP.sub("", name))
+            geom, kind = None, None
+
+            for rings in place_polys.get(key, []):
+                try:
+                    poly = Polygon(proj_ring(rings[0]))
+                except Exception:
+                    continue
+                if not poly.is_valid:
+                    poly = poly.buffer(0)
+                d = km_between(poly.centroid.coords[0], anchor) if anchor else 0
+                if anchor is None or d <= OUTLIER_KM:
+                    if geom is None or d < geom[1]:
+                        geom = (poly.buffer(BUF_SETTLEMENT, quad_segs=QUAD), d)
+            if geom is not None:
+                geom, kind = geom[0], "settlement"
+
+            if geom is None and key in street_ways:
+                lines = []
+                for pts in street_ways[key]:
+                    ln = LineString(proj_ring(pts))
+                    d = km_between(ln.centroid.coords[0], anchor) if anchor else 0
+                    if anchor is None or d <= OUTLIER_KM:
+                        lines.append(ln)
+                if lines:
+                    geom = unary_union(lines).buffer(BUF_STREET, quad_segs=QUAD)
+                    kind = "street"
+
+            if geom is None and rec and rec.get("lat") is not None:
+                pt = to_km(rec["lon"], rec["lat"])
+                if anchor is None or km_between(pt, anchor) <= OUTLIER_KM:
+                    r = BUF_LANDMARK if rec["type"] == "landmark" else BUF_POINT
+                    geom, kind = Point(pt).buffer(r, quad_segs=QUAD), "point"
+                else:
+                    rejected.append((rec["name"], round(km_between(pt, anchor), 1)))
+
+            if geom is not None:
+                parts.append(geom)
+                kinds[kind] += 1
+                used.append(name)
+
+        # A feeder whose named areas all failed to resolve still exists and must
+        # stay on the map, or the legend quietly pretends it is not there. Mark
+        # it at its load centre and say that is all this is.
+        only_lc = False
+        if not parts and anchor is not None:
+            parts = [Point(anchor).buffer(BUF_POINT, quad_segs=QUAD)]
+            only_lc = True
+        if not parts:
             continue
-        for fid in a["feeders_seen"]:
-            pts_by_feeder[fid].append((a["lon"], a["lat"]))
-            names_by_feeder[fid].append(a["name"])
 
-    features = []
-    all_rejects = []
-    for fid, raw_pts in sorted(pts_by_feeder.items()):
-        g = groups.get(fid, {})
-
-        # Deduplicate while keeping each point paired with its place name.
-        seen, pairs = set(), []
-        for p, nm in zip(raw_pts, names_by_feeder[fid]):
-            if p not in seen:
-                seen.add(p)
-                pairs.append((p, nm))
-
-        anchor = anchors.get(key(g.get("load_center")))
-        if anchor is None and g.get("load_center"):
-            for k, v in anchors.items():
-                if k.startswith(key(g["load_center"])) or key(g["load_center"]).startswith(k):
-                    anchor = v
-                    break
-        pts, rejected = reject_outliers(
-            [p for p, _ in pairs], [nm for _, nm in pairs], anchor
-        )
-        if rejected:
-            all_rejects.append((fid, rejected))
-        kept_names = [nm for p, nm in pairs if p in set(pts)]
-        names_by_feeder[fid] = kept_names
-        n = len(pts)
-        if n == 0:
+        shape = unary_union(parts).simplify(SIMPLIFY_KM, preserve_topology=True)
+        gj = unproj(shape)
+        if gj is None:
             continue
 
-        if n >= 3:
-            ring = convex_hull(pts)
-            if len(ring) >= 3:
-                geom = {"type": "Polygon", "coordinates": [ring + [ring[0]]]}
-            else:
-                geom = {"type": "LineString", "coordinates": ring}
-        elif n == 2:
-            geom = {"type": "LineString", "coordinates": pts}
-        else:
-            geom = {"type": "Point", "coordinates": pts[0]}
+        conf = ("load centre only, no area resolved" if only_lc
+                else "indicative" if kinds["settlement"] + kinds["street"] >= 3
+                else "sparse" if len(parts) >= 3
+                else "thin, few named places")
 
-        if n >= 6:
-            conf = "indicative"
-        elif n >= 3:
-            conf = "sparse"
-        else:
-            conf = "too few points to enclose an area"
-
-        total = len(g.get("areas", []))
-        features.append(
-            {
-                "type": "Feature",
-                "id": fid,
-                "geometry": geom,
-                "properties": {
-                    "feeder_id": fid,
-                    "load_center": g.get("load_center"),
-                    "feeder": g.get("feeder"),
-                    "district": g.get("district"),
-                    "point_count": n,
-                    "named_areas_total": total,
-                    "geocoded_fraction": round(n / total, 2) if total else None,
-                    "span_km": span_km(pts),
-                    "centroid": [round(c, 5) for c in centroid(pts)],
-                    "confidence": conf,
-                    "places": sorted(set(names_by_feeder[fid])),
-                    "source_confidence": g.get("confidence"),
-                    "areas_list_truncated": g.get("truncated"),
-                    "rejected_outliers": [
-                        {"name": nm, "km_from_cluster": d}
-                        for nm, d in dict(all_rejects).get(fid, [])
-                    ],
-                },
-            }
-        )
+        features.append({
+            "type": "Feature",
+            "id": g["id"],
+            "geometry": gj,
+            "properties": {
+                "feeder_id": g["id"],
+                "load_center": g.get("load_center"),
+                "feeder": g.get("feeder"),
+                "district": g.get("district"),
+                "point_count": 0 if only_lc else len(parts),
+                "load_centre_only": 1 if only_lc else 0,
+                "named_areas_total": len(g.get("areas", [])),
+                "from_settlement_outlines": kinds["settlement"],
+                "from_street_geometry": kinds["street"],
+                "from_points_only": kinds["point"],
+                "area_km2": round(shape.area, 1),
+                "confidence": conf,
+                "places": sorted(set(used)),
+                "source_confidence": g.get("confidence"),
+                "areas_list_truncated": g.get("truncated"),
+                "rejected_outliers": [{"name": n, "km_from_load_centre": d}
+                                      for n, d in rejected],
+            },
+        })
+        stats["settlement"] += kinds["settlement"]
+        stats["street"] += kinds["street"]
+        stats["point"] += kinds["point"]
 
     out = {
         "type": "FeatureCollection",
         "meta": {
-            "schema_version": 1,
+            "schema_version": 2,
             "built_by": "scraper/build_feeder_shapes.py",
+            "method": (
+                "Each area BEL names is resolved to its real geometry where one "
+                "exists (settlement boundary, street line) or to a point, buffered "
+                "by a service distance, and unioned. Settlement %gkm, street %gkm, "
+                "point %gkm, landmark %gkm."
+                % (BUF_SETTLEMENT, BUF_STREET, BUF_POINT, BUF_LANDMARK)
+            ),
             "warning": (
-                "Approximate. Each polygon is the convex hull of the settlements BEL "
-                "has named in outage notices for that feeder. It is a lower bound on "
-                "the feeder's real extent, not a boundary. A convex hull also fills in "
-                "gaps between named places, so it can cover ground the feeder does not "
-                "serve. Never present these as BEL's official feeder areas."
+                "Approximate. BEL does not publish feeder boundaries, and a feeder "
+                "boundary is electrical, not geographic. A notice also lists the "
+                "areas affected that day, not everything on the feeder, so the real "
+                "service area is larger than what is drawn here."
             ),
             "feature_count": len(features),
         },
         "features": features,
     }
 
-    with io.open(os.path.join(DATA, "feeder_shapes.json"), "w", encoding="utf-8") as f:
-        json.dump(out, f, indent=1, ensure_ascii=False)
+    path = os.path.join(DATA, "feeder_shapes.json")
+    with io.open(path, "w", encoding="utf-8") as f:
+        json.dump(out, f, separators=(",", ":"), ensure_ascii=False)
         f.write("\n")
 
-    print("features written :", len(features))
+    print("features                       : %d" % len(features))
+    print("built from settlement outlines : %d" % stats["settlement"])
+    print("built from street geometry     : %d" % stats["street"])
+    print("fell back to a point           : %d" % stats["point"])
+    print("file size                      : %.1f KB" % (os.path.getsize(path) / 1024))
     print()
-    print("%-28s %5s %6s %8s  %s" % ("feeder", "pts", "span", "geom", "confidence"))
-    for ft in features:
+    print("%-28s %5s %8s  %s" % ("feeder", "parts", "km2", "built from"))
+    for ft in sorted(features, key=lambda f: -f["properties"]["area_km2"]):
         p = ft["properties"]
-        print(
-            "%-28s %5d %5.1fkm %8s  %s"
-            % (
-                p["feeder_id"],
-                p["point_count"],
-                p["span_km"],
-                ft["geometry"]["type"],
-                p["confidence"],
-            )
-        )
-    if all_rejects:
-        print()
-        print("Rejected as geocoding collisions (too far from the feeder's cluster):")
-        for fid, rej in all_rejects:
-            for nm, d in rej:
-                print("  %-28s %-24s %6.1f km" % (fid, nm, d))
-
-    poly = sum(1 for f in features if f["geometry"]["type"] == "Polygon")
-    print()
-    print("polygons: %d, lines: %d, points: %d" % (
-        poly,
-        sum(1 for f in features if f["geometry"]["type"] == "LineString"),
-        sum(1 for f in features if f["geometry"]["type"] == "Point"),
-    ))
+        print("%-28s %5d %8.1f  %d outline, %d street, %d point"
+              % (p["feeder_id"], p["point_count"], p["area_km2"],
+                 p["from_settlement_outlines"], p["from_street_geometry"],
+                 p["from_points_only"]))
     return 0
 
 

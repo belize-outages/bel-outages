@@ -131,32 +131,48 @@ config needed, because everything is already static.
 
 ## How the feeder map is built, and what it is not
 
-**BEL does not publish feeder service boundaries.** Nobody does. So the shapes are derived:
+**BEL does not publish feeder boundaries**, and a feeder boundary is electrical
+anyway: set by switchgear positions and load balancing, and reconfigurable. Two
+houses on one street can sit on different feeders. So the shapes are derived.
 
-1. Every area BEL names in a notice is geocoded against the GeoNames Belize gazetteer.
-2. Points are grouped by the load centre and feeder that named them.
-3. Each group gets a convex hull.
+Each area BEL names in a notice is resolved to its real geometry and buffered by
+a plausible service distance, then the results are unioned:
 
-**A hull is a floor on where a feeder reaches, not its edge.** Two things follow. A notice lists the
-areas affected *that day*, not everything on the feeder, so the real service area is larger. And a
-convex hull fills the gaps between named places, so it can cover ground the feeder does not serve.
-Records carry a `truncated` flag where BEL's own list was partial, and the page says so in the footer.
+| what BEL named | what gets drawn | buffer |
+| --- | --- | --- |
+| a village or town | its OpenStreetMap boundary | 150m |
+| a street | that street's real line, nearest the load centre | 250m |
+| anything else | its point | 500-800m |
 
-Three safeguards worth knowing about, because each one caught a real error:
+Today that is 22 areas from real settlement outlines, 29 from real street
+geometry, and 80 still falling back to a point. The urban feeders gained the
+most: Belize City Feeder 8 was a single dot and is now a 2.2 sq km shape traced
+along Kelly Street, Fuller's Lane, Wilson Street, Barrack Road and Princess
+Margaret Drive.
 
-- **District-aware disambiguation.** Belize has a San Antonio in four districts and a Santa Elena in
-  two. Candidates are scored against the district of the feeder that named them.
-- **Outlier rejection.** GeoNames alternate names collide across districts: "Santa Ana" resolves to a
-  *Santana* in Belize District, "Santa Marta" to a *Santa Martha* in Orange Walk. Each collision
-  stretched a hull over 100km. Points more than 45km from their feeder's cluster are dropped and
-  logged in `feeder_shapes.json`.
-- **Refusing to plot.** Where the only candidate for a name sits in the wrong district, the record
-  keeps its name for search but gets no coordinates. Plotting a village in the wrong district is worse
-  than plotting nothing.
+An earlier version drew a convex hull around a scatter of points. That both
+missed the real footprint and filled in ground between named places that the
+feeder may not serve at all.
 
-Feeders with one or two named places render as a dot or a line rather than an area, because that is
-what the evidence supports. Belize City is the thinnest: its feeders are described as "Northside
-Belize City", which is a phrase, not an area.
+**A shape is still a floor, not an edge.** A notice lists the areas affected
+*that day*, not everything on the feeder, so the real service area is larger.
+Records carry a `truncated` flag where BEL's own list was partial.
+
+Three safeguards, each of which caught a real error:
+
+- **District-aware disambiguation.** Belize has a San Antonio in four districts
+  and a Santa Elena in two. Candidates are scored against the district of the
+  feeder that named them.
+- **Outlier rejection anchored on the load centre.** GeoNames alternate names
+  collide across districts: "Santa Ana" resolves to a *Santana* in Belize
+  District, "Santa Marta" to a *Santa Martha* in Orange Walk. Each collision
+  stretched a shape over 100km. Anything past 45km from its load centre is
+  dropped and logged.
+- **Refusing to plot.** Where the only candidate for a name sits in the wrong
+  district, the record keeps its name for search but gets no coordinates.
+
+A feeder whose named areas all fail to resolve is still drawn at its load centre
+and labelled "load centre only", so the legend never quietly omits a feeder.
 
 ---
 
