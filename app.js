@@ -98,8 +98,21 @@
 
   var RANK = { off: 4, today: 3, soon: 2, cancelled: 1, none: 0, past: 0 };
 
+  /* Load shedding runs through the same pipeline but never loses its flag.
+     BEL states the schedule is tentative and changes at short notice, and it
+     reaches us second-hand via news outlets, so it is shown as "may be off",
+     never as fact. */
+  var LS = (BEL.loadshedding || []).map(function (r) {
+    r._ls = true;
+    r.type = "load shedding";
+    r.status = "announced";
+    r.raw_text = r.raw_text || r.areas_text;
+    return r;
+  });
+  var ALL = BEL.outages.concat(LS);
+
   var outagesByFeeder = {};
-  BEL.outages.forEach(function (o) {
+  ALL.forEach(function (o) {
     o._state = outageState(o);
     feedersFor(o).forEach(function (fid) {
       (outagesByFeeder[fid] = outagesByFeeder[fid] || []).push(o);
@@ -560,6 +573,19 @@
   }
 
   function headline(st, o) {
+    if (o && o._ls) {
+      if (st === "off") return '<p class="status today">MAY BE OFF NOW</p>' +
+        '<p class="sub">Load shedding was scheduled for ' + esc(pretty(o.start)) +
+        " to " + esc(pretty(o.end)) + '. BEL calls these schedules tentative, ' +
+        'so it may not have happened, and it may run longer.</p>';
+      if (st === "today") return '<p class="status today">LOAD SHEDDING PLANNED</p>' +
+        '<p class="sub">' + esc(pretty(o.start)) + " to " + esc(pretty(o.end)) +
+        ' today, tentatively. BEL changes these at short notice.</p>';
+      if (st === "soon") return '<p class="status soon">Load shedding planned</p>' +
+        '<p class="sub">' + esc(prettyDate(o.date)) + ", " + esc(pretty(o.start)) +
+        " to " + esc(pretty(o.end)) + ', tentatively.</p>';
+      return "";
+    }
     if (st === "off") return '<p class="status off">OFF NOW</p>' +
       '<p class="sub">Power expected back at ' + esc(pretty(o.end)) + '.</p>';
     if (st === "today") return '<p class="status today">OFF TODAY</p>' +
@@ -580,20 +606,29 @@
       ["Zone", o.zone],
       ["District", o.district],
       ["Date", (o.date || "?") + " (" + prettyDate(o.date) + ")"],
-      ["Time", pretty(o.start) + " to " + pretty(o.end) + " Belize time"]
+      ["Time", pretty(o.start) + " to " + pretty(o.end) + " Belize time"],
+      ["Source", o._ls ? (o.source_name || "news report") : "BEL Power Updates"]
     ].map(function (r) {
       return r[1] ? "<div><dt>" + esc(r[0]) + "</dt><dd>" + esc(r[1]) + "</dd></div>" : "";
     }).join("");
 
-    var chips = '<span class="chip ' + (o.type === "unscheduled" ? "unscheduled" : "planned") +
-      '">' + esc(o.type) + "</span>" +
-      (o.status === "cancelled" ? '<span class="chip cancelled">cancelled</span>' : "");
+    var chips = o._ls
+      ? '<span class="chip tentative">tentative</span>' +
+        '<span class="chip">load shedding</span>' +
+        (o.source_name ? '<span class="chip">via ' + esc(o.source_name) + "</span>" : "")
+      : '<span class="chip ' + (o.type === "unscheduled" ? "unscheduled" : "planned") +
+        '">' + esc(o.type) + "</span>" +
+        (o.status === "cancelled" ? '<span class="chip cancelled">cancelled</span>' : "");
 
     return headline(o._state, o) +
       '<div class="chips">' + chips + "</div>" +
       '<h3 class="hd">Details</h3><dl class="kv">' + rows + "</dl>" +
       (o.purpose ? '<h3 class="hd">Why</h3><p class="kv">' + esc(o.purpose) + "</p>" : "") +
-      '<h3 class="hd">What BEL actually wrote</h3><p class="raw">' + esc(o.raw_text) + "</p>";
+      '<h3 class="hd">' + (o._ls ? "What the notice said" : "What BEL actually wrote") +
+      '</h3><p class="raw">' + esc(o.raw_text) + "</p>" +
+      (o._ls && o.source_url
+        ? '<p class="meta"><a href="' + esc(o.source_url) + '" rel="noopener">Read the notice</a></p>'
+        : "");
   }
 
   /* ----------------------------------------------------------- the sheet
@@ -669,15 +704,16 @@
 
   /* Landing view: what is happening right now, without anyone typing. */
   function showIdle() {
-    var live = BEL.outages.filter(function (o) { return o._state !== "past"; })
+    var live = ALL.filter(function (o) { return o._state !== "past"; })
       .sort(function (a, b) {
         return RANK[b._state] - RANK[a._state] ||
           (a.date || "").localeCompare(b.date || "") ||
           (a.start || "").localeCompare(b.start || "");
       });
 
-    var off = live.filter(function (o) { return o._state === "off"; }).length;
-    var today = live.filter(function (o) { return o._state === "today"; }).length;
+    var off = live.filter(function (o) { return o._state === "off" && !o._ls; }).length;
+    var today = live.filter(function (o) { return o._state === "today" && !o._ls; }).length;
+    var lsLive = live.filter(function (o) { return o._ls; }).length;
 
     var head;
     if (off) {
@@ -686,6 +722,10 @@
     } else if (today) {
       head = '<p class="status today">' + today + " outage" + (today === 1 ? "" : "s") +
         " later today</p>";
+    } else if (lsLive) {
+      head = '<p class="status today">Load shedding planned</p>' +
+        '<p class="sub">' + lsLive + " tentative load-shedding slot" +
+        (lsLive === 1 ? "" : "s") + " listed. BEL changes these at short notice.</p>";
     } else if (live.length) {
       head = '<p class="status clear">Nothing off right now</p>' +
         '<p class="sub">' + live.length + " scheduled outage" +
@@ -704,8 +744,10 @@
       var areas = (o.area_ids || []).map(function (id) {
         return (areaById[id] || {}).n;
       }).filter(Boolean);
-      return '<button class="card" type="button" data-feeder="' + esc(fids[0] || "") + '">' +
+      return '<button class="card' + (o._ls ? " tentative" : "") + '" type="button" ' +
+        'data-feeder="' + esc(fids[0] || "") + '">' +
         '<div class="bar ' + st + '"></div>' +
+        (o._ls ? '<span class="chip tentative">load shedding, tentative</span>' : "") +
         '<div class="cardtop"><span class="who">' +
         esc(o.load_center || "?") +
         (o.feeder ? (o.feeder === "ALL" ? ", all feeders" : " Feeder " + esc(o.feeder)) : "") +
@@ -716,6 +758,11 @@
 
     $("sheetBody").innerHTML = head +
       '<p class="sub">Checked ' + esc(ago(BEL.generated)) + ". Search above for your own area.</p>" +
+      '<p class="caveat"><strong>Load shedding</strong> is the rolling blackout BEL runs when ' +
+      "generation falls short. It is not on BEL's outage page, so it is gathered from Belize " +
+      'news reports and is always tentative. ' +
+      (BEL.loadshedding_checked ? "Last checked " + esc(ago(BEL.loadshedding_checked)) + "."
+                                : "None found recently.") + "</p>" +
       (cards ? '<h3 class="hd">Listed by BEL</h3>' + cards : "") +
       '<p class="meta"><a href="' + esc(BEL.source_url) + '" rel="noopener">Source: bel.com.bz/PowerUpdates</a></p>';
     $("sheetBody").scrollTop = 0;

@@ -134,8 +134,19 @@ def main():
         if g["id"] not in shaped
     ]
 
+    # Load shedding: a separate, tentative feed. Kept distinct from the planned
+    # outages all the way to the page so it can never be shown as certain.
+    ls = []
+    lp = os.path.join(DATA, "loadshedding.json")
+    if os.path.exists(lp):
+        with io.open(lp, encoding="utf-8") as f:
+            ldoc = json.load(f)
+        ls = ldoc.get("schedules", [])
+
     bundle = {
         "generated": outages["meta"]["checked_at"],
+        "loadshedding": ls,
+        "loadshedding_checked": (ldoc["meta"]["checked_at"] if ls else None),
         "source_url": outages["meta"]["source_url"],
         "timezone": outages["meta"]["timezone"],
         "districts": districts["features"],
@@ -164,6 +175,7 @@ def main():
     print("  areas        : %d (%d geocoded)"
           % (bundle["counts"]["areas"], bundle["counts"]["geocoded"]))
     print("  outages      : %d" % len(bundle["outages"]))
+    print("  load shedding: %d (tentative)" % len(bundle["loadshedding"]))
 
     # The street index is a separate file the page loads only when someone
     # starts searching. Most visits are a glance at the map and never need it.

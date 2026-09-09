@@ -1,0 +1,53 @@
+{
+ "meta": {
+  "schema_version": 1,
+  "timezone": "America/Belize",
+  "checked_at": "2026-09-09T14:36:23-06:00",
+  "warning": "Load shedding is tentative. BEL states the schedule depends on real-time demand and generation and can change at short notice. This is also second-hand, republished by news outlets from BEL's announcements, so it must never be shown as certain.",
+  "not_from": "bel.com.bz/PowerUpdates, which does not carry load shedding",
+  "count": 2
+ },
+ "schedules": [
+  {
+   "id": "ls766fbd33b7",
+   "kind": "load_shedding",
+   "tentative": true,
+   "load_center": "Orange Walk",
+   "feeder": "4",
+   "zone": null,
+   "date": "2026-09-08",
+   "start": "18:00",
+   "end": "21:00",
+   "timezone": "America/Belize",
+   "area_ids": [
+    "gn-3581219",
+    "gn-3582487",
+    "gn-3581154",
+    "gn-3581168"
+   ],
+   "areas_text": "San Antonio Road to BEL Substation, Yo Creek to Blue Creek, San Antonio, Santa Cruz, San Roman, San Luis, San Jose, San Pablo, Nuevo San Juan, and Douglas, as well as Buena Vista and Caledonia in the Corozal District.",
+   "raw_text": "6:00 p.m. – 9:00 p.m.\nOrange Walk Feeder 4: San Antonio Road to BEL Substation, Yo Creek to Blue Creek, San Antonio, Santa Cruz, San Roman, San Luis, San Jose, San Pablo, Nuevo San Juan, and Douglas, as well as Buena Vista and Caledonia in the Corozal District.",
+   "source_url": "https://breakingbelizenews.com/2026/09/08/more-blackouts-load-shedding",
+   "source_name": "Breaking Belize News",
+   "ingested_at": "2026-09-09T14:36:23-06:00"
+  },
+  {
+   "id": "ls8d0e66b788",
+   "kind": "load_shedding",
+   "tentative": true,
+   "load_center": "Orange Walk",
+   "feeder": "2",
+   "zone": null,
+   "date": "2026-09-08",
+   "start": "21:00",
+   "end": "23:59",
+   "timezone": "America/Belize",
+   "area_ids": [],
+   "areas_text": "Portions of Orange Walk Town from Philip Goldson Highway to Guadalupe Street, Temash Street to Liberty Avenue, Louisiana Area to Riverside Street, Bakers Street to San Antonio Road, Dunn Street to Cinderella Street, Queen Victoria Avenue to Otro Benque Road, Main Street, and Pettville to San Estevan.",
+   "raw_text": "9:00 p.m. – 11:59 p.m.\nOrange Walk Feeder 2: Portions of Orange Walk Town from Philip Goldson Highway to Guadalupe Street, Temash Street to Liberty Avenue, Louisiana Area to Riverside Street, Bakers Street to San Antonio Road, Dunn Street to Cinderella Street, Queen Victoria Avenue to Otro Benque Road, Main Street, and Pettville to San Estevan.",
+   "source_url": "https://breakingbelizenews.com/2026/09/08/more-blackouts-load-shedding",
+   "source_name": "Breaking Belize News",
+   "ingested_at": "2026-09-09T14:36:23-06:00"
+  }
+ ]
+}

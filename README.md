@@ -287,14 +287,38 @@ dataset from it, which would break the zero-cost, no-account model.
 
 ---
 
-## Load shedding is not covered
+## Load shedding
 
-Load shedding is announced on BEL's Facebook page and reaches news sites hours later. It is **not** on
-the Power Updates page, so this site does not cover it. v1 is planned and unscheduled outages only.
-Nothing here scrapes Facebook.
+Load shedding is the rolling blackout BEL runs when generation falls short. It is
+**not** on BEL's Power Updates page, and through 2026 it has been the thing people
+actually need to check. The site used to be silent during exactly those events,
+and silence reads as "you are fine".
 
-The feeder inventory in `data/feeders.json` was partly compiled from load-shedding notices republished
-by Belize news outlets, but that was a one-off research pass, not an automated feed.
+BEL announces it on Facebook. Facebook is not scraped here. But Belize news
+outlets republish the schedule in plain HTML within minutes, and those pages are
+ordinary WordPress articles that answer a plain `requests.get`. `scrape_loadshedding.py`
+discovers them through each site's search page and parses two shapes:
+
+```
+Orange Walk District                          7:00 p.m. to 10:00 p.m.
+Time: 6:00 PM - 9:00 PM              or       Belmopan Feeder 3: Market Area,
+Feeders & Zones: Feeder 2 (Zone: All)         Central Site, Site 7
+Areas Affected: ...
+```
+
+**It is always tentative, and the site says so everywhere it appears.** BEL states
+the schedule depends on real-time demand and generation and changes at short
+notice, and this reaches us second-hand, so a transcription error at the outlet
+becomes an error here. Records carry `tentative: true`, the outlet name and a link
+to the article, and the headline reads "MAY BE OFF NOW", never "OFF NOW".
+
+Schedules older than three days are dropped: an old schedule is not a forecast.
+
+```bash
+python scraper/scrape_loadshedding.py --self-test
+python scraper/scrape_loadshedding.py
+python scraper/build_bundle.py
+```
 
 ---
 

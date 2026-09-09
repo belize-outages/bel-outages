@@ -189,6 +189,10 @@ a { color:var(--soon); }
 .chip.unscheduled { color:var(--off); border-color:var(--off); background:none; }
 .chip.planned { color:var(--soon); border-color:var(--soon); background:none; }
 .chip.cancelled { color:var(--today); border-color:var(--today); background:none; }
+.chip.tentative { color:var(--today); border-color:var(--today); background:none;
+                  text-transform:none; letter-spacing:0; }
+.card.tentative { border-style:dashed; }
+.card .chip { margin:0 0 .4rem; }
 
 .card {
   border:1px solid var(--line); border-radius:12px; padding:.75rem .8rem;
