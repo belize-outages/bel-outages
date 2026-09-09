@@ -52,6 +52,16 @@ research/             source PDFs, not used at runtime
 .github/workflows/refresh.yml   hourly refresh (currently disabled)
 ```
 
+### Cache busting
+
+`build_bundle.py` stamps a content hash into `index.html` as `?v=<hash>` on
+`style.css`, `app.js` and `data/bundle.js`, and `app.js` appends the same stamp
+to the files it loads on demand. Without it a returning visitor keeps the old
+`bundle.js` after the hourly job commits a new one and reads stale outages. It
+bit development too: a syntax error in `app.js` stayed invisible through several
+rounds because the browser kept rendering a cached copy while the real file threw.
+The hash changes only when the content does, so unchanged deploys stay cached.
+
 ### Why `bundle.js` exists
 
 Browsers block `fetch()` against `file://` URLs, and the site has to work as a local file. So the data

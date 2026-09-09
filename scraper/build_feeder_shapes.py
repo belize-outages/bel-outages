@@ -204,6 +204,16 @@ def main():
         if gj is None:
             continue
 
+        # A point guaranteed to lie inside the shape, so the map label never
+        # floats outside a crescent-shaped or multi-part feeder the way a
+        # centroid can.
+        try:
+            rp = shape.representative_point()
+            label_pt = list(to_deg(rp.x, rp.y))
+        except Exception:
+            c = shape.centroid
+            label_pt = list(to_deg(c.x, c.y))
+
         conf = ("load centre only, no area resolved" if only_lc
                 else "indicative" if kinds["settlement"] + kinds["street"] >= 3
                 else "sparse" if len(parts) >= 3
@@ -225,6 +235,7 @@ def main():
                 "from_street_geometry": kinds["street"],
                 "from_points_only": kinds["point"],
                 "area_km2": round(shape.area, 1),
+                "label_point": label_pt,
                 "confidence": conf,
                 "places": sorted(set(used)),
                 "source_confidence": g.get("confidence"),

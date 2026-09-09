@@ -70,6 +70,16 @@ a { color:var(--soon); }
 .plabel { fill:var(--ink); }
 .plabel.city, .plabel.town { font-weight:700; }
 .rlabel { fill:var(--roadink); font-weight:600; letter-spacing:.02em; }
+.flabel {
+  paint-order:stroke; stroke:var(--panel); stroke-linejoin:round;
+  text-anchor:middle; pointer-events:none; font-weight:700; letter-spacing:.01em;
+  font-family:system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+.flabel.none  { fill:var(--dim); }
+.flabel.soon  { fill:var(--soon); }
+.flabel.today { fill:var(--today); }
+.flabel.off   { fill:var(--off); }
+.flabel.cancelled { fill:var(--dim); }
 
 /* -------------------------------------------------------------- top bar */
 .banner {

@@ -170,7 +170,7 @@
     if (placeState !== "idle") return;
     placeState = "loading";
     var s = document.createElement("script");
-    s.src = "data/detail.js";
+    s.src = "data/detail.js" + (window.BELV ? "?v=" + window.BELV : "");
     s.onload = function () {
       placeState = "ready";
       drawRoads();
@@ -263,7 +263,6 @@
      names are not stacked on top of each other. */
   function sizeLabels() {
     var gl = $("layerLabels");
-    if (!gl.childNodes.length) return;
     var zoom = HOME.w / view.w;
     var size = view.w / 46;
     var m = view.w * 0.04;   /* keep labels off the edge, where they get clipped */
@@ -277,6 +276,33 @@
       }
       t.setAttribute("font-size", size.toFixed(1));
       t.setAttribute("stroke-width", (size / 6).toFixed(2));
+      t.style.display = show ? "" : "none";
+    });
+
+    /* A feeder with an outage names itself even at country zoom, because that
+       is the one someone needs to read. Quiet feeders wait until you are in. */
+    var gf = $("layerFeederLabels");
+    /* Feeder labels show at every zoom, including the zoomed-out landing view,
+       so they are sized in screen pixels. Sizing them in map units made the
+       one label that matters render at about six pixels. */
+    var rect = svg.getBoundingClientRect();
+    var perPx = rect.width ? view.w / rect.width : 1;
+    var fsize = 11.5 * perPx;
+    var fm = view.w * 0.03;
+    Array.prototype.forEach.call(gf.childNodes, function (t) {
+      var st = t.getAttribute("data-state");
+      var urgent = st === "off" || st === "today" || st === "soon";
+      /* The landing view zooms out to clear the sheet, so zoom is below 1
+         there. A feeder with an outage is named at any zoom, because that is
+         the one worth reading; quiet feeders wait until you are close. */
+      var show = urgent || zoom >= 2.5;
+      if (show) {
+        var x = +t.getAttribute("x"), y = +t.getAttribute("y");
+        show = x > view.x + fm && x < view.x + view.w - fm &&
+               y > view.y + fm && y < view.y + view.h - fm;
+      }
+      t.setAttribute("font-size", fsize.toFixed(1));
+      t.setAttribute("stroke-width", (fsize / 5).toFixed(2));
       t.style.display = show ? "" : "none";
     });
 
@@ -356,6 +382,15 @@
     });
     feederEls[f.id] = node;
     $("layerFeeders").appendChild(node);
+
+    if (f.lp) {
+      var ft = el("text", {
+        x: px(f.lp[0]).toFixed(1), y: py(f.lp[1]).toFixed(1),
+        class: "flabel " + st, "data-state": st
+      });
+      ft.textContent = feederTag(f);
+      $("layerFeederLabels").appendChild(ft);
+    }
   });
 
   BEL.areas.forEach(function (a) {
@@ -364,6 +399,11 @@
     c.appendChild(el("title")).textContent = a.n;
     $("layerPoints").appendChild(c);
   });
+
+  function feederTag(f) {
+    if (!f) return "";
+    return f.f === "ALL" ? f.lc + " (all)" : f.lc + " F" + f.f;
+  }
 
   /* "Independence" + "F" + "ALL" reads as "Independence FALL". */
   function feederLabel(f) {
@@ -894,7 +934,7 @@
     if (streetState === "loading") return;
     streetState = "loading";
     var s = document.createElement("script");
-    s.src = "data/streets.js";          /* a script tag, so file:// works too */
+    s.src = "data/streets.js" + (window.BELV ? "?v=" + window.BELV : "");          /* a script tag, so file:// works too */
     s.onload = function () {
       var flat = [], S = window.BEL_STREETS || {};
       var scale = S.scale || 1000, centres = S.centres || {};

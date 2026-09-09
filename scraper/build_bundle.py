@@ -15,6 +15,7 @@ provenance) that matter when auditing the gazetteer and are dead weight to a
 phone on mobile data during an outage.
 """
 
+import hashlib
 import io
 import json
 import os
@@ -29,6 +30,21 @@ DATA = os.path.join(ROOT, "data")
 def load(name):
     with io.open(os.path.join(DATA, name), encoding="utf-8") as f:
         return json.load(f)
+
+
+def stamp_index(version):
+    """Point index.html at the versioned assets."""
+    p = os.path.join(ROOT, "index.html")
+    if not os.path.exists(p):
+        return
+    with io.open(p, encoding="utf-8") as f:
+        html = f.read()
+    pat = r'((?:href|src)="(?:style[.]css|app[.]js|data/bundle[.]js))([?]v=[0-9a-f]+)?"'
+    out = re.sub(pat,
+                 lambda m: m.group(1) + "?v=" + version + '"', html)
+    if out != html:
+        with io.open(p, "w", encoding="utf-8") as f:
+            f.write(out)
 
 
 def main():
@@ -111,6 +127,7 @@ def main():
                 "total": p["named_areas_total"],
                 "conf": p["confidence"],
                 "trunc": p["areas_list_truncated"],
+                "lp": p.get("label_point"),
                 "g": round_geom(f["geometry"]),
             }
         )
@@ -128,6 +145,7 @@ def main():
             "total": len(g.get("areas", [])),
             "conf": "no geocoded places",
             "trunc": g.get("truncated"),
+            "lp": None,
             "g": None,
         }
         for g in feeders["feeders"] + feeders.get("unassigned_groups", [])
@@ -164,8 +182,27 @@ def main():
 
     path = os.path.join(DATA, "bundle.js")
     payload = json.dumps(bundle, separators=(",", ":"), ensure_ascii=False)
+
+    # Cache busting.
+    #
+    # GitHub Pages serves static files with its own cache headers, so once the
+    # hourly job commits a new bundle.js a returning visitor keeps the old one
+    # and reads stale outages. The same thing bit development twice: a syntax
+    # error in app.js stayed invisible while the browser kept rendering a
+    # cached copy. The stamp changes only when the content does.
+    stamp = hashlib.sha1(payload.encode("utf-8"))
+    for n in ("app.js", "style.css"):
+        fp = os.path.join(ROOT, n)
+        if os.path.exists(fp):
+            with io.open(fp, "rb") as f:
+                stamp.update(f.read())
+    version = stamp.hexdigest()[:8]
+
     with io.open(path, "w", encoding="utf-8") as f:
+        f.write("window.BELV=" + json.dumps(version) + ";\n")
         f.write("window.BEL=" + payload + ";\n")
+
+    stamp_index(version)
 
     size = os.path.getsize(path)
     print("bundle.js      : %.1f KB" % (size / 1024))
@@ -176,6 +213,7 @@ def main():
           % (bundle["counts"]["areas"], bundle["counts"]["geocoded"]))
     print("  outages      : %d" % len(bundle["outages"]))
     print("  load shedding: %d (tentative)" % len(bundle["loadshedding"]))
+    print("  asset version: %s (cache busting)" % version)
 
     # The street index is a separate file the page loads only when someone
     # starts searching. Most visits are a glance at the map and never need it.
