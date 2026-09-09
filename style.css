@@ -6,8 +6,8 @@
   --sea:#cbdcec; --land:#f4f7fa; --border:#93a3b5;
   --built:#e2e0d3; --builtline:#a89f88; --road:#c08a4a; --roadink:#7a5423;
   --off:#c92a2a; --today:#b45309; --soon:#1c6fb8; --none:#9aa5b4;
-  --offbg:rgba(201,42,42,.42); --todaybg:rgba(180,83,9,.40);
-  --soonbg:rgba(28,111,184,.34); --nonebg:rgba(154,165,180,.20);
+  --offbg:rgba(201,42,42,.55); --todaybg:rgba(180,83,9,.52);
+  --soonbg:rgba(28,111,184,.46); --nonebg:rgba(120,133,150,.26);
   --focus:#1c6fb8;
   --shadow:0 -2px 24px rgba(16,24,40,.14);
   --chip:#eef1f5;
@@ -18,8 +18,8 @@
     --sea:#0b0f14; --land:#1c222b; --border:#39424f;
     --built:#2b3340; --builtline:#4d5a6b; --road:#9a7248; --roadink:#d9a86a;
     --off:#ff6b6b; --today:#f0a04b; --soon:#69b3ff; --none:#6b7684;
-    --offbg:rgba(255,107,107,.40); --todaybg:rgba(240,160,75,.36);
-    --soonbg:rgba(105,179,255,.32); --nonebg:rgba(107,118,132,.20);
+    --offbg:rgba(255,107,107,.52); --todaybg:rgba(240,160,75,.48);
+    --soonbg:rgba(105,179,255,.44); --nonebg:rgba(125,138,155,.26);
     --focus:#69b3ff;
     --shadow:0 -2px 24px rgba(0,0,0,.5);
     --chip:#222833;
@@ -45,21 +45,31 @@ a { color:var(--soon); }
 #map { width:100%; height:100%; display:block; touch-action:none; background:var(--sea); }
 
 .district { fill:var(--land); stroke:var(--border); stroke-width:.8; vector-effect:non-scaling-stroke; }
-.place { fill:var(--built); stroke:var(--builtline); stroke-width:1; vector-effect:non-scaling-stroke; }
+.place { fill:var(--built); stroke:var(--builtline); stroke-width:1;
+         vector-effect:non-scaling-stroke; opacity:.7; }
 .place.city { stroke-width:1.6; }
 .place.town { stroke-width:1.3; }
 .place.suburb, .place.neighbourhood { opacity:.6; }
 .road { fill:none; stroke:var(--road); vector-effect:non-scaling-stroke; stroke-linecap:round; }
-.road.trunk { stroke-width:2.2; }
-.road.primary { stroke-width:1.3; opacity:.85; }
-.feeder { stroke-width:1.4; vector-effect:non-scaling-stroke; cursor:pointer; }
-.feeder.none  { fill:var(--nonebg);  stroke:var(--none); }
-.feeder.soon  { fill:var(--soonbg);  stroke:var(--soon); }
-.feeder.today { fill:var(--todaybg); stroke:var(--today); }
-.feeder.off   { fill:var(--offbg);   stroke:var(--off); }
-.feeder.line  { fill:none; stroke-width:4; }
-.feeder.sel   { stroke-width:3.5; }
-.dot { fill:var(--ink); opacity:.45; }
+.road { opacity:.8; }
+.road.trunk { stroke-width:2; }
+.road.primary { stroke-width:1.2; opacity:.6; }
+/* The feeder is what this map is for, so it outranks the settlement and road
+   detail underneath it. A feeder with an outage is heavier again and carries a
+   soft halo so it separates from the land at any zoom. */
+.feeder { stroke-width:2.2; vector-effect:non-scaling-stroke; cursor:pointer;
+          stroke-linejoin:round; }
+.feeder.none  { fill:var(--nonebg);  stroke:var(--none); stroke-width:1.6; }
+.feeder.soon  { fill:var(--soonbg);  stroke:var(--soon);  stroke-width:3.2; }
+.feeder.today { fill:var(--todaybg); stroke:var(--today); stroke-width:3.2; }
+.feeder.off   { fill:var(--offbg);   stroke:var(--off);   stroke-width:3.6; }
+.feeder.soon, .feeder.today, .feeder.off {
+  filter:drop-shadow(0 0 3px rgba(0,0,0,.35));
+}
+.feeder.line  { fill:none; stroke-width:5; }
+.feeder.sel   { stroke-width:5; filter:drop-shadow(0 0 5px rgba(0,0,0,.5)); }
+.feeder:focus-visible { outline:none; stroke-width:5; }
+.dot { fill:var(--ink); opacity:.32; }
 .pin { fill:none; stroke:var(--ink); vector-effect:non-scaling-stroke; }
 .pin-core { fill:var(--ink); }
 .plabel, .rlabel {

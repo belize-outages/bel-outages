@@ -261,59 +261,82 @@
   /* Text does not honour vector-effect, so label size is recomputed from the
      current viewBox. Villages only appear once you are close enough that the
      names are not stacked on top of each other. */
+  /* Label placement.
+     Every candidate is collected, sorted so the most important gets the space,
+     then placed one at a time and skipped if its box overlaps something already
+     placed. Without this the Orange Walk feeders piled their names on top of
+     each other and none of the three could be read. */
   function sizeLabels() {
-    var gl = $("layerLabels");
     var zoom = HOME.w / view.w;
-    var size = view.w / 46;
-    var m = view.w * 0.04;   /* keep labels off the edge, where they get clipped */
-    Array.prototype.forEach.call(gl.childNodes, function (t) {
+    var rect = svg.getBoundingClientRect();
+    var perPx = rect.width ? view.w / rect.width : 1;
+
+    var placeSize = view.w / 46;
+    var feedSize = 11.5 * perPx;
+    var roadSize = view.w / 52;
+    var m = view.w * 0.035;
+
+    var cands = [];
+
+    Array.prototype.forEach.call($("layerFeederLabels").childNodes, function (t) {
+      var st = t.getAttribute("data-state");
+      var urgent = st === "off" || st === "today" || st === "soon";
+      cands.push({
+        el: t, size: feedSize,
+        want: urgent || zoom >= 2.5,
+        rank: urgent ? 0 : 3,
+        stroke: feedSize / 5
+      });
+    });
+
+    Array.prototype.forEach.call($("layerLabels").childNodes, function (t) {
       var k = t.getAttribute("data-k");
-      var show = k === "city" ? zoom >= 1.8 : k === "town" ? zoom >= 3 : zoom >= 8;
+      cands.push({
+        el: t, size: placeSize,
+        want: k === "city" ? zoom >= 1.8 : k === "town" ? zoom >= 3 : zoom >= 8,
+        rank: k === "city" ? 1 : k === "town" ? 2 : 4,
+        stroke: placeSize / 6
+      });
+    });
+
+    cands.sort(function (a, b) { return a.rank - b.rank; });
+
+    var boxes = [];
+    cands.forEach(function (c) {
+      var t = c.el;
+      t.setAttribute("font-size", c.size.toFixed(1));
+      t.setAttribute("stroke-width", c.stroke.toFixed(2));
+
+      var show = c.want;
+      var x = +t.getAttribute("x"), y = +t.getAttribute("y");
       if (show) {
-        var x = +t.getAttribute("x"), y = +t.getAttribute("y");
         show = x > view.x + m && x < view.x + view.w - m &&
                y > view.y + m && y < view.y + view.h - m;
       }
-      t.setAttribute("font-size", size.toFixed(1));
-      t.setAttribute("stroke-width", (size / 6).toFixed(2));
-      t.style.display = show ? "" : "none";
-    });
-
-    /* A feeder with an outage names itself even at country zoom, because that
-       is the one someone needs to read. Quiet feeders wait until you are in. */
-    var gf = $("layerFeederLabels");
-    /* Feeder labels show at every zoom, including the zoomed-out landing view,
-       so they are sized in screen pixels. Sizing them in map units made the
-       one label that matters render at about six pixels. */
-    var rect = svg.getBoundingClientRect();
-    var perPx = rect.width ? view.w / rect.width : 1;
-    var fsize = 11.5 * perPx;
-    var fm = view.w * 0.03;
-    Array.prototype.forEach.call(gf.childNodes, function (t) {
-      var st = t.getAttribute("data-state");
-      var urgent = st === "off" || st === "today" || st === "soon";
-      /* The landing view zooms out to clear the sheet, so zoom is below 1
-         there. A feeder with an outage is named at any zoom, because that is
-         the one worth reading; quiet feeders wait until you are close. */
-      var show = urgent || zoom >= 2.5;
       if (show) {
-        var x = +t.getAttribute("x"), y = +t.getAttribute("y");
-        show = x > view.x + fm && x < view.x + view.w - fm &&
-               y > view.y + fm && y < view.y + view.h - fm;
+        /* Rough box: SVG text measurement per frame is far too slow, and this
+           only has to be close enough to stop names sitting on each other. */
+        var w = (t.textContent || "").length * c.size * 0.55;
+        var h = c.size * 1.25;
+        for (var i = 0; i < boxes.length; i++) {
+          var b = boxes[i];
+          if (Math.abs(x - b.x) < (w + b.w) / 2 && Math.abs(y - b.y) < (h + b.h) / 2) {
+            show = false;
+            break;
+          }
+        }
+        if (show) boxes.push({ x: x, y: y, w: w, h: h });
       }
-      t.setAttribute("font-size", fsize.toFixed(1));
-      t.setAttribute("stroke-width", (fsize / 5).toFixed(2));
       t.style.display = show ? "" : "none";
     });
 
     var gr = $("layerRoadLabels");
-    var rsize = view.w / 52;
     Array.prototype.forEach.call(gr.childNodes, function (t) {
       var km = +t.getAttribute("data-km");
       /* Short stretches only earn a name once you are close enough to read it. */
       var show = zoom >= (km >= 30 ? 1 : km >= 12 ? 2 : 3.5);
-      t.setAttribute("font-size", rsize.toFixed(1));
-      t.setAttribute("stroke-width", (rsize / 5).toFixed(2));
+      t.setAttribute("font-size", roadSize.toFixed(1));
+      t.setAttribute("stroke-width", (roadSize / 5).toFixed(2));
       t.style.display = show ? "" : "none";
     });
   }
