@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+
+# Overpass and GeoNames downloads. Re-fetched by the build scripts on demand.
+scraper/cache/
+
+# The BEL Integrated Resource Plan is 15.2MB and freely downloadable from the
+# PUC. Its URL and sha256 prefix are recorded in data/feeders.json, so the repo
+# stays light and the source stays traceable.
+research/*.pdf

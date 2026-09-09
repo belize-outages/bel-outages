@@ -1,0 +1,349 @@
+{
+  "meta": {
+    "schema_version": 1,
+    "compiled_at": "2026-09-08",
+    "compiled_by": "research pass over public BEL notices via Firecrawl web search",
+    "what_this_is": "A working inventory of BEL load centres and distribution feeders, assembled from BEL's own published outage and load-shedding notices. BEL does not publish a feeder directory or feeder service-area boundaries anywhere. Everything here is reconstructed from the area lists BEL prints in its notices.",
+    "what_this_is_not": "This is NOT an official BEL feeder map. Area lists are as-printed in individual notices, which are usually partial: a notice names the areas affected that day, not every area on the feeder. Treat each entry as evidence, not as a boundary.",
+    "confidence_levels": {
+      "bel_direct": "text taken from bel.com.bz/PowerUpdates",
+      "bel_reposted": "BEL notice quoted by BEL's own social account or a Belize news outlet",
+      "named_only": "feeder is known to exist because a notice named it, but no area list was captured"
+    },
+    "known_gaps": [
+      "Belize City feeders 1, 5 and 7: named by neither notices nor the IRP, areas unknown",
+      "Ladyville Feeder 1: feeder and zones named in a notice, areas not captured",
+      "Ladyville Feeder 3: known from the IRP only, never in a public notice, areas unknown",
+      "Independence Feeder 2: exists per PUC 2024 rate filing (6.6kV being converted to 22kV), areas unknown",
+      "Caye Caulker: confirmed as a load centre by the IRP, feeder numbering still unknown",
+      "Punta Gorda Feeder 3 and above: searched for and not found, so Punta Gorda probably has only two feeders",
+      "Area lists marked truncated:true were cut off in the source snippet and are incomplete"
+    ],
+    "closed_gaps": [
+      "2026-09-08: Westlake reclassified from load centre to transmission substation, per IRP Table 4-6.",
+      "2026-09-08: Caye Caulker confirmed as one of BEL's eleven load centres.",
+      "2026-09-08: Ladyville feeder count established as three.",
+      "2026-09-08: Belize City established as six 6.6 kV feeders off a single 20 MVA transformer, as of 2021.",
+      "2026-09-08: Substation inventory added from IRP chapter 14."
+    ]
+  },
+
+  "load_centers": [
+    { "id": "corozal",      "name": "Corozal",      "district": "Corozal",     "feeders_known": ["1", "2", "3", "4", "5", "6"] },
+    { "id": "orange-walk",  "name": "Orange Walk",  "district": "Orange Walk", "feeders_known": ["1", "2", "3", "4"] },
+    { "id": "belize-city",  "name": "Belize City",  "district": "Belize",      "feeders_known": ["2", "3", "4", "6", "8"] },
+    { "id": "ladyville",    "name": "Ladyville",    "district": "Belize",      "feeders_known": ["1", "2", "3"] },
+    { "id": "san-pedro",    "name": "San Pedro",    "district": "Belize",      "feeders_known": ["1", "2", "3", "4"] },
+    { "id": "caye-caulker", "name": "Caye Caulker", "district": "Belize",      "feeders_known": [] },
+    { "id": "belmopan",     "name": "Belmopan",     "district": "Cayo",        "feeders_known": ["3", "4"] },
+    { "id": "san-ignacio",  "name": "San Ignacio",  "district": "Cayo",        "feeders_known": ["1", "2"] },
+    { "id": "dangriga",     "name": "Dangriga",     "district": "Stann Creek", "feeders_known": ["1", "2", "3"] },
+    { "id": "independence", "name": "Independence", "district": "Stann Creek", "feeders_known": ["1", "2", "3"] },
+    { "id": "punta-gorda",  "name": "Punta Gorda",  "district": "Toledo",      "feeders_known": ["1", "2"] }
+  ],
+
+  "load_centers_source": "The eleven load centres above match BEL's own demand accounting in Table 4-6 of the Siemens/BEL Integrated Resource Plan filed with the PUC (2022 study, 2021 data). BEL calls the Belize City load centre simply 'Belize'. Westlake was listed as a load centre in the first draft of this file and has been corrected: it is a transmission substation, not a load centre.",
+
+  "substations": [
+    { "name": "Belize I",  "district": "Belize", "voltage": "115/6.6 kV", "note": "The existing Belize City substation. Single transformer, 20 MVA, supplying six 6.6 kV feeders. Single incoming 115 kV line from Westlake, flagged in the IRP as a reliability violation." },
+    { "name": "Belize II", "district": "Belize", "voltage": "115/22 kV", "note": "PROPOSED in the IRP, not built as of the 2022 study. Intended to take the 22 kV Belize City load currently fed from Westlake." },
+    { "name": "Westlake",  "district": "Belize", "voltage": "115/22 kV", "note": "Mile 8 George Price Highway. 15 MVA. Supplies the WST-F1 22 kV feeder plus the whole Ladyville load. Also the site of BEL's emergency generation." },
+    { "name": "Ladyville", "district": "Belize", "voltage": "22 kV", "note": "Fed from Westlake by a 16 MVA 22 kV line." },
+    { "name": "Banak",     "district": "Belize", "voltage": "22/6.6 kV", "note": "10/14 MVA. Allows transfer of 6.6 kV Belize City load onto the 22 kV system." },
+    { "name": "Palloti",   "district": "Belize", "voltage": "22/6.6 kV", "note": "10/14 MVA. Same role as Banak." },
+    { "name": "North Ladyville Switching", "district": "Belize", "voltage": "115 kV", "note": "PROPOSED. On the Maskall to Westlake line, about 10 miles from Westlake." },
+    { "name": "Maskall",   "district": "Belize", "voltage": "115 kV", "note": "Northern transmission node on the line toward Westlake." },
+    { "name": "San Pedro 1", "district": "Belize", "voltage": "34.5/22 kV", "note": "7/10 MVA. Ambergris Caye." },
+    { "name": "San Pedro 2", "district": "Belize", "voltage": "34.5/22 kV", "note": "5.4/7 MVA, the smaller of the pair." },
+    { "name": "Chan Chen", "district": "Corozal", "voltage": "115 kV", "note": "Northern transmission substation. Carries the interconnection toward Mexico via Xul-Ha." },
+    { "name": "Corozal",   "district": "Corozal", "voltage": "34.5/6.6 kV", "note": "Supplies Corozal feeders F1 to F4 in the IRP's transformer loading analysis." },
+    { "name": "Orange Walk", "district": "Orange Walk", "voltage": "6.6 kV", "note": "Transformer capacity analysed in IRP tables 14-24 and 14-25." },
+    { "name": "Belcogen",  "district": "Orange Walk", "voltage": "115 kV", "note": "Bagasse cogeneration plant at the sugar factory, with its own supply section in the IRP." },
+    { "name": "Belmopan",  "district": "Cayo", "voltage": "115/22 kV", "note": "IRP flags the substation layout as not up to code and recommends rebuild by 2025." },
+    { "name": "San Ignacio", "district": "Cayo", "voltage": "not stated", "note": "Own supply section in the IRP (14.6.7)." },
+    { "name": "Dangriga",  "district": "Stann Creek", "voltage": "not stated", "note": "Own supply section in the IRP (14.6.11)." },
+    { "name": "Mullins River", "district": "Stann Creek", "voltage": "not stated", "note": "Appears in the IRP's PV-by-substation table as 'Mullings River'. Only one mention, so treat the spelling and the role as uncertain." },
+    { "name": "Independence", "district": "Stann Creek", "voltage": "not stated", "note": "Own supply section in the IRP (14.6.4)." },
+    { "name": "Punta Gorda", "district": "Toledo", "voltage": "not stated", "note": "Southern terminus of the transmission system." },
+    { "name": "Xul-Ha",    "district": "outside Belize", "voltage": "115 kV", "note": "Mexican side of the CFE interconnection. Named in IRP contingency analysis." }
+  ],
+
+  "feeder_naming": {
+    "note": "BEL's internal feeder codes, as used in the IRP's network model. The public outage notices never use these codes, they use plain language such as 'Belize City Feeder 6'. Mapping between the two is not published.",
+    "codes_observed": {
+      "BZE-F01 to BZE-F06": "Belize City, six 6.6 kV feeders off Belize I, total coincident peak about 18.4 MW in 2021",
+      "LDV-F01 to LDV-F03": "Ladyville, three feeders, total about 9.6 MW",
+      "WST-F1": "Westlake, the 22 kV feeder supplied directly from that substation, about 7.2 MW"
+    }
+  },
+
+  "open_discrepancies": [
+    {
+      "issue": "Belize City feeder numbering does not reconcile",
+      "detail": "The IRP records six 6.6 kV Belize City feeders (BZE-F01 to F06) as of 2021. BEL's public notices name a 'Belize City Feeder 8'. Either the 22 kV feeders fed from Westlake are numbered above 6 in the public scheme, or the count grew after the study. Not resolved. Do not assume Feeder 8 is one of BZE-F01 to F06."
+    },
+    {
+      "issue": "Ladyville Feeder 3 has never appeared in a public notice",
+      "detail": "The IRP says Ladyville has three feeders. Only Feeders 1 and 2 have been seen in outage or load-shedding notices. Feeder 3 is listed here on IRP authority alone, with no area list."
+    }
+  ],
+
+  "feeders": [
+    {
+      "id": "corozal-1", "load_center": "Corozal", "feeder": "1", "district": "Corozal",
+      "zones_seen": [],
+      "areas": ["San Antonio", "Santa Rita Layout", "Santa Rita Heights", "Vivas Layout", "areas along Philip Goldson Highway"],
+      "truncated": true, "confidence": "bel_reposted"
+    },
+    {
+      "id": "corozal-2", "load_center": "Corozal", "feeder": "2", "district": "Corozal",
+      "zones_seen": [],
+      "areas": ["areas along the Philip Goldson Highway to Ranchito Village", "Carolina Road to College Road", "portion of Corozal Town"],
+      "truncated": true, "confidence": "bel_reposted"
+    },
+    {
+      "id": "corozal-3", "load_center": "Corozal", "feeder": "3", "district": "Corozal",
+      "zones_seen": [],
+      "areas": ["Xaibe", "Canlum"],
+      "truncated": true, "confidence": "bel_reposted"
+    },
+    {
+      "id": "corozal-4", "load_center": "Corozal", "feeder": "4", "district": "Corozal",
+      "zones_seen": [],
+      "areas": ["parts of Corozal Town", "Joseito Layout", "Dominguez Layout", "Ferry Road", "Saltillos", "Copper Bank", "Progresso Heights", "Pueblo Nuevo"],
+      "truncated": true, "confidence": "bel_reposted"
+    },
+    {
+      "id": "corozal-5", "load_center": "Corozal", "feeder": "5", "district": "Corozal",
+      "zones_seen": [],
+      "areas": ["Chan Chen", "Santa Elena", "Corozal Free Zone"],
+      "notes": "Printed as a corridor: 'Chan Chen to Santa Elena, including the Corozal Free Zone'.",
+      "truncated": false, "confidence": "bel_reposted"
+    },
+    {
+      "id": "corozal-6", "load_center": "Corozal", "feeder": "6", "district": "Corozal",
+      "zones_seen": ["1", "2"],
+      "areas": ["Santa Clara", "Concepcion", "San Narciso", "San Roman"],
+      "notes": "Printed as 'Santa Clara to Concepcion, San Narciso to San Roman'. Zone 2 confirmed as Santa Clara and San Roman by the BEL notice for 11 Sep 2026.",
+      "truncated": true, "confidence": "bel_direct"
+    },
+
+    {
+      "id": "orange-walk-1", "load_center": "Orange Walk", "feeder": "1", "district": "Orange Walk",
+      "zones_seen": ["2", "3"],
+      "areas": ["parts of Orange Walk Town", "Pasadita", "Audinet Alley", "Blue Creek Street", "Liberty Avenue", "Palmar", "Boundary Road", "Guinea Grass Village", "Carmelita Village", "sections of the Philip Goldson Highway"],
+      "notes": "Zone 3 observed as Guinea Grass Village and Carmelita Village. Zone 2 (portion) observed along the Orange Walk to Corozal/Belize corridor.",
+      "truncated": true, "confidence": "bel_reposted"
+    },
+    {
+      "id": "orange-walk-2", "load_center": "Orange Walk", "feeder": "2", "district": "Orange Walk",
+      "zones_seen": [],
+      "areas": ["portion of Orange Walk Town from the Philip Goldson Highway"],
+      "truncated": true, "confidence": "bel_reposted"
+    },
+    {
+      "id": "orange-walk-3", "load_center": "Orange Walk", "feeder": "3", "district": "Orange Walk",
+      "zones_seen": ["All"],
+      "areas": ["Stadium Street", "Fonseca Street", "San Andres Street", "San Victor Street", "San Narciso Street", "Dangriga Street", "Yo Creek Street", "Union Town", "part of Progress Street"],
+      "truncated": false, "confidence": "bel_reposted"
+    },
+    {
+      "id": "orange-walk-4", "load_center": "Orange Walk", "feeder": "4", "district": "Orange Walk",
+      "zones_seen": [],
+      "areas": ["San Antonio Road", "Yo Creek", "Blue Creek", "Caledonia", "San Lazaro", "Trinidad", "August Pine Ridge", "San Felipe"],
+      "notes": "Printed as 'San Antonio Road to the BEL Substation, Yo Creek to Blue Creek'. Village list drawn from a separate BEL notice covering the same corridor, so the pairing is inferred rather than stated.",
+      "truncated": true, "confidence": "bel_reposted"
+    },
+
+    {
+      "id": "belize-city-2", "load_center": "Belize City", "feeder": "2", "district": "Belize",
+      "zones_seen": [],
+      "areas": ["Northside Belize City"],
+      "notes": "Always announced jointly with Feeder 4 as 'Belize City Feeder 2 & 4: Northside Belize City'. The two service areas have never been separated in any notice seen.",
+      "truncated": true, "confidence": "bel_reposted"
+    },
+    {
+      "id": "belize-city-3", "load_center": "Belize City", "feeder": "3", "district": "Belize",
+      "zones_seen": [],
+      "areas": ["portion of Faber's Road", "Port Loyola area", "Queen's Square", "Yarborough area", "Banak Street", "Collet", "Dolphin Street", "West Canal"],
+      "truncated": true, "confidence": "bel_reposted"
+    },
+    {
+      "id": "belize-city-4", "load_center": "Belize City", "feeder": "4", "district": "Belize",
+      "zones_seen": [],
+      "areas": ["Northside Belize City"],
+      "notes": "See Feeder 2.",
+      "truncated": true, "confidence": "bel_reposted"
+    },
+    {
+      "id": "belize-city-6", "load_center": "Belize City", "feeder": "6", "district": "Belize",
+      "zones_seen": [],
+      "areas": ["entire north side of Belize City from North Front Street to Mile 1 Philip Goldson Highway", "Newtown Barracks"],
+      "truncated": true, "confidence": "bel_reposted"
+    },
+    {
+      "id": "belize-city-8", "load_center": "Belize City", "feeder": "8", "district": "Belize",
+      "zones_seen": ["All"],
+      "areas": ["Kelly Street", "Fuller's Lane", "Wilson Street", "Barrack Road", "Princess Margaret Drive"],
+      "truncated": true, "confidence": "bel_direct"
+    },
+
+    {
+      "id": "ladyville-1", "load_center": "Ladyville", "feeder": "1", "district": "Belize",
+      "zones_seen": ["1", "2"],
+      "areas": [],
+      "notes": "Named in the load-shedding schedule of 27 Aug 2026 as 'Ladyville Feeder 1 Zones 1 and 2'. No area list captured yet.",
+      "truncated": true, "confidence": "named_only"
+    },
+    {
+      "id": "ladyville-2", "load_center": "Ladyville", "feeder": "2", "district": "Belize",
+      "zones_seen": [],
+      "areas": ["Philip Goldson Highway from Courtenay Estate to Maskall", "Vista del Mar", "Ladyville", "Lords Bank", "Lake Gardens", "Los Lagos", "Sandhill", "Gardenia", "Biscayne", "Crooked Tree", "Maskall", "Bomba Village"],
+      "truncated": false, "confidence": "bel_reposted"
+    },
+    {
+      "id": "ladyville-3", "load_center": "Ladyville", "feeder": "3", "district": "Belize",
+      "zones_seen": [],
+      "areas": [],
+      "notes": "Exists per the IRP network model, which records Ladyville feeders LDV-F01 to LDV-F03. Never named in any public outage or load-shedding notice seen, so no area list.",
+      "truncated": true, "confidence": "named_only"
+    },
+
+    {
+      "id": "san-pedro-1", "load_center": "San Pedro", "feeder": "1", "district": "Belize",
+      "zones_seen": ["All"],
+      "areas": ["centre of San Pedro Town"],
+      "truncated": true, "confidence": "bel_reposted"
+    },
+    {
+      "id": "san-pedro-2", "load_center": "San Pedro", "feeder": "2", "district": "Belize",
+      "zones_seen": ["All"],
+      "areas": ["Pescador Drive", "Black Coral Street", "Tarpon Street", "Elliott Subdivision", "San Pedrito"],
+      "truncated": true, "confidence": "bel_direct"
+    },
+    {
+      "id": "san-pedro-3", "load_center": "San Pedro", "feeder": "3", "district": "Belize",
+      "zones_seen": ["3", "4", "All"],
+      "areas": ["all areas north of Caribena Street", "entire North Ambergris"],
+      "notes": "Zones 3 and 4 are reported as 'Entire North Ambergris'.",
+      "truncated": false, "confidence": "bel_reposted"
+    },
+    {
+      "id": "san-pedro-4", "load_center": "San Pedro", "feeder": "4", "district": "Belize",
+      "zones_seen": ["All"],
+      "areas": ["Nurse Shark Street"],
+      "truncated": true, "confidence": "bel_reposted"
+    },
+
+    {
+      "id": "belmopan-3", "load_center": "Belmopan", "feeder": "3", "district": "Cayo",
+      "zones_seen": [],
+      "areas": ["Forest Drive", "Entrepreneur Drive", "Power Lane", "Market Area", "Central Site", "Site 7", "Mountain View"],
+      "truncated": false, "confidence": "bel_reposted"
+    },
+    {
+      "id": "belmopan-4", "load_center": "Belmopan", "feeder": "4", "district": "Cayo",
+      "zones_seen": [],
+      "areas": ["University Heights", "Maya Mopan", "Las Flores"],
+      "truncated": true, "confidence": "bel_reposted"
+    },
+
+    {
+      "id": "san-ignacio-1", "load_center": "San Ignacio", "feeder": "1", "district": "Cayo",
+      "zones_seen": [],
+      "areas": ["downtown San Ignacio", "Kontiki area", "Mosquitoville area", "Martin Galvez Boulevard", "Octavia Waight", "Shawville", "Santa Elena"],
+      "truncated": true, "confidence": "bel_reposted"
+    },
+    {
+      "id": "san-ignacio-2", "load_center": "San Ignacio", "feeder": "2", "district": "Cayo",
+      "zones_seen": [],
+      "areas": ["George Price Highway from Santa Elena to Esperanza", "Unitedville", "Benque Viejo del Carmen", "Arenal", "Bullet Tree Falls", "Santa Familia"],
+      "notes": "Western extent varies between notices. Bullet Tree Falls and Santa Familia appear in a Cayo outage notice covering the same run, so their assignment to Feeder 2 is inferred.",
+      "truncated": true, "confidence": "bel_reposted"
+    },
+
+    {
+      "id": "dangriga-1", "load_center": "Dangriga", "feeder": "1", "district": "Stann Creek",
+      "zones_seen": [],
+      "areas": ["entire Dangriga Town", "Sarawee", "Long Bank"],
+      "truncated": false, "confidence": "bel_reposted"
+    },
+    {
+      "id": "dangriga-2", "load_center": "Dangriga", "feeder": "2", "district": "Stann Creek",
+      "zones_seen": ["3", "4"],
+      "areas": ["Melinda Road", "Canada Hill", "Hope Creek", "Pomona", "Alta Vista", "Steadfast", "Valley Community", "Kings Village", "Middlesex", "Kingsville", "Hummingbird Community", "Santa Marta", "St. Margaret's Village", "Mile 23 to Mile 38 on Hummingbird Highway"],
+      "notes": "Zones 3 and 4 (portion) confirmed by the BEL notice for 27 Aug 2026 as the Mile 23 to Mile 38 Hummingbird Highway run. 'Canada Hill' also appears as 'Canda Hill' in reposts.",
+      "truncated": false, "confidence": "bel_direct"
+    },
+    {
+      "id": "dangriga-3", "load_center": "Dangriga", "feeder": "3", "district": "Stann Creek",
+      "zones_seen": [],
+      "areas": ["Silk Grass", "Hopkins", "Sittee River", "Maya Center", "Kendall", "Riversdale", "parts of the Southern Highway up to Kanantik Airstrip"],
+      "truncated": false, "confidence": "bel_reposted"
+    },
+
+    {
+      "id": "independence-1", "load_center": "Independence", "feeder": "1", "district": "Stann Creek",
+      "zones_seen": [],
+      "areas": ["entire Independence Village"],
+      "notes": "One notice qualifies this as 'entire Independence Village except Malacate Road and portion of Noralez Extension'.",
+      "truncated": false, "confidence": "bel_reposted"
+    },
+    {
+      "id": "independence-2", "load_center": "Independence", "feeder": "2", "district": "Stann Creek",
+      "zones_seen": [],
+      "areas": [],
+      "notes": "Exists per the PUC 2024 Full Tariff Review filing, which describes converting the 6.6kV portion of Independence Feeder #2 to 22kV. No area list captured.",
+      "truncated": true, "confidence": "named_only"
+    },
+    {
+      "id": "independence-3", "load_center": "Independence", "feeder": "3", "district": "Stann Creek",
+      "zones_seen": [],
+      "areas": ["all areas along Independence Road", "Cow Pen", "San Juan", "Red Bank", "Santa Maria", "Georgetown", "Maya Mopan", "San Roman", "Mayan King", "Santa Cruz"],
+      "truncated": false, "confidence": "bel_reposted"
+    },
+
+    {
+      "id": "punta-gorda-1", "load_center": "Punta Gorda", "feeder": "1", "district": "Toledo",
+      "zones_seen": [],
+      "areas": ["entire Punta Gorda Town", "Hopeville"],
+      "truncated": false, "confidence": "bel_reposted"
+    },
+    {
+      "id": "punta-gorda-2", "load_center": "Punta Gorda", "feeder": "2", "district": "Toledo",
+      "zones_seen": ["All"],
+      "areas": ["San Antonio", "Crique Jute", "San Felipe", "Santa Ana", "Midway", "Barranco", "Laguna", "Eldridge", "Jacintoville", "portion of Cattle Landing", "Forest Home", "San Marcos", "Dump Area", "Big Falls", "Yemeri Grove", "Hicatee", "Silver Creek", "portion of San Pedro Columbia", "Mafredi", "Blue Creek", "Jordan", "Aguacate"],
+      "truncated": false, "confidence": "bel_direct"
+    }
+  ],
+
+  "unassigned_groups": [
+    {
+      "id": "independence-all-peninsula",
+      "load_center": "Independence",
+      "feeder": "ALL",
+      "district": "Stann Creek",
+      "observed": "2026-08-30",
+      "areas": ["entire Placencia Peninsula", "Placencia Village", "Seine Bight", "Plantation", "Forest Lagoon", "Maya Beach", "Cocoplum Development", "Surfside Development", "Independence", "Maya King", "Santa Cruz", "Georgetown", "San Pablo", "San Roman", "Santa Rosa", "Maya Mopan", "Red Bank", "Cow Pen", "Monkey River", "Bella Vista", "San Isidro", "San Pablo Road", "Swasey", "Bladen", "Trio"],
+      "note": "'Feeder: ALL' at Independence covers the Placencia Peninsula plus the Independence Road corridor. The peninsula has not appeared on any single numbered feeder in the notices seen, so it is recorded here rather than assigned to one."
+    },
+    {
+      "id": "punta-gorda-all-toledo",
+      "load_center": "Punta Gorda",
+      "feeder": "ALL",
+      "district": "Toledo",
+      "observed": "2026-08-30",
+      "areas": ["entire Toledo District except Monkey River, Bella Vista, San Isidro, Bladen and Trio Village"],
+      "note": "Stated as an exclusion, not a list. The excluded villages sit on the Independence side of the boundary, which is a useful hint about where the Independence and Punta Gorda load centres divide."
+    }
+  ],
+
+  "sources": [
+    { "url": "https://www.bel.com.bz/PowerUpdates/", "type": "primary", "note": "BEL's own outage table. Server-rendered HTML. The only authoritative source here." },
+    { "url": "https://puc.bz/wp-content/uploads/2024/02/BEL-Rate-Case-Submission-for-FTRP-2024-2028-January-30-2024-1.pdf", "type": "regulatory", "note": "PUC rate filing. Names Independence Feeder #2 and its voltage conversion." },
+    { "url": "https://puc.bz/wp-content/uploads/2023/10/BEL-LCEP-Report_v2.4-Final.pdf", "type": "regulatory", "local_copy": "research/BEL-Integrated-Resource-Plan-PUC-2023.pdf", "sha256_prefix": "91b097678ed778fe", "note": "Siemens PTI study for BEL, filed with the PUC. 15.2MB, 353 pages, 2021 network data. Downloaded and parsed 2026-09-08. Source of the load centre list, the substation inventory, the feeder naming convention and the Belize City and Ladyville feeder counts. It is a generation and transmission plan, so it does not enumerate distribution feeder service areas." },
+    { "url": "https://puc.bz/wp-content/uploads/2024/10/Final-Decision_BEL-FTRP-2024-2028-FINAL.pdf", "type": "regulatory", "note": "PUC final decision. Names San Pedro and Corozal substation standardisation projects." },
+    { "url": "https://www.facebook.com/BelizeElectricityLimited/", "type": "bel_social", "note": "BEL's own page. Load-shedding schedules appear here and are never posted to the Power Updates page." },
+    { "type": "news_reposts", "note": "Load-shedding schedules quoted verbatim by Hot Off The Press Belize, Love FM, Channel 5, Breaking Belize News, CTV3, East Radio, Corozal Live, Corozal Daily, Ambergris Today and San Pedro Sun. Most feeder area lists in this file come from these reposts." }
+  ]
+}

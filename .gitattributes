@@ -1,0 +1,12 @@
+# Store everything with LF endings.
+#
+# This is not cosmetic. The refresh workflow runs on Ubuntu and commits only
+# when data/outages.json actually changed. If the committed copy carried CRLF
+# from a Windows run, the regenerated LF copy would differ on every single run
+# and the job would commit hourly whether or not BEL published anything.
+* text=auto eol=lf
+
+# Binary, never touch.
+*.pdf  binary
+*.png  binary
+*.jpg  binary

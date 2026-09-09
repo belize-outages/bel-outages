@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Belize power outages</title>
+<meta name="description" content="Which BEL feeders have a scheduled power outage in Belize, and when. Compiled from BEL's public notices.">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>&#9889;</text></svg>">
+</head>
+<body>
+
+<div id="stale" class="banner" hidden>
+  <strong>This data may be out of date.</strong>
+  <span id="staleWhen"></span>
+  <a id="staleLink" href="https://www.bel.com.bz/PowerUpdates/" rel="noopener">Check bel.com.bz</a>
+</div>
+
+<header class="bar">
+  <h1>Belize power outages</h1>
+  <p id="freshness" class="freshness"></p>
+</header>
+
+<div class="search">
+  <input id="q" type="search" autofocus autocomplete="off" autocapitalize="off"
+         spellcheck="false" placeholder="your village, town or street"
+         aria-label="Search for your village, town or street"
+         role="combobox" aria-expanded="false" aria-controls="results">
+  <button id="clear" type="button" aria-label="Clear search" hidden>&times;</button>
+  <ul id="results" role="listbox" hidden></ul>
+</div>
+
+<main id="mapWrap">
+  <svg id="map" role="img" aria-label="Map of Belize showing electricity feeder service areas">
+    <g id="layerDistricts"></g>
+    <g id="layerPlaces"></g>
+    <g id="layerRoads"></g>
+    <g id="layerFeeders"></g>
+    <g id="layerPoints"></g>
+    <g id="layerRoadLabels"></g>
+    <g id="layerLabels"></g>
+    <g id="layerPin"></g>
+  </svg>
+
+  <div class="mapctl">
+    <button id="zin"  type="button" aria-label="Zoom in">+</button>
+    <button id="zout" type="button" aria-label="Zoom out">&minus;</button>
+    <button id="zfit" type="button" aria-label="Reset the map">Reset</button>
+  </div>
+
+  <ul class="legend" aria-label="Map legend">
+    <li><i class="sw off"></i>Off now</li>
+    <li><i class="sw today"></i>Off today</li>
+    <li><i class="sw soon"></i>Scheduled</li>
+    <li><i class="sw none"></i>Nothing listed</li>
+  </ul>
+</main>
+
+<section id="sheet" class="sheet" aria-live="polite" hidden>
+  <button id="sheetClose" type="button" class="sheetclose" aria-label="Close">&times;</button>
+  <div id="sheetBody"></div>
+</section>
+
+<footer class="foot">
+  <p><strong>Not affiliated with Belize Electricity Limited.</strong> Compiled from public
+     notices. Verify with the BEL 24-7 app before you rely on it.</p>
+  <p class="approx">Feeder areas on this map are approximate. BEL does not publish feeder
+     boundaries, so each shape is drawn around the places BEL has named in its own notices.
+     It is a floor on where a feeder reaches, not its edge. Town and village outlines come
+     from OpenStreetMap and cover about 110 settlements; anywhere without one is shown as a
+     point rather than an invented shape.</p>
+  <p class="credits">Outage data from <a id="srcLink" href="https://www.bel.com.bz/PowerUpdates/" rel="noopener">bel.com.bz/PowerUpdates</a>.
+     Place coordinates from GeoNames (CC BY 4.0). Street names and settlement outlines from OpenStreetMap contributors (ODbL).
+     District outlines from geoBoundaries (CC BY 4.0). Search by Fuse.js (Apache 2.0).</p>
+</footer>
+
+<script src="vendor/fuse.min.js"></script>
+<script src="data/bundle.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

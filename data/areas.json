@@ -1,0 +1,3251 @@
+{
+  "meta": {
+    "schema_version": 1,
+    "built_by": "scraper/build_gazetteer.py",
+    "coordinate_source": "GeoNames (CC BY 4.0), https://download.geonames.org/export/dump/BZ.zip",
+    "note": "Coordinates are point locations for settlements, taken from GeoNames. They are not BEL infrastructure locations. Entries with lat/lon null are streets, corridors, subdivisions and mile-markers that GeoNames does not carry; they stay in the file because the search box must still find them.",
+    "disambiguation": "Where a name exists in more than one district, the candidate in the feeder's own district wins. Records marked ambiguous_district_mismatch had no candidate in the right district and need review."
+  },
+  "areas": [
+    {
+      "id": "txt-banak-street",
+      "name": "Banak Street",
+      "aliases": [],
+      "district": "Belize",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "belize-city-3"
+      ],
+      "source_phrases": [
+        "Banak Street"
+      ],
+      "match": "ungeocoded:street"
+    },
+    {
+      "id": "txt-barrack-road",
+      "name": "Barrack Road",
+      "aliases": [],
+      "district": "Belize",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "belize-city-8"
+      ],
+      "source_phrases": [
+        "Barrack Road"
+      ],
+      "match": "ungeocoded:street"
+    },
+    {
+      "id": "gn-3582677",
+      "name": "Belize City",
+      "aliases": [
+        "Altepetl Belice",
+        "BZE",
+        "Bandaraya Belize",
+        "Belice",
+        "Beliz",
+        "Beliz Siti",
+        "Beliz-Siti",
+        "Belizas",
+        "belize"
+      ],
+      "district": "Belize",
+      "type": "town",
+      "lat": 17.49952,
+      "lon": -88.19756,
+      "feeders_seen": [
+        "belize-city-2",
+        "belize-city-4",
+        "belize-city-6",
+        "belize-city-3",
+        "belize-city-8"
+      ],
+      "source_phrases": [
+        "Northside Belize City",
+        "entire north side of Belize City from North Front Street to Mile 1 Philip Goldson Highway"
+      ],
+      "match": "unique_name_substring",
+      "is_load_center": true
+    },
+    {
+      "id": "gn-3582627",
+      "name": "Biscayne",
+      "aliases": [
+        "Biscayne"
+      ],
+      "district": "Belize",
+      "type": "village",
+      "lat": 17.71702,
+      "lon": -88.45723,
+      "feeders_seen": [
+        "ladyville-2"
+      ],
+      "source_phrases": [
+        "Biscayne"
+      ],
+      "match": "district_match"
+    },
+    {
+      "id": "txt-black-coral-street",
+      "name": "Black Coral Street",
+      "aliases": [],
+      "district": "Belize",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "san-pedro-2"
+      ],
+      "source_phrases": [
+        "Black Coral Street"
+      ],
+      "match": "ungeocoded:street"
+    },
+    {
+      "id": "gn-3582563",
+      "name": "Bomba",
+      "aliases": [
+        "Bomba"
+      ],
+      "district": "Belize",
+      "type": "village",
+      "lat": 17.89166,
+      "lon": -88.27618,
+      "feeders_seen": [
+        "ladyville-2"
+      ],
+      "source_phrases": [
+        "Bomba Village"
+      ],
+      "match": "district_match"
+    },
+    {
+      "id": "gn-3582431",
+      "name": "Caye Caulker",
+      "aliases": [
+        "CUK",
+        "Caye Caulker",
+        "Cayo Corker"
+      ],
+      "district": "Belize",
+      "type": "town",
+      "lat": 17.73659,
+      "lon": -88.02761,
+      "feeders_seen": [],
+      "source_phrases": [],
+      "match": "load_centre",
+      "is_load_center": true
+    },
+    {
+      "id": "txt-collet",
+      "name": "Collet",
+      "aliases": [],
+      "district": "Belize",
+      "type": "landmark",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "belize-city-3"
+      ],
+      "source_phrases": [
+        "Collet"
+      ],
+      "match": "ungeocoded:no_geonames_entry"
+    },
+    {
+      "id": "gn-3582258",
+      "name": "Crooked Tree",
+      "aliases": [],
+      "district": "Belize",
+      "type": "village",
+      "lat": 17.77599,
+      "lon": -88.54203,
+      "feeders_seen": [
+        "ladyville-2"
+      ],
+      "source_phrases": [
+        "Crooked Tree"
+      ],
+      "match": "unique_name"
+    },
+    {
+      "id": "txt-dolphin-street",
+      "name": "Dolphin Street",
+      "aliases": [],
+      "district": "Belize",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "belize-city-3"
+      ],
+      "source_phrases": [
+        "Dolphin Street"
+      ],
+      "match": "ungeocoded:street"
+    },
+    {
+      "id": "txt-elliott-subdivision",
+      "name": "Elliott Subdivision",
+      "aliases": [],
+      "district": "Belize",
+      "type": "landmark",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "san-pedro-2"
+      ],
+      "source_phrases": [
+        "Elliott Subdivision"
+      ],
+      "match": "ungeocoded:landmark"
+    },
+    {
+      "id": "txt-fuller-s-lane",
+      "name": "Fuller's Lane",
+      "aliases": [],
+      "district": "Belize",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "belize-city-8"
+      ],
+      "source_phrases": [
+        "Fuller's Lane"
+      ],
+      "match": "ungeocoded:street"
+    },
+    {
+      "id": "gn-13286663",
+      "name": "Gardenia",
+      "aliases": [],
+      "district": "Belize",
+      "type": "village",
+      "lat": 17.67042,
+      "lon": -88.41884,
+      "feeders_seen": [
+        "ladyville-2"
+      ],
+      "source_phrases": [
+        "Gardenia"
+      ],
+      "match": "unique_name"
+    },
+    {
+      "id": "txt-kelly-street",
+      "name": "Kelly Street",
+      "aliases": [],
+      "district": "Belize",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "belize-city-8"
+      ],
+      "source_phrases": [
+        "Kelly Street"
+      ],
+      "match": "ungeocoded:street"
+    },
+    {
+      "id": "gn-3581851",
+      "name": "Ladyville",
+      "aliases": [],
+      "district": "Belize",
+      "type": "town",
+      "lat": 17.55427,
+      "lon": -88.29,
+      "feeders_seen": [
+        "ladyville-2",
+        "ladyville-1",
+        "ladyville-3"
+      ],
+      "source_phrases": [
+        "Ladyville"
+      ],
+      "match": "unique_name",
+      "is_load_center": true
+    },
+    {
+      "id": "txt-lake-gardens",
+      "name": "Lake Gardens",
+      "aliases": [],
+      "district": "Belize",
+      "type": "landmark",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "ladyville-2"
+      ],
+      "source_phrases": [
+        "Lake Gardens"
+      ],
+      "match": "ungeocoded:no_geonames_entry"
+    },
+    {
+      "id": "txt-lords-bank",
+      "name": "Lords Bank",
+      "aliases": [],
+      "district": "Belize",
+      "type": "landmark",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "ladyville-2"
+      ],
+      "source_phrases": [
+        "Lords Bank"
+      ],
+      "match": "ungeocoded:no_geonames_entry"
+    },
+    {
+      "id": "txt-los-lagos",
+      "name": "Los Lagos",
+      "aliases": [],
+      "district": "Belize",
+      "type": "landmark",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "ladyville-2"
+      ],
+      "source_phrases": [
+        "Los Lagos"
+      ],
+      "match": "ungeocoded:no_geonames_entry"
+    },
+    {
+      "id": "gn-3581723",
+      "name": "Maskall",
+      "aliases": [
+        "Maskall",
+        "Maskalla",
+        "Maskalls",
+        "Maskalls Bank"
+      ],
+      "district": "Belize",
+      "type": "village",
+      "lat": 17.87788,
+      "lon": -88.31174,
+      "feeders_seen": [
+        "ladyville-2"
+      ],
+      "source_phrases": [
+        "Philip Goldson Highway from Courtenay Estate to Maskall",
+        "Maskall"
+      ],
+      "match": "district_match_substring"
+    },
+    {
+      "id": "txt-newtown-barracks",
+      "name": "Newtown Barracks",
+      "aliases": [],
+      "district": "Belize",
+      "type": "landmark",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "belize-city-6"
+      ],
+      "source_phrases": [
+        "Newtown Barracks"
+      ],
+      "match": "ungeocoded:no_geonames_entry"
+    },
+    {
+      "id": "txt-nurse-shark-street",
+      "name": "Nurse Shark Street",
+      "aliases": [],
+      "district": "Belize",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "san-pedro-4"
+      ],
+      "source_phrases": [
+        "Nurse Shark Street"
+      ],
+      "match": "ungeocoded:street"
+    },
+    {
+      "id": "txt-pescador-drive",
+      "name": "Pescador Drive",
+      "aliases": [],
+      "district": "Belize",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "san-pedro-2"
+      ],
+      "source_phrases": [
+        "Pescador Drive"
+      ],
+      "match": "ungeocoded:street"
+    },
+    {
+      "id": "txt-port-loyola-area",
+      "name": "Port Loyola area",
+      "aliases": [],
+      "district": "Belize",
+      "type": "landmark",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "belize-city-3"
+      ],
+      "source_phrases": [
+        "Port Loyola area"
+      ],
+      "match": "ungeocoded:landmark"
+    },
+    {
+      "id": "txt-princess-margaret-drive",
+      "name": "Princess Margaret Drive",
+      "aliases": [],
+      "district": "Belize",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "belize-city-8"
+      ],
+      "source_phrases": [
+        "Princess Margaret Drive"
+      ],
+      "match": "ungeocoded:street"
+    },
+    {
+      "id": "txt-queen-s-square",
+      "name": "Queen's Square",
+      "aliases": [],
+      "district": "Belize",
+      "type": "landmark",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "belize-city-3"
+      ],
+      "source_phrases": [
+        "Queen's Square"
+      ],
+      "match": "ungeocoded:no_geonames_entry"
+    },
+    {
+      "id": "txt-san-pedrito",
+      "name": "San Pedrito",
+      "aliases": [],
+      "district": "Belize",
+      "type": "landmark",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "san-pedro-2"
+      ],
+      "source_phrases": [
+        "San Pedrito"
+      ],
+      "match": "ungeocoded:no_geonames_entry"
+    },
+    {
+      "id": "gn-3581164",
+      "name": "San Pedro",
+      "aliases": [
+        "SPR",
+        "San Pedras",
+        "San Pedro Town",
+        "San-Pedra",
+        "San-Pedro",
+        "sheng pei de luo",
+        "sn pdrw",
+        "Сан-Педра"
+      ],
+      "district": "Belize",
+      "type": "town",
+      "lat": 17.91598,
+      "lon": -87.9659,
+      "feeders_seen": [
+        "san-pedro-1",
+        "san-pedro-2",
+        "san-pedro-3",
+        "san-pedro-4"
+      ],
+      "source_phrases": [
+        "centre of San Pedro Town"
+      ],
+      "match": "district_match_substring",
+      "is_load_center": true
+    },
+    {
+      "id": "gn-3581208",
+      "name": "Sand Hill",
+      "aliases": [
+        "Sand Hill",
+        "Sandhill",
+        "サンド・ヒル"
+      ],
+      "district": "Belize",
+      "type": "town",
+      "lat": 17.64038,
+      "lon": -88.36828,
+      "feeders_seen": [
+        "ladyville-2"
+      ],
+      "source_phrases": [
+        "Sandhill"
+      ],
+      "match": "unique_name"
+    },
+    {
+      "id": "gn-3581139",
+      "name": "Santana",
+      "aliases": [
+        "Santa Ana",
+        "Santana",
+        "Santana Village"
+      ],
+      "district": "Belize",
+      "type": "village",
+      "lat": 17.80324,
+      "lon": -88.29657,
+      "feeders_seen": [
+        "punta-gorda-2"
+      ],
+      "source_phrases": [
+        "Santa Ana"
+      ],
+      "match": "unique_name"
+    },
+    {
+      "id": "txt-tarpon-street",
+      "name": "Tarpon Street",
+      "aliases": [],
+      "district": "Belize",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "san-pedro-2"
+      ],
+      "source_phrases": [
+        "Tarpon Street"
+      ],
+      "match": "ungeocoded:street"
+    },
+    {
+      "id": "txt-vista-del-mar",
+      "name": "Vista del Mar",
+      "aliases": [],
+      "district": "Belize",
+      "type": "landmark",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "ladyville-2"
+      ],
+      "source_phrases": [
+        "Vista del Mar"
+      ],
+      "match": "ungeocoded:no_geonames_entry"
+    },
+    {
+      "id": "txt-west-canal",
+      "name": "West Canal",
+      "aliases": [],
+      "district": "Belize",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "belize-city-3"
+      ],
+      "source_phrases": [
+        "West Canal"
+      ],
+      "match": "ungeocoded:street"
+    },
+    {
+      "id": "txt-wilson-street",
+      "name": "Wilson Street",
+      "aliases": [],
+      "district": "Belize",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "belize-city-8"
+      ],
+      "source_phrases": [
+        "Wilson Street"
+      ],
+      "match": "ungeocoded:street"
+    },
+    {
+      "id": "txt-yarborough-area",
+      "name": "Yarborough area",
+      "aliases": [],
+      "district": "Belize",
+      "type": "landmark",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "belize-city-3"
+      ],
+      "source_phrases": [
+        "Yarborough area"
+      ],
+      "match": "ungeocoded:landmark"
+    },
+    {
+      "id": "txt-all-areas-north-of-caribena-street",
+      "name": "all areas north of Caribena Street",
+      "aliases": [],
+      "district": "Belize",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "san-pedro-3"
+      ],
+      "source_phrases": [
+        "all areas north of Caribena Street"
+      ],
+      "match": "ungeocoded:street"
+    },
+    {
+      "id": "txt-entire-north-ambergris",
+      "name": "entire North Ambergris",
+      "aliases": [],
+      "district": "Belize",
+      "type": "landmark",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "san-pedro-3"
+      ],
+      "source_phrases": [
+        "entire North Ambergris"
+      ],
+      "match": "ungeocoded:no_geonames_entry"
+    },
+    {
+      "id": "txt-portion-of-faber-s-road",
+      "name": "portion of Faber's Road",
+      "aliases": [],
+      "district": "Belize",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "belize-city-3"
+      ],
+      "source_phrases": [
+        "portion of Faber's Road"
+      ],
+      "match": "ungeocoded:street"
+    },
+    {
+      "id": "gn-3582672",
+      "name": "Belmopan",
+      "aliases": [
+        "BCV",
+        "Bel'mapan",
+        "Bel'mopan",
+        "Belmopan",
+        "Belmopana",
+        "Belmopanas",
+        "Belmopano",
+        "Belmopanum"
+      ],
+      "district": "Cayo",
+      "type": "town",
+      "lat": 17.25376,
+      "lon": -88.76401,
+      "feeders_seen": [
+        "belmopan-3",
+        "belmopan-4"
+      ],
+      "source_phrases": [],
+      "match": "load_centre",
+      "is_load_center": true
+    },
+    {
+      "id": "gn-3582662",
+      "name": "Benque Viejo el Carmen",
+      "aliases": [
+        "Bengue Viejo",
+        "Benique Viejo del Carmen",
+        "Benque Viejo",
+        "Benque Viejo del Carmen",
+        "Benque Viejo el Carmen",
+        "Cayo"
+      ],
+      "district": "Cayo",
+      "type": "town",
+      "lat": 17.075,
+      "lon": -89.13917,
+      "feeders_seen": [
+        "san-ignacio-2"
+      ],
+      "source_phrases": [
+        "Benque Viejo del Carmen"
+      ],
+      "match": "unique_name"
+    },
+    {
+      "id": "gn-3582524",
+      "name": "Bullet Tree Falls",
+      "aliases": [
+        "Bullet Tree Falls"
+      ],
+      "district": "Cayo",
+      "type": "town",
+      "lat": 17.168,
+      "lon": -89.111,
+      "feeders_seen": [
+        "san-ignacio-2"
+      ],
+      "source_phrases": [
+        "Bullet Tree Falls"
+      ],
+      "match": "district_match"
+    },
+    {
+      "id": "gn-3582742",
+      "name": "El Arenal",
+      "aliases": [
+        "Arenal",
+        "El Arenal"
+      ],
+      "district": "Cayo",
+      "type": "village",
+      "lat": 17.02351,
+      "lon": -89.15252,
+      "feeders_seen": [
+        "san-ignacio-2"
+      ],
+      "source_phrases": [
+        "Arenal"
+      ],
+      "match": "unique_name"
+    },
+    {
+      "id": "txt-entrepreneur-drive",
+      "name": "Entrepreneur Drive",
+      "aliases": [],
+      "district": "Cayo",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "belmopan-3"
+      ],
+      "source_phrases": [
+        "Entrepreneur Drive"
+      ],
+      "match": "ungeocoded:street"
+    },
+    {
+      "id": "txt-forest-drive",
+      "name": "Forest Drive",
+      "aliases": [],
+      "district": "Cayo",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "belmopan-3"
+      ],
+      "source_phrases": [
+        "Forest Drive"
+      ],
+      "match": "ungeocoded:street"
+    },
+    {
+      "id": "txt-kontiki-area",
+      "name": "Kontiki area",
+      "aliases": [],
+      "district": "Cayo",
+      "type": "landmark",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "san-ignacio-1"
+      ],
+      "source_phrases": [
+        "Kontiki area"
+      ],
+      "match": "ungeocoded:landmark"
+    },
+    {
+      "id": "txt-las-flores",
+      "name": "Las Flores",
+      "aliases": [],
+      "district": "Cayo",
+      "type": "landmark",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "belmopan-4"
+      ],
+      "source_phrases": [
+        "Las Flores"
+      ],
+      "match": "ungeocoded:no_geonames_entry"
+    },
+    {
+      "id": "txt-market-area",
+      "name": "Market Area",
+      "aliases": [],
+      "district": "Cayo",
+      "type": "landmark",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "belmopan-3"
+      ],
+      "source_phrases": [
+        "Market Area"
+      ],
+      "match": "ungeocoded:landmark"
+    },
+    {
+      "id": "txt-martin-galvez-boulevard",
+      "name": "Martin Galvez Boulevard",
+      "aliases": [],
+      "district": "Cayo",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "san-ignacio-1"
+      ],
+      "source_phrases": [
+        "Martin Galvez Boulevard"
+      ],
+      "match": "ungeocoded:street"
+    },
+    {
+      "id": "txt-mosquitoville-area",
+      "name": "Mosquitoville area",
+      "aliases": [],
+      "district": "Cayo",
+      "type": "landmark",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "san-ignacio-1"
+      ],
+      "source_phrases": [
+        "Mosquitoville area"
+      ],
+      "match": "ungeocoded:landmark"
+    },
+    {
+      "id": "txt-mountain-view",
+      "name": "Mountain View",
+      "aliases": [],
+      "district": "Cayo",
+      "type": "landmark",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "belmopan-3"
+      ],
+      "source_phrases": [
+        "Mountain View"
+      ],
+      "match": "ungeocoded:no_geonames_entry"
+    },
+    {
+      "id": "txt-octavia-waight",
+      "name": "Octavia Waight",
+      "aliases": [],
+      "district": "Cayo",
+      "type": "landmark",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "san-ignacio-1"
+      ],
+      "source_phrases": [
+        "Octavia Waight"
+      ],
+      "match": "ungeocoded:no_geonames_entry"
+    },
+    {
+      "id": "gn-3581505",
+      "name": "Palmar",
+      "aliases": [],
+      "district": "Cayo",
+      "type": "village",
+      "lat": 16.55962,
+      "lon": -89.06049,
+      "feeders_seen": [
+        "orange-walk-1"
+      ],
+      "source_phrases": [
+        "Palmar"
+      ],
+      "match": "unique_name"
+    },
+    {
+      "id": "txt-power-lane",
+      "name": "Power Lane",
+      "aliases": [],
+      "district": "Cayo",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "belmopan-3"
+      ],
+      "source_phrases": [
+        "Power Lane"
+      ],
+      "match": "ungeocoded:street"
+    },
+    {
+      "id": "gn-3581194",
+      "name": "San Ignacio",
+      "aliases": [
+        "Cayo",
+        "Cayo Town",
+        "El Cayo de San Ignacio",
+        "SQS",
+        "San Ignacio",
+        "San Ignacio Cayo",
+        "San Ignacio/Santa Elena",
+        "San Ignasijas"
+      ],
+      "district": "Cayo",
+      "type": "town",
+      "lat": 17.1588,
+      "lon": -89.0696,
+      "feeders_seen": [
+        "san-ignacio-1",
+        "san-ignacio-2"
+      ],
+      "source_phrases": [
+        "downtown San Ignacio"
+      ],
+      "match": "district_match_substring",
+      "is_load_center": true
+    },
+    {
+      "id": "gn-3581143",
+      "name": "Santa Elena",
+      "aliases": [],
+      "district": "Cayo",
+      "type": "town",
+      "lat": 17.16142,
+      "lon": -89.05462,
+      "feeders_seen": [
+        "san-ignacio-1",
+        "san-ignacio-2"
+      ],
+      "source_phrases": [
+        "Santa Elena",
+        "George Price Highway from Santa Elena to Esperanza"
+      ],
+      "match": "district_match"
+    },
+    {
+      "id": "gn-3581142",
+      "name": "Santa Familia",
+      "aliases": [
+        "Santa Familia"
+      ],
+      "district": "Cayo",
+      "type": "town",
+      "lat": 17.18594,
+      "lon": -89.07435,
+      "feeders_seen": [
+        "san-ignacio-2"
+      ],
+      "source_phrases": [
+        "Santa Familia"
+      ],
+      "match": "district_match"
+    },
+    {
+      "id": "txt-shawville",
+      "name": "Shawville",
+      "aliases": [],
+      "district": "Cayo",
+      "type": "landmark",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "san-ignacio-1"
+      ],
+      "source_phrases": [
+        "Shawville"
+      ],
+      "match": "ungeocoded:no_geonames_entry"
+    },
+    {
+      "id": "txt-site-7",
+      "name": "Site 7",
+      "aliases": [],
+      "district": "Cayo",
+      "type": "landmark",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "belmopan-3"
+      ],
+      "source_phrases": [
+        "Site 7"
+      ],
+      "match": "ungeocoded:landmark"
+    },
+    {
+      "id": "gn-11049077",
+      "name": "St. Margaret",
+      "aliases": [
+        "St. Margaret's"
+      ],
+      "district": "Cayo",
+      "type": "village",
+      "lat": 17.09047,
+      "lon": -88.61096,
+      "feeders_seen": [
+        "dangriga-2"
+      ],
+      "source_phrases": [
+        "St. Margaret's Village"
+      ],
+      "match": "unique_name"
+    },
+    {
+      "id": "gn-3580873",
+      "name": "Unitedville",
+      "aliases": [],
+      "district": "Cayo",
+      "type": "village",
+      "lat": 17.21031,
+      "lon": -88.93385,
+      "feeders_seen": [
+        "san-ignacio-2"
+      ],
+      "source_phrases": [
+        "Unitedville"
+      ],
+      "match": "unique_name"
+    },
+    {
+      "id": "txt-university-heights",
+      "name": "University Heights",
+      "aliases": [],
+      "district": "Cayo",
+      "type": "landmark",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "belmopan-4"
+      ],
+      "source_phrases": [
+        "University Heights"
+      ],
+      "match": "ungeocoded:landmark"
+    },
+    {
+      "id": "gn-13286765",
+      "name": "Valley Community",
+      "aliases": [],
+      "district": "Cayo",
+      "type": "village",
+      "lat": 17.0022,
+      "lon": -88.44942,
+      "feeders_seen": [
+        "dangriga-2"
+      ],
+      "source_phrases": [
+        "Valley Community"
+      ],
+      "match": "unique_name"
+    },
+    {
+      "id": "gn-3582487",
+      "name": "Caledonia",
+      "aliases": [
+        "Caledonia",
+        "STU",
+        "Santa Cruz"
+      ],
+      "district": "Corozal",
+      "type": "village",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "orange-walk-4"
+      ],
+      "source_phrases": [
+        "Caledonia"
+      ],
+      "match": "ambiguous_district_mismatch"
+    },
+    {
+      "id": "txt-canlum",
+      "name": "Canlum",
+      "aliases": [],
+      "district": "Corozal",
+      "type": "landmark",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "corozal-3"
+      ],
+      "source_phrases": [
+        "Canlum"
+      ],
+      "match": "ungeocoded:no_geonames_entry"
+    },
+    {
+      "id": "txt-carolina-road-to-college-road",
+      "name": "Carolina Road to College Road",
+      "aliases": [],
+      "district": "Corozal",
+      "type": "street_segment",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "corozal-2"
+      ],
+      "source_phrases": [
+        "Carolina Road to College Road"
+      ],
+      "match": "ungeocoded:street_segment"
+    },
+    {
+      "id": "gn-3582398",
+      "name": "Chan Chen",
+      "aliases": [
+        "Chan Chen"
+      ],
+      "district": "Corozal",
+      "type": "village",
+      "lat": 18.43333,
+      "lon": -88.41667,
+      "feeders_seen": [
+        "corozal-5"
+      ],
+      "source_phrases": [
+        "Chan Chen"
+      ],
+      "match": "district_match"
+    },
+    {
+      "id": "gn-3582329",
+      "name": "Concepcion",
+      "aliases": [],
+      "district": "Corozal",
+      "type": "village",
+      "lat": 18.32308,
+      "lon": -88.47419,
+      "feeders_seen": [
+        "corozal-6"
+      ],
+      "source_phrases": [
+        "Concepcion"
+      ],
+      "match": "unique_name"
+    },
+    {
+      "id": "gn-3582305",
+      "name": "Corozal",
+      "aliases": [
+        "CZH",
+        "Corasal",
+        "Corazal",
+        "Corosal",
+        "Corozal",
+        "Korozal'",
+        "korojala",
+        "korosaru"
+      ],
+      "district": "Corozal",
+      "type": "town",
+      "lat": 18.39375,
+      "lon": -88.38849,
+      "feeders_seen": [
+        "corozal-2",
+        "corozal-4",
+        "corozal-5",
+        "corozal-1",
+        "corozal-3",
+        "corozal-6"
+      ],
+      "source_phrases": [
+        "portion of Corozal Town",
+        "parts of Corozal Town",
+        "Corozal Free Zone"
+      ],
+      "match": "district_match",
+      "is_load_center": true
+    },
+    {
+      "id": "txt-dominguez-layout",
+      "name": "Dominguez Layout",
+      "aliases": [],
+      "district": "Corozal",
+      "type": "landmark",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "corozal-4"
+      ],
+      "source_phrases": [
+        "Dominguez Layout"
+      ],
+      "match": "ungeocoded:landmark"
+    },
+    {
+      "id": "txt-ferry-road",
+      "name": "Ferry Road",
+      "aliases": [],
+      "district": "Corozal",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "corozal-4"
+      ],
+      "source_phrases": [
+        "Ferry Road"
+      ],
+      "match": "ungeocoded:street"
+    },
+    {
+      "id": "txt-joseito-layout",
+      "name": "Joseito Layout",
+      "aliases": [],
+      "district": "Corozal",
+      "type": "landmark",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "corozal-4"
+      ],
+      "source_phrases": [
+        "Joseito Layout"
+      ],
+      "match": "ungeocoded:landmark"
+    },
+    {
+      "id": "gn-3581416",
+      "name": "Progresso",
+      "aliases": [
+        "Progreso",
+        "Progresso"
+      ],
+      "district": "Corozal",
+      "type": "village",
+      "lat": 18.23085,
+      "lon": -88.41073,
+      "feeders_seen": [
+        "corozal-4"
+      ],
+      "source_phrases": [
+        "Progresso Heights"
+      ],
+      "match": "district_match_substring"
+    },
+    {
+      "id": "gn-3581408",
+      "name": "Pueblo Nuevo",
+      "aliases": [],
+      "district": "Corozal",
+      "type": "village",
+      "lat": 18.30984,
+      "lon": -88.4129,
+      "feeders_seen": [
+        "corozal-4"
+      ],
+      "source_phrases": [
+        "Pueblo Nuevo"
+      ],
+      "match": "unique_name"
+    },
+    {
+      "id": "gn-3581367",
+      "name": "Ranchito",
+      "aliases": [],
+      "district": "Corozal",
+      "type": "village",
+      "lat": 18.37753,
+      "lon": -88.41031,
+      "feeders_seen": [
+        "corozal-2"
+      ],
+      "source_phrases": [
+        "areas along the Philip Goldson Highway to Ranchito Village"
+      ],
+      "match": "unique_name_substring"
+    },
+    {
+      "id": "txt-saltillos",
+      "name": "Saltillos",
+      "aliases": [],
+      "district": "Corozal",
+      "type": "landmark",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "corozal-4"
+      ],
+      "source_phrases": [
+        "Saltillos"
+      ],
+      "match": "ungeocoded:no_geonames_entry"
+    },
+    {
+      "id": "gn-3581219",
+      "name": "San Antonio",
+      "aliases": [],
+      "district": "Corozal",
+      "type": "village",
+      "lat": 18.40175,
+      "lon": -88.3998,
+      "feeders_seen": [
+        "corozal-1"
+      ],
+      "source_phrases": [
+        "San Antonio"
+      ],
+      "match": "district_match"
+    },
+    {
+      "id": "gn-3581198",
+      "name": "San Fernando",
+      "aliases": [
+        "Copper Bank",
+        "Kupper Bank",
+        "San Fernando",
+        "Куппер Банк"
+      ],
+      "district": "Corozal",
+      "type": "village",
+      "lat": 18.32133,
+      "lon": -88.35441,
+      "feeders_seen": [
+        "corozal-4"
+      ],
+      "source_phrases": [
+        "Copper Bank"
+      ],
+      "match": "unique_name"
+    },
+    {
+      "id": "gn-3581169",
+      "name": "San Narciso",
+      "aliases": [
+        "San Narciso",
+        "San-Narciso",
+        "Сан-Нарцісо"
+      ],
+      "district": "Corozal",
+      "type": "town",
+      "lat": 18.30396,
+      "lon": -88.52085,
+      "feeders_seen": [
+        "corozal-6"
+      ],
+      "source_phrases": [
+        "San Narciso"
+      ],
+      "match": "district_match"
+    },
+    {
+      "id": "gn-3581154",
+      "name": "San Roman",
+      "aliases": [],
+      "district": "Corozal",
+      "type": "village",
+      "lat": 18.2972,
+      "lon": -88.50775,
+      "feeders_seen": [
+        "corozal-6"
+      ],
+      "source_phrases": [
+        "San Roman"
+      ],
+      "match": "district_match"
+    },
+    {
+      "id": "gn-3581151",
+      "name": "Santa Clara",
+      "aliases": [],
+      "district": "Corozal",
+      "type": "village",
+      "lat": 18.29412,
+      "lon": -88.5122,
+      "feeders_seen": [
+        "corozal-6"
+      ],
+      "source_phrases": [
+        "Santa Clara"
+      ],
+      "match": "unique_name"
+    },
+    {
+      "id": "gn-7303356",
+      "name": "Santa Elena",
+      "aliases": [
+        "Zona Libre de Belice"
+      ],
+      "district": "Corozal",
+      "type": "village",
+      "lat": 18.48514,
+      "lon": -88.39389,
+      "feeders_seen": [
+        "corozal-5"
+      ],
+      "source_phrases": [
+        "Santa Elena"
+      ],
+      "match": "district_match"
+    },
+    {
+      "id": "gn-3581136",
+      "name": "Santa Rita",
+      "aliases": [
+        "Santa Rita"
+      ],
+      "district": "Corozal",
+      "type": "village",
+      "lat": 18.38975,
+      "lon": -88.38914,
+      "feeders_seen": [
+        "corozal-1"
+      ],
+      "source_phrases": [
+        "Santa Rita Layout",
+        "Santa Rita Heights"
+      ],
+      "match": "district_match_substring"
+    },
+    {
+      "id": "txt-vivas-layout",
+      "name": "Vivas Layout",
+      "aliases": [],
+      "district": "Corozal",
+      "type": "landmark",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "corozal-1"
+      ],
+      "source_phrases": [
+        "Vivas Layout"
+      ],
+      "match": "ungeocoded:landmark"
+    },
+    {
+      "id": "gn-3580799",
+      "name": "Xaibe",
+      "aliases": [
+        "Ksajbe",
+        "Xaibe",
+        "Ксайбе"
+      ],
+      "district": "Corozal",
+      "type": "village",
+      "lat": 18.38654,
+      "lon": -88.43393,
+      "feeders_seen": [
+        "corozal-3"
+      ],
+      "source_phrases": [
+        "Xaibe"
+      ],
+      "match": "district_match"
+    },
+    {
+      "id": "txt-areas-along-philip-goldson-highway",
+      "name": "areas along Philip Goldson Highway",
+      "aliases": [],
+      "district": "Corozal",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "corozal-1"
+      ],
+      "source_phrases": [
+        "areas along Philip Goldson Highway"
+      ],
+      "match": "ungeocoded:street"
+    },
+    {
+      "id": "txt-audinet-alley",
+      "name": "Audinet Alley",
+      "aliases": [],
+      "district": "Orange Walk",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "orange-walk-1"
+      ],
+      "source_phrases": [
+        "Audinet Alley"
+      ],
+      "match": "ungeocoded:street"
+    },
+    {
+      "id": "gn-3582733",
+      "name": "August Pine Ridge",
+      "aliases": [
+        "August",
+        "August Pine Ridge"
+      ],
+      "district": "Orange Walk",
+      "type": "town",
+      "lat": 17.9725,
+      "lon": -88.72489,
+      "feeders_seen": [
+        "orange-walk-4"
+      ],
+      "source_phrases": [
+        "August Pine Ridge"
+      ],
+      "match": "district_match"
+    },
+    {
+      "id": "txt-blue-creek-street",
+      "name": "Blue Creek Street",
+      "aliases": [],
+      "district": "Orange Walk",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "orange-walk-1"
+      ],
+      "source_phrases": [
+        "Blue Creek Street"
+      ],
+      "match": "ungeocoded:street"
+    },
+    {
+      "id": "gn-3582587",
+      "name": "Blue Creek Village",
+      "aliases": [
+        "Blue Creek",
+        "Blue Creek Colony",
+        "Blue Creek Village"
+      ],
+      "district": "Orange Walk",
+      "type": "village",
+      "lat": 17.8932,
+      "lon": -88.88982,
+      "feeders_seen": [
+        "orange-walk-4"
+      ],
+      "source_phrases": [
+        "Blue Creek"
+      ],
+      "match": "district_match"
+    },
+    {
+      "id": "txt-boundary-road",
+      "name": "Boundary Road",
+      "aliases": [],
+      "district": "Orange Walk",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "orange-walk-1"
+      ],
+      "source_phrases": [
+        "Boundary Road"
+      ],
+      "match": "ungeocoded:street"
+    },
+    {
+      "id": "gn-3582454",
+      "name": "Carmelita",
+      "aliases": [],
+      "district": "Orange Walk",
+      "type": "village",
+      "lat": 18.01306,
+      "lon": -88.5429,
+      "feeders_seen": [
+        "orange-walk-1"
+      ],
+      "source_phrases": [
+        "Carmelita Village"
+      ],
+      "match": "unique_name"
+    },
+    {
+      "id": "txt-dangriga-street",
+      "name": "Dangriga Street",
+      "aliases": [],
+      "district": "Orange Walk",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "orange-walk-3"
+      ],
+      "source_phrases": [
+        "Dangriga Street"
+      ],
+      "match": "ungeocoded:street"
+    },
+    {
+      "id": "txt-fonseca-street",
+      "name": "Fonseca Street",
+      "aliases": [],
+      "district": "Orange Walk",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "orange-walk-3"
+      ],
+      "source_phrases": [
+        "Fonseca Street"
+      ],
+      "match": "ungeocoded:street"
+    },
+    {
+      "id": "gn-3581984",
+      "name": "Guinea Grass",
+      "aliases": [
+        "Guinea Grass"
+      ],
+      "district": "Orange Walk",
+      "type": "town",
+      "lat": 17.96704,
+      "lon": -88.59837,
+      "feeders_seen": [
+        "orange-walk-1"
+      ],
+      "source_phrases": [
+        "Guinea Grass Village"
+      ],
+      "match": "district_match"
+    },
+    {
+      "id": "txt-liberty-avenue",
+      "name": "Liberty Avenue",
+      "aliases": [],
+      "district": "Orange Walk",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "orange-walk-1"
+      ],
+      "source_phrases": [
+        "Liberty Avenue"
+      ],
+      "match": "ungeocoded:street"
+    },
+    {
+      "id": "gn-3581514",
+      "name": "Orange Walk",
+      "aliases": [
+        "ORZ",
+        "Orange Walk",
+        "Oranzh Uok",
+        "Orindzh-Uolk",
+        "arenja oyaka",
+        "arenja vaka",
+        "arnj wak",
+        "awranj wwk"
+      ],
+      "district": "Orange Walk",
+      "type": "town",
+      "lat": 18.08124,
+      "lon": -88.56328,
+      "feeders_seen": [
+        "orange-walk-1",
+        "orange-walk-2",
+        "orange-walk-3",
+        "orange-walk-4"
+      ],
+      "source_phrases": [
+        "parts of Orange Walk Town",
+        "portion of Orange Walk Town from the Philip Goldson Highway"
+      ],
+      "match": "district_match",
+      "is_load_center": true
+    },
+    {
+      "id": "txt-pasadita",
+      "name": "Pasadita",
+      "aliases": [],
+      "district": "Orange Walk",
+      "type": "landmark",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "orange-walk-1"
+      ],
+      "source_phrases": [
+        "Pasadita"
+      ],
+      "match": "ungeocoded:no_geonames_entry"
+    },
+    {
+      "id": "txt-san-andres-street",
+      "name": "San Andres Street",
+      "aliases": [],
+      "district": "Orange Walk",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "orange-walk-3"
+      ],
+      "source_phrases": [
+        "San Andres Street"
+      ],
+      "match": "ungeocoded:street"
+    },
+    {
+      "id": "txt-san-antonio-road",
+      "name": "San Antonio Road",
+      "aliases": [],
+      "district": "Orange Walk",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "orange-walk-4"
+      ],
+      "source_phrases": [
+        "San Antonio Road"
+      ],
+      "match": "ungeocoded:street"
+    },
+    {
+      "id": "gn-3581199",
+      "name": "San Felipe",
+      "aliases": [
+        "San Felipe"
+      ],
+      "district": "Orange Walk",
+      "type": "village",
+      "lat": 17.873,
+      "lon": -88.77334,
+      "feeders_seen": [
+        "orange-walk-4"
+      ],
+      "source_phrases": [
+        "San Felipe"
+      ],
+      "match": "district_match"
+    },
+    {
+      "id": "gn-3581178",
+      "name": "San Lazaro",
+      "aliases": [],
+      "district": "Orange Walk",
+      "type": "village",
+      "lat": 18.03849,
+      "lon": -88.66316,
+      "feeders_seen": [
+        "orange-walk-4"
+      ],
+      "source_phrases": [
+        "San Lazaro"
+      ],
+      "match": "unique_name"
+    },
+    {
+      "id": "txt-san-narciso-street",
+      "name": "San Narciso Street",
+      "aliases": [],
+      "district": "Orange Walk",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "orange-walk-3"
+      ],
+      "source_phrases": [
+        "San Narciso Street"
+      ],
+      "match": "ungeocoded:street"
+    },
+    {
+      "id": "gn-3581168",
+      "name": "San Pablo",
+      "aliases": [
+        "San Pablo"
+      ],
+      "district": "Orange Walk",
+      "type": "village",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "independence-all-peninsula"
+      ],
+      "source_phrases": [
+        "San Pablo"
+      ],
+      "match": "ambiguous_district_mismatch"
+    },
+    {
+      "id": "txt-san-victor-street",
+      "name": "San Victor Street",
+      "aliases": [],
+      "district": "Orange Walk",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "orange-walk-3"
+      ],
+      "source_phrases": [
+        "San Victor Street"
+      ],
+      "match": "ungeocoded:street"
+    },
+    {
+      "id": "gn-13286651",
+      "name": "Santa Martha",
+      "aliases": [
+        "Santa Marta"
+      ],
+      "district": "Orange Walk",
+      "type": "village",
+      "lat": 17.97035,
+      "lon": -88.38441,
+      "feeders_seen": [
+        "dangriga-2"
+      ],
+      "source_phrases": [
+        "Santa Marta"
+      ],
+      "match": "unique_name"
+    },
+    {
+      "id": "txt-stadium-street",
+      "name": "Stadium Street",
+      "aliases": [],
+      "district": "Orange Walk",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "orange-walk-3"
+      ],
+      "source_phrases": [
+        "Stadium Street"
+      ],
+      "match": "ungeocoded:street"
+    },
+    {
+      "id": "gn-3580891",
+      "name": "Trinidad",
+      "aliases": [],
+      "district": "Orange Walk",
+      "type": "village",
+      "lat": 18.02356,
+      "lon": -88.68698,
+      "feeders_seen": [
+        "orange-walk-4"
+      ],
+      "source_phrases": [
+        "Trinidad"
+      ],
+      "match": "unique_name"
+    },
+    {
+      "id": "txt-union-town",
+      "name": "Union Town",
+      "aliases": [],
+      "district": "Orange Walk",
+      "type": "landmark",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "orange-walk-3"
+      ],
+      "source_phrases": [
+        "Union Town"
+      ],
+      "match": "ungeocoded:no_geonames_entry"
+    },
+    {
+      "id": "gn-3580772",
+      "name": "Yo Creek",
+      "aliases": [
+        "Yo Creek"
+      ],
+      "district": "Orange Walk",
+      "type": "village",
+      "lat": 18.09098,
+      "lon": -88.64607,
+      "feeders_seen": [
+        "orange-walk-4"
+      ],
+      "source_phrases": [
+        "Yo Creek"
+      ],
+      "match": "district_match"
+    },
+    {
+      "id": "txt-yo-creek-street",
+      "name": "Yo Creek Street",
+      "aliases": [],
+      "district": "Orange Walk",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "orange-walk-3"
+      ],
+      "source_phrases": [
+        "Yo Creek Street"
+      ],
+      "match": "ungeocoded:street"
+    },
+    {
+      "id": "txt-part-of-progress-street",
+      "name": "part of Progress Street",
+      "aliases": [],
+      "district": "Orange Walk",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "orange-walk-3"
+      ],
+      "source_phrases": [
+        "part of Progress Street"
+      ],
+      "match": "ungeocoded:street"
+    },
+    {
+      "id": "txt-sections-of-the-philip-goldson-highway",
+      "name": "sections of the Philip Goldson Highway",
+      "aliases": [],
+      "district": "Orange Walk",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "orange-walk-1"
+      ],
+      "source_phrases": [
+        "sections of the Philip Goldson Highway"
+      ],
+      "match": "ungeocoded:street"
+    },
+    {
+      "id": "gn-3582761",
+      "name": "Alta Vista",
+      "aliases": [],
+      "district": "Stann Creek",
+      "type": "village",
+      "lat": 16.9937,
+      "lon": -88.40523,
+      "feeders_seen": [
+        "dangriga-2"
+      ],
+      "source_phrases": [
+        "Alta Vista"
+      ],
+      "match": "unique_name"
+    },
+    {
+      "id": "gn-8695448",
+      "name": "Canada Hill",
+      "aliases": [
+        "Canada Hill"
+      ],
+      "district": "Stann Creek",
+      "type": "village",
+      "lat": 16.98516,
+      "lon": -88.32665,
+      "feeders_seen": [
+        "dangriga-2"
+      ],
+      "source_phrases": [
+        "Canada Hill"
+      ],
+      "match": "district_match"
+    },
+    {
+      "id": "txt-cocoplum-development",
+      "name": "Cocoplum Development",
+      "aliases": [],
+      "district": "Stann Creek",
+      "type": "landmark",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "independence-all-peninsula"
+      ],
+      "source_phrases": [
+        "Cocoplum Development"
+      ],
+      "match": "ungeocoded:landmark"
+    },
+    {
+      "id": "txt-cow-pen",
+      "name": "Cow Pen",
+      "aliases": [],
+      "district": "Stann Creek",
+      "type": "landmark",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "independence-3",
+        "independence-all-peninsula"
+      ],
+      "source_phrases": [
+        "Cow Pen"
+      ],
+      "match": "ungeocoded:no_geonames_entry"
+    },
+    {
+      "id": "gn-3582228",
+      "name": "Dangriga",
+      "aliases": [
+        "DGA",
+        "Dangriga",
+        "Dangriga Town  Dangriga",
+        "Stann Creek",
+        "Stann Creek Town",
+        "Stann Creek Village",
+        "Stanncrek",
+        "dangariga"
+      ],
+      "district": "Stann Creek",
+      "type": "town",
+      "lat": 16.9697,
+      "lon": -88.23313,
+      "feeders_seen": [
+        "dangriga-1",
+        "dangriga-2",
+        "dangriga-3"
+      ],
+      "source_phrases": [
+        "entire Dangriga Town"
+      ],
+      "match": "district_match",
+      "is_load_center": true
+    },
+    {
+      "id": "txt-forest-lagoon",
+      "name": "Forest Lagoon",
+      "aliases": [],
+      "district": "Stann Creek",
+      "type": "landmark",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "independence-all-peninsula"
+      ],
+      "source_phrases": [
+        "Forest Lagoon"
+      ],
+      "match": "ungeocoded:no_geonames_entry"
+    },
+    {
+      "id": "gn-3582045",
+      "name": "Georgetown",
+      "aliases": [],
+      "district": "Stann Creek",
+      "type": "village",
+      "lat": 16.65322,
+      "lon": -88.50783,
+      "feeders_seen": [
+        "independence-3",
+        "independence-all-peninsula"
+      ],
+      "source_phrases": [
+        "Georgetown"
+      ],
+      "match": "unique_name"
+    },
+    {
+      "id": "gn-13286724",
+      "name": "Hope Creek",
+      "aliases": [],
+      "district": "Stann Creek",
+      "type": "village",
+      "lat": 17.00265,
+      "lon": -88.31251,
+      "feeders_seen": [
+        "dangriga-2"
+      ],
+      "source_phrases": [
+        "Hope Creek"
+      ],
+      "match": "unique_name"
+    },
+    {
+      "id": "gn-3581922",
+      "name": "Hopkins",
+      "aliases": [
+        "Hopkins"
+      ],
+      "district": "Stann Creek",
+      "type": "village",
+      "lat": 16.86308,
+      "lon": -88.28437,
+      "feeders_seen": [
+        "dangriga-3"
+      ],
+      "source_phrases": [
+        "Hopkins"
+      ],
+      "match": "district_match"
+    },
+    {
+      "id": "gn-13286725",
+      "name": "Hummingbird Community",
+      "aliases": [],
+      "district": "Stann Creek",
+      "type": "village",
+      "lat": 17.04299,
+      "lon": -88.52961,
+      "feeders_seen": [
+        "dangriga-2"
+      ],
+      "source_phrases": [
+        "Hummingbird Community"
+      ],
+      "match": "unique_name"
+    },
+    {
+      "id": "gn-3581905",
+      "name": "Independence and Mango Creek",
+      "aliases": [
+        "INB",
+        "Independence"
+      ],
+      "district": "Stann Creek",
+      "type": "town",
+      "lat": 16.5344,
+      "lon": -88.41878,
+      "feeders_seen": [
+        "independence-1",
+        "independence-all-peninsula",
+        "independence-2",
+        "independence-3"
+      ],
+      "source_phrases": [
+        "entire Independence Village",
+        "Independence"
+      ],
+      "match": "unique_name",
+      "is_load_center": true
+    },
+    {
+      "id": "txt-kendall",
+      "name": "Kendall",
+      "aliases": [],
+      "district": "Stann Creek",
+      "type": "landmark",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "dangriga-3"
+      ],
+      "source_phrases": [
+        "Kendall"
+      ],
+      "match": "ungeocoded:no_geonames_entry"
+    },
+    {
+      "id": "txt-kings-village",
+      "name": "Kings Village",
+      "aliases": [],
+      "district": "Stann Creek",
+      "type": "landmark",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "dangriga-2"
+      ],
+      "source_phrases": [
+        "Kings Village"
+      ],
+      "match": "ungeocoded:no_geonames_entry"
+    },
+    {
+      "id": "txt-kingsville",
+      "name": "Kingsville",
+      "aliases": [],
+      "district": "Stann Creek",
+      "type": "landmark",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "dangriga-2"
+      ],
+      "source_phrases": [
+        "Kingsville"
+      ],
+      "match": "ungeocoded:no_geonames_entry"
+    },
+    {
+      "id": "gn-13286728",
+      "name": "Long Bank",
+      "aliases": [],
+      "district": "Stann Creek",
+      "type": "village",
+      "lat": 16.98037,
+      "lon": -88.2657,
+      "feeders_seen": [
+        "dangriga-1"
+      ],
+      "source_phrases": [
+        "Long Bank"
+      ],
+      "match": "unique_name"
+    },
+    {
+      "id": "gn-3581712",
+      "name": "Maya Beach",
+      "aliases": [],
+      "district": "Stann Creek",
+      "type": "village",
+      "lat": 16.61542,
+      "lon": -88.35373,
+      "feeders_seen": [
+        "independence-all-peninsula"
+      ],
+      "source_phrases": [
+        "Maya Beach"
+      ],
+      "match": "unique_name"
+    },
+    {
+      "id": "gn-13286729",
+      "name": "Maya Center",
+      "aliases": [
+        "Maya Centre"
+      ],
+      "district": "Stann Creek",
+      "type": "village",
+      "lat": 16.79843,
+      "lon": -88.38235,
+      "feeders_seen": [
+        "dangriga-3"
+      ],
+      "source_phrases": [
+        "Maya Center"
+      ],
+      "match": "unique_name"
+    },
+    {
+      "id": "txt-maya-king",
+      "name": "Maya King",
+      "aliases": [],
+      "district": "Stann Creek",
+      "type": "landmark",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "independence-all-peninsula"
+      ],
+      "source_phrases": [
+        "Maya King"
+      ],
+      "match": "ungeocoded:no_geonames_entry"
+    },
+    {
+      "id": "gn-3581710",
+      "name": "Maya Mopan",
+      "aliases": [],
+      "district": "Stann Creek",
+      "type": "village",
+      "lat": 16.66018,
+      "lon": -88.52542,
+      "feeders_seen": [
+        "belmopan-4",
+        "independence-3",
+        "independence-all-peninsula"
+      ],
+      "source_phrases": [
+        "Maya Mopan"
+      ],
+      "match": "unique_name"
+    },
+    {
+      "id": "txt-mayan-king",
+      "name": "Mayan King",
+      "aliases": [],
+      "district": "Stann Creek",
+      "type": "landmark",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "independence-3"
+      ],
+      "source_phrases": [
+        "Mayan King"
+      ],
+      "match": "ungeocoded:no_geonames_entry"
+    },
+    {
+      "id": "txt-melinda-road",
+      "name": "Melinda Road",
+      "aliases": [],
+      "district": "Stann Creek",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "dangriga-2"
+      ],
+      "source_phrases": [
+        "Melinda Road"
+      ],
+      "match": "ungeocoded:street"
+    },
+    {
+      "id": "gn-3581672",
+      "name": "Middlesex",
+      "aliases": [
+        "Middlesex",
+        "Middlesey"
+      ],
+      "district": "Stann Creek",
+      "type": "village",
+      "lat": 17.03996,
+      "lon": -88.52174,
+      "feeders_seen": [
+        "dangriga-2"
+      ],
+      "source_phrases": [
+        "Middlesex"
+      ],
+      "match": "district_match"
+    },
+    {
+      "id": "txt-mile-23-to-mile-38-on-hummingbird-highway",
+      "name": "Mile 23 to Mile 38 on Hummingbird Highway",
+      "aliases": [],
+      "district": "Stann Creek",
+      "type": "street_segment",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "dangriga-2"
+      ],
+      "source_phrases": [
+        "Mile 23 to Mile 38 on Hummingbird Highway"
+      ],
+      "match": "ungeocoded:street_segment"
+    },
+    {
+      "id": "gn-3581447",
+      "name": "Placencia",
+      "aliases": [
+        "PLJ",
+        "Placencia",
+        "Placencia Village",
+        "Placentia",
+        "Placentia Village",
+        "Plasencia",
+        "Point Placentia",
+        "Punta Placencia"
+      ],
+      "district": "Stann Creek",
+      "type": "town",
+      "lat": 16.51419,
+      "lon": -88.36647,
+      "feeders_seen": [
+        "independence-all-peninsula"
+      ],
+      "source_phrases": [
+        "entire Placencia Peninsula",
+        "Placencia Village"
+      ],
+      "match": "district_match_substring"
+    },
+    {
+      "id": "txt-plantation",
+      "name": "Plantation",
+      "aliases": [],
+      "district": "Stann Creek",
+      "type": "landmark",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "independence-all-peninsula"
+      ],
+      "source_phrases": [
+        "Plantation"
+      ],
+      "match": "ungeocoded:no_geonames_entry"
+    },
+    {
+      "id": "gn-3581436",
+      "name": "Pomona",
+      "aliases": [],
+      "district": "Stann Creek",
+      "type": "town",
+      "lat": 16.99514,
+      "lon": -88.37424,
+      "feeders_seen": [
+        "dangriga-2"
+      ],
+      "source_phrases": [
+        "Pomona"
+      ],
+      "match": "unique_name"
+    },
+    {
+      "id": "gn-3581351",
+      "name": "Red Bank Village",
+      "aliases": [
+        "Red Bank",
+        "Red Bank Village"
+      ],
+      "district": "Stann Creek",
+      "type": "town",
+      "lat": 16.61645,
+      "lon": -88.55911,
+      "feeders_seen": [
+        "independence-3",
+        "independence-all-peninsula"
+      ],
+      "source_phrases": [
+        "Red Bank"
+      ],
+      "match": "district_match"
+    },
+    {
+      "id": "gn-3581305",
+      "name": "Riversdale",
+      "aliases": [],
+      "district": "Stann Creek",
+      "type": "village",
+      "lat": 16.69003,
+      "lon": -88.31011,
+      "feeders_seen": [
+        "dangriga-3"
+      ],
+      "source_phrases": [
+        "Riversdale"
+      ],
+      "match": "district_match"
+    },
+    {
+      "id": "gn-8695460",
+      "name": "San Juan",
+      "aliases": [
+        "San Juan",
+        "San Juan Village"
+      ],
+      "district": "Stann Creek",
+      "type": "village",
+      "lat": 16.56232,
+      "lon": -88.51528,
+      "feeders_seen": [
+        "independence-3"
+      ],
+      "source_phrases": [
+        "San Juan"
+      ],
+      "match": "district_match"
+    },
+    {
+      "id": "txt-san-pablo-road",
+      "name": "San Pablo Road",
+      "aliases": [],
+      "district": "Stann Creek",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "independence-all-peninsula"
+      ],
+      "source_phrases": [
+        "San Pablo Road"
+      ],
+      "match": "ungeocoded:street"
+    },
+    {
+      "id": "gn-8695375",
+      "name": "San Roman Village",
+      "aliases": [
+        "San Roman",
+        "San Roman Village"
+      ],
+      "district": "Stann Creek",
+      "type": "town",
+      "lat": 16.65281,
+      "lon": -88.47416,
+      "feeders_seen": [
+        "independence-3",
+        "independence-all-peninsula"
+      ],
+      "source_phrases": [
+        "San Roman"
+      ],
+      "match": "district_match"
+    },
+    {
+      "id": "gn-13286761",
+      "name": "Santa Cruz",
+      "aliases": [
+        "Santa Cruz Village"
+      ],
+      "district": "Stann Creek",
+      "type": "town",
+      "lat": 16.6975,
+      "lon": -88.42548,
+      "feeders_seen": [
+        "independence-3",
+        "independence-all-peninsula"
+      ],
+      "source_phrases": [
+        "Santa Cruz"
+      ],
+      "match": "district_match"
+    },
+    {
+      "id": "txt-santa-maria",
+      "name": "Santa Maria",
+      "aliases": [],
+      "district": "Stann Creek",
+      "type": "landmark",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "independence-3"
+      ],
+      "source_phrases": [
+        "Santa Maria"
+      ],
+      "match": "ungeocoded:no_geonames_entry"
+    },
+    {
+      "id": "gn-8695374",
+      "name": "Santa Rosa Village",
+      "aliases": [
+        "Santa Rosa",
+        "Santa Rosa Village"
+      ],
+      "district": "Stann Creek",
+      "type": "village",
+      "lat": 16.6662,
+      "lon": -88.45437,
+      "feeders_seen": [
+        "independence-all-peninsula"
+      ],
+      "source_phrases": [
+        "Santa Rosa"
+      ],
+      "match": "district_match"
+    },
+    {
+      "id": "gn-3581117",
+      "name": "Sarawina",
+      "aliases": [
+        "Sarawee",
+        "Sarawina"
+      ],
+      "district": "Stann Creek",
+      "type": "village",
+      "lat": 16.97145,
+      "lon": -88.2738,
+      "feeders_seen": [
+        "dangriga-1"
+      ],
+      "source_phrases": [
+        "Sarawee"
+      ],
+      "match": "unique_name"
+    },
+    {
+      "id": "gn-3581089",
+      "name": "Seine Bight Village",
+      "aliases": [
+        "Seine Bight",
+        "Seine Bight Village"
+      ],
+      "district": "Stann Creek",
+      "type": "village",
+      "lat": 16.56943,
+      "lon": -88.36493,
+      "feeders_seen": [
+        "independence-all-peninsula"
+      ],
+      "source_phrases": [
+        "Seine Bight"
+      ],
+      "match": "unique_name"
+    },
+    {
+      "id": "gn-3581050",
+      "name": "Silk Grass",
+      "aliases": [],
+      "district": "Stann Creek",
+      "type": "town",
+      "lat": 16.88333,
+      "lon": -88.33333,
+      "feeders_seen": [
+        "dangriga-3"
+      ],
+      "source_phrases": [
+        "Silk Grass"
+      ],
+      "match": "unique_name"
+    },
+    {
+      "id": "gn-13286762",
+      "name": "Sittee River",
+      "aliases": [],
+      "district": "Stann Creek",
+      "type": "village",
+      "lat": 16.82093,
+      "lon": -88.32385,
+      "feeders_seen": [
+        "dangriga-3"
+      ],
+      "source_phrases": [
+        "Sittee River"
+      ],
+      "match": "unique_name"
+    },
+    {
+      "id": "gn-13286764",
+      "name": "Steadfast",
+      "aliases": [
+        "Steadfast Community"
+      ],
+      "district": "Stann Creek",
+      "type": "village",
+      "lat": 16.99913,
+      "lon": -88.42445,
+      "feeders_seen": [
+        "dangriga-2"
+      ],
+      "source_phrases": [
+        "Steadfast"
+      ],
+      "match": "unique_name"
+    },
+    {
+      "id": "txt-surfside-development",
+      "name": "Surfside Development",
+      "aliases": [],
+      "district": "Stann Creek",
+      "type": "landmark",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "independence-all-peninsula"
+      ],
+      "source_phrases": [
+        "Surfside Development"
+      ],
+      "match": "ungeocoded:landmark"
+    },
+    {
+      "id": "txt-swasey",
+      "name": "Swasey",
+      "aliases": [],
+      "district": "Stann Creek",
+      "type": "landmark",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "independence-all-peninsula"
+      ],
+      "source_phrases": [
+        "Swasey"
+      ],
+      "match": "ungeocoded:no_geonames_entry"
+    },
+    {
+      "id": "txt-all-areas-along-independence-road",
+      "name": "all areas along Independence Road",
+      "aliases": [],
+      "district": "Stann Creek",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "independence-3"
+      ],
+      "source_phrases": [
+        "all areas along Independence Road"
+      ],
+      "match": "ungeocoded:street"
+    },
+    {
+      "id": "txt-parts-of-the-southern-highway-up-to-kanantik-airstrip",
+      "name": "parts of the Southern Highway up to Kanantik Airstrip",
+      "aliases": [],
+      "district": "Stann Creek",
+      "type": "street_segment",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "dangriga-3"
+      ],
+      "source_phrases": [
+        "parts of the Southern Highway up to Kanantik Airstrip"
+      ],
+      "match": "ungeocoded:street_segment"
+    },
+    {
+      "id": "gn-3582778",
+      "name": "Aguacate",
+      "aliases": [
+        "Aguacale",
+        "Aguacate",
+        "Aquacate"
+      ],
+      "district": "Toledo",
+      "type": "village",
+      "lat": 16.16222,
+      "lon": -89.09389,
+      "feeders_seen": [
+        "punta-gorda-2"
+      ],
+      "source_phrases": [
+        "Aguacate"
+      ],
+      "match": "district_match"
+    },
+    {
+      "id": "gn-3582699",
+      "name": "Barranco",
+      "aliases": [
+        "Baranca",
+        "Baranco",
+        "Barranco"
+      ],
+      "district": "Toledo",
+      "type": "village",
+      "lat": 16.0,
+      "lon": -88.91667,
+      "feeders_seen": [
+        "punta-gorda-2"
+      ],
+      "source_phrases": [
+        "Barranco"
+      ],
+      "match": "district_match"
+    },
+    {
+      "id": "gn-13286766",
+      "name": "Bella Vista",
+      "aliases": [],
+      "district": "Toledo",
+      "type": "town",
+      "lat": 16.50948,
+      "lon": -88.53169,
+      "feeders_seen": [
+        "independence-all-peninsula"
+      ],
+      "source_phrases": [
+        "Bella Vista"
+      ],
+      "match": "unique_name"
+    },
+    {
+      "id": "gn-3582645",
+      "name": "Big Fall",
+      "aliases": [
+        "Big Fall",
+        "Big Falls"
+      ],
+      "district": "Toledo",
+      "type": "village",
+      "lat": 16.25692,
+      "lon": -88.89097,
+      "feeders_seen": [
+        "punta-gorda-2"
+      ],
+      "source_phrases": [
+        "Big Falls"
+      ],
+      "match": "district_match"
+    },
+    {
+      "id": "gn-13286767",
+      "name": "Bladen",
+      "aliases": [],
+      "district": "Toledo",
+      "type": "village",
+      "lat": 16.47194,
+      "lon": -88.62452,
+      "feeders_seen": [
+        "independence-all-peninsula"
+      ],
+      "source_phrases": [
+        "Bladen"
+      ],
+      "match": "unique_name"
+    },
+    {
+      "id": "gn-3582588",
+      "name": "Blue Creek Village",
+      "aliases": [
+        "Blue Creek",
+        "Blue Creek Village"
+      ],
+      "district": "Toledo",
+      "type": "village",
+      "lat": 16.19778,
+      "lon": -89.04222,
+      "feeders_seen": [
+        "punta-gorda-2"
+      ],
+      "source_phrases": [
+        "Blue Creek"
+      ],
+      "match": "district_match"
+    },
+    {
+      "id": "gn-3582440",
+      "name": "Cattle Landing",
+      "aliases": [
+        "Carib",
+        "Carib Settlement",
+        "Cattle Landing"
+      ],
+      "district": "Toledo",
+      "type": "village",
+      "lat": 16.11947,
+      "lon": -88.79523,
+      "feeders_seen": [
+        "punta-gorda-2"
+      ],
+      "source_phrases": [
+        "portion of Cattle Landing"
+      ],
+      "match": "district_match"
+    },
+    {
+      "id": "gn-3582412",
+      "name": "Central",
+      "aliases": [],
+      "district": "Toledo",
+      "type": "village",
+      "lat": 16.43869,
+      "lon": -88.83918,
+      "feeders_seen": [
+        "belmopan-3"
+      ],
+      "source_phrases": [
+        "Central Site"
+      ],
+      "match": "unique_name_substring"
+    },
+    {
+      "id": "gn-3582266",
+      "name": "Crique Jute",
+      "aliases": [],
+      "district": "Toledo",
+      "type": "village",
+      "lat": 16.26667,
+      "lon": -89.01667,
+      "feeders_seen": [
+        "punta-gorda-2"
+      ],
+      "source_phrases": [
+        "Crique Jute"
+      ],
+      "match": "unique_name"
+    },
+    {
+      "id": "txt-eldridge",
+      "name": "Eldridge",
+      "aliases": [],
+      "district": "Toledo",
+      "type": "landmark",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "punta-gorda-2"
+      ],
+      "source_phrases": [
+        "Eldridge"
+      ],
+      "match": "ungeocoded:no_geonames_entry"
+    },
+    {
+      "id": "gn-3582096",
+      "name": "Forest Home",
+      "aliases": [],
+      "district": "Toledo",
+      "type": "village",
+      "lat": 16.13873,
+      "lon": -88.83302,
+      "feeders_seen": [
+        "punta-gorda-2"
+      ],
+      "source_phrases": [
+        "Forest Home"
+      ],
+      "match": "unique_name"
+    },
+    {
+      "id": "gn-13286769",
+      "name": "Hicattee",
+      "aliases": [
+        "Hicatee"
+      ],
+      "district": "Toledo",
+      "type": "village",
+      "lat": 16.28294,
+      "lon": -88.87659,
+      "feeders_seen": [
+        "punta-gorda-2"
+      ],
+      "source_phrases": [
+        "Hicatee"
+      ],
+      "match": "unique_name"
+    },
+    {
+      "id": "txt-hopeville",
+      "name": "Hopeville",
+      "aliases": [],
+      "district": "Toledo",
+      "type": "landmark",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "punta-gorda-1"
+      ],
+      "source_phrases": [
+        "Hopeville"
+      ],
+      "match": "ungeocoded:no_geonames_entry"
+    },
+    {
+      "id": "gn-13286770",
+      "name": "Jacintoville",
+      "aliases": [
+        "Jacinto Ville"
+      ],
+      "district": "Toledo",
+      "type": "village",
+      "lat": 16.15288,
+      "lon": -88.87707,
+      "feeders_seen": [
+        "punta-gorda-2"
+      ],
+      "source_phrases": [
+        "Jacintoville"
+      ],
+      "match": "unique_name"
+    },
+    {
+      "id": "gn-8695292",
+      "name": "Jordan",
+      "aliases": [
+        "Jordan"
+      ],
+      "district": "Toledo",
+      "type": "village",
+      "lat": 16.15386,
+      "lon": -89.01486,
+      "feeders_seen": [
+        "punta-gorda-2"
+      ],
+      "source_phrases": [
+        "Jordan"
+      ],
+      "match": "district_match"
+    },
+    {
+      "id": "gn-3581845",
+      "name": "Lagoona",
+      "aliases": [
+        "Lagoona",
+        "Laguna"
+      ],
+      "district": "Toledo",
+      "type": "village",
+      "lat": 16.16907,
+      "lon": -88.93795,
+      "feeders_seen": [
+        "punta-gorda-2"
+      ],
+      "source_phrases": [
+        "Laguna"
+      ],
+      "match": "district_match"
+    },
+    {
+      "id": "gn-8695565",
+      "name": "Medway City Main Village",
+      "aliases": [
+        "Medway City Main Village",
+        "Midway"
+      ],
+      "district": "Toledo",
+      "type": "village",
+      "lat": 16.05985,
+      "lon": -88.95093,
+      "feeders_seen": [
+        "punta-gorda-2"
+      ],
+      "source_phrases": [
+        "Midway"
+      ],
+      "match": "unique_name"
+    },
+    {
+      "id": "gn-3581643",
+      "name": "Monkey River Town",
+      "aliases": [
+        "Monkey",
+        "Monkey River",
+        "Monkey River Town",
+        "hou xi qiao zhen",
+        "猴溪橋鎮"
+      ],
+      "district": "Toledo",
+      "type": "village",
+      "lat": 16.36166,
+      "lon": -88.48517,
+      "feeders_seen": [
+        "independence-all-peninsula"
+      ],
+      "source_phrases": [
+        "Monkey River"
+      ],
+      "match": "unique_name"
+    },
+    {
+      "id": "gn-3581601",
+      "name": "Nafreda",
+      "aliases": [
+        "Mafredi"
+      ],
+      "district": "Toledo",
+      "type": "village",
+      "lat": 16.24418,
+      "lon": -88.99268,
+      "feeders_seen": [
+        "punta-gorda-2"
+      ],
+      "source_phrases": [
+        "Mafredi"
+      ],
+      "match": "unique_name"
+    },
+    {
+      "id": "gn-3581398",
+      "name": "Punta Gorda",
+      "aliases": [
+        "P.G",
+        "PND",
+        "Punta Gorda",
+        "Punta-Gorda",
+        "bwnta ghwrda",
+        "peng ta ge er da",
+        "pnta gwrda  bylyz",
+        "punta garda"
+      ],
+      "district": "Toledo",
+      "type": "town",
+      "lat": 16.09835,
+      "lon": -88.8097,
+      "feeders_seen": [
+        "punta-gorda-1",
+        "punta-gorda-2",
+        "punta-gorda-all-toledo"
+      ],
+      "source_phrases": [
+        "entire Punta Gorda Town"
+      ],
+      "match": "district_match",
+      "is_load_center": true
+    },
+    {
+      "id": "gn-3581222",
+      "name": "San Antonio",
+      "aliases": [
+        "San Antonio"
+      ],
+      "district": "Toledo",
+      "type": "village",
+      "lat": 16.24361,
+      "lon": -89.02417,
+      "feeders_seen": [
+        "punta-gorda-2"
+      ],
+      "source_phrases": [
+        "San Antonio"
+      ],
+      "match": "district_match"
+    },
+    {
+      "id": "gn-3581201",
+      "name": "San Felipe",
+      "aliases": [],
+      "district": "Toledo",
+      "type": "village",
+      "lat": 16.13259,
+      "lon": -88.90498,
+      "feeders_seen": [
+        "punta-gorda-2"
+      ],
+      "source_phrases": [
+        "San Felipe"
+      ],
+      "match": "district_match"
+    },
+    {
+      "id": "gn-13286795",
+      "name": "San Isidro",
+      "aliases": [],
+      "district": "Toledo",
+      "type": "village",
+      "lat": 16.51161,
+      "lon": -88.5447,
+      "feeders_seen": [
+        "independence-all-peninsula"
+      ],
+      "source_phrases": [
+        "San Isidro"
+      ],
+      "match": "unique_name"
+    },
+    {
+      "id": "gn-8695764",
+      "name": "San Margos",
+      "aliases": [
+        "San Marcos",
+        "San Margos"
+      ],
+      "district": "Toledo",
+      "type": "village",
+      "lat": 16.21675,
+      "lon": -88.90095,
+      "feeders_seen": [
+        "punta-gorda-2"
+      ],
+      "source_phrases": [
+        "San Marcos"
+      ],
+      "match": "district_match"
+    },
+    {
+      "id": "gn-3581166",
+      "name": "San Pedro",
+      "aliases": [
+        "Columbia",
+        "San Pedro",
+        "San Pedro Columbia"
+      ],
+      "district": "Toledo",
+      "type": "village",
+      "lat": 16.27153,
+      "lon": -88.95437,
+      "feeders_seen": [
+        "punta-gorda-2"
+      ],
+      "source_phrases": [
+        "portion of San Pedro Columbia"
+      ],
+      "match": "unique_name"
+    },
+    {
+      "id": "gn-13286828",
+      "name": "Silver Creek",
+      "aliases": [],
+      "district": "Toledo",
+      "type": "village",
+      "lat": 16.27985,
+      "lon": -88.89013,
+      "feeders_seen": [
+        "punta-gorda-2"
+      ],
+      "source_phrases": [
+        "Silver Creek"
+      ],
+      "match": "unique_name"
+    },
+    {
+      "id": "gn-3580932",
+      "name": "The Dump",
+      "aliases": [
+        "Dump"
+      ],
+      "district": "Toledo",
+      "type": "village",
+      "lat": 16.22743,
+      "lon": -88.93742,
+      "feeders_seen": [
+        "punta-gorda-2"
+      ],
+      "source_phrases": [
+        "Dump Area"
+      ],
+      "match": "unique_name"
+    },
+    {
+      "id": "gn-8695455",
+      "name": "Trio Village",
+      "aliases": [
+        "Trio",
+        "Trio Village"
+      ],
+      "district": "Toledo",
+      "type": "village",
+      "lat": 16.51529,
+      "lon": -88.63577,
+      "feeders_seen": [
+        "independence-all-peninsula"
+      ],
+      "source_phrases": [
+        "Trio"
+      ],
+      "match": "unique_name"
+    },
+    {
+      "id": "gn-13286833",
+      "name": "Yemeri Grove",
+      "aliases": [],
+      "district": "Toledo",
+      "type": "village",
+      "lat": 16.17236,
+      "lon": -88.89682,
+      "feeders_seen": [
+        "punta-gorda-2"
+      ],
+      "source_phrases": [
+        "Yemeri Grove"
+      ],
+      "match": "unique_name"
+    },
+    {
+      "id": "txt-entire-toledo-district",
+      "name": "entire Toledo District",
+      "aliases": [],
+      "district": "Toledo",
+      "type": "landmark",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "punta-gorda-all-toledo"
+      ],
+      "source_phrases": [
+        "entire Toledo District"
+      ],
+      "match": "ungeocoded:no_geonames_entry"
+    }
+  ]
+}

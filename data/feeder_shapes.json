@@ -1,0 +1,1604 @@
+{
+ "type": "FeatureCollection",
+ "meta": {
+  "schema_version": 1,
+  "built_by": "scraper/build_feeder_shapes.py",
+  "warning": "Approximate. Each polygon is the convex hull of the settlements BEL has named in outage notices for that feeder. It is a lower bound on the feeder's real extent, not a boundary. A convex hull also fills in gaps between named places, so it can cover ground the feeder does not serve. Never present these as BEL's official feeder areas.",
+  "feature_count": 36
+ },
+ "features": [
+  {
+   "type": "Feature",
+   "id": "belize-city-2",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -88.19756,
+     17.49952
+    ]
+   },
+   "properties": {
+    "feeder_id": "belize-city-2",
+    "load_center": "Belize City",
+    "feeder": "2",
+    "district": "Belize",
+    "point_count": 1,
+    "named_areas_total": 1,
+    "geocoded_fraction": 1.0,
+    "span_km": 0.0,
+    "centroid": [
+     -88.19756,
+     17.49952
+    ],
+    "confidence": "too few points to enclose an area",
+    "places": [
+     "Belize City"
+    ],
+    "source_confidence": "bel_reposted",
+    "areas_list_truncated": true,
+    "rejected_outliers": []
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "belize-city-3",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -88.19756,
+     17.49952
+    ]
+   },
+   "properties": {
+    "feeder_id": "belize-city-3",
+    "load_center": "Belize City",
+    "feeder": "3",
+    "district": "Belize",
+    "point_count": 1,
+    "named_areas_total": 8,
+    "geocoded_fraction": 0.12,
+    "span_km": 0.0,
+    "centroid": [
+     -88.19756,
+     17.49952
+    ],
+    "confidence": "too few points to enclose an area",
+    "places": [
+     "Belize City"
+    ],
+    "source_confidence": "bel_reposted",
+    "areas_list_truncated": true,
+    "rejected_outliers": []
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "belize-city-4",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -88.19756,
+     17.49952
+    ]
+   },
+   "properties": {
+    "feeder_id": "belize-city-4",
+    "load_center": "Belize City",
+    "feeder": "4",
+    "district": "Belize",
+    "point_count": 1,
+    "named_areas_total": 1,
+    "geocoded_fraction": 1.0,
+    "span_km": 0.0,
+    "centroid": [
+     -88.19756,
+     17.49952
+    ],
+    "confidence": "too few points to enclose an area",
+    "places": [
+     "Belize City"
+    ],
+    "source_confidence": "bel_reposted",
+    "areas_list_truncated": true,
+    "rejected_outliers": []
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "belize-city-6",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -88.19756,
+     17.49952
+    ]
+   },
+   "properties": {
+    "feeder_id": "belize-city-6",
+    "load_center": "Belize City",
+    "feeder": "6",
+    "district": "Belize",
+    "point_count": 1,
+    "named_areas_total": 2,
+    "geocoded_fraction": 0.5,
+    "span_km": 0.0,
+    "centroid": [
+     -88.19756,
+     17.49952
+    ],
+    "confidence": "too few points to enclose an area",
+    "places": [
+     "Belize City"
+    ],
+    "source_confidence": "bel_reposted",
+    "areas_list_truncated": true,
+    "rejected_outliers": []
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "belize-city-8",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -88.19756,
+     17.49952
+    ]
+   },
+   "properties": {
+    "feeder_id": "belize-city-8",
+    "load_center": "Belize City",
+    "feeder": "8",
+    "district": "Belize",
+    "point_count": 1,
+    "named_areas_total": 5,
+    "geocoded_fraction": 0.2,
+    "span_km": 0.0,
+    "centroid": [
+     -88.19756,
+     17.49952
+    ],
+    "confidence": "too few points to enclose an area",
+    "places": [
+     "Belize City"
+    ],
+    "source_confidence": "bel_direct",
+    "areas_list_truncated": true,
+    "rejected_outliers": []
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "belmopan-3",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -88.76401,
+     17.25376
+    ]
+   },
+   "properties": {
+    "feeder_id": "belmopan-3",
+    "load_center": "Belmopan",
+    "feeder": "3",
+    "district": "Cayo",
+    "point_count": 1,
+    "named_areas_total": 7,
+    "geocoded_fraction": 0.14,
+    "span_km": 0.0,
+    "centroid": [
+     -88.76401,
+     17.25376
+    ],
+    "confidence": "too few points to enclose an area",
+    "places": [
+     "Belmopan"
+    ],
+    "source_confidence": "bel_reposted",
+    "areas_list_truncated": false,
+    "rejected_outliers": [
+     {
+      "name": "Central",
+      "km_from_cluster": 90.5
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "belmopan-4",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -88.76401,
+     17.25376
+    ]
+   },
+   "properties": {
+    "feeder_id": "belmopan-4",
+    "load_center": "Belmopan",
+    "feeder": "4",
+    "district": "Cayo",
+    "point_count": 1,
+    "named_areas_total": 3,
+    "geocoded_fraction": 0.33,
+    "span_km": 0.0,
+    "centroid": [
+     -88.76401,
+     17.25376
+    ],
+    "confidence": "too few points to enclose an area",
+    "places": [
+     "Belmopan"
+    ],
+    "source_confidence": "bel_reposted",
+    "areas_list_truncated": true,
+    "rejected_outliers": [
+     {
+      "name": "Maya Mopan",
+      "km_from_cluster": 70.4
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "corozal-1",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -88.3998,
+       18.40175
+      ],
+      [
+       -88.38914,
+       18.38975
+      ],
+      [
+       -88.38849,
+       18.39375
+      ],
+      [
+       -88.3998,
+       18.40175
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "feeder_id": "corozal-1",
+    "load_center": "Corozal",
+    "feeder": "1",
+    "district": "Corozal",
+    "point_count": 3,
+    "named_areas_total": 5,
+    "geocoded_fraction": 0.6,
+    "span_km": 1.7,
+    "centroid": [
+     -88.39248,
+     18.39508
+    ],
+    "confidence": "sparse",
+    "places": [
+     "Corozal",
+     "San Antonio",
+     "Santa Rita"
+    ],
+    "source_confidence": "bel_reposted",
+    "areas_list_truncated": true,
+    "rejected_outliers": []
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "corozal-2",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -88.38849,
+      18.39375
+     ],
+     [
+      -88.41031,
+      18.37753
+     ]
+    ]
+   },
+   "properties": {
+    "feeder_id": "corozal-2",
+    "load_center": "Corozal",
+    "feeder": "2",
+    "district": "Corozal",
+    "point_count": 2,
+    "named_areas_total": 3,
+    "geocoded_fraction": 0.67,
+    "span_km": 2.9,
+    "centroid": [
+     -88.3994,
+     18.38564
+    ],
+    "confidence": "too few points to enclose an area",
+    "places": [
+     "Corozal",
+     "Ranchito"
+    ],
+    "source_confidence": "bel_reposted",
+    "areas_list_truncated": true,
+    "rejected_outliers": []
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "corozal-3",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -88.38849,
+      18.39375
+     ],
+     [
+      -88.43393,
+      18.38654
+     ]
+    ]
+   },
+   "properties": {
+    "feeder_id": "corozal-3",
+    "load_center": "Corozal",
+    "feeder": "3",
+    "district": "Corozal",
+    "point_count": 2,
+    "named_areas_total": 2,
+    "geocoded_fraction": 1.0,
+    "span_km": 4.9,
+    "centroid": [
+     -88.41121,
+     18.39015
+    ],
+    "confidence": "too few points to enclose an area",
+    "places": [
+     "Corozal",
+     "Xaibe"
+    ],
+    "source_confidence": "bel_reposted",
+    "areas_list_truncated": true,
+    "rejected_outliers": []
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "corozal-4",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -88.4129,
+       18.30984
+      ],
+      [
+       -88.41073,
+       18.23085
+      ],
+      [
+       -88.35441,
+       18.32133
+      ],
+      [
+       -88.38849,
+       18.39375
+      ],
+      [
+       -88.4129,
+       18.30984
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "feeder_id": "corozal-4",
+    "load_center": "Corozal",
+    "feeder": "4",
+    "district": "Corozal",
+    "point_count": 4,
+    "named_areas_total": 8,
+    "geocoded_fraction": 0.5,
+    "span_km": 18.2,
+    "centroid": [
+     -88.39163,
+     18.31394
+    ],
+    "confidence": "sparse",
+    "places": [
+     "Corozal",
+     "Progresso",
+     "Pueblo Nuevo",
+     "San Fernando"
+    ],
+    "source_confidence": "bel_reposted",
+    "areas_list_truncated": true,
+    "rejected_outliers": []
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "corozal-5",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -88.41667,
+       18.43333
+      ],
+      [
+       -88.38849,
+       18.39375
+      ],
+      [
+       -88.39389,
+       18.48514
+      ],
+      [
+       -88.41667,
+       18.43333
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "feeder_id": "corozal-5",
+    "load_center": "Corozal",
+    "feeder": "5",
+    "district": "Corozal",
+    "point_count": 3,
+    "named_areas_total": 3,
+    "geocoded_fraction": 1.0,
+    "span_km": 10.1,
+    "centroid": [
+     -88.39968,
+     18.43741
+    ],
+    "confidence": "sparse",
+    "places": [
+     "Chan Chen",
+     "Corozal",
+     "Santa Elena"
+    ],
+    "source_confidence": "bel_reposted",
+    "areas_list_truncated": false,
+    "rejected_outliers": []
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "corozal-6",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -88.52085,
+       18.30396
+      ],
+      [
+       -88.5122,
+       18.29412
+      ],
+      [
+       -88.50775,
+       18.2972
+      ],
+      [
+       -88.47419,
+       18.32308
+      ],
+      [
+       -88.38849,
+       18.39375
+      ],
+      [
+       -88.52085,
+       18.30396
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "feeder_id": "corozal-6",
+    "load_center": "Corozal",
+    "feeder": "6",
+    "district": "Corozal",
+    "point_count": 5,
+    "named_areas_total": 4,
+    "geocoded_fraction": 1.25,
+    "span_km": 17.1,
+    "centroid": [
+     -88.4807,
+     18.32242
+    ],
+    "confidence": "sparse",
+    "places": [
+     "Concepcion",
+     "Corozal",
+     "San Narciso",
+     "San Roman",
+     "Santa Clara"
+    ],
+    "source_confidence": "bel_direct",
+    "areas_list_truncated": true,
+    "rejected_outliers": []
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "dangriga-1",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -88.2738,
+       16.97145
+      ],
+      [
+       -88.23313,
+       16.9697
+      ],
+      [
+       -88.2657,
+       16.98037
+      ],
+      [
+       -88.2738,
+       16.97145
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "feeder_id": "dangriga-1",
+    "load_center": "Dangriga",
+    "feeder": "1",
+    "district": "Stann Creek",
+    "point_count": 3,
+    "named_areas_total": 3,
+    "geocoded_fraction": 1.0,
+    "span_km": 4.3,
+    "centroid": [
+     -88.25754,
+     16.97384
+    ],
+    "confidence": "sparse",
+    "places": [
+     "Dangriga",
+     "Long Bank",
+     "Sarawina"
+    ],
+    "source_confidence": "bel_reposted",
+    "areas_list_truncated": false,
+    "rejected_outliers": []
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "dangriga-2",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -88.61096,
+       17.09047
+      ],
+      [
+       -88.52961,
+       17.04299
+      ],
+      [
+       -88.44942,
+       17.0022
+      ],
+      [
+       -88.40523,
+       16.9937
+      ],
+      [
+       -88.23313,
+       16.9697
+      ],
+      [
+       -88.31251,
+       17.00265
+      ],
+      [
+       -88.61096,
+       17.09047
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "feeder_id": "dangriga-2",
+    "load_center": "Dangriga",
+    "feeder": "2",
+    "district": "Stann Creek",
+    "point_count": 10,
+    "named_areas_total": 14,
+    "geocoded_fraction": 0.71,
+    "span_km": 42.4,
+    "centroid": [
+     -88.41879,
+     17.01211
+    ],
+    "confidence": "indicative",
+    "places": [
+     "Alta Vista",
+     "Canada Hill",
+     "Dangriga",
+     "Hope Creek",
+     "Hummingbird Community",
+     "Middlesex",
+     "Pomona",
+     "St. Margaret",
+     "Steadfast",
+     "Valley Community"
+    ],
+    "source_confidence": "bel_direct",
+    "areas_list_truncated": false,
+    "rejected_outliers": [
+     {
+      "name": "Santa Martha",
+      "km_from_cluster": 111.8
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "dangriga-3",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -88.38235,
+       16.79843
+      ],
+      [
+       -88.31011,
+       16.69003
+      ],
+      [
+       -88.23313,
+       16.9697
+      ],
+      [
+       -88.33333,
+       16.88333
+      ],
+      [
+       -88.38235,
+       16.79843
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "feeder_id": "dangriga-3",
+    "load_center": "Dangriga",
+    "feeder": "3",
+    "district": "Stann Creek",
+    "point_count": 6,
+    "named_areas_total": 7,
+    "geocoded_fraction": 0.86,
+    "span_km": 32.0,
+    "centroid": [
+     -88.31119,
+     16.83758
+    ],
+    "confidence": "indicative",
+    "places": [
+     "Dangriga",
+     "Hopkins",
+     "Maya Center",
+     "Riversdale",
+     "Silk Grass",
+     "Sittee River"
+    ],
+    "source_confidence": "bel_reposted",
+    "areas_list_truncated": false,
+    "rejected_outliers": []
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "independence-1",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -88.41878,
+     16.5344
+    ]
+   },
+   "properties": {
+    "feeder_id": "independence-1",
+    "load_center": "Independence",
+    "feeder": "1",
+    "district": "Stann Creek",
+    "point_count": 1,
+    "named_areas_total": 1,
+    "geocoded_fraction": 1.0,
+    "span_km": 0.0,
+    "centroid": [
+     -88.41878,
+     16.5344
+    ],
+    "confidence": "too few points to enclose an area",
+    "places": [
+     "Independence and Mango Creek"
+    ],
+    "source_confidence": "bel_reposted",
+    "areas_list_truncated": false,
+    "rejected_outliers": []
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "independence-2",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -88.41878,
+     16.5344
+    ]
+   },
+   "properties": {
+    "feeder_id": "independence-2",
+    "load_center": "Independence",
+    "feeder": "2",
+    "district": "Stann Creek",
+    "point_count": 1,
+    "named_areas_total": 0,
+    "geocoded_fraction": null,
+    "span_km": 0.0,
+    "centroid": [
+     -88.41878,
+     16.5344
+    ],
+    "confidence": "too few points to enclose an area",
+    "places": [
+     "Independence and Mango Creek"
+    ],
+    "source_confidence": "named_only",
+    "areas_list_truncated": true,
+    "rejected_outliers": []
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "independence-3",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -88.55911,
+       16.61645
+      ],
+      [
+       -88.51528,
+       16.56232
+      ],
+      [
+       -88.41878,
+       16.5344
+      ],
+      [
+       -88.42548,
+       16.6975
+      ],
+      [
+       -88.52542,
+       16.66018
+      ],
+      [
+       -88.55911,
+       16.61645
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "feeder_id": "independence-3",
+    "load_center": "Independence",
+    "feeder": "3",
+    "district": "Stann Creek",
+    "point_count": 7,
+    "named_areas_total": 10,
+    "geocoded_fraction": 0.7,
+    "span_km": 18.0,
+    "centroid": [
+     -88.48944,
+     16.62527
+    ],
+    "confidence": "indicative",
+    "places": [
+     "Georgetown",
+     "Independence and Mango Creek",
+     "Maya Mopan",
+     "Red Bank Village",
+     "San Juan",
+     "San Roman Village",
+     "Santa Cruz"
+    ],
+    "source_confidence": "bel_reposted",
+    "areas_list_truncated": false,
+    "rejected_outliers": []
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "independence-all-peninsula",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -88.63577,
+       16.51529
+      ],
+      [
+       -88.62452,
+       16.47194
+      ],
+      [
+       -88.48517,
+       16.36166
+      ],
+      [
+       -88.36647,
+       16.51419
+      ],
+      [
+       -88.35373,
+       16.61542
+      ],
+      [
+       -88.42548,
+       16.6975
+      ],
+      [
+       -88.52542,
+       16.66018
+      ],
+      [
+       -88.55911,
+       16.61645
+      ],
+      [
+       -88.63577,
+       16.51529
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "feeder_id": "independence-all-peninsula",
+    "load_center": "Independence",
+    "feeder": "ALL",
+    "district": "Stann Creek",
+    "point_count": 15,
+    "named_areas_total": 25,
+    "geocoded_fraction": 0.6,
+    "span_km": 37.7,
+    "centroid": [
+     -88.48481,
+     16.56999
+    ],
+    "confidence": "indicative",
+    "places": [
+     "Bella Vista",
+     "Bladen",
+     "Georgetown",
+     "Independence and Mango Creek",
+     "Maya Beach",
+     "Maya Mopan",
+     "Monkey River Town",
+     "Placencia",
+     "Red Bank Village",
+     "San Isidro",
+     "San Roman Village",
+     "Santa Cruz",
+     "Santa Rosa Village",
+     "Seine Bight Village",
+     "Trio Village"
+    ],
+    "source_confidence": null,
+    "areas_list_truncated": null,
+    "rejected_outliers": []
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ladyville-1",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -88.29,
+     17.55427
+    ]
+   },
+   "properties": {
+    "feeder_id": "ladyville-1",
+    "load_center": "Ladyville",
+    "feeder": "1",
+    "district": "Belize",
+    "point_count": 1,
+    "named_areas_total": 0,
+    "geocoded_fraction": null,
+    "span_km": 0.0,
+    "centroid": [
+     -88.29,
+     17.55427
+    ],
+    "confidence": "too few points to enclose an area",
+    "places": [
+     "Ladyville"
+    ],
+    "source_confidence": "named_only",
+    "areas_list_truncated": true,
+    "rejected_outliers": []
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ladyville-2",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -88.54203,
+       17.77599
+      ],
+      [
+       -88.29,
+       17.55427
+      ],
+      [
+       -88.27618,
+       17.89166
+      ],
+      [
+       -88.31174,
+       17.87788
+      ],
+      [
+       -88.54203,
+       17.77599
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "feeder_id": "ladyville-2",
+    "load_center": "Ladyville",
+    "feeder": "2",
+    "district": "Belize",
+    "point_count": 7,
+    "named_areas_total": 12,
+    "geocoded_fraction": 0.58,
+    "span_km": 37.3,
+    "centroid": [
+     -88.38061,
+     17.73252
+    ],
+    "confidence": "indicative",
+    "places": [
+     "Biscayne",
+     "Bomba",
+     "Crooked Tree",
+     "Gardenia",
+     "Ladyville",
+     "Maskall",
+     "Sand Hill"
+    ],
+    "source_confidence": "bel_reposted",
+    "areas_list_truncated": false,
+    "rejected_outliers": []
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ladyville-3",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -88.29,
+     17.55427
+    ]
+   },
+   "properties": {
+    "feeder_id": "ladyville-3",
+    "load_center": "Ladyville",
+    "feeder": "3",
+    "district": "Belize",
+    "point_count": 1,
+    "named_areas_total": 0,
+    "geocoded_fraction": null,
+    "span_km": 0.0,
+    "centroid": [
+     -88.29,
+     17.55427
+    ],
+    "confidence": "too few points to enclose an area",
+    "places": [
+     "Ladyville"
+    ],
+    "source_confidence": "named_only",
+    "areas_list_truncated": true,
+    "rejected_outliers": []
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "orange-walk-1",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -88.59837,
+       17.96704
+      ],
+      [
+       -88.5429,
+       18.01306
+      ],
+      [
+       -88.56328,
+       18.08124
+      ],
+      [
+       -88.59837,
+       17.96704
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "feeder_id": "orange-walk-1",
+    "load_center": "Orange Walk",
+    "feeder": "1",
+    "district": "Orange Walk",
+    "point_count": 3,
+    "named_areas_total": 10,
+    "geocoded_fraction": 0.3,
+    "span_km": 13.2,
+    "centroid": [
+     -88.56818,
+     18.02045
+    ],
+    "confidence": "sparse",
+    "places": [
+     "Carmelita",
+     "Guinea Grass",
+     "Orange Walk"
+    ],
+    "source_confidence": "bel_reposted",
+    "areas_list_truncated": true,
+    "rejected_outliers": [
+     {
+      "name": "Palmar",
+      "km_from_cluster": 176.3
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "orange-walk-2",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -88.56328,
+     18.08124
+    ]
+   },
+   "properties": {
+    "feeder_id": "orange-walk-2",
+    "load_center": "Orange Walk",
+    "feeder": "2",
+    "district": "Orange Walk",
+    "point_count": 1,
+    "named_areas_total": 1,
+    "geocoded_fraction": 1.0,
+    "span_km": 0.0,
+    "centroid": [
+     -88.56328,
+     18.08124
+    ],
+    "confidence": "too few points to enclose an area",
+    "places": [
+     "Orange Walk"
+    ],
+    "source_confidence": "bel_reposted",
+    "areas_list_truncated": true,
+    "rejected_outliers": []
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "orange-walk-3",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -88.56328,
+     18.08124
+    ]
+   },
+   "properties": {
+    "feeder_id": "orange-walk-3",
+    "load_center": "Orange Walk",
+    "feeder": "3",
+    "district": "Orange Walk",
+    "point_count": 1,
+    "named_areas_total": 9,
+    "geocoded_fraction": 0.11,
+    "span_km": 0.0,
+    "centroid": [
+     -88.56328,
+     18.08124
+    ],
+    "confidence": "too few points to enclose an area",
+    "places": [
+     "Orange Walk"
+    ],
+    "source_confidence": "bel_reposted",
+    "areas_list_truncated": false,
+    "rejected_outliers": []
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "orange-walk-4",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -88.88982,
+       17.8932
+      ],
+      [
+       -88.77334,
+       17.873
+      ],
+      [
+       -88.56328,
+       18.08124
+      ],
+      [
+       -88.64607,
+       18.09098
+      ],
+      [
+       -88.88982,
+       17.8932
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "feeder_id": "orange-walk-4",
+    "load_center": "Orange Walk",
+    "feeder": "4",
+    "district": "Orange Walk",
+    "point_count": 7,
+    "named_areas_total": 8,
+    "geocoded_fraction": 0.88,
+    "span_km": 40.4,
+    "centroid": [
+     -88.70679,
+     17.99614
+    ],
+    "confidence": "indicative",
+    "places": [
+     "August Pine Ridge",
+     "Blue Creek Village",
+     "Orange Walk",
+     "San Felipe",
+     "San Lazaro",
+     "Trinidad",
+     "Yo Creek"
+    ],
+    "source_confidence": "bel_reposted",
+    "areas_list_truncated": true,
+    "rejected_outliers": []
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "punta-gorda-1",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -88.8097,
+     16.09835
+    ]
+   },
+   "properties": {
+    "feeder_id": "punta-gorda-1",
+    "load_center": "Punta Gorda",
+    "feeder": "1",
+    "district": "Toledo",
+    "point_count": 1,
+    "named_areas_total": 2,
+    "geocoded_fraction": 0.5,
+    "span_km": 0.0,
+    "centroid": [
+     -88.8097,
+     16.09835
+    ],
+    "confidence": "too few points to enclose an area",
+    "places": [
+     "Punta Gorda"
+    ],
+    "source_confidence": "bel_reposted",
+    "areas_list_truncated": false,
+    "rejected_outliers": []
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "punta-gorda-2",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -89.09389,
+       16.16222
+      ],
+      [
+       -88.91667,
+       16.0
+      ],
+      [
+       -88.8097,
+       16.09835
+      ],
+      [
+       -88.79523,
+       16.11947
+      ],
+      [
+       -88.87659,
+       16.28294
+      ],
+      [
+       -89.01667,
+       16.26667
+      ],
+      [
+       -89.09389,
+       16.16222
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "feeder_id": "punta-gorda-2",
+    "load_center": "Punta Gorda",
+    "feeder": "2",
+    "district": "Toledo",
+    "point_count": 21,
+    "named_areas_total": 22,
+    "geocoded_fraction": 0.95,
+    "span_km": 32.3,
+    "centroid": [
+     -88.9313,
+     16.18319
+    ],
+    "confidence": "indicative",
+    "places": [
+     "Aguacate",
+     "Barranco",
+     "Big Fall",
+     "Blue Creek Village",
+     "Cattle Landing",
+     "Crique Jute",
+     "Forest Home",
+     "Hicattee",
+     "Jacintoville",
+     "Jordan",
+     "Lagoona",
+     "Medway City Main Village",
+     "Nafreda",
+     "Punta Gorda",
+     "San Antonio",
+     "San Felipe",
+     "San Margos",
+     "San Pedro",
+     "Silver Creek",
+     "The Dump",
+     "Yemeri Grove"
+    ],
+    "source_confidence": "bel_direct",
+    "areas_list_truncated": false,
+    "rejected_outliers": [
+     {
+      "name": "Santana",
+      "km_from_cluster": 196.3
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "punta-gorda-all-toledo",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -88.8097,
+     16.09835
+    ]
+   },
+   "properties": {
+    "feeder_id": "punta-gorda-all-toledo",
+    "load_center": "Punta Gorda",
+    "feeder": "ALL",
+    "district": "Toledo",
+    "point_count": 1,
+    "named_areas_total": 1,
+    "geocoded_fraction": 1.0,
+    "span_km": 0.0,
+    "centroid": [
+     -88.8097,
+     16.09835
+    ],
+    "confidence": "too few points to enclose an area",
+    "places": [
+     "Punta Gorda"
+    ],
+    "source_confidence": null,
+    "areas_list_truncated": null,
+    "rejected_outliers": []
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "san-ignacio-1",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -89.0696,
+      17.1588
+     ],
+     [
+      -89.05462,
+      17.16142
+     ]
+    ]
+   },
+   "properties": {
+    "feeder_id": "san-ignacio-1",
+    "load_center": "San Ignacio",
+    "feeder": "1",
+    "district": "Cayo",
+    "point_count": 2,
+    "named_areas_total": 7,
+    "geocoded_fraction": 0.29,
+    "span_km": 1.6,
+    "centroid": [
+     -89.06211,
+     17.16011
+    ],
+    "confidence": "too few points to enclose an area",
+    "places": [
+     "San Ignacio",
+     "Santa Elena"
+    ],
+    "source_confidence": "bel_reposted",
+    "areas_list_truncated": true,
+    "rejected_outliers": []
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "san-ignacio-2",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -89.15252,
+       17.02351
+      ],
+      [
+       -88.93385,
+       17.21031
+      ],
+      [
+       -89.07435,
+       17.18594
+      ],
+      [
+       -89.111,
+       17.168
+      ],
+      [
+       -89.13917,
+       17.075
+      ],
+      [
+       -89.15252,
+       17.02351
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "feeder_id": "san-ignacio-2",
+    "load_center": "San Ignacio",
+    "feeder": "2",
+    "district": "Cayo",
+    "point_count": 7,
+    "named_areas_total": 6,
+    "geocoded_fraction": 1.17,
+    "span_km": 31.1,
+    "centroid": [
+     -89.07644,
+     17.14043
+    ],
+    "confidence": "indicative",
+    "places": [
+     "Benque Viejo el Carmen",
+     "Bullet Tree Falls",
+     "El Arenal",
+     "San Ignacio",
+     "Santa Elena",
+     "Santa Familia",
+     "Unitedville"
+    ],
+    "source_confidence": "bel_reposted",
+    "areas_list_truncated": true,
+    "rejected_outliers": []
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "san-pedro-1",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -87.9659,
+     17.91598
+    ]
+   },
+   "properties": {
+    "feeder_id": "san-pedro-1",
+    "load_center": "San Pedro",
+    "feeder": "1",
+    "district": "Belize",
+    "point_count": 1,
+    "named_areas_total": 1,
+    "geocoded_fraction": 1.0,
+    "span_km": 0.0,
+    "centroid": [
+     -87.9659,
+     17.91598
+    ],
+    "confidence": "too few points to enclose an area",
+    "places": [
+     "San Pedro"
+    ],
+    "source_confidence": "bel_reposted",
+    "areas_list_truncated": true,
+    "rejected_outliers": []
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "san-pedro-2",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -87.9659,
+     17.91598
+    ]
+   },
+   "properties": {
+    "feeder_id": "san-pedro-2",
+    "load_center": "San Pedro",
+    "feeder": "2",
+    "district": "Belize",
+    "point_count": 1,
+    "named_areas_total": 5,
+    "geocoded_fraction": 0.2,
+    "span_km": 0.0,
+    "centroid": [
+     -87.9659,
+     17.91598
+    ],
+    "confidence": "too few points to enclose an area",
+    "places": [
+     "San Pedro"
+    ],
+    "source_confidence": "bel_direct",
+    "areas_list_truncated": true,
+    "rejected_outliers": []
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "san-pedro-3",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -87.9659,
+     17.91598
+    ]
+   },
+   "properties": {
+    "feeder_id": "san-pedro-3",
+    "load_center": "San Pedro",
+    "feeder": "3",
+    "district": "Belize",
+    "point_count": 1,
+    "named_areas_total": 2,
+    "geocoded_fraction": 0.5,
+    "span_km": 0.0,
+    "centroid": [
+     -87.9659,
+     17.91598
+    ],
+    "confidence": "too few points to enclose an area",
+    "places": [
+     "San Pedro"
+    ],
+    "source_confidence": "bel_reposted",
+    "areas_list_truncated": false,
+    "rejected_outliers": []
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "san-pedro-4",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -87.9659,
+     17.91598
+    ]
+   },
+   "properties": {
+    "feeder_id": "san-pedro-4",
+    "load_center": "San Pedro",
+    "feeder": "4",
+    "district": "Belize",
+    "point_count": 1,
+    "named_areas_total": 1,
+    "geocoded_fraction": 1.0,
+    "span_km": 0.0,
+    "centroid": [
+     -87.9659,
+     17.91598
+    ],
+    "confidence": "too few points to enclose an area",
+    "places": [
+     "San Pedro"
+    ],
+    "source_confidence": "bel_reposted",
+    "areas_list_truncated": true,
+    "rejected_outliers": []
+   }
+  }
+ ]
+}

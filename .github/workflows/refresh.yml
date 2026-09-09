@@ -1,0 +1,79 @@
+# Refresh data/outages.json from BEL's Power Updates page.
+#
+# ─────────────────────────────────────────────────────────────────────────────
+#  THIS WORKFLOW IS NOT CONNECTED YET.
+#
+#  The hourly schedule below is commented out on purpose, so nothing runs and
+#  nothing is committed until you switch it on. Right now the only way to run
+#  it is by hand, from the Actions tab, via workflow_dispatch.
+#
+#  TO CONNECT IT, three steps:
+#    1. Uncomment the two `schedule:` lines.
+#    2. Settings > Actions > General > Workflow permissions:
+#       select "Read and write permissions" so the job can push its commit.
+#    3. Run it once by hand first (Actions > Refresh outage data > Run workflow)
+#       and read the log. The "no changes" path is the healthy one when BEL has
+#       not moved anything.
+# ─────────────────────────────────────────────────────────────────────────────
+
+name: Refresh outage data
+
+on:
+  workflow_dispatch:
+  # schedule:
+  #   - cron: "17 * * * *"   # hourly at :17. Actions cron drifts, often by
+  #                          # 30 minutes or more. Never promise the user
+  #                          # minute accuracy anywhere in the UI.
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-outages
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r scraper/requirements.txt
+
+      - name: Run the parser tests first
+        # If BEL changes the page shape, fail loudly here rather than commit
+        # a file full of nulls.
+        run: python scraper/scrape.py --self-test
+
+      - name: Scrape
+        run: python scraper/scrape.py
+
+      - name: Repack the browser bundle
+        # The page reads data/bundle.js, not the JSON. Skipping this step
+        # scrapes new data and then serves the old data forever.
+        run: python scraper/build_bundle.py
+
+      - name: Commit only if the data actually changed
+        run: |
+          if git diff --quiet -- data/outages.json data/bundle.js; then
+            echo "No change to the outage data. Nothing to commit."
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/outages.json data/bundle.js
+          git commit -m "data: refresh outages $(date -u +'%Y-%m-%dT%H:%MZ')"
+          git push
+
+# Note on the 60-day rule: GitHub disables scheduled workflows after 60 days of
+# repository inactivity. This workflow's own data commits count as activity, so
+# once connected it keeps itself alive. If BEL publishes nothing for two solid
+# months there would be no commits and the schedule could lapse, so check the
+# Actions tab if the site's "checked" time ever goes quiet for weeks.
