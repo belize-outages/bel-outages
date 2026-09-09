@@ -8,6 +8,30 @@
   },
   "areas": [
     {
+      "id": "osm-caribbean-way",
+      "name": "Caribbean Way",
+      "aliases": [],
+      "district": null,
+      "type": "village",
+      "lat": 16.6574,
+      "lon": -88.3144,
+      "feeders_seen": [],
+      "source_phrases": [],
+      "match": "osm_settlement"
+    },
+    {
+      "id": "osm-seine-bight",
+      "name": "Seine Bight",
+      "aliases": [],
+      "district": null,
+      "type": "village",
+      "lat": 16.5733,
+      "lon": -88.3665,
+      "feeders_seen": [],
+      "source_phrases": [],
+      "match": "osm_settlement"
+    },
+    {
       "id": "txt-banak-street",
       "name": "Banak Street",
       "aliases": [],
@@ -173,6 +197,18 @@
       "match": "unique_name"
     },
     {
+      "id": "osm-davis-bank",
+      "name": "Davis Bank",
+      "aliases": [],
+      "district": "Belize",
+      "type": "village",
+      "lat": 17.6464,
+      "lon": -88.396,
+      "feeders_seen": [],
+      "source_phrases": [],
+      "match": "osm_settlement"
+    },
+    {
       "id": "txt-dolphin-street",
       "name": "Dolphin Street",
       "aliases": [],
@@ -237,6 +273,30 @@
       "match": "unique_name"
     },
     {
+      "id": "osm-gentleville",
+      "name": "Gentleville",
+      "aliases": [],
+      "district": "Belize",
+      "type": "village",
+      "lat": 17.5809,
+      "lon": -88.3517,
+      "feeders_seen": [],
+      "source_phrases": [],
+      "match": "osm_settlement"
+    },
+    {
+      "id": "osm-grace-bank",
+      "name": "Grace Bank",
+      "aliases": [],
+      "district": "Belize",
+      "type": "village",
+      "lat": 17.6481,
+      "lon": -88.4051,
+      "feeders_seen": [],
+      "source_phrases": [],
+      "match": "osm_settlement"
+    },
+    {
       "id": "txt-kelly-street",
       "name": "Kelly Street",
       "aliases": [],
@@ -286,6 +346,18 @@
         "Lake Gardens"
       ],
       "match": "ungeocoded:no_geonames_entry"
+    },
+    {
+      "id": "osm-lord-s-bank",
+      "name": "Lord's Bank",
+      "aliases": [],
+      "district": "Belize",
+      "type": "village",
+      "lat": 17.5515,
+      "lon": -88.3264,
+      "feeders_seen": [],
+      "source_phrases": [],
+      "match": "osm_settlement"
     },
     {
       "id": "txt-lords-bank",
@@ -456,6 +528,18 @@
       "match": "ungeocoded:no_geonames_entry"
     },
     {
+      "id": "osm-rancho-dolores",
+      "name": "Rancho Dolores",
+      "aliases": [],
+      "district": "Belize",
+      "type": "village",
+      "lat": 17.5373,
+      "lon": -88.6268,
+      "feeders_seen": [],
+      "source_phrases": [],
+      "match": "osm_settlement"
+    },
+    {
       "id": "txt-san-pedrito",
       "name": "San Pedrito",
       "aliases": [],
@@ -573,6 +657,18 @@
       "match": "ungeocoded:no_geonames_entry"
     },
     {
+      "id": "osm-waterside-community",
+      "name": "Waterside Community",
+      "aliases": [],
+      "district": "Belize",
+      "type": "village",
+      "lat": 17.6039,
+      "lon": -88.511,
+      "feeders_seen": [],
+      "source_phrases": [],
+      "match": "osm_settlement"
+    },
+    {
       "id": "txt-west-canal",
       "name": "West Canal",
       "aliases": [],
@@ -669,6 +765,18 @@
       "match": "ungeocoded:street"
     },
     {
+      "id": "osm-arizona",
+      "name": "Arizona",
+      "aliases": [],
+      "district": "Cayo",
+      "type": "village",
+      "lat": 17.2142,
+      "lon": -88.8504,
+      "feeders_seen": [],
+      "source_phrases": [],
+      "match": "osm_settlement"
+    },
+    {
       "id": "gn-3582672",
       "name": "Belmopan",
       "aliases": [
@@ -694,6 +802,18 @@
       "is_load_center": true
     },
     {
+      "id": "osm-benque-viejo-del-carmen",
+      "name": "Benque Viejo del Carmen",
+      "aliases": [],
+      "district": "Cayo",
+      "type": "town",
+      "lat": 17.0703,
+      "lon": -89.1365,
+      "feeders_seen": [],
+      "source_phrases": [],
+      "match": "osm_settlement"
+    },
+    {
       "id": "gn-3582662",
       "name": "Benque Viejo el Carmen",
       "aliases": [
@@ -717,6 +837,18 @@
       "match": "unique_name"
     },
     {
+      "id": "osm-blackman-eddy",
+      "name": "Blackman Eddy",
+      "aliases": [],
+      "district": "Cayo",
+      "type": "village",
+      "lat": 17.2255,
+      "lon": -88.922,
+      "feeders_seen": [],
+      "source_phrases": [],
+      "match": "osm_settlement"
+    },
+    {
       "id": "gn-3582524",
       "name": "Bullet Tree Falls",
       "aliases": [
@@ -733,6 +865,90 @@
         "Bullet Tree Falls"
       ],
       "match": "district_match"
+    },
+    {
+      "id": "osm-camalote",
+      "name": "Camalote",
+      "aliases": [],
+      "district": "Cayo",
+      "type": "village",
+      "lat": 17.2533,
+      "lon": -88.8239,
+      "feeders_seen": [],
+      "source_phrases": [],
+      "match": "osm_settlement"
+    },
+    {
+      "id": "osm-carmelita-gardens",
+      "name": "Carmelita Gardens",
+      "aliases": [],
+      "district": "Cayo",
+      "type": "village",
+      "lat": 17.1833,
+      "lon": -89.0612,
+      "feeders_seen": [],
+      "source_phrases": [],
+      "match": "osm_settlement"
+    },
+    {
+      "id": "osm-cristo-rey",
+      "name": "Cristo Rey",
+      "aliases": [],
+      "district": "Cayo",
+      "type": "village",
+      "lat": 17.1299,
+      "lon": -89.0508,
+      "feeders_seen": [],
+      "source_phrases": [],
+      "match": "osm_settlement"
+    },
+    {
+      "id": "osm-danter-ridge-estate",
+      "name": "Danter Ridge Estate",
+      "aliases": [],
+      "district": "Cayo",
+      "type": "village",
+      "lat": 17.2354,
+      "lon": -88.9254,
+      "feeders_seen": [],
+      "source_phrases": [],
+      "match": "osm_settlement"
+    },
+    {
+      "id": "osm-duck-run-i",
+      "name": "Duck Run I",
+      "aliases": [],
+      "district": "Cayo",
+      "type": "village",
+      "lat": 17.2156,
+      "lon": -89.0167,
+      "feeders_seen": [],
+      "source_phrases": [],
+      "match": "osm_settlement"
+    },
+    {
+      "id": "osm-duck-run-ii",
+      "name": "Duck Run II",
+      "aliases": [],
+      "district": "Cayo",
+      "type": "village",
+      "lat": 17.2441,
+      "lon": -89.0311,
+      "feeders_seen": [],
+      "source_phrases": [],
+      "match": "osm_settlement"
+    },
+    {
+      "id": "osm-duck-run-iii",
+      "name": "Duck Run III",
+      "aliases": [],
+      "district": "Cayo",
+      "type": "village",
+      "lat": 17.2606,
+      "lon": -89.0421,
+      "feeders_seen": [],
+      "source_phrases": [],
+      "match": "osm_settlement"
     },
     {
       "id": "gn-3582742",
@@ -914,6 +1130,18 @@
       "match": "ungeocoded:no_geonames_entry"
     },
     {
+      "id": "osm-ontario",
+      "name": "Ontario",
+      "aliases": [],
+      "district": "Cayo",
+      "type": "village",
+      "lat": 17.2243,
+      "lon": -88.8981,
+      "feeders_seen": [],
+      "source_phrases": [],
+      "match": "osm_settlement"
+    },
+    {
       "id": "gn-3581505",
       "name": "Palmar",
       "aliases": [],
@@ -962,6 +1190,18 @@
       "match": "ungeocoded:landmark"
     },
     {
+      "id": "osm-roaring-creek",
+      "name": "Roaring Creek",
+      "aliases": [],
+      "district": "Cayo",
+      "type": "village",
+      "lat": 17.2506,
+      "lon": -88.7967,
+      "feeders_seen": [],
+      "source_phrases": [],
+      "match": "osm_settlement"
+    },
+    {
       "id": "gn-3581194",
       "name": "San Ignacio",
       "aliases": [
@@ -987,6 +1227,30 @@
       ],
       "match": "district_match_substring",
       "is_load_center": true
+    },
+    {
+      "id": "osm-san-ignacio-santa-elena",
+      "name": "San Ignacio & Santa Elena",
+      "aliases": [],
+      "district": "Cayo",
+      "type": "town",
+      "lat": 17.1526,
+      "lon": -89.0725,
+      "feeders_seen": [],
+      "source_phrases": [],
+      "match": "osm_settlement"
+    },
+    {
+      "id": "osm-san-jose-succotz",
+      "name": "San Jose Succotz",
+      "aliases": [],
+      "district": "Cayo",
+      "type": "village",
+      "lat": 17.084,
+      "lon": -89.1277,
+      "feeders_seen": [],
+      "source_phrases": [],
+      "match": "osm_settlement"
     },
     {
       "id": "gn-3581143",
@@ -1057,6 +1321,18 @@
       "match": "ungeocoded:landmark"
     },
     {
+      "id": "osm-spanish-lookout",
+      "name": "Spanish Lookout",
+      "aliases": [],
+      "district": "Cayo",
+      "type": "town",
+      "lat": 17.3129,
+      "lon": -88.8457,
+      "feeders_seen": [],
+      "source_phrases": [],
+      "match": "osm_settlement"
+    },
+    {
       "id": "gn-11049077",
       "name": "St. Margaret",
       "aliases": [
@@ -1075,6 +1351,18 @@
       "match": "unique_name"
     },
     {
+      "id": "osm-teakettle",
+      "name": "Teakettle",
+      "aliases": [],
+      "district": "Cayo",
+      "type": "village",
+      "lat": 17.2278,
+      "lon": -88.8573,
+      "feeders_seen": [],
+      "source_phrases": [],
+      "match": "osm_settlement"
+    },
+    {
       "id": "gn-3580873",
       "name": "Unitedville",
       "aliases": [],
@@ -1089,6 +1377,18 @@
         "Unitedville"
       ],
       "match": "unique_name"
+    },
+    {
+      "id": "osm-unitedville-village",
+      "name": "Unitedville Village",
+      "aliases": [],
+      "district": "Cayo",
+      "type": "village",
+      "lat": 17.2181,
+      "lon": -88.9381,
+      "feeders_seen": [],
+      "source_phrases": [],
+      "match": "osm_settlement"
     },
     {
       "id": "txt-university-heights",
@@ -1121,6 +1421,30 @@
         "Valley Community"
       ],
       "match": "unique_name"
+    },
+    {
+      "id": "osm-emeri",
+      "name": "Émeri",
+      "aliases": [],
+      "district": "Cayo",
+      "type": "village",
+      "lat": 17.2696,
+      "lon": -88.6191,
+      "feeders_seen": [],
+      "source_phrases": [],
+      "match": "osm_settlement"
+    },
+    {
+      "id": "osm-buena-vista",
+      "name": "Buena Vista",
+      "aliases": [],
+      "district": "Corozal",
+      "type": "village",
+      "lat": 18.238,
+      "lon": -88.5244,
+      "feeders_seen": [],
+      "source_phrases": [],
+      "match": "osm_settlement"
     },
     {
       "id": "gn-3582487",
@@ -1209,6 +1533,18 @@
       "match": "unique_name"
     },
     {
+      "id": "osm-consejo-shores",
+      "name": "Consejo Shores",
+      "aliases": [],
+      "district": "Corozal",
+      "type": "village",
+      "lat": 18.4493,
+      "lon": -88.3097,
+      "feeders_seen": [],
+      "source_phrases": [],
+      "match": "osm_settlement"
+    },
+    {
       "id": "gn-3582305",
       "name": "Corozal",
       "aliases": [
@@ -1272,6 +1608,18 @@
         "Ferry Road"
       ],
       "match": "ungeocoded:street"
+    },
+    {
+      "id": "osm-freedom-star-estates",
+      "name": "Freedom Star Estates",
+      "aliases": [],
+      "district": "Corozal",
+      "type": "village",
+      "lat": 18.3284,
+      "lon": -88.3407,
+      "feeders_seen": [],
+      "source_phrases": [],
+      "match": "osm_settlement"
     },
     {
       "id": "txt-joseito-layout",
@@ -1570,6 +1918,18 @@
       "match": "district_match"
     },
     {
+      "id": "osm-blue-creek",
+      "name": "Blue Creek",
+      "aliases": [],
+      "district": "Orange Walk",
+      "type": "village",
+      "lat": 17.9208,
+      "lon": -88.9735,
+      "feeders_seen": [],
+      "source_phrases": [],
+      "match": "osm_settlement"
+    },
+    {
       "id": "txt-blue-creek-street",
       "name": "Blue Creek Street",
       "aliases": [],
@@ -1688,6 +2048,30 @@
       "match": "district_match"
     },
     {
+      "id": "osm-indian-church",
+      "name": "Indian Church",
+      "aliases": [],
+      "district": "Orange Walk",
+      "type": "village",
+      "lat": 17.753,
+      "lon": -88.6574,
+      "feeders_seen": [],
+      "source_phrases": [],
+      "match": "osm_settlement"
+    },
+    {
+      "id": "osm-indian-creek",
+      "name": "Indian Creek",
+      "aliases": [],
+      "district": "Orange Walk",
+      "type": "village",
+      "lat": 17.7306,
+      "lon": -88.7438,
+      "feeders_seen": [],
+      "source_phrases": [],
+      "match": "osm_settlement"
+    },
+    {
       "id": "txt-liberty-avenue",
       "name": "Liberty Avenue",
       "aliases": [],
@@ -1732,6 +2116,18 @@
       ],
       "match": "district_match",
       "is_load_center": true
+    },
+    {
+      "id": "osm-orange-walk-town",
+      "name": "Orange Walk Town",
+      "aliases": [],
+      "district": "Orange Walk",
+      "type": "town",
+      "lat": 18.0835,
+      "lon": -88.5621,
+      "feeders_seen": [],
+      "source_phrases": [],
+      "match": "osm_settlement"
     },
     {
       "id": "txt-pasadita",
@@ -1782,6 +2178,18 @@
       "match": "ungeocoded:street"
     },
     {
+      "id": "osm-san-estevan",
+      "name": "San Estevan",
+      "aliases": [],
+      "district": "Orange Walk",
+      "type": "village",
+      "lat": 18.1498,
+      "lon": -88.513,
+      "feeders_seen": [],
+      "source_phrases": [],
+      "match": "osm_settlement"
+    },
+    {
       "id": "gn-3581199",
       "name": "San Felipe",
       "aliases": [
@@ -1798,6 +2206,18 @@
         "San Felipe"
       ],
       "match": "district_match"
+    },
+    {
+      "id": "osm-san-jose-palmar",
+      "name": "San Jose Palmar",
+      "aliases": [],
+      "district": "Orange Walk",
+      "type": "village",
+      "lat": 18.0617,
+      "lon": -88.5585,
+      "feeders_seen": [],
+      "source_phrases": [],
+      "match": "osm_settlement"
     },
     {
       "id": "gn-3581178",
@@ -1866,6 +2286,18 @@
       "match": "ungeocoded:street"
     },
     {
+      "id": "osm-santa-cruz-village",
+      "name": "Santa Cruz Village",
+      "aliases": [],
+      "district": "Orange Walk",
+      "type": "village",
+      "lat": 18.1154,
+      "lon": -88.7067,
+      "feeders_seen": [],
+      "source_phrases": [],
+      "match": "osm_settlement"
+    },
+    {
       "id": "gn-13286651",
       "name": "Santa Martha",
       "aliases": [
@@ -1884,6 +2316,18 @@
       "match": "unique_name"
     },
     {
+      "id": "osm-shipyard-colony",
+      "name": "Shipyard Colony",
+      "aliases": [],
+      "district": "Orange Walk",
+      "type": "village",
+      "lat": 17.8967,
+      "lon": -88.6725,
+      "feeders_seen": [],
+      "source_phrases": [],
+      "match": "osm_settlement"
+    },
+    {
       "id": "txt-stadium-street",
       "name": "Stadium Street",
       "aliases": [],
@@ -1898,6 +2342,30 @@
         "Stadium Street"
       ],
       "match": "ungeocoded:street"
+    },
+    {
+      "id": "osm-tower-hill",
+      "name": "Tower Hill",
+      "aliases": [],
+      "district": "Orange Walk",
+      "type": "village",
+      "lat": 18.0298,
+      "lon": -88.5616,
+      "feeders_seen": [],
+      "source_phrases": [],
+      "match": "osm_settlement"
+    },
+    {
+      "id": "osm-trial-farm",
+      "name": "Trial Farm",
+      "aliases": [],
+      "district": "Orange Walk",
+      "type": "village",
+      "lat": 18.1038,
+      "lon": -88.5618,
+      "feeders_seen": [],
+      "source_phrases": [],
+      "match": "osm_settlement"
     },
     {
       "id": "gn-3580891",
@@ -2091,6 +2559,18 @@
       ],
       "match": "district_match",
       "is_load_center": true
+    },
+    {
+      "id": "osm-dangriga-town",
+      "name": "Dangriga Town",
+      "aliases": [],
+      "district": "Stann Creek",
+      "type": "town",
+      "lat": 16.9544,
+      "lon": -88.2359,
+      "feeders_seen": [],
+      "source_phrases": [],
+      "match": "osm_settlement"
     },
     {
       "id": "txt-forest-lagoon",
@@ -3122,6 +3602,18 @@
       ],
       "match": "district_match",
       "is_load_center": true
+    },
+    {
+      "id": "osm-punta-gorda-town",
+      "name": "Punta Gorda Town",
+      "aliases": [],
+      "district": "Toledo",
+      "type": "town",
+      "lat": 16.0984,
+      "lon": -88.8106,
+      "feeders_seen": [],
+      "source_phrases": [],
+      "match": "osm_settlement"
     },
     {
       "id": "gn-3581222",

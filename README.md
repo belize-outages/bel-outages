@@ -297,6 +297,39 @@ dataset from it, which would break the zero-cost, no-account model.
 
 ---
 
+## Checking every state
+
+Real data usually shows one quiet notice, so most of the site cannot be checked
+by looking at it: nothing is off, nothing is cancelled, nothing is tentative.
+
+```bash
+python scraper/make_demo_data.py --apply    # one record per state, clock-anchored
+python scraper/build_bundle.py
+python scraper/make_demo_data.py --stale    # same, but 20 hours old
+python scraper/make_demo_data.py --restore  # put the real data back
+```
+
+It generates an outage running now, one later today, an unscheduled one, one days
+ahead, a `Feeder: ALL` notice, a cancelled notice, load shedding running now and
+load shedding tonight, all wired to real areas and feeders. The real files are
+copied aside on apply and moved back on restore.
+
+This found four real bugs that no amount of reading the code had surfaced:
+
+- **An outage spread to feeders BEL never named.** One Orange Walk Feeder 2
+  notice lit all four Orange Walk feeders, and a Punta Gorda notice lit Corozal
+  Feeder 1, because both load centres serve somewhere called San Antonio. When
+  BEL names a feeder, that is now the answer.
+- **A numbered-feeder notice lit the "all feeders" group** for its load centre.
+- **Villages were not searchable.** The 110 settlement outlines were drawn on the
+  map but absent from the index, so "Camalote" and "Trial Farm" fell through to
+  roads of a similar name and a notice naming the village never reached the
+  person searching for it.
+- **The out-of-date banner sat on top of the search box**, because its offset was
+  hard-coded at 52px and the banner wraps to three lines on a phone.
+
+---
+
 ## Load shedding
 
 Load shedding is the rolling blackout BEL runs when generation falls short. It is

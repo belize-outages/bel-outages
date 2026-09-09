@@ -155,6 +155,37 @@ def pick(candidates, district):
     return best, conf
 
 
+def district_of(pt):
+    """Which district contains this point, by ray casting on belize.json."""
+    p = os.path.join(DATA, "belize.json")
+    if not os.path.exists(p):
+        return None
+    global _districts
+    if _districts is None:
+        with io.open(p, encoding="utf-8") as f:
+            _districts = json.load(f)["features"]
+    x, y = pt
+    for feat in _districts:
+        g = feat["geometry"]
+        polys = ([g["coordinates"]] if g["type"] == "Polygon" else g["coordinates"])
+        for poly in polys:
+            ring = poly[0]
+            inside = False
+            j = len(ring) - 1
+            for i in range(len(ring)):
+                xi, yi = ring[i]
+                xj, yj = ring[j]
+                if (yi > y) != (yj > y) and x < (xj - xi) * (y - yi) / (yj - yi) + xi:
+                    inside = not inside
+                j = i
+            if inside:
+                return feat["properties"]["name"]
+    return None
+
+
+_districts = None
+
+
 def main():
     txt = fetch_geonames()
     places = load_places(txt)
@@ -281,6 +312,34 @@ def main():
         for fid in fids:
             if fid not in rec["feeders_seen"]:
                 rec["feeders_seen"].append(fid)
+
+    # Every settlement OpenStreetMap outlines is searchable, whether or not BEL
+    # has ever named it. Without this the map drew Camalote and Trial Farm but
+    # a search for either fell through to a road of a similar name, and any
+    # notice naming the village could not reach the person looking for it.
+    pp = os.path.join(DATA, "places.json")
+    if os.path.exists(pp):
+        with io.open(pp, encoding="utf-8") as f:
+            known = {norm(a["name"]) for a in areas.values()}
+            for pl in json.load(f)["places"]:
+                if pl["k"] in ("suburb", "neighbourhood"):
+                    continue
+                if norm(pl["n"]) in known:
+                    continue
+                known.add(norm(pl["n"]))
+                aid = "osm-" + re.sub(r"[^a-z0-9]+", "-", norm(pl["n"]))[:48]
+                areas[aid] = {
+                    "id": aid,
+                    "name": pl["n"],
+                    "aliases": [],
+                    "district": district_of(pl["c"]),
+                    "type": "town" if pl["k"] in ("city", "town") else "village",
+                    "lat": pl["c"][1],
+                    "lon": pl["c"][0],
+                    "feeders_seen": [],
+                    "source_phrases": [],
+                    "match": "osm_settlement",
+                }
 
     # Unmatched phrases still belong in the gazetteer, without coordinates.
     for raw, fid, reason in unmatched:

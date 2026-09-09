@@ -73,9 +73,27 @@
      places that sit on a feeder it did not name. */
   function feedersFor(o) {
     var lc = slug(o.load_center), out = {};
+
+    /* When BEL names a feeder, that is the answer. An earlier version also
+       pulled in every feeder ever associated with any place the notice
+       mentioned, which spread one Orange Walk Feeder 2 notice across all four
+       Orange Walk feeders, and a Punta Gorda notice onto Corozal Feeder 1
+       because both serve somewhere called San Antonio. Marking a feeder as off
+       when BEL did not say so is the worst error this page can make. */
+    var named = o.feeder != null && String(o.feeder) !== "";
+    if (named) {
+      BEL.feeders.forEach(function (f) {
+        if (slug(f.lc) !== lc) return;
+        /* The "all feeders" group is the whole load centre. It belongs to a
+           Feeder: ALL notice, not to a notice about one numbered feeder. */
+        if (o.feeder === "ALL" || String(f.f) === String(o.feeder)) out[f.id] = 1;
+      });
+      return Object.keys(out);
+    }
+
+    /* No feeder given, so the places named are all there is to go on. */
     BEL.feeders.forEach(function (f) {
-      if (slug(f.lc) !== lc) return;
-      if (o.feeder === "ALL" || f.f === "ALL" || String(f.f) === String(o.feeder)) out[f.id] = 1;
+      if (slug(f.lc) === lc) out[f.id] = 1;
     });
     (o.area_ids || []).forEach(function (aid) {
       var a = areaById[aid];
@@ -859,6 +877,16 @@
   function showArea(a) {
     var fids = a.f || [];
     var list = [];
+
+    /* A notice that names this place is the strongest evidence there is, and
+       it does not depend on the feeder bookkeeping being complete. Checked
+       first, so a village BEL listed by name is never reported as clear
+       because no feeder link happened to exist for it. */
+    ALL.forEach(function (o) {
+      if (o._state === "past") return;
+      if ((o.area_ids || []).indexOf(a.id) !== -1 && list.indexOf(o) === -1) list.push(o);
+    });
+
     fids.forEach(function (fid) {
       (outagesByFeeder[fid] || []).forEach(function (o) {
         if (list.indexOf(o) === -1 && o._state !== "past") list.push(o);
@@ -990,15 +1018,25 @@
   var lcByName = {};
   BEL.areas.forEach(function (a) { if (a.lc) lcByName[a.n] = a; });
 
+  /* Names the gazetteer already knows as places, so the street index does not
+     shadow them in search results. */
+  var placeNames = {};
+  BEL.areas.forEach(function (a) { placeNames[a.n.toLowerCase()] = 1; });
+
   function combinedSearch(v) {
     var hits = fuse.search(v, { limit: 8 }).map(function (r) {
       return { item: r.item, score: r.score };
     });
     if (streetFuse) {
-      /* Nudge streets slightly behind places at equal score: a village called
-         X is a more likely target than a road called X. */
+      /* A street is dropped when a place of the same name exists, and pushed
+         behind places otherwise. Without this, "Camalote" and "Trial Farm"
+         found roads of that name instead of the villages, so a notice naming
+         the village did not reach the person searching for it. It also
+         collapsed the two "Kelly Street" rows, one from BEL's notices and one
+         from OpenStreetMap, into the single street people meant. */
       streetFuse.search(v, { limit: 8 }).forEach(function (r) {
-        hits.push({ item: r.item, score: r.score + 0.02 });
+        if (placeNames[r.item.n.toLowerCase()]) return;
+        hits.push({ item: r.item, score: r.score + 0.15 });
       });
     }
     hits.sort(function (a, b) { return a.score - b.score; });
@@ -1123,6 +1161,17 @@
   if (hoursSince(BEL.generated) > 12) {
     $("staleWhen").textContent = "Last checked " + ago(BEL.generated) + ".";
     $("stale").hidden = false;
+    /* The banner wraps to two or three lines on a narrow screen, and a fixed
+       offset left it sitting on top of the search box. Measure it instead. */
+    measureBanner();
+    window.addEventListener("resize", measureBanner);
+  }
+
+  function measureBanner() {
+    var b = $("stale");
+    if (!b || b.hidden) return;
+    var h = Math.ceil(b.getBoundingClientRect().height);
+    $("app").style.setProperty("--banner-h", h + "px");
   }
   $("staleLink").href = BEL.source_url;
 

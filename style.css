@@ -100,7 +100,7 @@ a { color:var(--soon); }
 .banner a { color:#fff; min-height:44px; display:inline-flex; align-items:center; }
 
 .topbar { position:absolute; top:0; left:0; right:0; z-index:30; padding:.6rem .7rem 0; }
-.banner:not([hidden]) ~ .topbar { top:52px; }
+.banner:not([hidden]) ~ .topbar { top:var(--banner-h, 52px); }
 
 .searchwrap {
   position:relative; display:flex; align-items:center;
@@ -140,7 +140,7 @@ a { color:var(--soon); }
   position:absolute; right:.65rem; z-index:25;
   top:72px; display:flex; flex-direction:column; gap:.35rem;
 }
-.banner:not([hidden]) ~ .mapctl { top:124px; }
+.banner:not([hidden]) ~ .mapctl { top:calc(var(--banner-h, 52px) + 72px); }
 .mapctl button {
   width:44px; height:44px; font-size:1.1rem; line-height:1;
   background:var(--panel); color:var(--ink);
@@ -155,7 +155,7 @@ a { color:var(--soon); }
   background:var(--panel); border:1px solid var(--border); border-radius:11px;
   font-size:.82rem; color:var(--dim); box-shadow:0 6px 18px rgba(16,24,40,.18);
 }
-.banner:not([hidden]) ~ .legend { top:124px; }
+.banner:not([hidden]) ~ .legend { top:calc(var(--banner-h, 52px) + 72px); }
 .legend li { display:flex; align-items:center; gap:.45rem; }
 .sw { width:14px; height:14px; border-radius:4px; border:1.5px solid; display:inline-block; flex:0 0 auto; }
 .sw.off { background:var(--offbg); border-color:var(--off); }
