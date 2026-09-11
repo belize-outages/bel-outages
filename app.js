@@ -847,6 +847,7 @@
 
     $("sheetBody").innerHTML = head +
       '<p class="sub">Checked ' + esc(ago(BEL.generated)) + ". Search above for your own area.</p>" +
+      '<p class="meta"><a href="about.html">What is this site, and where does the data come from?</a></p>' +
       '<p class="caveat"><strong>A feeder</strong> is one of the power lines out of a substation. ' +
       'BEL switches power off a feeder at a time, which is why its notices name one rather ' +
       'than a street.</p>' +
@@ -1283,37 +1284,6 @@
     var open = $("legend").hidden;
     $("legend").hidden = !open;
     $("legendBtn").setAttribute("aria-expanded", open ? "true" : "false");
-  };
-
-  $("aboutBtn").onclick = function () {
-    var open = $("aboutBtn").getAttribute("aria-expanded") !== "true";
-    $("aboutBtn").setAttribute("aria-expanded", open ? "true" : "false");
-    if (!open) { showIdle(); return; }
-    setSnap("full");
-    $("sheetBody").innerHTML =
-      '<button class="back" type="button" data-back="1">&larr; What is on now</button>' +
-      '<p class="where2">About</p>' +
-      '<p class="status clear" style="font-size:1.2rem">How this map is made</p>' +
-      '<p class="sub">Compiled from BEL\'s own public notices. Not affiliated with ' +
-      'Belize Electricity Limited. Verify with the BEL 24-7 app before you rely on it.</p>' +
-      '<h3 class="hd">Feeder areas are approximate</h3>' +
-      '<p class="kv">BEL does not publish feeder boundaries, so each shape is drawn around ' +
-      'the places BEL has named in its own notices. It is a floor on where a feeder reaches, ' +
-      'not its edge.</p>' +
-      '<h3 class="hd">Streets</h3>' +
-      '<p class="kv">A street resolves to its town, not to a feeder. BEL does not publish ' +
-      'which feeder serves which street.</p>' +
-      '<h3 class="hd">Coverage</h3>' +
-      '<p class="kv">Town and village outlines cover about 110 settlements. Anywhere without ' +
-      'one is shown as a point rather than an invented shape. Load shedding is announced on ' +
-      'BEL\'s Facebook page, not the Power Updates page, so it is not covered here.</p>' +
-      '<h3 class="hd">Sources</h3>' +
-      '<p class="kv">Outages from <a href="' + esc(BEL.source_url) + '" rel="noopener">' +
-      'bel.com.bz/PowerUpdates</a>. Place coordinates from GeoNames (CC BY 4.0). Streets, ' +
-      'settlement outlines and roads from OpenStreetMap contributors (ODbL). District ' +
-      'outlines from geoBoundaries (CC BY 4.0). Search by Fuse.js (Apache 2.0).</p>' +
-      '<p class="meta">Data checked ' + esc(ago(BEL.generated)) + ".</p>";
-    $("sheetBody").scrollTop = 0;
   };
 
   if (hoursSince(BEL.generated) > 12) {

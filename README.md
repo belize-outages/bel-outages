@@ -22,6 +22,7 @@ hand. See [Connecting the refresh](#connecting-the-refresh).
 
 ```
 index.html            the page
+about.html            what the site is, where the data comes from, what it cannot tell you
 style.css             light and dark, mobile first, 44px tap targets
 app.js                map projection, search, result states
 vendor/fuse.min.js    fuzzy search, vendored (Fuse.js 7.0.0, Apache 2.0)
