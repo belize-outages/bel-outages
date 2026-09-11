@@ -123,6 +123,23 @@ def main():
     for p in places:
         place_polys[norm(p["n"])].append(p["r"])
 
+    # Streets BEL names that GeoNames does not carry still have a position in
+    # the OpenStreetMap street index. Used as a last resort before giving up,
+    # which is what turns a downtown notice like Belize City Feeder 1 into a
+    # shape instead of a single load-centre dot.
+    street_pts = defaultdict(list)
+    sjp = os.path.join(DATA, "streets.json")
+    if os.path.exists(sjp):
+        with io.open(sjp, encoding="utf-8") as f:
+            sd = json.load(f)
+        scale = sd["meta"].get("scale", 1000)
+        for lc_name, rows in sd.get("by_load_centre", {}).items():
+            cx, cy = sd["centres"].get(lc_name, [0, 0])
+            for row in rows:
+                street_pts[norm(row[0])].append((cx + row[1] / scale, cy + row[2] / scale))
+        for row in sd.get("unanchored", []):
+            street_pts[norm(row[0])].append((row[1], row[2]))
+
     by_phrase = {}
     for a in areas:
         for ph in a.get("source_phrases", []):
@@ -174,6 +191,17 @@ def main():
                         lines.append(ln)
                 if lines:
                     geom = unary_union(lines).buffer(BUF_STREET, quad_segs=QUAD)
+                    kind = "street"
+
+            if geom is None and key in street_pts:
+                best, bd = None, 1e9
+                for lon, lat in street_pts[key]:
+                    ptk = to_km(lon, lat)
+                    d = km_between(ptk, anchor) if anchor else 0
+                    if d < bd:
+                        best, bd = ptk, d
+                if best is not None and (anchor is None or bd <= OUTLIER_KM):
+                    geom = Point(best).buffer(BUF_STREET, quad_segs=QUAD)
                     kind = "street"
 
             if geom is None and rec and rec.get("lat") is not None:

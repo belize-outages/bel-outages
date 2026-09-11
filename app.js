@@ -62,6 +62,14 @@
     return (s || "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
   }
 
+  /* BEL prints the Belize City load centre as just "Belize", and the load
+     shedding reports call the Westlake substation by that name while BEL calls
+     it "West". Each has to match the names the feeder inventory uses, or a
+     notice lights no feeder at all. Found when the first live notice for
+     Belize Feeder 1 drew nothing on the map. */
+  var LC_ALIAS = { "belize": "belize-city", "westlake": "west" };
+  function lcKey(s) { var k = slug(s); return LC_ALIAS[k] || k; }
+
   var areaById = {};
   BEL.areas.forEach(function (a) { areaById[a.id] = a; });
   var feederById = {};
@@ -72,7 +80,7 @@
      area list is used as a second route in, because a notice sometimes names
      places that sit on a feeder it did not name. */
   function feedersFor(o) {
-    var lc = slug(o.load_center), out = {};
+    var lc = lcKey(o.load_center), out = {};
 
     /* When BEL names a feeder, that is the answer. An earlier version also
        pulled in every feeder ever associated with any place the notice
@@ -83,7 +91,7 @@
     var named = o.feeder != null && String(o.feeder) !== "";
     if (named) {
       BEL.feeders.forEach(function (f) {
-        if (slug(f.lc) !== lc) return;
+        if (lcKey(f.lc) !== lc) return;
         /* The "all feeders" group is the whole load centre. It belongs to a
            Feeder: ALL notice, not to a notice about one numbered feeder. */
         if (o.feeder === "ALL" || String(f.f) === String(o.feeder)) out[f.id] = 1;
@@ -93,7 +101,7 @@
 
     /* No feeder given, so the places named are all there is to go on. */
     BEL.feeders.forEach(function (f) {
-      if (slug(f.lc) === lc) out[f.id] = 1;
+      if (lcKey(f.lc) === lc) out[f.id] = 1;
     });
     (o.area_ids || []).forEach(function (aid) {
       var a = areaById[aid];

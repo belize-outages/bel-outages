@@ -32,6 +32,22 @@
       "match": "osm_settlement"
     },
     {
+      "id": "txt-albert-street",
+      "name": "Albert Street",
+      "aliases": [],
+      "district": "Belize",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "belize-city-1"
+      ],
+      "source_phrases": [
+        "Albert Street"
+      ],
+      "match": "ungeocoded:street"
+    },
+    {
       "id": "txt-banak-street",
       "name": "Banak Street",
       "aliases": [],
@@ -85,6 +101,7 @@
         "belize-city-2",
         "belize-city-4",
         "belize-city-6",
+        "belize-city-1",
         "belize-city-3",
         "belize-city-8"
       ],
@@ -200,6 +217,22 @@
       "match": "unique_name"
     },
     {
+      "id": "txt-cemetery-road",
+      "name": "Cemetery Road",
+      "aliases": [],
+      "district": "Belize",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "belize-city-1"
+      ],
+      "source_phrases": [
+        "Cemetery Road"
+      ],
+      "match": "ungeocoded:street"
+    },
+    {
       "id": "txt-collet",
       "name": "Collet",
       "aliases": [],
@@ -272,6 +305,70 @@
       ],
       "source_phrases": [
         "Dolphin Street"
+      ],
+      "match": "ungeocoded:street"
+    },
+    {
+      "id": "txt-dr-dame-minita-drive",
+      "name": "Dr. Dame Minita Drive",
+      "aliases": [],
+      "district": "Belize",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "belize-city-1"
+      ],
+      "source_phrases": [
+        "Dr. Dame Minita Drive"
+      ],
+      "match": "ungeocoded:street"
+    },
+    {
+      "id": "txt-east-canal-street",
+      "name": "East Canal Street",
+      "aliases": [],
+      "district": "Belize",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "belize-city-1"
+      ],
+      "source_phrases": [
+        "East Canal Street"
+      ],
+      "match": "ungeocoded:street"
+    },
+    {
+      "id": "txt-east-collet-canal",
+      "name": "East Collet Canal",
+      "aliases": [],
+      "district": "Belize",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "belize-city-1"
+      ],
+      "source_phrases": [
+        "East Collet Canal"
+      ],
+      "match": "ungeocoded:street"
+    },
+    {
+      "id": "txt-ebony-street",
+      "name": "Ebony Street",
+      "aliases": [],
+      "district": "Belize",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "belize-city-1"
+      ],
+      "source_phrases": [
+        "Ebony Street"
       ],
       "match": "ungeocoded:street"
     },
@@ -400,6 +497,22 @@
       "match": "ungeocoded:landmark"
     },
     {
+      "id": "txt-johnson-street",
+      "name": "Johnson Street",
+      "aliases": [],
+      "district": "Belize",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "belize-city-1"
+      ],
+      "source_phrases": [
+        "Johnson Street"
+      ],
+      "match": "ungeocoded:street"
+    },
+    {
       "id": "txt-kelly-street",
       "name": "Kelly Street",
       "aliases": [],
@@ -451,6 +564,22 @@
       "match": "ungeocoded:no_geonames_entry"
     },
     {
+      "id": "txt-lindos-alley",
+      "name": "Lindos Alley",
+      "aliases": [],
+      "district": "Belize",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "belize-city-1"
+      ],
+      "source_phrases": [
+        "Lindos Alley"
+      ],
+      "match": "ungeocoded:street"
+    },
+    {
       "id": "osm-lord-s-bank",
       "name": "Lord's Bank",
       "aliases": [],
@@ -493,6 +622,22 @@
         "Los Lagos"
       ],
       "match": "ungeocoded:no_geonames_entry"
+    },
+    {
+      "id": "txt-magazine-road",
+      "name": "Magazine Road",
+      "aliases": [],
+      "district": "Belize",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "belize-city-1"
+      ],
+      "source_phrases": [
+        "Magazine Road"
+      ],
+      "match": "ungeocoded:street"
     },
     {
       "id": "gn-3581723",
@@ -562,6 +707,22 @@
       ],
       "source_phrases": [
         "Nurse Shark Street"
+      ],
+      "match": "ungeocoded:street"
+    },
+    {
+      "id": "txt-orange-street",
+      "name": "Orange Street",
+      "aliases": [],
+      "district": "Belize",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "belize-city-1"
+      ],
+      "source_phrases": [
+        "Orange Street"
       ],
       "match": "ungeocoded:street"
     },
@@ -744,6 +905,22 @@
       "match": "unique_name"
     },
     {
+      "id": "txt-southern-foreshore",
+      "name": "Southern Foreshore",
+      "aliases": [],
+      "district": "Belize",
+      "type": "landmark",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "belize-city-1"
+      ],
+      "source_phrases": [
+        "Southern Foreshore"
+      ],
+      "match": "ungeocoded:no_geonames_entry"
+    },
+    {
       "id": "txt-tarpon-street",
       "name": "Tarpon Street",
       "aliases": [],
@@ -756,6 +933,22 @@
       ],
       "source_phrases": [
         "Tarpon Street"
+      ],
+      "match": "ungeocoded:street"
+    },
+    {
+      "id": "txt-vernon-street",
+      "name": "Vernon Street",
+      "aliases": [],
+      "district": "Belize",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "belize-city-1"
+      ],
+      "source_phrases": [
+        "Vernon Street"
       ],
       "match": "ungeocoded:street"
     },
@@ -774,6 +967,22 @@
         "Vista del Mar"
       ],
       "match": "ungeocoded:no_geonames_entry"
+    },
+    {
+      "id": "txt-water-lane",
+      "name": "Water Lane",
+      "aliases": [],
+      "district": "Belize",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "belize-city-1"
+      ],
+      "source_phrases": [
+        "Water Lane"
+      ],
+      "match": "ungeocoded:street"
     },
     {
       "id": "osm-waterside-community",
@@ -804,6 +1013,38 @@
       "match": "ungeocoded:street"
     },
     {
+      "id": "txt-west-canal-street",
+      "name": "West Canal Street",
+      "aliases": [],
+      "district": "Belize",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "belize-city-1"
+      ],
+      "source_phrases": [
+        "West Canal Street"
+      ],
+      "match": "ungeocoded:street"
+    },
+    {
+      "id": "txt-west-collet-canal",
+      "name": "West Collet Canal",
+      "aliases": [],
+      "district": "Belize",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "belize-city-1"
+      ],
+      "source_phrases": [
+        "West Collet Canal"
+      ],
+      "match": "ungeocoded:street"
+    },
+    {
       "id": "txt-wilson-street",
       "name": "Wilson Street",
       "aliases": [],
@@ -816,6 +1057,22 @@
       ],
       "source_phrases": [
         "Wilson Street"
+      ],
+      "match": "ungeocoded:street"
+    },
+    {
+      "id": "txt-wood-street",
+      "name": "Wood Street",
+      "aliases": [],
+      "district": "Belize",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "belize-city-1"
+      ],
+      "source_phrases": [
+        "Wood Street"
       ],
       "match": "ungeocoded:street"
     },
@@ -834,6 +1091,22 @@
         "Yarborough area"
       ],
       "match": "ungeocoded:landmark"
+    },
+    {
+      "id": "txt-youth-for-the-future-drive",
+      "name": "Youth for the Future Drive",
+      "aliases": [],
+      "district": "Belize",
+      "type": "street",
+      "lat": null,
+      "lon": null,
+      "feeders_seen": [
+        "belize-city-1"
+      ],
+      "source_phrases": [
+        "Youth for the Future Drive"
+      ],
+      "match": "ungeocoded:street"
     },
     {
       "id": "txt-all-areas-north-of-caribena-street",

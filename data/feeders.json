@@ -11,7 +11,7 @@
       "named_only": "feeder is known to exist because a notice named it, but no area list was captured"
     },
     "known_gaps": [
-      "Belize City feeders 1, 5 and 7: named by neither notices nor the IRP, areas unknown",
+      "Belize City feeders 5 and 7: named by neither notices nor the IRP, areas unknown",
       "Ladyville Feeder 1: feeder and zones named in a notice, areas not captured",
       "Ladyville Feeder 3: known from the IRP only, never in a public notice, areas unknown",
       "Independence Feeder 2: exists per PUC 2024 rate filing (6.6kV being converted to 22kV), areas unknown",
@@ -24,14 +24,15 @@
       "2026-09-08: Caye Caulker confirmed as one of BEL's eleven load centres.",
       "2026-09-08: Ladyville feeder count established as three.",
       "2026-09-08: Belize City established as six 6.6 kV feeders off a single 20 MVA transformer, as of 2021.",
-      "2026-09-08: Substation inventory added from IRP chapter 14."
+      "2026-09-08: Substation inventory added from IRP chapter 14.",
+      "2026-09-11: Belize City Feeder 1 observed in a live notice (downtown, Zones 2 and 3)."
     ]
   },
 
   "load_centers": [
     { "id": "corozal",      "name": "Corozal",      "district": "Corozal",     "feeders_known": ["1", "2", "3", "4", "5", "6"] },
     { "id": "orange-walk",  "name": "Orange Walk",  "district": "Orange Walk", "feeders_known": ["1", "2", "3", "4"] },
-    { "id": "belize-city",  "name": "Belize City",  "district": "Belize",      "feeders_known": ["2", "3", "4", "6", "8"] },
+    { "id": "belize-city",  "name": "Belize City",  "district": "Belize",      "feeders_known": ["1", "2", "3", "4", "6", "8"] },
     { "id": "ladyville",    "name": "Ladyville",    "district": "Belize",      "feeders_known": ["1", "2", "3"] },
     { "id": "san-pedro",    "name": "San Pedro",    "district": "Belize",      "feeders_known": ["1", "2", "3", "4"] },
     { "id": "caye-caulker", "name": "Caye Caulker", "district": "Belize",      "feeders_known": [] },
@@ -156,6 +157,13 @@
       "truncated": true, "confidence": "bel_reposted"
     },
 
+    {
+      "id": "belize-city-1", "load_center": "Belize City", "feeder": "1", "district": "Belize",
+      "zones_seen": ["2", "3"],
+      "areas": ["Cemetery Road", "Johnson Street", "Wood Street", "West Collet Canal", "East Collet Canal", "Lindos Alley", "Orange Street", "East Canal Street", "West Canal Street", "Albert Street", "Dr. Dame Minita Drive", "Southern Foreshore", "Water Lane", "Vernon Street", "Magazine Road", "Ebony Street", "Youth for the Future Drive"],
+      "notes": "From the BEL notice for 13 Sep 2026, Zone 2 and 3 (portion), covering the downtown area. BEL prints this load centre as just Belize. First sighting of Feeder 1.",
+      "truncated": true, "confidence": "bel_direct"
+    },
     {
       "id": "belize-city-2", "load_center": "Belize City", "feeder": "2", "district": "Belize",
       "zones_seen": [],
