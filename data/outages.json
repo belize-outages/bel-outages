@@ -3,33 +3,8 @@
   "schema_version": 1,
   "source_url": "https://www.bel.com.bz/PowerUpdates/",
   "timezone": "America/Belize",
-  "checked_at": "2026-09-17T12:18:43-06:00",
+  "checked_at": "2026-09-17T16:13:33-06:00",
   "note": "Times are Belize local exactly as BEL printed them. 'ALL' for feeder or zone is a real value, not missing data."
  },
- "outages": [
-  {
-   "id": "a2c89b4bfc52",
-   "type": "planned",
-   "status": "active",
-   "district": "Portion of San Pedro",
-   "load_center": "San Pedro",
-   "feeder": "4",
-   "zone": "3 (portion)",
-   "area_ids": [
-    "gn-3581164"
-   ],
-   "date": "2026-09-17",
-   "start": "12:00",
-   "end": "15:00",
-   "timezone": "America/Belize",
-   "tentative": false,
-   "purpose": "BEL to energize newly built power lines to facilitate connection of Customer in the area",
-   "source_url": "https://www.bel.com.bz/PowerUpdates/",
-   "published_at": null,
-   "ingested_at": "2026-09-17T07:41:28-06:00",
-   "raw_text": "Load Center: San Pedro\r\nFeeder: 4\r\nZone: 3 (portion)\r\nAreas to be affected: the portion of San Pedro that includes Mahogany Bay.\r\nOutage type: Scheduled.  \r\nPurpose of outage: BEL to energize newly built power lines to facilitate connection of Customer in the area.",
-   "first_seen": "2026-09-17T07:41:28-06:00",
-   "last_seen": "2026-09-17T12:18:43-06:00"
-  }
- ]
+ "outages": []
 }
