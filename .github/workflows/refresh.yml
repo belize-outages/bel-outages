@@ -21,8 +21,8 @@ name: Refresh outage data
 
 on:
   workflow_dispatch:
-  # schedule:
-  #   - cron: "17 * * * *"   # hourly at :17. Actions cron drifts, often by
+  schedule:
+    - cron: "17 * * * *"   # hourly at :17. Actions cron drifts, often by
   #                          # 30 minutes or more. Never promise the user
   #                          # minute accuracy anywhere in the UI.
 
