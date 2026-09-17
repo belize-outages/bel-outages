@@ -54,6 +54,12 @@ BELIZE_TZ = dt.timezone(BELIZE_UTC_OFFSET, TIMEZONE)
 
 CANCELLED_RETENTION_HOURS = 24
 
+# The site's "Checked ..." line and its 12-hour out-of-date banner both read the
+# stamp in outages.json. Rewriting the file only when a notice changed froze
+# that stamp whenever BEL went quiet, so the banner told visitors the site was
+# broken when BEL simply had nothing to announce. Re-stamp at least this often.
+HEARTBEAT_HOURS = 6
+
 MONTHS = {
     "jan": 1, "feb": 2, "mar": 3, "apr": 4, "may": 5, "jun": 6,
     "jul": 7, "aug": 8, "sep": 9, "oct": 10, "nov": 11, "dec": 12,
@@ -193,6 +199,26 @@ def parse_table(html):
             }
         )
     return rows
+
+
+def page_is_empty(html):
+    """True when BEL's page loaded properly and lists no notices.
+
+    BEL clears the page between outages, so an empty page is a real answer,
+    not a failure. It is told apart from a blocked or redesigned page by BEL's
+    own wording, or by the GridView being there with only its header row.
+    Anything else with no rows, a bot-check page for one, is still an error.
+    """
+    from bs4 import BeautifulSoup
+
+    soup = BeautifulSoup(html, "html.parser")
+    text = " ".join(soup.get_text(" ").split()).lower()
+    if "no power updates at this time" in text:
+        return True
+    table = soup.find("table", id="GridView1")
+    if table is not None and "power updates" in text:
+        return all(len(tr.find_all("td")) < 5 for tr in table.find_all("tr"))
+    return False
 
 
 # --------------------------------------------------------------------------
@@ -467,6 +493,21 @@ def read_outages():
     return doc["outages"] if isinstance(doc, dict) else doc
 
 
+def stamp_expired(iso, now, hours=HEARTBEAT_HOURS):
+    """True when a checked_at stamp is missing, unreadable, or older than hours."""
+    try:
+        then = dt.datetime.fromisoformat(iso)
+    except (TypeError, ValueError):
+        return True
+    age = now.replace(tzinfo=None) - then.replace(tzinfo=None)
+    return age > dt.timedelta(hours=hours)
+
+
+def without(records, field):
+    """Records minus a field that moves on every scrape and means nothing to a visitor."""
+    return [{k: v for k, v in r.items() if k != field} for r in (records or [])]
+
+
 def write_outages(records, now):
     path = os.path.join(DATA, "outages.json")
     doc = {
@@ -484,12 +525,14 @@ def write_outages(records, now):
     }
     new = json.dumps(doc, indent=1, ensure_ascii=False, sort_keys=False)
 
-    # Only rewrite when the outages themselves changed, so the hourly workflow
-    # does not commit a new timestamp every run.
+    # Rewrite when a notice changed, or when the stamp is past the heartbeat,
+    # so an hourly job commits a few times a day rather than every run.
+    # last_seen moves on every scrape, so it is not a change on its own.
     if os.path.exists(path):
         with io.open(path, encoding="utf-8") as f:
             old_doc = json.load(f)
-        if old_doc.get("outages") == records:
+        same = without(old_doc.get("outages"), "last_seen") == without(records, "last_seen")
+        if same and not stamp_expired(old_doc.get("meta", {}).get("checked_at"), now):
             return False
     with io.open(path, "w", encoding="utf-8") as f:
         f.write(new + "\n")
@@ -583,6 +626,27 @@ def self_test():
     if rows:
         check("real row kept", rows[0]["date_raw"], "Sunday 30 Aug 2026")
 
+    # BEL clears the page between outages. That must read as "nothing
+    # scheduled", while a bot-check or redesigned page must still fail.
+    check("empty page wording", page_is_empty(
+        "<h2>Power Updates</h2><p>There are no power updates at this time.</p>"), True)
+    check("empty grid, header only", page_is_empty(
+        '<h2>Power Updates</h2><table id="GridView1"><tr><th>Districts Affected</th>'
+        "<th>Outage Date</th></tr></table>"), True)
+    check("bot-check page is not empty", page_is_empty(
+        "<title>Attention Required! | Cloudflare</title><p>Sorry, you have been blocked</p>"),
+        False)
+    check("redesigned page is not empty", page_is_empty("<h2>Outages</h2><div>soon</div>"), False)
+
+    # The heartbeat that keeps the "checked" stamp honest.
+    beat_now = dt.datetime(2026, 9, 17, 12, 0, tzinfo=BELIZE_TZ)
+    check("stamp 5h old is fresh", stamp_expired("2026-09-17T07:00:00-06:00", beat_now), False)
+    check("stamp 7h old is expired", stamp_expired("2026-09-17T05:00:00-06:00", beat_now), True)
+    check("missing stamp is expired", stamp_expired(None, beat_now), True)
+    check("last_seen alone is not a change",
+          without([{"id": "a", "last_seen": "x"}], "last_seen")
+          == without([{"id": "a", "last_seen": "y"}], "last_seen"), True)
+
     check("type planned", normalise_type("Planned"), "planned")
     check("type unscheduled", normalise_type("Unscheduled"), "unscheduled")
     check("type unplanned", normalise_type("Unplanned"), "unscheduled")
@@ -660,8 +724,10 @@ def main():
 
     rows = parse_table(html)
     if not rows:
-        print("no rows found. the page shape may have changed.", file=sys.stderr)
-        return 2
+        if not page_is_empty(html):
+            print("no rows found. the page shape may have changed.", file=sys.stderr)
+            return 2
+        print("BEL lists no power updates right now.")
 
     idx = build_area_index(load_gazetteer())
     scraped, unknown = build_records(rows, idx, now)
@@ -685,6 +751,12 @@ def main():
 
     changed = write_outages(merged, now)
     print("\ndata/outages.json %s" % ("updated" if changed else "unchanged"))
+
+    # merge() archives finished notices in memory. Without this call they were
+    # dropped from outages.json and never reached history.json, which lost the
+    # only record of which areas each feeder served.
+    if write_history(now):
+        print("data/history.json updated (%d notices)" % len(_history["notices"]))
     return 0
 
 

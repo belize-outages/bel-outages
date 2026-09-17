@@ -126,15 +126,24 @@ python scraper/build_bundle.py
 3. Run it once by hand from the Actions tab and read the log. A run that reports no changes is the
    healthy case when BEL has not moved anything.
 
-The job runs the parser tests, scrapes, and commits only when `data/outages.json` actually changed.
+The job runs the parser tests, scrapes, repacks the bundle, and commits only when there is something
+to say:
+
+- **A notice changed** (new, updated, finished or withdrawn): committed on that run. Finished notices
+  move to `data/history.json`.
+- **Nothing changed:** the "checked" stamp is still refreshed every six hours. The site shows its
+  out-of-date banner after 12 hours, so once the schedule is on, that banner means the job has stopped,
+  not that BEL is quiet.
+- **BEL lists nothing:** a valid result, not an error. Between outages the page says "There are no
+  power updates at this time". A page with no rows and without that wording, such as a redesign or a
+  bot-check page, still fails the run and writes nothing.
 
 **Actions cron drifts**, sometimes by 30 minutes or more. Nothing in the UI promises minute accuracy,
 and nothing should.
 
-**Scheduled workflows are disabled after 60 days of repository inactivity.** This workflow's own data
-commits count as activity, so once connected it keeps itself alive. If BEL published nothing for two
-solid months there would be no commits, and the schedule could lapse. If the site's "checked" time goes
-quiet for weeks, look at the Actions tab.
+**Scheduled workflows are disabled after 60 days of repository inactivity.** The six-hour heartbeat commit
+counts as activity, so once connected the schedule keeps itself alive. If the site's "checked" time
+ever goes quiet, look at the Actions tab.
 
 ---
 

@@ -39,7 +39,7 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from scrape import (                                   # noqa: E402
     BELIZE_TZ, TIMEZONE, MONTHS, build_area_index, load_gazetteer,
-    match_areas, norm, now_belize, parse_time,
+    match_areas, norm, now_belize, parse_time, stamp_expired, without,
 )
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -269,10 +269,14 @@ def write(recs, now):
         },
         "schedules": recs,
     }
+    # Same heartbeat as the outage file, so a quiet spell cannot freeze the
+    # stamp. ingested_at is re-stamped on every scrape, so it is not a change.
     if os.path.exists(path):
         with io.open(path, encoding="utf-8") as f:
-            if json.load(f).get("schedules") == recs:
-                return False
+            old = json.load(f)
+        same = without(old.get("schedules"), "ingested_at") == without(recs, "ingested_at")
+        if same and not stamp_expired(old.get("meta", {}).get("checked_at"), now):
+            return False
     with io.open(path, "w", encoding="utf-8") as f:
         json.dump(doc, f, indent=1, ensure_ascii=False)
         f.write("\n")
