@@ -1,0 +1,45 @@
+{
+ "meta": {
+  "schema_version": 1,
+  "what": "Every BEL notice this scraper has seen finish, kept as evidence of which areas sit on which feeder. Append-only; nothing is removed.",
+  "updated": "2026-09-17T07:41:28-06:00",
+  "count": 2
+ },
+ "notices": [
+  {
+   "id": "740c3d575417",
+   "type": "planned",
+   "district": "Portion of Corozal District, Rural",
+   "load_center": "Corozal",
+   "feeder": "6",
+   "zone": "2",
+   "area_ids": [
+    "gn-3581151",
+    "gn-3581154"
+   ],
+   "date": "2026-09-11",
+   "start": "10:00",
+   "end": "12:00",
+   "purpose": "BEL to replace utility pole and energize newly built power lines to facilitate connection of Customer in the area",
+   "raw_text": "Load Center: Corozal.\r\nFeeder: 6.\r\nZone: 2.\r\nAreas to be affected: portion of Corozal District which includes Santa Clara and San Roman.\r\nOutage type: Planned.\r\nPurpose of outage: BEL to replace utility pole and energize newly built power lines to facilitate connection of Customer in the area.",
+   "first_seen": "2026-09-11T13:22:04-06:00",
+   "last_seen": "2026-09-11T13:22:04-06:00"
+  },
+  {
+   "id": "abef148de0ec",
+   "type": "planned",
+   "district": "Portion of Belize City",
+   "load_center": "Belize",
+   "feeder": "1",
+   "zone": "2 & 3 (portion)",
+   "area_ids": [],
+   "date": "2026-09-13",
+   "start": "07:00",
+   "end": "07:20",
+   "purpose": "BEL to remove distribution powerline material to facilitate MIDH’s ongoing works for the new Swing Bridge crossing",
+   "raw_text": "Load Center: Belize.\r\nFeeder: 1.\r\nZone: 2 & 3 (portion).\r\nAreas to be affected: Cemetery Road from Johnson Street to West Canal Street including Johnson Street, Wood Street, portion of West Collet Canal from Cemetery Road to Ebony Street, portion of East Collet Canal from Cemetery Road to Lindos Alley, entire downtown area including Orange Street, East Canal Street, West Canal Street, Albert Street, Dr. Dame Minita Drive, Southern Foreshore, Water Lane from West Street to Vernon Street, Vernon Street from Water Lane to Magazine Road, portion of Ebony Street and Youth for the Future Drive.\r\nOutage type: Planned.\r\nPurpose of outage: BEL to remove distribution powerline material to facilitate MIDH’s ongoing works for the new Swing Bridge crossing.",
+   "first_seen": "2026-09-11T13:22:04-06:00",
+   "last_seen": "2026-09-11T13:22:04-06:00"
+  }
+ ]
+}

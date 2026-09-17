@@ -3,56 +3,33 @@
   "schema_version": 1,
   "source_url": "https://www.bel.com.bz/PowerUpdates/",
   "timezone": "America/Belize",
-  "checked_at": "2026-09-11T13:22:04-06:00",
+  "checked_at": "2026-09-17T07:41:28-06:00",
   "note": "Times are Belize local exactly as BEL printed them. 'ALL' for feeder or zone is a real value, not missing data."
  },
  "outages": [
   {
-   "id": "740c3d575417",
-   "type": "planned",
-   "status": "restored",
-   "district": "Portion of Corozal District, Rural",
-   "load_center": "Corozal",
-   "feeder": "6",
-   "zone": "2",
-   "area_ids": [
-    "gn-3581151",
-    "gn-3581154"
-   ],
-   "date": "2026-09-11",
-   "start": "10:00",
-   "end": "12:00",
-   "timezone": "America/Belize",
-   "tentative": false,
-   "purpose": "BEL to replace utility pole and energize newly built power lines to facilitate connection of Customer in the area",
-   "source_url": "https://www.bel.com.bz/PowerUpdates/",
-   "published_at": null,
-   "ingested_at": "2026-09-11T13:22:04-06:00",
-   "raw_text": "Load Center: Corozal.\r\nFeeder: 6.\r\nZone: 2.\r\nAreas to be affected: portion of Corozal District which includes Santa Clara and San Roman.\r\nOutage type: Planned.\r\nPurpose of outage: BEL to replace utility pole and energize newly built power lines to facilitate connection of Customer in the area.",
-   "first_seen": "2026-09-11T13:22:04-06:00",
-   "last_seen": "2026-09-11T13:22:04-06:00"
-  },
-  {
-   "id": "abef148de0ec",
+   "id": "a2c89b4bfc52",
    "type": "planned",
    "status": "announced",
-   "district": "Portion of Belize City",
-   "load_center": "Belize",
-   "feeder": "1",
-   "zone": "2 & 3 (portion)",
-   "area_ids": [],
-   "date": "2026-09-13",
-   "start": "07:00",
-   "end": "07:20",
+   "district": "Portion of San Pedro",
+   "load_center": "San Pedro",
+   "feeder": "4",
+   "zone": "3 (portion)",
+   "area_ids": [
+    "gn-3581164"
+   ],
+   "date": "2026-09-17",
+   "start": "12:00",
+   "end": "15:00",
    "timezone": "America/Belize",
    "tentative": false,
-   "purpose": "BEL to remove distribution powerline material to facilitate MIDH’s ongoing works for the new Swing Bridge crossing",
+   "purpose": "BEL to energize newly built power lines to facilitate connection of Customer in the area",
    "source_url": "https://www.bel.com.bz/PowerUpdates/",
    "published_at": null,
-   "ingested_at": "2026-09-11T13:22:04-06:00",
-   "raw_text": "Load Center: Belize.\r\nFeeder: 1.\r\nZone: 2 & 3 (portion).\r\nAreas to be affected: Cemetery Road from Johnson Street to West Canal Street including Johnson Street, Wood Street, portion of West Collet Canal from Cemetery Road to Ebony Street, portion of East Collet Canal from Cemetery Road to Lindos Alley, entire downtown area including Orange Street, East Canal Street, West Canal Street, Albert Street, Dr. Dame Minita Drive, Southern Foreshore, Water Lane from West Street to Vernon Street, Vernon Street from Water Lane to Magazine Road, portion of Ebony Street and Youth for the Future Drive.\r\nOutage type: Planned.\r\nPurpose of outage: BEL to remove distribution powerline material to facilitate MIDH’s ongoing works for the new Swing Bridge crossing.",
-   "first_seen": "2026-09-11T13:22:04-06:00",
-   "last_seen": "2026-09-11T13:22:04-06:00"
+   "ingested_at": "2026-09-17T07:41:28-06:00",
+   "raw_text": "Load Center: San Pedro\r\nFeeder: 4\r\nZone: 3 (portion)\r\nAreas to be affected: the portion of San Pedro that includes Mahogany Bay.\r\nOutage type: Scheduled.  \r\nPurpose of outage: BEL to energize newly built power lines to facilitate connection of Customer in the area.",
+   "first_seen": "2026-09-17T07:41:28-06:00",
+   "last_seen": "2026-09-17T07:41:28-06:00"
   }
  ]
 }
