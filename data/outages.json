@@ -3,8 +3,31 @@
   "schema_version": 1,
   "source_url": "https://www.bel.com.bz/PowerUpdates/",
   "timezone": "America/Belize",
-  "checked_at": "2026-09-17T16:13:33-06:00",
+  "checked_at": "2026-09-17T18:25:22-06:00",
   "note": "Times are Belize local exactly as BEL printed them. 'ALL' for feeder or zone is a real value, not missing data."
  },
- "outages": []
+ "outages": [
+  {
+   "id": "1de6f411c2ff",
+   "type": "planned",
+   "status": "announced",
+   "district": "Belize",
+   "load_center": "Ladyville",
+   "feeder": "1",
+   "zone": "2 (portion)",
+   "area_ids": [],
+   "date": "2026-09-19",
+   "start": "19:30",
+   "end": "23:17",
+   "timezone": "America/Belize",
+   "tentative": false,
+   "purpose": "BEL to de-energize high voltage power lines to facilitate third party construction works in the area",
+   "source_url": "https://www.bel.com.bz/PowerUpdates/",
+   "published_at": null,
+   "ingested_at": "2026-09-17T18:25:22-06:00",
+   "raw_text": "Affected Areas:\r\nLoad Center: Ladyville.\r\nFeeder: 1.\r\nZone: 2 (portion).\r\nAreas to be affected: portion of Driftwood Bay \r\nOutage type: Scheduled.  \r\nPurpose of outage: BEL to de-energize high voltage power lines to facilitate third party construction works in the area.",
+   "first_seen": "2026-09-17T18:25:22-06:00",
+   "last_seen": "2026-09-17T18:25:22-06:00"
+  }
+ ]
 }
