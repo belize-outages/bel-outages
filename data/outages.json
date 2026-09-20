@@ -3,14 +3,14 @@
   "schema_version": 1,
   "source_url": "https://www.bel.com.bz/PowerUpdates/",
   "timezone": "America/Belize",
-  "checked_at": "2026-09-20T13:29:53-06:00",
+  "checked_at": "2026-09-20T16:29:17-06:00",
   "note": "Times are Belize local exactly as BEL printed them. 'ALL' for feeder or zone is a real value, not missing data."
  },
  "outages": [
   {
    "id": "f7bb821d2952",
    "type": "unscheduled",
-   "status": "active",
+   "status": "restored",
    "district": "Portion of Stann Creek District, Rural",
    "load_center": "Dangriga",
    "feeder": "2",
@@ -37,7 +37,7 @@
    "ingested_at": "2026-09-20T13:29:53-06:00",
    "raw_text": "Load Center: Dangriga.\r\nFeeder: 2. \r\nZone: All.\r\nAreas to be affected: Melinda Road, Canda Hill, Hope Creek, Pomona, Alta Vista, Steadfast, Valley Community, King’s Village, Middlesex, Hummingbird Community, and St. Margaret's.  \r\nOutage type: Unscheduled.  \r\nPurpose of outage: BEL dispatched to investigate the cause of an unplanned power outage to restore power supply as soon as possible.",
    "first_seen": "2026-09-20T13:29:53-06:00",
-   "last_seen": "2026-09-20T13:29:53-06:00"
+   "last_seen": "2026-09-20T16:29:17-06:00"
   }
  ]
 }
