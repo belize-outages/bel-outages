@@ -2,8 +2,8 @@
  "meta": {
   "schema_version": 1,
   "what": "Every BEL notice this scraper has seen finish, kept as evidence of which areas sit on which feeder. Append-only; nothing is removed.",
-  "updated": "2026-09-17T16:13:33-06:00",
-  "count": 3
+  "updated": "2026-09-21T00:25:14-06:00",
+  "count": 4
  },
  "notices": [
   {
@@ -58,6 +58,32 @@
    "raw_text": "Load Center: San Pedro\r\nFeeder: 4\r\nZone: 3 (portion)\r\nAreas to be affected: the portion of San Pedro that includes Mahogany Bay.\r\nOutage type: Scheduled.  \r\nPurpose of outage: BEL to energize newly built power lines to facilitate connection of Customer in the area.",
    "first_seen": "2026-09-17T07:41:28-06:00",
    "last_seen": "2026-09-17T12:18:43-06:00"
+  },
+  {
+   "id": "f7bb821d2952",
+   "type": "unscheduled",
+   "district": "Portion of Stann Creek District, Rural",
+   "load_center": "Dangriga",
+   "feeder": "2",
+   "zone": "ALL",
+   "area_ids": [
+    "txt-melinda-road",
+    "gn-13286724",
+    "gn-3581436",
+    "gn-3582761",
+    "gn-13286764",
+    "gn-13286765",
+    "gn-3581672",
+    "gn-13286725",
+    "gn-11049077"
+   ],
+   "date": "2026-09-20",
+   "start": "10:59",
+   "end": "14:00",
+   "purpose": "BEL dispatched to investigate the cause of an unplanned power outage to restore power supply as soon as possible",
+   "raw_text": "Load Center: Dangriga.\r\nFeeder: 2. \r\nZone: All.\r\nAreas to be affected: Melinda Road, Canda Hill, Hope Creek, Pomona, Alta Vista, Steadfast, Valley Community, King’s Village, Middlesex, Hummingbird Community, and St. Margaret's.  \r\nOutage type: Unscheduled.  \r\nPurpose of outage: BEL dispatched to investigate the cause of an unplanned power outage to restore power supply as soon as possible.",
+   "first_seen": "2026-09-20T13:29:53-06:00",
+   "last_seen": "2026-09-20T16:29:17-06:00"
   }
  ]
 }
