@@ -3,14 +3,14 @@
   "schema_version": 1,
   "source_url": "https://www.bel.com.bz/PowerUpdates/",
   "timezone": "America/Belize",
-  "checked_at": "2026-09-23T14:26:38-06:00",
+  "checked_at": "2026-09-23T17:44:37-06:00",
   "note": "Times are Belize local exactly as BEL printed them. 'ALL' for feeder or zone is a real value, not missing data."
  },
  "outages": [
   {
    "id": "9a844c1b48fe",
    "type": "unscheduled",
-   "status": "active",
+   "status": "restored",
    "district": "Portion of Belize District, Rural",
    "load_center": "West",
    "feeder": "1",
@@ -18,7 +18,7 @@
    "area_ids": [],
    "date": "2026-09-23",
    "start": "11:47",
-   "end": "15:00",
+   "end": "17:00",
    "timezone": "America/Belize",
    "tentative": false,
    "purpose": "BEL dispatched to investigate the cause of an unplanned power outage to restore power supply as soon as possible",
@@ -27,7 +27,7 @@
    "ingested_at": "2026-09-23T14:26:38-06:00",
    "raw_text": "Load Center: West.\r\nFeeder: 1.\r\nZone: 3 &amp; 4.\r\nAreas affected: All areas along the Burrell Boom Cutoff Road including Fresh Pond, and Burrell Boom; all areas along the Belize River Valley including Flowers Bank, Scotland Halfmoon, Bermudian Landing, Lemonal, Isabella Bank, Willows Bank, areas along St. Paul’s Bank Road, Big Falls and Rancho Dolores.\r\nOutage type: Unscheduled.  \r\nPurpose of outage: BEL dispatched to investigate the cause of an unplanned power outage to restore power supply as soon as possible.",
    "first_seen": "2026-09-23T14:26:38-06:00",
-   "last_seen": "2026-09-23T14:26:38-06:00"
+   "last_seen": "2026-09-23T17:44:37-06:00"
   },
   {
    "id": "199b2f1dba81",
@@ -40,7 +40,7 @@
    "area_ids": [],
    "date": "2026-09-23",
    "start": "12:25",
-   "end": "16:00",
+   "end": "18:00",
    "timezone": "America/Belize",
    "tentative": false,
    "purpose": "BEL dispatched to repair fallen high voltage power lines at San Jose Village to restore power supply as soon as possible",
@@ -49,12 +49,34 @@
    "ingested_at": "2026-09-23T14:26:38-06:00",
    "raw_text": "Load Center: Orange Walk.\r\nFeeder: 4.\r\nZone: 4(portion).\r\nAreas affected: Santa Cruz, San Antonio, San Lorenzo, San Roman, San Luis, San Jose, San Pablo, San Juan, Douglas, (Corozal District Rual) - Buena Vista and Caledonia.\r\nOutage type: Unscheduled.  \r\nPurpose of outage: BEL dispatched to repair fallen high voltage power lines at San Jose Village to restore power supply as soon as possible.",
    "first_seen": "2026-09-23T14:26:38-06:00",
-   "last_seen": "2026-09-23T14:26:38-06:00"
+   "last_seen": "2026-09-23T17:44:37-06:00"
+  },
+  {
+   "id": "b9fec309a41c",
+   "type": "unscheduled",
+   "status": "active",
+   "district": "Portion of Cayo District",
+   "load_center": "San Ignacio",
+   "feeder": "3",
+   "zone": "All. Areas affected: the area from Kontiki to Bluebird Street and 18th Street, Collins Boulevard, Santiago Juan area, Capello area, a portion of Tres Puntas, Suzanna Bradley area, Dan Silva Layout, Buena Vista Development, Maya Heights, San Jose area, Bullet Tree, Santa Familia, and Paslow Falls",
+   "area_ids": [],
+   "date": "2026-09-23",
+   "start": "15:22",
+   "end": "19:00",
+   "timezone": "America/Belize",
+   "tentative": false,
+   "purpose": "BEL dispatched to investigate the cause of an unplanned power outage to restore power supply as soon as possible",
+   "source_url": "https://www.bel.com.bz/PowerUpdates/",
+   "published_at": null,
+   "ingested_at": "2026-09-23T17:44:37-06:00",
+   "raw_text": "Load Center: San Ignacio.\r\nFeeder: 3.\r\nZone: All.\r\nAreas affected: the area from Kontiki to Bluebird Street and 18th Street, Collins Boulevard, Santiago Juan area, Capello area, a portion of Tres Puntas, Suzanna Bradley area, Dan Silva Layout, Buena Vista Development, Maya Heights, San Jose area, Bullet Tree, Santa Familia, and Paslow Falls.   \r\nOutage type: Unscheduled.  \r\nPurpose of outage: BEL dispatched to investigate the cause of an unplanned power outage to restore power supply as soon as possible.",
+   "first_seen": "2026-09-23T17:44:37-06:00",
+   "last_seen": "2026-09-23T17:44:37-06:00"
   },
   {
    "id": "8c17ee5534eb",
    "type": "planned",
-   "status": "announced",
+   "status": "cancelled",
    "district": "Portion of San Pedro Town",
    "load_center": "San Pedro",
    "feeder": "4",
@@ -73,7 +95,8 @@
    "ingested_at": "2026-09-23T11:07:13-06:00",
    "raw_text": "Load Center: San Pedro.\r\nFeeder: 4.\r\nZone: 1 (portion).\r\nAreas to be affected: the portion of San Pedro which includes Angel Coral Street, Almond Street, portion of Buccaneer Street, portion of Coconut Drive, Crow Street and Manta Ray Street.\r\nOutage type: Scheduled.  \r\nPurpose of outage: BEL to conduct upgrades to distribution power line equipment and remove hazardous vegetation growing into power lines in the area to improve the reliability of power supply to our Customers.",
    "first_seen": "2026-09-23T11:07:13-06:00",
-   "last_seen": "2026-09-23T14:26:38-06:00"
+   "last_seen": "2026-09-23T14:26:38-06:00",
+   "cancelled_at": "2026-09-23T17:44:37-06:00"
   },
   {
    "id": "96db7a04ce62",
