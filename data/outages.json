@@ -3,14 +3,38 @@
   "schema_version": 1,
   "source_url": "https://www.bel.com.bz/PowerUpdates/",
   "timezone": "America/Belize",
-  "checked_at": "2026-09-23T00:01:59-06:00",
+  "checked_at": "2026-09-23T11:07:13-06:00",
   "note": "Times are Belize local exactly as BEL printed them. 'ALL' for feeder or zone is a real value, not missing data."
  },
  "outages": [
   {
-   "id": "96db7a04ce62",
+   "id": "8c17ee5534eb",
    "type": "planned",
    "status": "announced",
+   "district": "Portion of San Pedro Town",
+   "load_center": "San Pedro",
+   "feeder": "4",
+   "zone": "1 (portion)",
+   "area_ids": [
+    "gn-3581164"
+   ],
+   "date": "2026-09-24",
+   "start": "06:00",
+   "end": "09:00",
+   "timezone": "America/Belize",
+   "tentative": false,
+   "purpose": "BEL to conduct upgrades to distribution power line equipment and remove hazardous vegetation growing into power lines in the area to improve the reliability of power supply to our Customers",
+   "source_url": "https://www.bel.com.bz/PowerUpdates/",
+   "published_at": null,
+   "ingested_at": "2026-09-23T11:07:13-06:00",
+   "raw_text": "Load Center: San Pedro.\r\nFeeder: 4.\r\nZone: 1 (portion).\r\nAreas to be affected: the portion of San Pedro which includes Angel Coral Street, Almond Street, portion of Buccaneer Street, portion of Coconut Drive, Crow Street and Manta Ray Street.\r\nOutage type: Scheduled.  \r\nPurpose of outage: BEL to conduct upgrades to distribution power line equipment and remove hazardous vegetation growing into power lines in the area to improve the reliability of power supply to our Customers.",
+   "first_seen": "2026-09-23T11:07:13-06:00",
+   "last_seen": "2026-09-23T11:07:13-06:00"
+  },
+  {
+   "id": "96db7a04ce62",
+   "type": "planned",
+   "status": "cancelled",
    "district": "Portion of San Pedro Town",
    "load_center": "San Pedro",
    "feeder": "4",
@@ -29,7 +53,8 @@
    "ingested_at": "2026-09-21T23:03:07-06:00",
    "raw_text": "Load Center: San Pedro\r\nFeeder: 4\r\nZone: 1\r\nAreas to be affected: the portion San Pedro which includes Nurse Shark Street, Angel Coral Street from Obando’s Panades to Black Coral Street, Pelican Street between Nurse Shark Street and Almond Street, Ambergris Street between Nurse Shark Street and Almond Street, Buccaneer Street between Nurse Shark Street and Almond Street, Coconut Drive from Esmeralda Street to Sea Grape Drive, Crow Street and Manta Ray Street.\r\nOutage type: Scheduled.  \r\nPurpose of outage: BEL to conduct upgrades to distribution power line equipment and remove hazardous vegetation growing into power lines in the area to improve the reliability of power supply to our Customers.",
    "first_seen": "2026-09-21T23:03:07-06:00",
-   "last_seen": "2026-09-23T00:01:59-06:00"
+   "last_seen": "2026-09-23T00:01:59-06:00",
+   "cancelled_at": "2026-09-23T11:07:13-06:00"
   }
  ]
 }
