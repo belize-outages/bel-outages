@@ -2,8 +2,8 @@
  "meta": {
   "schema_version": 1,
   "what": "Every BEL notice this scraper has seen finish, kept as evidence of which areas sit on which feeder. Append-only; nothing is removed.",
-  "updated": "2026-09-21T00:25:14-06:00",
-  "count": 4
+  "updated": "2026-09-23T22:57:09-06:00",
+  "count": 7
  },
  "notices": [
   {
@@ -84,6 +84,54 @@
    "raw_text": "Load Center: Dangriga.\r\nFeeder: 2. \r\nZone: All.\r\nAreas to be affected: Melinda Road, Canda Hill, Hope Creek, Pomona, Alta Vista, Steadfast, Valley Community, King’s Village, Middlesex, Hummingbird Community, and St. Margaret's.  \r\nOutage type: Unscheduled.  \r\nPurpose of outage: BEL dispatched to investigate the cause of an unplanned power outage to restore power supply as soon as possible.",
    "first_seen": "2026-09-20T13:29:53-06:00",
    "last_seen": "2026-09-20T16:29:17-06:00"
+  },
+  {
+   "id": "9a844c1b48fe",
+   "type": "unscheduled",
+   "district": "Portion of Belize District, Rural",
+   "load_center": "West",
+   "feeder": "1",
+   "zone": "3 &amp; 4. Areas affected: All areas along the Burrell Boom Cutoff Road including Fresh Pond, and Burrell Boom; all areas along the Belize River Valley including Flowers Bank, Scotland Halfmoon, Bermudian Landing, Lemonal, Isabella Bank, Willows Bank, areas along St. Paul’s Bank Road, Big Falls and Rancho Dolores",
+   "area_ids": [],
+   "date": "2026-09-23",
+   "start": "11:47",
+   "end": "17:00",
+   "purpose": "BEL dispatched to investigate the cause of an unplanned power outage to restore power supply as soon as possible",
+   "raw_text": "Load Center: West.\r\nFeeder: 1.\r\nZone: 3 &amp; 4.\r\nAreas affected: All areas along the Burrell Boom Cutoff Road including Fresh Pond, and Burrell Boom; all areas along the Belize River Valley including Flowers Bank, Scotland Halfmoon, Bermudian Landing, Lemonal, Isabella Bank, Willows Bank, areas along St. Paul’s Bank Road, Big Falls and Rancho Dolores.\r\nOutage type: Unscheduled.  \r\nPurpose of outage: BEL dispatched to investigate the cause of an unplanned power outage to restore power supply as soon as possible.",
+   "first_seen": "2026-09-23T14:26:38-06:00",
+   "last_seen": "2026-09-23T17:44:37-06:00"
+  },
+  {
+   "id": "199b2f1dba81",
+   "type": "unscheduled",
+   "district": "Portion of Orange Walk District, Rural",
+   "load_center": "Orange Walk",
+   "feeder": "4",
+   "zone": "4(portion). Areas affected: Santa Cruz, San Antonio, San Lorenzo, San Roman, San Luis, San Jose, San Pablo, San Juan, Douglas, (Corozal District Rual) - Buena Vista and Caledonia",
+   "area_ids": [],
+   "date": "2026-09-23",
+   "start": "12:25",
+   "end": "18:00",
+   "purpose": "BEL dispatched to repair fallen high voltage power lines at San Jose Village to restore power supply as soon as possible",
+   "raw_text": "Load Center: Orange Walk.\r\nFeeder: 4.\r\nZone: 4(portion).\r\nAreas affected: Santa Cruz, San Antonio, San Lorenzo, San Roman, San Luis, San Jose, San Pablo, San Juan, Douglas, (Corozal District Rual) - Buena Vista and Caledonia.\r\nOutage type: Unscheduled.  \r\nPurpose of outage: BEL dispatched to repair fallen high voltage power lines at San Jose Village to restore power supply as soon as possible.",
+   "first_seen": "2026-09-23T14:26:38-06:00",
+   "last_seen": "2026-09-23T17:44:37-06:00"
+  },
+  {
+   "id": "b9fec309a41c",
+   "type": "unscheduled",
+   "district": "Portion of Cayo District",
+   "load_center": "San Ignacio",
+   "feeder": "3",
+   "zone": "All. Areas affected: the area from Kontiki to Bluebird Street and 18th Street, Collins Boulevard, Santiago Juan area, Capello area, a portion of Tres Puntas, Suzanna Bradley area, Dan Silva Layout, Buena Vista Development, Maya Heights, San Jose area, Bullet Tree, Santa Familia, and Paslow Falls",
+   "area_ids": [],
+   "date": "2026-09-23",
+   "start": "15:22",
+   "end": "19:00",
+   "purpose": "BEL dispatched to investigate the cause of an unplanned power outage to restore power supply as soon as possible",
+   "raw_text": "Load Center: San Ignacio.\r\nFeeder: 3.\r\nZone: All.\r\nAreas affected: the area from Kontiki to Bluebird Street and 18th Street, Collins Boulevard, Santiago Juan area, Capello area, a portion of Tres Puntas, Suzanna Bradley area, Dan Silva Layout, Buena Vista Development, Maya Heights, San Jose area, Bullet Tree, Santa Familia, and Paslow Falls.   \r\nOutage type: Unscheduled.  \r\nPurpose of outage: BEL dispatched to investigate the cause of an unplanned power outage to restore power supply as soon as possible.",
+   "first_seen": "2026-09-23T17:44:37-06:00",
+   "last_seen": "2026-09-23T17:44:37-06:00"
   }
  ]
 }
