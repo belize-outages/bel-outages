@@ -2,8 +2,8 @@
  "meta": {
   "schema_version": 1,
   "what": "Every BEL notice this scraper has seen finish, kept as evidence of which areas sit on which feeder. Append-only; nothing is removed.",
-  "updated": "2026-09-23T22:57:09-06:00",
-  "count": 7
+  "updated": "2026-09-24T16:28:41-06:00",
+  "count": 10
  },
  "notices": [
   {
@@ -132,6 +132,60 @@
    "raw_text": "Load Center: San Ignacio.\r\nFeeder: 3.\r\nZone: All.\r\nAreas affected: the area from Kontiki to Bluebird Street and 18th Street, Collins Boulevard, Santiago Juan area, Capello area, a portion of Tres Puntas, Suzanna Bradley area, Dan Silva Layout, Buena Vista Development, Maya Heights, San Jose area, Bullet Tree, Santa Familia, and Paslow Falls.   \r\nOutage type: Unscheduled.  \r\nPurpose of outage: BEL dispatched to investigate the cause of an unplanned power outage to restore power supply as soon as possible.",
    "first_seen": "2026-09-23T17:44:37-06:00",
    "last_seen": "2026-09-23T17:44:37-06:00"
+  },
+  {
+   "id": "8a2eda0ec987",
+   "type": "unscheduled",
+   "district": "Portion of San Pedro Town",
+   "load_center": "San Pedro",
+   "feeder": "4",
+   "zone": "ALL",
+   "area_ids": [
+    "txt-nurse-shark-street"
+   ],
+   "date": "2026-09-24",
+   "start": "02:35",
+   "end": "05:35",
+   "purpose": "BEL team dispatched to investigate the cause of an unplanned power outage to restore power supply as soon as possible",
+   "raw_text": "Load Center: San Pedro Feeder: 4 Zone: All Areas to be affected: Portion San Pedro which includes Nurse Shark Street, Angel Coral Street from Obando’s Panades to Black Coral Street, Pelican Street between Nurse Shark and Almond Streets, Ambergris Street between Nurse Shark and Almond Streets, Buccaneer Street between Nurse Shark and Almond Streets, Coconut Drive from Esmeralda Street to Sea Grape Drive, Crow Street and Manta Ray Street. Coconut Drive from Island Academy to Stingray Street, Villa Drive, Mullet Street, Mar de Tumbo Street and Sea Grape Street from Stingray Street to Escalante Drive, areas along Sea Grape Drive from Escalante Drive to La Serene Beach Resort. Outage type: Unscheduled. Purpose of outage: BEL team dispatched to investigate the cause of an unplanned power outage to restore power supply as soon as possible.",
+   "first_seen": "2026-09-24T04:05:30-06:00",
+   "last_seen": "2026-09-24T13:13:39-06:00"
+  },
+  {
+   "id": "8c17ee5534eb",
+   "type": "planned",
+   "district": "Portion of San Pedro Town",
+   "load_center": "San Pedro",
+   "feeder": "4",
+   "zone": "1 (portion)",
+   "area_ids": [
+    "gn-3581164"
+   ],
+   "date": "2026-09-24",
+   "start": "06:00",
+   "end": "09:00",
+   "purpose": "BEL to conduct upgrades to distribution power line equipment and remove hazardous vegetation growing into power lines in the area to improve the reliability of power supply to our Customers",
+   "raw_text": "Load Center: San Pedro.\r\nFeeder: 4.\r\nZone: 1 (portion).\r\nAreas to be affected: the portion of San Pedro which includes Angel Coral Street, Almond Street, portion of Buccaneer Street, portion of Coconut Drive, Crow Street and Manta Ray Street.\r\nOutage type: Scheduled.  \r\nPurpose of outage: BEL to conduct upgrades to distribution power line equipment and remove hazardous vegetation growing into power lines in the area to improve the reliability of power supply to our Customers.",
+   "first_seen": "2026-09-23T11:07:13-06:00",
+   "last_seen": "2026-09-24T13:13:39-06:00"
+  },
+  {
+   "id": "7ae42f4a0407",
+   "type": "unscheduled",
+   "district": "Portion of Orange Walk District, Rural",
+   "load_center": "Orange Walk",
+   "feeder": "1",
+   "zone": "3 (portion)",
+   "area_ids": [
+    "gn-3582454"
+   ],
+   "date": "2026-09-24",
+   "start": "07:00",
+   "end": "13:00",
+   "purpose": "BEL to install utility poles, upgrade and replace distribution powerline equipment, energize newly built power lines and remove hazardous vegetation growing into power lines in the area to improve the reliability of power supply to our Customers",
+   "raw_text": "Load Center: Orange Walk.\r\nFeeder: 1.\r\nZone: 3 (portion).\r\nAreas to be affected: the portion of Carmelita Village which includes Sandpit Road. \r\nOutage type: Emergency.\r\nPurpose of outage: BEL to install utility poles, upgrade and replace distribution powerline equipment, energize newly built power lines and remove hazardous vegetation growing into power lines in the area to improve the reliability of power supply to our Customers.",
+   "first_seen": "2026-09-24T13:13:39-06:00",
+   "last_seen": "2026-09-24T13:13:39-06:00"
   }
  ]
 }
