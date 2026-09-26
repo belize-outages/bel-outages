@@ -3,38 +3,14 @@
   "schema_version": 1,
   "source_url": "https://www.bel.com.bz/PowerUpdates/",
   "timezone": "America/Belize",
-  "checked_at": "2026-09-25T16:24:45-06:00",
+  "checked_at": "2026-09-25T19:37:12-06:00",
   "note": "Times are Belize local exactly as BEL printed them. 'ALL' for feeder or zone is a real value, not missing data."
  },
  "outages": [
   {
-   "id": "c6a034cd5576",
-   "type": "unscheduled",
-   "status": "restored",
-   "district": "Portion of Cayo District",
-   "load_center": "San Ignacio",
-   "feeder": "2",
-   "zone": "ALL",
-   "area_ids": [
-    "txt-san-antonio-road"
-   ],
-   "date": "2026-09-25",
-   "start": "12:27",
-   "end": "16:00",
-   "timezone": "America/Belize",
-   "tentative": false,
-   "purpose": "BEL dispatched to investigate the cause of an unplanned power outage to restore power supply as soon as possible",
-   "source_url": "https://www.bel.com.bz/PowerUpdates/",
-   "published_at": null,
-   "ingested_at": "2026-09-25T16:24:45-06:00",
-   "raw_text": "Load Center: San Ignacio.\r\nFeeder: 2.\r\nZone: All.\r\nAreas to be affected: areas along the George Price Highway from Santa Elena to Esperanza, through to Unitedville, surrounding areas of Cristo Rey and San Antonio Road, Billy White, Baking Pot Road, Duck Run 1, Duck Run 2, Duck Run 3, Chiquibul Road from the junction of Georgeville to 7 Miles Progresso, and the area around BEL Kontiki Substation and Trench Town area.\r\nOutage type: Unscheduled.  \r\nPurpose of outage: BEL dispatched to investigate the cause of an unplanned power outage to restore power supply as soon as possible.",
-   "first_seen": "2026-09-25T16:24:45-06:00",
-   "last_seen": "2026-09-25T16:24:45-06:00"
-  },
-  {
    "id": "360061b507a0",
    "type": "planned",
-   "status": "announced",
+   "status": "cancelled",
    "district": "Portion of Corozal District, Rural",
    "load_center": "Corozal",
    "feeder": "6",
@@ -51,7 +27,8 @@
    "ingested_at": "2026-09-24T16:28:41-06:00",
    "raw_text": "Load Center: Corozal. \r\nFeeder: 6.\r\nZone: 4 (portion).\r\nAreas to be affected: the portion of Libertad Village from Central Avenue to Cow Pen Street and entire Egypt Street. \r\nOutage type: Scheduled.  \r\nPurpose of outage: BEL to conduct power line upgrades and remove hazardous vegetation growing into power lines to improve the reliability of the power supply to our Customers.",
    "first_seen": "2026-09-24T16:28:41-06:00",
-   "last_seen": "2026-09-25T16:24:45-06:00"
+   "last_seen": "2026-09-25T16:24:45-06:00",
+   "cancelled_at": "2026-09-25T19:37:12-06:00"
   },
   {
    "id": "e1534c899cb2",
@@ -75,7 +52,7 @@
    "ingested_at": "2026-09-24T16:28:41-06:00",
    "raw_text": "Load Center: Corozal. \r\nFeeder: 6.\r\nZone: 4 (portion).\r\nAreas to be affected: the portion of Corozal District which includes Aventura, Libertad, Estrella, and Santa Cruz.\r\nOutage type: Scheduled.  \r\nPurpose of outage: BEL to conduct power line upgrades and remove hazardous vegetation growing into power lines to improve the reliability of the power supply to our Customers.",
    "first_seen": "2026-09-24T16:28:41-06:00",
-   "last_seen": "2026-09-25T16:24:45-06:00"
+   "last_seen": "2026-09-25T19:37:12-06:00"
   }
  ]
 }

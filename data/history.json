@@ -2,8 +2,8 @@
  "meta": {
   "schema_version": 1,
   "what": "Every BEL notice this scraper has seen finish, kept as evidence of which areas sit on which feeder. Append-only; nothing is removed.",
-  "updated": "2026-09-24T16:28:41-06:00",
-  "count": 10
+  "updated": "2026-09-25T19:37:12-06:00",
+  "count": 11
  },
  "notices": [
   {
@@ -186,6 +186,24 @@
    "raw_text": "Load Center: Orange Walk.\r\nFeeder: 1.\r\nZone: 3 (portion).\r\nAreas to be affected: the portion of Carmelita Village which includes Sandpit Road. \r\nOutage type: Emergency.\r\nPurpose of outage: BEL to install utility poles, upgrade and replace distribution powerline equipment, energize newly built power lines and remove hazardous vegetation growing into power lines in the area to improve the reliability of power supply to our Customers.",
    "first_seen": "2026-09-24T13:13:39-06:00",
    "last_seen": "2026-09-24T13:13:39-06:00"
+  },
+  {
+   "id": "c6a034cd5576",
+   "type": "unscheduled",
+   "district": "Portion of Cayo District",
+   "load_center": "San Ignacio",
+   "feeder": "2",
+   "zone": "ALL",
+   "area_ids": [
+    "txt-san-antonio-road"
+   ],
+   "date": "2026-09-25",
+   "start": "12:27",
+   "end": "16:00",
+   "purpose": "BEL dispatched to investigate the cause of an unplanned power outage to restore power supply as soon as possible",
+   "raw_text": "Load Center: San Ignacio.\r\nFeeder: 2.\r\nZone: All.\r\nAreas to be affected: areas along the George Price Highway from Santa Elena to Esperanza, through to Unitedville, surrounding areas of Cristo Rey and San Antonio Road, Billy White, Baking Pot Road, Duck Run 1, Duck Run 2, Duck Run 3, Chiquibul Road from the junction of Georgeville to 7 Miles Progresso, and the area around BEL Kontiki Substation and Trench Town area.\r\nOutage type: Unscheduled.  \r\nPurpose of outage: BEL dispatched to investigate the cause of an unplanned power outage to restore power supply as soon as possible.",
+   "first_seen": "2026-09-25T16:24:45-06:00",
+   "last_seen": "2026-09-25T16:24:45-06:00"
   }
  ]
 }
