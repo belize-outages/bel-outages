@@ -3,33 +3,10 @@
   "schema_version": 1,
   "source_url": "https://www.bel.com.bz/PowerUpdates/",
   "timezone": "America/Belize",
-  "checked_at": "2026-09-26T19:30:55-06:00",
+  "checked_at": "2026-09-27T02:15:43-06:00",
   "note": "Times are Belize local exactly as BEL printed them. 'ALL' for feeder or zone is a real value, not missing data."
  },
  "outages": [
-  {
-   "id": "360061b507a0",
-   "type": "planned",
-   "status": "cancelled",
-   "district": "Portion of Corozal District, Rural",
-   "load_center": "Corozal",
-   "feeder": "6",
-   "zone": "4 (portion)",
-   "area_ids": [],
-   "date": "2026-09-29",
-   "start": "07:00",
-   "end": "12:00",
-   "timezone": "America/Belize",
-   "tentative": false,
-   "purpose": "BEL to conduct power line upgrades and remove hazardous vegetation growing into power lines to improve the reliability of the power supply to our Customers",
-   "source_url": "https://www.bel.com.bz/PowerUpdates/",
-   "published_at": null,
-   "ingested_at": "2026-09-24T16:28:41-06:00",
-   "raw_text": "Load Center: Corozal. \r\nFeeder: 6.\r\nZone: 4 (portion).\r\nAreas to be affected: the portion of Libertad Village from Central Avenue to Cow Pen Street and entire Egypt Street. \r\nOutage type: Scheduled.  \r\nPurpose of outage: BEL to conduct power line upgrades and remove hazardous vegetation growing into power lines to improve the reliability of the power supply to our Customers.",
-   "first_seen": "2026-09-24T16:28:41-06:00",
-   "last_seen": "2026-09-25T16:24:45-06:00",
-   "cancelled_at": "2026-09-25T19:37:12-06:00"
-  },
   {
    "id": "e1534c899cb2",
    "type": "planned",
@@ -52,7 +29,7 @@
    "ingested_at": "2026-09-24T16:28:41-06:00",
    "raw_text": "Load Center: Corozal. \r\nFeeder: 6.\r\nZone: 4 (portion).\r\nAreas to be affected: the portion of Corozal District which includes Aventura, Libertad, Estrella, and Santa Cruz.\r\nOutage type: Scheduled.  \r\nPurpose of outage: BEL to conduct power line upgrades and remove hazardous vegetation growing into power lines to improve the reliability of the power supply to our Customers.",
    "first_seen": "2026-09-24T16:28:41-06:00",
-   "last_seen": "2026-09-26T19:30:55-06:00"
+   "last_seen": "2026-09-27T02:15:43-06:00"
   }
  ]
 }
