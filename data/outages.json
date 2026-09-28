@@ -3,14 +3,104 @@
   "schema_version": 1,
   "source_url": "https://www.bel.com.bz/PowerUpdates/",
   "timezone": "America/Belize",
-  "checked_at": "2026-09-28T09:33:11-06:00",
+  "checked_at": "2026-09-28T16:05:15-06:00",
   "note": "Times are Belize local exactly as BEL printed them. 'ALL' for feeder or zone is a real value, not missing data."
  },
  "outages": [
   {
+   "id": "cb4461648579",
+   "type": "unscheduled",
+   "status": "announced",
+   "district": "Portion of Stann Creek District",
+   "load_center": "Independence",
+   "feeder": "3",
+   "zone": "ALL",
+   "area_ids": [
+    "txt-cow-pen",
+    "gn-8695460",
+    "gn-3581351",
+    "txt-santa-maria",
+    "gn-3582045",
+    "gn-3581710",
+    "gn-3581154",
+    "txt-maya-king",
+    "gn-3582487",
+    "gn-3581643",
+    "gn-13286766",
+    "gn-13286795",
+    "txt-san-pablo-road",
+    "txt-swasey",
+    "gn-13286767",
+    "gn-8695455"
+   ],
+   "date": "2026-09-28",
+   "start": "18:00",
+   "end": "21:00",
+   "timezone": "America/Belize",
+   "tentative": false,
+   "purpose": "BEL informs our Customers that power interruptions MAY occur in your area any time between 6pm and 9pm Monday, September 28, to ensure grid stability due to high power demand and limited supply",
+   "source_url": "https://www.bel.com.bz/PowerUpdates/",
+   "published_at": null,
+   "ingested_at": "2026-09-28T16:05:15-06:00",
+   "raw_text": "Load Center: Independence. \r\nFeeder: 3.\r\nZone: All.\r\nAreas to be affected: all areas along Independence Road, Cow Pen, San Juan, Red Bank, Santa Maria, Georgetown, Maya Mopan, San Roman, Maya King, Santa Cruz, Mango Walk, Monkey River, Bella Vista, San Isidro, San Pablo Road, Swasey, Bladen, and Trio.\r\nOutage type: Emergency.  \r\nPurpose of outage: BEL informs our Customers that power interruptions MAY occur in your area any time between 6pm and 9pm Monday, September 28, to ensure grid stability due to high power demand and limited supply.",
+   "first_seen": "2026-09-28T16:05:15-06:00",
+   "last_seen": "2026-09-28T16:05:15-06:00"
+  },
+  {
+   "id": "d02913ae1aa6",
+   "type": "unscheduled",
+   "status": "announced",
+   "district": "Portion of San Pedro",
+   "load_center": "San Pedro",
+   "feeder": "1",
+   "zone": "ALL",
+   "area_ids": [
+    "gn-3581164"
+   ],
+   "date": "2026-09-28",
+   "start": "18:00",
+   "end": "21:00",
+   "timezone": "America/Belize",
+   "tentative": false,
+   "purpose": "BEL informs our Customers that power interruptions MAY occur in your area any time between 9pm and 11:59pm Monday, September 28, to ensure grid stability due to high power demand and limited supply",
+   "source_url": "https://www.bel.com.bz/PowerUpdates/",
+   "published_at": null,
+   "ingested_at": "2026-09-28T16:05:15-06:00",
+   "raw_text": "Load Center: San Pedro.\r\nFeeder: 1.\r\nZone: All.\r\nAreas to be affected: the portion of San Pedro Town that includes Barrier Reef Drive, and Caribeña Street from Pescador Drive to beach side.\r\nOutage type: Emergency.  \r\nPurpose of outage: BEL informs our Customers that power interruptions MAY occur in your area any time between 9pm and 11:59pm Monday, September 28, to ensure grid stability due to high power demand and limited supply.",
+   "first_seen": "2026-09-28T16:05:15-06:00",
+   "last_seen": "2026-09-28T16:05:15-06:00"
+  },
+  {
+   "id": "ef80964d08dd",
+   "type": "unscheduled",
+   "status": "announced",
+   "district": "Portion Cayo District",
+   "load_center": "San Ignacio",
+   "feeder": "4",
+   "zone": "ALL",
+   "area_ids": [
+    "osm-benque-viejo-del-carmen",
+    "gn-3582742",
+    "osm-san-jose-succotz",
+    "txt-shawville"
+   ],
+   "date": "2026-09-28",
+   "start": "21:00",
+   "end": "23:59",
+   "timezone": "America/Belize",
+   "tentative": false,
+   "purpose": "BEL informs our Customers that power interruptions MAY occur in your area any time between 9pm and 11:59pm Monday, September 28, to ensure grid stability due to high power demand and limited supply",
+   "source_url": "https://www.bel.com.bz/PowerUpdates/",
+   "published_at": null,
+   "ingested_at": "2026-09-28T16:05:15-06:00",
+   "raw_text": "Load Center: San Ignacio.\r\nFeeder: 4.\r\nZone: All.\r\nAreas to be affected: areas along the George Price Highway from the Kontiki Substation to the Benque border including entire Benque Viejo del Carmen, Arenal, San Jose Succotz, Black Rock Road, Shawville, and Calla Creek.\r\nOutage type: Emergency.  \r\nPurpose of outage: BEL informs our Customers that power interruptions MAY occur in your area any time between 9pm and 11:59pm Monday, September 28, to ensure grid stability due to high power demand and limited supply.",
+   "first_seen": "2026-09-28T16:05:15-06:00",
+   "last_seen": "2026-09-28T16:05:15-06:00"
+  },
+  {
    "id": "e1534c899cb2",
    "type": "planned",
-   "status": "announced",
+   "status": "cancelled",
    "district": "Portion of Corozal District, Rural",
    "load_center": "Corozal",
    "feeder": "6",
@@ -29,12 +119,13 @@
    "ingested_at": "2026-09-24T16:28:41-06:00",
    "raw_text": "Load Center: Corozal. \r\nFeeder: 6.\r\nZone: 4 (portion).\r\nAreas to be affected: the portion of Corozal District which includes Aventura, Libertad, Estrella, and Santa Cruz.\r\nOutage type: Scheduled.  \r\nPurpose of outage: BEL to conduct power line upgrades and remove hazardous vegetation growing into power lines to improve the reliability of the power supply to our Customers.",
    "first_seen": "2026-09-24T16:28:41-06:00",
-   "last_seen": "2026-09-28T09:33:11-06:00"
+   "last_seen": "2026-09-28T09:33:11-06:00",
+   "cancelled_at": "2026-09-28T16:05:15-06:00"
   },
   {
    "id": "cdba23a779aa",
    "type": "planned",
-   "status": "announced",
+   "status": "cancelled",
    "district": "Portion of Belmopan & Cayo District, Rural",
    "load_center": "Belmopan",
    "feeder": "4",
@@ -63,7 +154,8 @@
    "ingested_at": "2026-09-28T09:33:11-06:00",
    "raw_text": "Load Center: Belmopan.\r\nFeeder: 4.\r\nZone: ALL.\r\nAreas to be affected: the portion of Belmopan that includes University Heights, Maya Mopan, Las Flores, J&W area, Rivera area; areas along Miles 31 to 50 George Price Highway including La Democracia, Mahogany Heights, St. Matthew's, Harmonyville, More Tomorrow, Cotton Tree, Roaring Creek, Valley of Peace, Camalote, Teakettle, Ontario, Buena Vista, San Marcus, Santa Teresita, Selena, Los Tambos; and areas along the Hummingbird Highway from Belmopan to Armenia. \r\nOutage type: Scheduled.  \r\nPurpose of outage: BEL to conduct system upgrades at the Belmopan Substation to improve the reliability of power supply to our Customers.",
    "first_seen": "2026-09-28T09:33:11-06:00",
-   "last_seen": "2026-09-28T09:33:11-06:00"
+   "last_seen": "2026-09-28T09:33:11-06:00",
+   "cancelled_at": "2026-09-28T16:05:15-06:00"
   }
  ]
 }
