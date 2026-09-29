@@ -3,14 +3,14 @@
   "schema_version": 1,
   "source_url": "https://www.bel.com.bz/PowerUpdates/",
   "timezone": "America/Belize",
-  "checked_at": "2026-09-28T16:05:15-06:00",
+  "checked_at": "2026-09-28T20:01:11-06:00",
   "note": "Times are Belize local exactly as BEL printed them. 'ALL' for feeder or zone is a real value, not missing data."
  },
  "outages": [
   {
    "id": "cb4461648579",
    "type": "unscheduled",
-   "status": "announced",
+   "status": "active",
    "district": "Portion of Stann Creek District",
    "load_center": "Independence",
    "feeder": "3",
@@ -44,13 +44,13 @@
    "ingested_at": "2026-09-28T16:05:15-06:00",
    "raw_text": "Load Center: Independence. \r\nFeeder: 3.\r\nZone: All.\r\nAreas to be affected: all areas along Independence Road, Cow Pen, San Juan, Red Bank, Santa Maria, Georgetown, Maya Mopan, San Roman, Maya King, Santa Cruz, Mango Walk, Monkey River, Bella Vista, San Isidro, San Pablo Road, Swasey, Bladen, and Trio.\r\nOutage type: Emergency.  \r\nPurpose of outage: BEL informs our Customers that power interruptions MAY occur in your area any time between 6pm and 9pm Monday, September 28, to ensure grid stability due to high power demand and limited supply.",
    "first_seen": "2026-09-28T16:05:15-06:00",
-   "last_seen": "2026-09-28T16:05:15-06:00"
+   "last_seen": "2026-09-28T20:01:11-06:00"
   },
   {
    "id": "d02913ae1aa6",
    "type": "unscheduled",
-   "status": "announced",
-   "district": "Portion of San Pedro",
+   "status": "active",
+   "district": "Portion of San Pedro Town",
    "load_center": "San Pedro",
    "feeder": "1",
    "zone": "ALL",
@@ -62,13 +62,13 @@
    "end": "21:00",
    "timezone": "America/Belize",
    "tentative": false,
-   "purpose": "BEL informs our Customers that power interruptions MAY occur in your area any time between 9pm and 11:59pm Monday, September 28, to ensure grid stability due to high power demand and limited supply",
+   "purpose": "BEL informs our Customers that power interruptions MAY occur in your area any time between 6pm and 9pm Monday, September 28, to ensure grid stability due to high power demand and limited supply",
    "source_url": "https://www.bel.com.bz/PowerUpdates/",
    "published_at": null,
    "ingested_at": "2026-09-28T16:05:15-06:00",
-   "raw_text": "Load Center: San Pedro.\r\nFeeder: 1.\r\nZone: All.\r\nAreas to be affected: the portion of San Pedro Town that includes Barrier Reef Drive, and Caribeña Street from Pescador Drive to beach side.\r\nOutage type: Emergency.  \r\nPurpose of outage: BEL informs our Customers that power interruptions MAY occur in your area any time between 9pm and 11:59pm Monday, September 28, to ensure grid stability due to high power demand and limited supply.",
+   "raw_text": "Load Center: San Pedro.\r\nFeeder: 1.\r\nZone: All.\r\nAreas to be affected: the portion of San Pedro Town that includes Barrier Reef Drive, and Caribeña Street from Pescador Drive to beach side.\r\nOutage type: Emergency.  \r\nPurpose of outage: BEL informs our Customers that power interruptions MAY occur in your area any time between 6pm and 9pm Monday, September 28, to ensure grid stability due to high power demand and limited supply.",
    "first_seen": "2026-09-28T16:05:15-06:00",
-   "last_seen": "2026-09-28T16:05:15-06:00"
+   "last_seen": "2026-09-28T20:01:11-06:00"
   },
   {
    "id": "ef80964d08dd",
@@ -95,7 +95,7 @@
    "ingested_at": "2026-09-28T16:05:15-06:00",
    "raw_text": "Load Center: San Ignacio.\r\nFeeder: 4.\r\nZone: All.\r\nAreas to be affected: areas along the George Price Highway from the Kontiki Substation to the Benque border including entire Benque Viejo del Carmen, Arenal, San Jose Succotz, Black Rock Road, Shawville, and Calla Creek.\r\nOutage type: Emergency.  \r\nPurpose of outage: BEL informs our Customers that power interruptions MAY occur in your area any time between 9pm and 11:59pm Monday, September 28, to ensure grid stability due to high power demand and limited supply.",
    "first_seen": "2026-09-28T16:05:15-06:00",
-   "last_seen": "2026-09-28T16:05:15-06:00"
+   "last_seen": "2026-09-28T20:01:11-06:00"
   },
   {
    "id": "e1534c899cb2",
