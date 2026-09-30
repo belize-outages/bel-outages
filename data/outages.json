@@ -3,7 +3,7 @@
   "schema_version": 1,
   "source_url": "https://www.bel.com.bz/PowerUpdates/",
   "timezone": "America/Belize",
-  "checked_at": "2026-09-29T18:30:58-06:00",
+  "checked_at": "2026-09-30T00:46:48-06:00",
   "note": "Times are Belize local exactly as BEL printed them. 'ALL' for feeder or zone is a real value, not missing data."
  },
  "outages": [
@@ -27,7 +27,7 @@
    "ingested_at": "2026-09-29T18:30:58-06:00",
    "raw_text": "Load Center: San Pedro.\r\nFeeder: 2.\r\nZone: 2 (portion).\r\nAreas to be affected: Portion of DFC subdivision.\r\nOutage type: Scheduled.  \r\nPurpose of outage BEL to install utility pole and new distribution power line equipment at the DFC substation to improve the reliability of power supply to our Customers.",
    "first_seen": "2026-09-29T18:30:58-06:00",
-   "last_seen": "2026-09-29T18:30:58-06:00"
+   "last_seen": "2026-09-30T00:46:48-06:00"
   },
   {
    "id": "cdba23a779aa",
@@ -61,7 +61,7 @@
    "ingested_at": "2026-09-28T09:33:11-06:00",
    "raw_text": "Load Center: Belmopan.\r\nFeeder: 4.\r\nZone: ALL.\r\nAreas to be affected: the portion of Belmopan that includes University Heights, Maya Mopan, Las Flores, J&W area, Rivera area; areas along Miles 31 to 50 George Price Highway including La Democracia, Mahogany Heights, St. Matthew's, Harmonyville, More Tomorrow, Cotton Tree, Roaring Creek, Valley of Peace, Camalote, Teakettle, Ontario, Buena Vista, San Marcus, Santa Teresita, Selena, Los Tambos; and areas along the Hummingbird Highway from Belmopan to Armenia. \r\nOutage type: Scheduled.  \r\nPurpose of outage: BEL to conduct system upgrades at the Belmopan Substation to improve the reliability of power supply to our Customers.",
    "first_seen": "2026-09-28T09:33:11-06:00",
-   "last_seen": "2026-09-29T18:30:58-06:00"
+   "last_seen": "2026-09-30T00:46:48-06:00"
   }
  ]
 }
