@@ -2,8 +2,8 @@
  "meta": {
   "schema_version": 1,
   "what": "Every BEL notice this scraper has seen finish, kept as evidence of which areas sit on which feeder. Append-only; nothing is removed.",
-  "updated": "2026-09-30T17:54:17-06:00",
-  "count": 17
+  "updated": "2026-10-01T13:34:38-06:00",
+  "count": 18
  },
  "notices": [
   {
@@ -326,6 +326,34 @@
    "raw_text": "Load Center: San Pedro.\r\nFeeder: 2.\r\nZone: 2 (portion).\r\nAreas to be affected: Portion of DFC subdivision.\r\nOutage type: Scheduled.  \r\nPurpose of outage BEL to install utility pole and new distribution power line equipment at the DFC substation to improve the reliability of power supply to our Customers.",
    "first_seen": "2026-09-29T18:30:58-06:00",
    "last_seen": "2026-09-30T13:25:00-06:00"
+  },
+  {
+   "id": "cdba23a779aa",
+   "type": "planned",
+   "district": "Portion of Belmopan & Cayo District, Rural",
+   "load_center": "Belmopan",
+   "feeder": "4",
+   "zone": "ALL",
+   "area_ids": [
+    "gn-3582672",
+    "txt-university-heights",
+    "gn-3581710",
+    "txt-las-flores",
+    "txt-j-w",
+    "txt-rivera-area",
+    "osm-roaring-creek",
+    "osm-camalote",
+    "osm-teakettle",
+    "osm-ontario",
+    "osm-buena-vista"
+   ],
+   "date": "2026-10-01",
+   "start": "05:30",
+   "end": "09:30",
+   "purpose": "BEL to conduct system upgrades at the Belmopan Substation to improve the reliability of power supply to our Customers",
+   "raw_text": "Load Center: Belmopan.\r\nFeeder: 4.\r\nZone: ALL.\r\nAreas to be affected: the portion of Belmopan that includes University Heights, Maya Mopan, Las Flores, J&W area, Rivera area; areas along Miles 31 to 50 George Price Highway including La Democracia, Mahogany Heights, St. Matthew's, Harmonyville, More Tomorrow, Cotton Tree, Roaring Creek, Valley of Peace, Camalote, Teakettle, Ontario, Buena Vista, San Marcus, Santa Teresita, Selena, Los Tambos; and areas along the Hummingbird Highway from Belmopan to Armenia. \r\nOutage type: Scheduled.  \r\nPurpose of outage: BEL to conduct system upgrades at the Belmopan Substation to improve the reliability of power supply to our Customers.",
+   "first_seen": "2026-09-28T09:33:11-06:00",
+   "last_seen": "2026-10-01T07:25:11-06:00"
   }
  ]
 }
