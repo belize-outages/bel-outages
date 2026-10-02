@@ -3,7 +3,7 @@
   "schema_version": 1,
   "source_url": "https://www.bel.com.bz/PowerUpdates/",
   "timezone": "America/Belize",
-  "checked_at": "2026-10-02T06:42:46-06:00",
+  "checked_at": "2026-10-02T17:00:15-06:00",
   "note": "Times are Belize local exactly as BEL printed them. 'ALL' for feeder or zone is a real value, not missing data."
  },
  "outages": [
@@ -35,7 +35,7 @@
    "ingested_at": "2026-09-30T17:54:17-06:00",
    "raw_text": "Load Center: Punta Gorda \r\nFeeder: 2\r\nZone: 2 & Portion 1\r\nAreas to be affected: Columbia, San Miguel, Mafredi, Jordan, Blue Creek, Aguacate, San Antonio and Crique Jute.\r\nOutage type: Scheduled.  \r\nPurpose of outage: BEL to install protective devices on the distribution system and replace utility poles in Columbia Village to improve the reliability of power supply to our Customers in the area.",
    "first_seen": "2026-09-30T17:54:17-06:00",
-   "last_seen": "2026-10-02T06:42:46-06:00"
+   "last_seen": "2026-10-02T17:00:15-06:00"
   },
   {
    "id": "eeb72098534a",
@@ -60,7 +60,7 @@
    "ingested_at": "2026-09-30T17:54:17-06:00",
    "raw_text": "Load Center: Belmopan\r\nFeeder: 3\r\nZone: 1\r\nAreas to be affected: the portion of Belmopan which includes portion Hummingbird Highway between Forest Drive and  Iliana Drive, entire Forest Drive, Entrepreneur Road from Forest Drive to Success Lane, Product Lane, Talent Lane, Ministry Lane, portion Power Lane to Ministry Drive, Slim Lane; portion of Constitution Drive from Almond Boulevard to Bliss Parade, Police Street, Club Lane, Lumber Street from Club Lane to Buca Street, Builder’s Hardware Street, Buca Street, Garage Lane, Canteen Lane; Almond Boulevard from Constitution Drive to Roaring Creek Street, Barton Creek Street from Constitution Drive to Roaring Creek Street, and portion South Ring Road.\r\nOutage type: Scheduled.  \r\nPurpose of outage: BEL to relocate high voltage power lines, distribution power line equipment and utility poles to improve the reliability of power supply to our Customers.",
    "first_seen": "2026-09-30T17:54:17-06:00",
-   "last_seen": "2026-10-02T06:42:46-06:00"
+   "last_seen": "2026-10-02T17:00:15-06:00"
   }
  ]
 }
