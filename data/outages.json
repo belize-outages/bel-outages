@@ -3,7 +3,7 @@
   "schema_version": 1,
   "source_url": "https://www.bel.com.bz/PowerUpdates/",
   "timezone": "America/Belize",
-  "checked_at": "2026-10-04T07:14:10-06:00",
+  "checked_at": "2026-10-04T15:32:32-06:00",
   "note": "Times are Belize local exactly as BEL printed them. 'ALL' for feeder or zone is a real value, not missing data."
  },
  "outages": [
@@ -32,6 +32,30 @@
    "first_seen": "2026-09-30T17:54:17-06:00",
    "last_seen": "2026-10-03T18:41:34-06:00",
    "cancelled_at": "2026-10-04T00:59:11-06:00"
+  },
+  {
+   "id": "509269f297f5",
+   "type": "unscheduled",
+   "status": "restored",
+   "district": "Toledo District Rural",
+   "load_center": null,
+   "feeder": "3",
+   "zone": "1 (portion)",
+   "area_ids": [
+    "gn-3581643"
+   ],
+   "date": "2026-10-04",
+   "start": "13:30",
+   "end": "15:30",
+   "timezone": "America/Belize",
+   "tentative": false,
+   "purpose": "BEL to urgently repair fallen high voltage power lines in the area",
+   "source_url": "https://www.bel.com.bz/PowerUpdates/",
+   "published_at": null,
+   "ingested_at": "2026-10-04T15:32:32-06:00",
+   "raw_text": "Feeder: 3\r\nZone: 1 (portion)\r\nAreas to be affected: Monkey River.\r\nOutage type: Emergency.  \r\nPurpose of outage: BEL to urgently repair fallen high voltage power lines in the area.",
+   "first_seen": "2026-10-04T15:32:32-06:00",
+   "last_seen": "2026-10-04T15:32:32-06:00"
   }
  ]
 }
