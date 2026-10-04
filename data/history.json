@@ -2,8 +2,8 @@
  "meta": {
   "schema_version": 1,
   "what": "Every BEL notice this scraper has seen finish, kept as evidence of which areas sit on which feeder. Append-only; nothing is removed.",
-  "updated": "2026-10-01T13:34:38-06:00",
-  "count": 18
+  "updated": "2026-10-03T18:41:34-06:00",
+  "count": 19
  },
  "notices": [
   {
@@ -354,6 +354,30 @@
    "raw_text": "Load Center: Belmopan.\r\nFeeder: 4.\r\nZone: ALL.\r\nAreas to be affected: the portion of Belmopan that includes University Heights, Maya Mopan, Las Flores, J&W area, Rivera area; areas along Miles 31 to 50 George Price Highway including La Democracia, Mahogany Heights, St. Matthew's, Harmonyville, More Tomorrow, Cotton Tree, Roaring Creek, Valley of Peace, Camalote, Teakettle, Ontario, Buena Vista, San Marcus, Santa Teresita, Selena, Los Tambos; and areas along the Hummingbird Highway from Belmopan to Armenia. \r\nOutage type: Scheduled.  \r\nPurpose of outage: BEL to conduct system upgrades at the Belmopan Substation to improve the reliability of power supply to our Customers.",
    "first_seen": "2026-09-28T09:33:11-06:00",
    "last_seen": "2026-10-01T07:25:11-06:00"
+  },
+  {
+   "id": "e4d55df51cab",
+   "type": "planned",
+   "district": "Portion of Toledo District, Rural",
+   "load_center": "Punta Gorda",
+   "feeder": "2",
+   "zone": "2 & Portion 1",
+   "area_ids": [
+    "gn-3581166",
+    "gn-3581601",
+    "gn-8695292",
+    "osm-blue-creek",
+    "gn-3582778",
+    "gn-3581219",
+    "gn-3582266"
+   ],
+   "date": "2026-10-03",
+   "start": "07:00",
+   "end": "15:00",
+   "purpose": "BEL to install protective devices on the distribution system and replace utility poles in Columbia Village to improve the reliability of power supply to our Customers in the area",
+   "raw_text": "Load Center: Punta Gorda \r\nFeeder: 2\r\nZone: 2 & Portion 1\r\nAreas to be affected: Columbia, San Miguel, Mafredi, Jordan, Blue Creek, Aguacate, San Antonio and Crique Jute.\r\nOutage type: Scheduled.  \r\nPurpose of outage: BEL to install protective devices on the distribution system and replace utility poles in Columbia Village to improve the reliability of power supply to our Customers in the area.",
+   "first_seen": "2026-09-30T17:54:17-06:00",
+   "last_seen": "2026-10-03T15:21:35-06:00"
   }
  ]
 }
