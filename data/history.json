@@ -2,8 +2,8 @@
  "meta": {
   "schema_version": 1,
   "what": "Every BEL notice this scraper has seen finish, kept as evidence of which areas sit on which feeder. Append-only; nothing is removed.",
-  "updated": "2026-10-03T18:41:34-06:00",
-  "count": 19
+  "updated": "2026-10-04T00:59:11-06:00",
+  "count": 21
  },
  "notices": [
   {
@@ -378,6 +378,42 @@
    "raw_text": "Load Center: Punta Gorda \r\nFeeder: 2\r\nZone: 2 & Portion 1\r\nAreas to be affected: Columbia, San Miguel, Mafredi, Jordan, Blue Creek, Aguacate, San Antonio and Crique Jute.\r\nOutage type: Scheduled.  \r\nPurpose of outage: BEL to install protective devices on the distribution system and replace utility poles in Columbia Village to improve the reliability of power supply to our Customers in the area.",
    "first_seen": "2026-09-30T17:54:17-06:00",
    "last_seen": "2026-10-03T15:21:35-06:00"
+  },
+  {
+   "id": "410fb1dfd11b",
+   "type": "unscheduled",
+   "district": "Portion of Belize District Rural",
+   "load_center": "Ladyville",
+   "feeder": "2",
+   "zone": "3 Portion",
+   "area_ids": [
+    "gn-3581139",
+    "gn-3581723",
+    "gn-3582563"
+   ],
+   "date": "2026-10-03",
+   "start": "11:46",
+   "end": "14:46",
+   "purpose": "BEL dispatched to investigate the cause of an unplanned power outage to restore power supply as soon as possible",
+   "raw_text": "Load Center: Ladyville\r\nFeeder: 2. \r\nZone: 3 Portion\r\nAreas to be affected: Areas alongside Maskall Road including Santa Ana, Corozalito, St. Anne, Maskall and Bomba. \r\nOutage type: Unscheduled.  \r\nPurpose of outage: BEL dispatched to investigate the cause of an unplanned power outage to restore power supply as soon as possible.",
+   "first_seen": "2026-10-03T15:21:35-06:00",
+   "last_seen": "2026-10-03T18:41:34-06:00"
+  },
+  {
+   "id": "9755dd615050",
+   "type": "unscheduled",
+   "district": "Portion Stann Creek District Rural",
+   "load_center": null,
+   "feeder": "1",
+   "zone": "ALL",
+   "area_ids": [],
+   "date": "2026-10-03",
+   "start": "16:23",
+   "end": "19:30",
+   "purpose": "BEL dispatched to investigate the cause of an unplanned power outage to restore power supply as soon as possible",
+   "raw_text": "Feeder: 1\r\nZone: All\r\nAreas to be affected: Mullins River, Gales Point Manatee and portion Coastal Road.\r\nOutage type: Unscheduled.  \r\nPurpose of outage: BEL dispatched to investigate the cause of an unplanned power outage to restore power supply as soon as possible.",
+   "first_seen": "2026-10-03T18:41:34-06:00",
+   "last_seen": "2026-10-03T18:41:34-06:00"
   }
  ]
 }
