@@ -3,7 +3,7 @@
   "schema_version": 1,
   "source_url": "https://www.bel.com.bz/PowerUpdates/",
   "timezone": "America/Belize",
-  "checked_at": "2026-10-06T11:14:08-06:00",
+  "checked_at": "2026-10-06T19:35:49-06:00",
   "note": "Times are Belize local exactly as BEL printed them. 'ALL' for feeder or zone is a real value, not missing data."
  },
  "outages": [
@@ -27,7 +27,7 @@
    "ingested_at": "2026-10-05T16:41:38-06:00",
    "raw_text": "Load Center: Mullins River\r\nFeeder: 1\r\nZone: 1\r\nAreas to be affected: Mullins River, Gales Point Manatee, and portion of Coastal Road.\r\nOutage type: Planned.  \r\nPurpose of outage: BEL to replace utility poles, install protective devices on transmission lines, and conduct system maintenance works to improve the reliability of the power supply to our Customers.",
    "first_seen": "2026-10-05T16:41:38-06:00",
-   "last_seen": "2026-10-06T11:14:08-06:00"
+   "last_seen": "2026-10-06T19:35:49-06:00"
   },
   {
    "id": "4e30b70f6755",
@@ -68,7 +68,7 @@
    "ingested_at": "2026-10-05T16:41:38-06:00",
    "raw_text": "Load Center: Dangriga\r\nFeeder: 2 & 3\r\nZone: ALL\r\nAreas to be affected: Melinda Road, Canada Hill, Hope Creek, Pomona, Alta Vista, Steadfast Community, Valley Community, Middlesex, Kingsville, Hummingbird Community, Santa Marta, and St. Margaret’s; Hopkins, Sittee River, Maya Center, Silk Grass, Kendall, and Riversdale.\r\nOutage type: Scheduled.  \r\nPurpose of outage: BEL to replace utility poles, install protective devices on transmission lines, remove hazardous vegetation growing into power lines and conduct system maintenance works to improve the reliability of the power supply to our Customers.",
    "first_seen": "2026-10-05T16:41:38-06:00",
-   "last_seen": "2026-10-06T11:14:08-06:00"
+   "last_seen": "2026-10-06T19:35:49-06:00"
   },
   {
    "id": "599eda198d5a",
@@ -90,7 +90,7 @@
    "ingested_at": "2026-10-05T16:41:38-06:00",
    "raw_text": "Load Center: Mullins River\r\nFeeder: 1\r\nZone: 1\r\nAreas to be affected: Mullins River, Gales Point Manatee, and portion of Coastal Road.\r\nOutage type: Planned.  \r\nPurpose of outage: BEL to replace utility poles, install protective devices on transmission lines, and conduct system maintenance works to improve the reliability of the power supply to our Customers.",
    "first_seen": "2026-10-05T16:41:38-06:00",
-   "last_seen": "2026-10-06T11:14:08-06:00"
+   "last_seen": "2026-10-06T19:35:49-06:00"
   }
  ]
 }
