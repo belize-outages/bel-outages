@@ -2,8 +2,8 @@
  "meta": {
   "schema_version": 1,
   "what": "Every BEL notice this scraper has seen finish, kept as evidence of which areas sit on which feeder. Append-only; nothing is removed.",
-  "updated": "2026-10-04T18:59:04-06:00",
-  "count": 22
+  "updated": "2026-10-07T16:01:30-06:00",
+  "count": 23
  },
  "notices": [
   {
@@ -432,6 +432,22 @@
    "raw_text": "Feeder: 3\r\nZone: 1 (portion)\r\nAreas to be affected: Monkey River.\r\nOutage type: Emergency.  \r\nPurpose of outage: BEL to urgently repair fallen high voltage power lines in the area.",
    "first_seen": "2026-10-04T15:32:32-06:00",
    "last_seen": "2026-10-04T15:32:32-06:00"
+  },
+  {
+   "id": "b03bbb8064f9",
+   "type": "unscheduled",
+   "district": "Portion Orange Walk District",
+   "load_center": "Orange Walk",
+   "feeder": "4",
+   "zone": "4(portion). Areas affected: Santa Cruz, San Antonio, San Lorenzo, San Roman, San Luis, San Jose, San Pablo, San Juan, Douglas, (Corozal District Rual) - Buena Vista, Caledonia and Progresso",
+   "area_ids": [],
+   "date": "2026-10-07",
+   "start": "05:49",
+   "end": "08:00",
+   "purpose": "BEL dispatched to investigate the cause of an unplanned power outage to restore power supply as soon as possible",
+   "raw_text": "Load Center: Orange Walk.\r\nFeeder: 4.\r\nZone: 4(portion).\r\nAreas affected: Santa Cruz, San Antonio, San Lorenzo, San Roman, San Luis, San Jose, San Pablo, San Juan, Douglas, (Corozal District Rual) - Buena Vista, Caledonia and Progresso.\r\nOutage type: Unscheduled.  \r\n\r\nPurpose of outage: BEL dispatched to investigate the cause of an unplanned power outage to restore power supply as soon as possible.",
+   "first_seen": "2026-10-07T10:34:10-06:00",
+   "last_seen": "2026-10-07T10:34:10-06:00"
   }
  ]
 }
