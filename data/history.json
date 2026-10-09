@@ -2,8 +2,8 @@
  "meta": {
   "schema_version": 1,
   "what": "Every BEL notice this scraper has seen finish, kept as evidence of which areas sit on which feeder. Append-only; nothing is removed.",
-  "updated": "2026-10-07T16:01:30-06:00",
-  "count": 23
+  "updated": "2026-10-08T20:13:35-06:00",
+  "count": 24
  },
  "notices": [
   {
@@ -448,6 +448,22 @@
    "raw_text": "Load Center: Orange Walk.\r\nFeeder: 4.\r\nZone: 4(portion).\r\nAreas affected: Santa Cruz, San Antonio, San Lorenzo, San Roman, San Luis, San Jose, San Pablo, San Juan, Douglas, (Corozal District Rual) - Buena Vista, Caledonia and Progresso.\r\nOutage type: Unscheduled.  \r\n\r\nPurpose of outage: BEL dispatched to investigate the cause of an unplanned power outage to restore power supply as soon as possible.",
    "first_seen": "2026-10-07T10:34:10-06:00",
    "last_seen": "2026-10-07T10:34:10-06:00"
+  },
+  {
+   "id": "a101037c9e32",
+   "type": "unscheduled",
+   "district": "Portion of San Ignacio Town",
+   "load_center": "San Ignacio",
+   "feeder": "1",
+   "zone": "1 portion. Areas affected: Areas along Martin Galvez Boulevard, Eslander Bedran Street, Buena Vista Street, Far West Street to Hawksworth Bridge",
+   "area_ids": [],
+   "date": "2026-10-08",
+   "start": "11:43",
+   "end": "15:00",
+   "purpose": "BEL dispatched to repair broken utility pole in the area to restore power supply as soon as possible",
+   "raw_text": "Load Center: San Ignacio.\r\nFeeder: 1.\r\nZone: 1 portion.\r\nAreas affected: Areas along Martin Galvez Boulevard, Eslander Bedran Street, Buena Vista Street, Far West Street to Hawksworth Bridge. \r\nOutage type: Unscheduled.  \r\nPurpose of outage: BEL dispatched to repair broken utility pole in the area to restore power supply as soon as possible.",
+   "first_seen": "2026-10-08T16:07:43-06:00",
+   "last_seen": "2026-10-08T16:07:43-06:00"
   }
  ]
 }
