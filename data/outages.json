@@ -3,54 +3,10 @@
   "schema_version": 1,
   "source_url": "https://www.bel.com.bz/PowerUpdates/",
   "timezone": "America/Belize",
-  "checked_at": "2026-10-09T18:55:45-06:00",
+  "checked_at": "2026-10-10T01:12:45-06:00",
   "note": "Times are Belize local exactly as BEL printed them. 'ALL' for feeder or zone is a real value, not missing data."
  },
  "outages": [
-  {
-   "id": "c1428347bfa0",
-   "type": "unscheduled",
-   "status": "restored",
-   "district": "Toledo District",
-   "load_center": "Punta Gorda",
-   "feeder": "ALL",
-   "zone": "ALL",
-   "area_ids": [],
-   "date": "2026-10-09",
-   "start": "16:34",
-   "end": "18:30",
-   "timezone": "America/Belize",
-   "tentative": false,
-   "purpose": "BEL dispatched to investigate the cause of an unplanned power outage to restore power supply as soon as possible",
-   "source_url": "https://www.bel.com.bz/PowerUpdates/",
-   "published_at": null,
-   "ingested_at": "2026-10-09T18:55:45-06:00",
-   "raw_text": "Load Center: Punta Gorda.\r\nFeeder: ALL \r\nZone: ALL\r\nAreas to be affected: Entire Toledo District except Monkey River, Bella Vista, San Isidro, Bladen and Trio Village.\r\nOutage type: Unscheduled.  \r\nPurpose of outage: BEL dispatched to investigate the cause of an unplanned power outage to restore power supply as soon as possible.",
-   "first_seen": "2026-10-09T18:55:45-06:00",
-   "last_seen": "2026-10-09T18:55:45-06:00"
-  },
-  {
-   "id": "e362edbec865",
-   "type": "unscheduled",
-   "status": "active",
-   "district": "Portion of Stann Creek District",
-   "load_center": "Dangriga",
-   "feeder": "2",
-   "zone": "3 portion. Areas affected: Middlesex, Hummingbird Community, Santa Marta and St. Margaret's",
-   "area_ids": [],
-   "date": "2026-10-09",
-   "start": "17:34",
-   "end": "19:35",
-   "timezone": "America/Belize",
-   "tentative": false,
-   "purpose": "BEL dispatched to investigate the cause of an unplanned power outage to restore power supply as soon as possible",
-   "source_url": "https://www.bel.com.bz/PowerUpdates/",
-   "published_at": null,
-   "ingested_at": "2026-10-09T18:55:45-06:00",
-   "raw_text": "Load Center: Dangriga\r\nFeeder: 2\r\nZone: 3 portion.\r\nAreas affected: Middlesex, Hummingbird Community, Santa Marta and St. Margaret's.  \r\nOutage type: Unscheduled.  \r\nPurpose of outage: BEL dispatched to investigate the cause of an unplanned power outage to restore power supply as soon as possible.",
-   "first_seen": "2026-10-09T18:55:45-06:00",
-   "last_seen": "2026-10-09T18:55:45-06:00"
-  },
   {
    "id": "43355631ef5d",
    "type": "planned",
@@ -71,12 +27,12 @@
    "ingested_at": "2026-10-05T16:41:38-06:00",
    "raw_text": "Load Center: Mullins River\r\nFeeder: 1\r\nZone: 1\r\nAreas to be affected: Mullins River, Gales Point Manatee, and portion of Coastal Road.\r\nOutage type: Planned.  \r\nPurpose of outage: BEL to replace utility poles, install protective devices on transmission lines, and conduct system maintenance works to improve the reliability of the power supply to our Customers.",
    "first_seen": "2026-10-05T16:41:38-06:00",
-   "last_seen": "2026-10-09T18:55:45-06:00"
+   "last_seen": "2026-10-10T01:12:45-06:00"
   },
   {
    "id": "4e30b70f6755",
    "type": "planned",
-   "status": "cancelled",
+   "status": "announced",
    "district": "Portion of Stann Creek District, Rural",
    "load_center": "Dangriga",
    "feeder": "2 & 3",
@@ -112,13 +68,12 @@
    "ingested_at": "2026-10-05T16:41:38-06:00",
    "raw_text": "Load Center: Dangriga\r\nFeeder: 2 & 3\r\nZone: ALL\r\nAreas to be affected: Melinda Road, Canada Hill, Hope Creek, Pomona, Alta Vista, Steadfast Community, Valley Community, Middlesex, Kingsville, Hummingbird Community, Santa Marta, and St. Margaret’s; Hopkins, Sittee River, Maya Center, Silk Grass, Kendall, and Riversdale.\r\nOutage type: Scheduled.  \r\nPurpose of outage: BEL to replace utility poles, install protective devices on transmission lines, remove hazardous vegetation growing into power lines and conduct system maintenance works to improve the reliability of the power supply to our Customers.",
    "first_seen": "2026-10-05T16:41:38-06:00",
-   "last_seen": "2026-10-09T10:17:04-06:00",
-   "cancelled_at": "2026-10-09T18:55:45-06:00"
+   "last_seen": "2026-10-10T01:12:45-06:00"
   },
   {
    "id": "599eda198d5a",
    "type": "planned",
-   "status": "cancelled",
+   "status": "announced",
    "district": "Portion of Stann Creek District, Rural",
    "load_center": "Mullins River",
    "feeder": "1",
@@ -135,8 +90,7 @@
    "ingested_at": "2026-10-05T16:41:38-06:00",
    "raw_text": "Load Center: Mullins River\r\nFeeder: 1\r\nZone: 1\r\nAreas to be affected: Mullins River, Gales Point Manatee, and portion of Coastal Road.\r\nOutage type: Planned.  \r\nPurpose of outage: BEL to replace utility poles, install protective devices on transmission lines, and conduct system maintenance works to improve the reliability of the power supply to our Customers.",
    "first_seen": "2026-10-05T16:41:38-06:00",
-   "last_seen": "2026-10-09T10:17:04-06:00",
-   "cancelled_at": "2026-10-09T18:55:45-06:00"
+   "last_seen": "2026-10-10T01:12:45-06:00"
   }
  ]
 }

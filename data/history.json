@@ -2,8 +2,8 @@
  "meta": {
   "schema_version": 1,
   "what": "Every BEL notice this scraper has seen finish, kept as evidence of which areas sit on which feeder. Append-only; nothing is removed.",
-  "updated": "2026-10-08T20:13:35-06:00",
-  "count": 24
+  "updated": "2026-10-10T01:12:45-06:00",
+  "count": 26
  },
  "notices": [
   {
@@ -464,6 +464,38 @@
    "raw_text": "Load Center: San Ignacio.\r\nFeeder: 1.\r\nZone: 1 portion.\r\nAreas affected: Areas along Martin Galvez Boulevard, Eslander Bedran Street, Buena Vista Street, Far West Street to Hawksworth Bridge. \r\nOutage type: Unscheduled.  \r\nPurpose of outage: BEL dispatched to repair broken utility pole in the area to restore power supply as soon as possible.",
    "first_seen": "2026-10-08T16:07:43-06:00",
    "last_seen": "2026-10-08T16:07:43-06:00"
+  },
+  {
+   "id": "c1428347bfa0",
+   "type": "unscheduled",
+   "district": "Toledo District",
+   "load_center": "Punta Gorda",
+   "feeder": "ALL",
+   "zone": "ALL",
+   "area_ids": [],
+   "date": "2026-10-09",
+   "start": "16:34",
+   "end": "18:30",
+   "purpose": "BEL dispatched to investigate the cause of an unplanned power outage to restore power supply as soon as possible",
+   "raw_text": "Load Center: Punta Gorda.\r\nFeeder: ALL \r\nZone: ALL\r\nAreas to be affected: Entire Toledo District except Monkey River, Bella Vista, San Isidro, Bladen and Trio Village.\r\nOutage type: Unscheduled.  \r\nPurpose of outage: BEL dispatched to investigate the cause of an unplanned power outage to restore power supply as soon as possible.",
+   "first_seen": "2026-10-09T18:55:45-06:00",
+   "last_seen": "2026-10-09T18:55:45-06:00"
+  },
+  {
+   "id": "e362edbec865",
+   "type": "unscheduled",
+   "district": "Portion of Stann Creek District",
+   "load_center": "Dangriga",
+   "feeder": "2",
+   "zone": "3 portion. Areas affected: Middlesex, Hummingbird Community, Santa Marta and St. Margaret's",
+   "area_ids": [],
+   "date": "2026-10-09",
+   "start": "17:34",
+   "end": "19:35",
+   "purpose": "BEL dispatched to investigate the cause of an unplanned power outage to restore power supply as soon as possible",
+   "raw_text": "Load Center: Dangriga\r\nFeeder: 2\r\nZone: 3 portion.\r\nAreas affected: Middlesex, Hummingbird Community, Santa Marta and St. Margaret's.  \r\nOutage type: Unscheduled.  \r\nPurpose of outage: BEL dispatched to investigate the cause of an unplanned power outage to restore power supply as soon as possible.",
+   "first_seen": "2026-10-09T18:55:45-06:00",
+   "last_seen": "2026-10-09T18:55:45-06:00"
   }
  ]
 }
