@@ -2,8 +2,8 @@
  "meta": {
   "schema_version": 1,
   "what": "Every BEL notice this scraper has seen finish, kept as evidence of which areas sit on which feeder. Append-only; nothing is removed.",
-  "updated": "2026-10-10T01:12:45-06:00",
-  "count": 26
+  "updated": "2026-10-11T02:58:18-06:00",
+  "count": 29
  },
  "notices": [
   {
@@ -496,6 +496,73 @@
    "raw_text": "Load Center: Dangriga\r\nFeeder: 2\r\nZone: 3 portion.\r\nAreas affected: Middlesex, Hummingbird Community, Santa Marta and St. Margaret's.  \r\nOutage type: Unscheduled.  \r\nPurpose of outage: BEL dispatched to investigate the cause of an unplanned power outage to restore power supply as soon as possible.",
    "first_seen": "2026-10-09T18:55:45-06:00",
    "last_seen": "2026-10-09T18:55:45-06:00"
+  },
+  {
+   "id": "43355631ef5d",
+   "type": "planned",
+   "district": "Portion of Stann Creek District, Rural",
+   "load_center": "Mullins River",
+   "feeder": "1",
+   "zone": "1",
+   "area_ids": [],
+   "date": "2026-10-10",
+   "start": "07:00",
+   "end": "07:45",
+   "purpose": "BEL to replace utility poles, install protective devices on transmission lines, and conduct system maintenance works to improve the reliability of the power supply to our Customers",
+   "raw_text": "Load Center: Mullins River\r\nFeeder: 1\r\nZone: 1\r\nAreas to be affected: Mullins River, Gales Point Manatee, and portion of Coastal Road.\r\nOutage type: Planned.  \r\nPurpose of outage: BEL to replace utility poles, install protective devices on transmission lines, and conduct system maintenance works to improve the reliability of the power supply to our Customers.",
+   "first_seen": "2026-10-05T16:41:38-06:00",
+   "last_seen": "2026-10-10T19:57:29-06:00"
+  },
+  {
+   "id": "2e5aa417a9ec",
+   "type": "planned",
+   "district": "Portion of Stann Creek District, Rural",
+   "load_center": "Dangriga",
+   "feeder": "2 & 3",
+   "zone": "ALL",
+   "area_ids": [
+    "txt-melinda-road",
+    "gn-8695448",
+    "gn-13286724",
+    "gn-3581436",
+    "gn-3582761",
+    "gn-13286764",
+    "gn-13286765",
+    "gn-3581672",
+    "txt-kingsville",
+    "gn-13286725",
+    "gn-13286651",
+    "gn-11049077",
+    "gn-3581922",
+    "gn-13286762",
+    "gn-13286729",
+    "gn-3581050",
+    "txt-kendall",
+    "gn-3581305"
+   ],
+   "date": "2026-10-10",
+   "start": "08:30",
+   "end": "15:00",
+   "purpose": "BEL to replace utility poles, install protective devices on transmission lines, remove hazardous vegetation growing into power lines and conduct system maintenance works to improve the reliability of the power supply to our Customers",
+   "raw_text": "Load Center: Dangriga\r\nFeeder: 2 & 3\r\nZone: ALL\r\nAreas to be affected: Melinda Road, Canada Hill, Hope Creek, Pomona, Alta Vista, Steadfast Community, Valley Community, Middlesex, Kingsville, Hummingbird Community, Santa Marta, and St. Margaret’s; Hopkins, Sittee River, Maya Center, Silk Grass, Kendall, and Riversdale.\r\nOutage type: Scheduled.  \r\nPurpose of outage: BEL to replace utility poles, install protective devices on transmission lines, remove hazardous vegetation growing into power lines and conduct system maintenance works to improve the reliability of the power supply to our Customers.",
+   "first_seen": "2026-10-10T12:39:44-06:00",
+   "last_seen": "2026-10-10T19:57:29-06:00"
+  },
+  {
+   "id": "599eda198d5a",
+   "type": "planned",
+   "district": "Portion of Stann Creek District, Rural",
+   "load_center": "Mullins River",
+   "feeder": "1",
+   "zone": "1",
+   "area_ids": [],
+   "date": "2026-10-10",
+   "start": "17:15",
+   "end": "18:00",
+   "purpose": "BEL to replace utility poles, install protective devices on transmission lines, and conduct system maintenance works to improve the reliability of the power supply to our Customers",
+   "raw_text": "Load Center: Mullins River\r\nFeeder: 1\r\nZone: 1\r\nAreas to be affected: Mullins River, Gales Point Manatee, and portion of Coastal Road.\r\nOutage type: Planned.  \r\nPurpose of outage: BEL to replace utility poles, install protective devices on transmission lines, and conduct system maintenance works to improve the reliability of the power supply to our Customers.",
+   "first_seen": "2026-10-05T16:41:38-06:00",
+   "last_seen": "2026-10-10T19:57:29-06:00"
   }
  ]
 }
