@@ -3,7 +3,7 @@
   "schema_version": 1,
   "source_url": "https://www.bel.com.bz/PowerUpdates/",
   "timezone": "America/Belize",
-  "checked_at": "2026-10-11T14:20:47-06:00",
+  "checked_at": "2026-10-11T18:36:02-06:00",
   "note": "Times are Belize local exactly as BEL printed them. 'ALL' for feeder or zone is a real value, not missing data."
  },
  "outages": [
@@ -27,12 +27,12 @@
    "ingested_at": "2026-10-11T09:45:38-06:00",
    "raw_text": "Load Center: Mullins River\r\nFeeder: 1\r\n Zone: All\r\nAreas to be affected: Mullins River, Gales Point Manatee and portion Coastal Road.\r\nOutage type: Unscheduled.  \r\nPurpose of outage: BEL dispatched to investigate the cause of an unplanned power outage to restore power supply as soon as possible.",
    "first_seen": "2026-10-11T09:45:38-06:00",
-   "last_seen": "2026-10-11T14:20:47-06:00"
+   "last_seen": "2026-10-11T18:36:02-06:00"
   },
   {
    "id": "a0d75a9efc09",
    "type": "planned",
-   "status": "active",
+   "status": "restored",
    "district": "Portion of Stann Creek & Toledo District, Rural",
    "load_center": "Independence",
    "feeder": "3",
@@ -67,7 +67,7 @@
    "ingested_at": "2026-10-11T02:58:18-06:00",
    "raw_text": "Load Center: Independence \r\nFeeder: 3\r\nZone: All\r\nLoad Center: Mullins River \r\nFeeder: 1\r\nZone: 1\r\nAreas to be affected: Mullins River, Gales Point Manatee, and portion of Coastal Road; Maya King, Santa Cruz, Santa Rosa, San Roman, Georgetown, Santa Maria, Red Bank, Maya Mopan, San Juan, Cow Pen, all areas along Independence Road, Mango Walk, Monkey River, Bella Vista, San Isidro, San Pablo Road, Swasey, Bladen, and Trio.",
    "first_seen": "2026-10-11T02:58:18-06:00",
-   "last_seen": "2026-10-11T14:20:47-06:00"
+   "last_seen": "2026-10-11T18:36:02-06:00"
   }
  ]
 }
