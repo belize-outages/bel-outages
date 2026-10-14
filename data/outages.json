@@ -3,7 +3,7 @@
   "schema_version": 1,
   "source_url": "https://www.bel.com.bz/PowerUpdates/",
   "timezone": "America/Belize",
-  "checked_at": "2026-10-14T11:16:12-06:00",
+  "checked_at": "2026-10-14T17:57:17-06:00",
   "note": "Times are Belize local exactly as BEL printed them. 'ALL' for feeder or zone is a real value, not missing data."
  },
  "outages": [
@@ -27,7 +27,7 @@
    "ingested_at": "2026-10-14T11:16:12-06:00",
    "raw_text": "Eagle Jem Estate",
    "first_seen": "2026-10-14T11:16:12-06:00",
-   "last_seen": "2026-10-14T11:16:12-06:00"
+   "last_seen": "2026-10-14T17:57:17-06:00"
   },
   {
    "id": "c84105e7193e",
@@ -57,7 +57,7 @@
    "ingested_at": "2026-10-14T11:16:12-06:00",
    "raw_text": "Load Center: Ladyville\r\nFeeder: 2\r\nZone: 2, 3, & 4\r\nAreas to be affected: all areas along the Philip Goldson Highway from Maxboro to Rhaburn Ridge including Sandhill, Gardenia, Biscayne, Rhaburn Ridge, Crooked Tree, and all communities along the Old Northern Highway including Boston, Cowhead Creek, Rockstone Pond, Lucky Strike, Chicago, Corozalito, Santana, St. Anne's, Maskall and Bomba.",
    "first_seen": "2026-10-14T11:16:12-06:00",
-   "last_seen": "2026-10-14T11:16:12-06:00"
+   "last_seen": "2026-10-14T17:57:17-06:00"
   },
   {
    "id": "6c10463f2869",
@@ -79,7 +79,7 @@
    "ingested_at": "2026-10-14T11:16:12-06:00",
    "raw_text": "Eagle Jem Estate",
    "first_seen": "2026-10-14T11:16:12-06:00",
-   "last_seen": "2026-10-14T11:16:12-06:00"
+   "last_seen": "2026-10-14T17:57:17-06:00"
   }
  ]
 }
