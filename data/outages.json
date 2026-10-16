@@ -3,10 +3,32 @@
   "schema_version": 1,
   "source_url": "https://www.bel.com.bz/PowerUpdates/",
   "timezone": "America/Belize",
-  "checked_at": "2026-10-15T19:25:10-06:00",
+  "checked_at": "2026-10-16T06:31:17-06:00",
   "note": "Times are Belize local exactly as BEL printed them. 'ALL' for feeder or zone is a real value, not missing data."
  },
  "outages": [
+  {
+   "id": "4d7d6ad35814",
+   "type": "planned",
+   "status": "restored",
+   "district": "Portion of Corozal District",
+   "load_center": null,
+   "feeder": null,
+   "zone": null,
+   "area_ids": [],
+   "date": "2026-10-16",
+   "start": "03:22",
+   "end": "06:22",
+   "timezone": "America/Belize",
+   "tentative": false,
+   "purpose": null,
+   "source_url": "https://www.bel.com.bz/PowerUpdates/",
+   "published_at": null,
+   "ingested_at": "2026-10-16T06:31:17-06:00",
+   "raw_text": "Affected Areas: Areas along the Philip Goldson Hwy to Ranchito Village, Carolina Rd to College Rd. Portion of Corozal Town from Santa Rita Rd to Port Saul Rd, Philip Goldson Highway to 10 Ave and round about to Progresso Rd.",
+   "first_seen": "2026-10-16T06:31:17-06:00",
+   "last_seen": "2026-10-16T06:31:17-06:00"
+  },
   {
    "id": "2c64f4aca7f4",
    "type": "planned",
@@ -58,7 +80,7 @@
    "ingested_at": "2026-10-14T11:16:12-06:00",
    "raw_text": "Load Center: Ladyville\r\nFeeder: 2\r\nZone: 2, 3, & 4\r\nAreas to be affected: all areas along the Philip Goldson Highway from Maxboro to Rhaburn Ridge including Sandhill, Gardenia, Biscayne, Rhaburn Ridge, Crooked Tree, and all communities along the Old Northern Highway including Boston, Cowhead Creek, Rockstone Pond, Lucky Strike, Chicago, Corozalito, Santana, St. Anne's, Maskall and Bomba.",
    "first_seen": "2026-10-14T11:16:12-06:00",
-   "last_seen": "2026-10-15T19:25:10-06:00"
+   "last_seen": "2026-10-16T06:31:17-06:00"
   },
   {
    "id": "f8699b797905",
@@ -80,7 +102,7 @@
    "ingested_at": "2026-10-15T13:12:09-06:00",
    "raw_text": "Load Center: Ladyville\r\nFeeder: 2\r\nZone: 2\r\nAreas to be affected: Eagle Jem Estate",
    "first_seen": "2026-10-15T13:12:09-06:00",
-   "last_seen": "2026-10-15T19:25:10-06:00"
+   "last_seen": "2026-10-16T06:31:17-06:00"
   },
   {
    "id": "6c10463f2869",
@@ -108,7 +130,7 @@
   {
    "id": "af8204a33694",
    "type": "planned",
-   "status": "announced",
+   "status": "cancelled",
    "district": "Portion of Belize District, Rural",
    "load_center": "Ladyville",
    "feeder": "2",
@@ -125,7 +147,8 @@
    "ingested_at": "2026-10-15T13:12:09-06:00",
    "raw_text": "Load Center: Ladyville\r\nFeeder: 2\r\nZone: 2\r\nAreas to be affected: Eagle Jem Estate",
    "first_seen": "2026-10-15T13:12:09-06:00",
-   "last_seen": "2026-10-15T19:25:10-06:00"
+   "last_seen": "2026-10-15T19:25:10-06:00",
+   "cancelled_at": "2026-10-16T06:31:17-06:00"
   }
  ]
 }
