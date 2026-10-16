@@ -2,8 +2,8 @@
  "meta": {
   "schema_version": 1,
   "what": "Every BEL notice this scraper has seen finish, kept as evidence of which areas sit on which feeder. Append-only; nothing is removed.",
-  "updated": "2026-10-12T01:25:23-06:00",
-  "count": 31
+  "updated": "2026-10-16T11:27:57-06:00",
+  "count": 32
  },
  "notices": [
   {
@@ -613,6 +613,22 @@
    "raw_text": "Load Center: Independence \r\nFeeder: 3\r\nZone: All\r\nLoad Center: Mullins River \r\nFeeder: 1\r\nZone: 1\r\nAreas to be affected: Mullins River, Gales Point Manatee, and portion of Coastal Road; Maya King, Santa Cruz, Santa Rosa, San Roman, Georgetown, Santa Maria, Red Bank, Maya Mopan, San Juan, Cow Pen, all areas along Independence Road, Mango Walk, Monkey River, Bella Vista, San Isidro, San Pablo Road, Swasey, Bladen, and Trio.",
    "first_seen": "2026-10-11T02:58:18-06:00",
    "last_seen": "2026-10-11T18:36:02-06:00"
+  },
+  {
+   "id": "4d7d6ad35814",
+   "type": "planned",
+   "district": "Portion of Corozal District",
+   "load_center": null,
+   "feeder": null,
+   "zone": null,
+   "area_ids": [],
+   "date": "2026-10-16",
+   "start": "03:22",
+   "end": "06:22",
+   "purpose": null,
+   "raw_text": "Affected Areas: Areas along the Philip Goldson Hwy to Ranchito Village, Carolina Rd to College Rd. Portion of Corozal Town from Santa Rita Rd to Port Saul Rd, Philip Goldson Highway to 10 Ave and round about to Progresso Rd.",
+   "first_seen": "2026-10-16T06:31:17-06:00",
+   "last_seen": "2026-10-16T06:31:17-06:00"
   }
  ]
 }
