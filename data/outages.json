@@ -3,14 +3,14 @@
   "schema_version": 1,
   "source_url": "https://www.bel.com.bz/PowerUpdates/",
   "timezone": "America/Belize",
-  "checked_at": "2026-10-17T07:45:43-06:00",
+  "checked_at": "2026-10-17T13:28:53-06:00",
   "note": "Times are Belize local exactly as BEL printed them. 'ALL' for feeder or zone is a real value, not missing data."
  },
  "outages": [
   {
    "id": "05f98e03a53c",
    "type": "planned",
-   "status": "active",
+   "status": "restored",
    "district": "Portion of San Pedro, Ambergris Caye",
    "load_center": "San Pedro",
    "feeder": "3",
@@ -27,7 +27,7 @@
    "ingested_at": "2026-10-16T22:33:52-06:00",
    "raw_text": "Load Center: San Pedro\r\nFeeder: 3\r\nZone: 4\r\nAreas to be affected: the portion of San Pedro from Manuel Heredia Subdivision to the northern end of the island.",
    "first_seen": "2026-10-16T22:33:52-06:00",
-   "last_seen": "2026-10-17T07:45:43-06:00"
+   "last_seen": "2026-10-17T13:28:53-06:00"
   },
   {
    "id": "e7cdae219723",
@@ -51,7 +51,7 @@
    "ingested_at": "2026-10-16T22:33:52-06:00",
    "raw_text": "Load Center: Orange Walk\r\nFeeder: All\r\nZone: All\r\nAreas to be affected: Entire Orange Walk District including Buena Vista and Caledonia in Corozal District.",
    "first_seen": "2026-10-16T22:33:52-06:00",
-   "last_seen": "2026-10-17T07:45:43-06:00"
+   "last_seen": "2026-10-17T13:28:53-06:00"
   },
   {
    "id": "baed05578ebf",
@@ -75,7 +75,7 @@
    "ingested_at": "2026-10-16T22:33:52-06:00",
    "raw_text": "Load Center: Orange Walk\r\nFeeder: All\r\nZone: All\r\nAreas to be affected: Entire Orange Walk District including Buena Vista and Caledonia in Corozal District.",
    "first_seen": "2026-10-16T22:33:52-06:00",
-   "last_seen": "2026-10-17T07:45:43-06:00"
+   "last_seen": "2026-10-17T13:28:53-06:00"
   }
  ]
 }
