@@ -3,54 +3,10 @@
   "schema_version": 1,
   "source_url": "https://www.bel.com.bz/PowerUpdates/",
   "timezone": "America/Belize",
-  "checked_at": "2026-10-17T23:58:09-06:00",
+  "checked_at": "2026-10-18T05:13:54-06:00",
   "note": "Times are Belize local exactly as BEL printed them. 'ALL' for feeder or zone is a real value, not missing data."
  },
  "outages": [
-  {
-   "id": "05f98e03a53c",
-   "type": "planned",
-   "status": "restored",
-   "district": "Portion of San Pedro, Ambergris Caye",
-   "load_center": "San Pedro",
-   "feeder": "3",
-   "zone": "4",
-   "area_ids": [],
-   "date": "2026-10-17",
-   "start": "07:00",
-   "end": "12:00",
-   "timezone": "America/Belize",
-   "tentative": false,
-   "purpose": null,
-   "source_url": "https://www.bel.com.bz/PowerUpdates/",
-   "published_at": null,
-   "ingested_at": "2026-10-16T22:33:52-06:00",
-   "raw_text": "Load Center: San Pedro\r\nFeeder: 3\r\nZone: 4\r\nAreas to be affected: the portion of San Pedro from Manuel Heredia Subdivision to the northern end of the island.",
-   "first_seen": "2026-10-16T22:33:52-06:00",
-   "last_seen": "2026-10-17T23:58:09-06:00"
-  },
-  {
-   "id": "2e0ece448feb",
-   "type": "planned",
-   "status": "restored",
-   "district": "Orange Walk District",
-   "load_center": null,
-   "feeder": null,
-   "zone": null,
-   "area_ids": [],
-   "date": "2026-10-17",
-   "start": "18:29",
-   "end": "20:29",
-   "timezone": "America/Belize",
-   "tentative": false,
-   "purpose": null,
-   "source_url": "https://www.bel.com.bz/PowerUpdates/",
-   "published_at": null,
-   "ingested_at": "2026-10-17T23:58:09-06:00",
-   "raw_text": "Areas affected: the portion of Orange Walk Town from Philip Goldson Highway to Guadalupe Street, Temash Street to Liberty Avenue, Lousiana Area to Riverside Street, Bakers Street to San Antonio Road, Dunn Street to Cinderella Street, Queen Victoria Avenue to Otro Benque Road, Main Street, and Pettville to San Estevan.",
-   "first_seen": "2026-10-17T23:58:09-06:00",
-   "last_seen": "2026-10-17T23:58:09-06:00"
-  },
   {
    "id": "e7cdae219723",
    "type": "planned",
@@ -73,12 +29,12 @@
    "ingested_at": "2026-10-16T22:33:52-06:00",
    "raw_text": "Load Center: Orange Walk\r\nFeeder: All\r\nZone: All\r\nAreas to be affected: Entire Orange Walk District including Buena Vista and Caledonia in Corozal District.",
    "first_seen": "2026-10-16T22:33:52-06:00",
-   "last_seen": "2026-10-17T23:58:09-06:00"
+   "last_seen": "2026-10-18T05:13:54-06:00"
   },
   {
    "id": "baed05578ebf",
    "type": "planned",
-   "status": "cancelled",
+   "status": "announced",
    "district": "Entire Orange Walk and portion Corozal District, Rural",
    "load_center": "Orange Walk",
    "feeder": "ALL",
@@ -97,8 +53,7 @@
    "ingested_at": "2026-10-16T22:33:52-06:00",
    "raw_text": "Load Center: Orange Walk\r\nFeeder: All\r\nZone: All\r\nAreas to be affected: Entire Orange Walk District including Buena Vista and Caledonia in Corozal District.",
    "first_seen": "2026-10-16T22:33:52-06:00",
-   "last_seen": "2026-10-17T13:28:53-06:00",
-   "cancelled_at": "2026-10-17T23:58:09-06:00"
+   "last_seen": "2026-10-18T05:13:54-06:00"
   }
  ]
 }
