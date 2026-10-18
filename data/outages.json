@@ -3,14 +3,14 @@
   "schema_version": 1,
   "source_url": "https://www.bel.com.bz/PowerUpdates/",
   "timezone": "America/Belize",
-  "checked_at": "2026-10-18T05:13:54-06:00",
+  "checked_at": "2026-10-18T08:39:05-06:00",
   "note": "Times are Belize local exactly as BEL printed them. 'ALL' for feeder or zone is a real value, not missing data."
  },
  "outages": [
   {
    "id": "e7cdae219723",
    "type": "planned",
-   "status": "announced",
+   "status": "restored",
    "district": "Entire Orange Walk and portion Corozal District, Rural",
    "load_center": "Orange Walk",
    "feeder": "ALL",
@@ -29,7 +29,7 @@
    "ingested_at": "2026-10-16T22:33:52-06:00",
    "raw_text": "Load Center: Orange Walk\r\nFeeder: All\r\nZone: All\r\nAreas to be affected: Entire Orange Walk District including Buena Vista and Caledonia in Corozal District.",
    "first_seen": "2026-10-16T22:33:52-06:00",
-   "last_seen": "2026-10-18T05:13:54-06:00"
+   "last_seen": "2026-10-18T08:39:05-06:00"
   },
   {
    "id": "baed05578ebf",
@@ -53,7 +53,7 @@
    "ingested_at": "2026-10-16T22:33:52-06:00",
    "raw_text": "Load Center: Orange Walk\r\nFeeder: All\r\nZone: All\r\nAreas to be affected: Entire Orange Walk District including Buena Vista and Caledonia in Corozal District.",
    "first_seen": "2026-10-16T22:33:52-06:00",
-   "last_seen": "2026-10-18T05:13:54-06:00"
+   "last_seen": "2026-10-18T08:39:05-06:00"
   }
  ]
 }
