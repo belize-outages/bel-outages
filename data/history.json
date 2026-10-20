@@ -2,8 +2,8 @@
  "meta": {
   "schema_version": 1,
   "what": "Every BEL notice this scraper has seen finish, kept as evidence of which areas sit on which feeder. Append-only; nothing is removed.",
-  "updated": "2026-10-18T14:49:13-06:00",
-  "count": 39
+  "updated": "2026-10-20T01:38:55-06:00",
+  "count": 40
  },
  "notices": [
   {
@@ -753,6 +753,43 @@
    "raw_text": "Load Center: Orange Walk\r\nFeeder: All\r\nZone: All\r\nAreas to be affected: Entire Orange Walk District including Buena Vista and Caledonia in Corozal District.",
    "first_seen": "2026-10-16T22:33:52-06:00",
    "last_seen": "2026-10-18T08:39:05-06:00"
+  },
+  {
+   "id": "10cbe64a90af",
+   "type": "unscheduled",
+   "district": "Portion Punta Gorda",
+   "load_center": "Punta Gorda",
+   "feeder": "2, 3,4, 5",
+   "zone": "ALL",
+   "area_ids": [
+    "gn-3581845",
+    "gn-13286770",
+    "gn-3581199",
+    "gn-3581139",
+    "gn-8695565",
+    "gn-3582266",
+    "gn-3582699",
+    "txt-eldridge",
+    "gn-3582440",
+    "gn-3582096",
+    "gn-3580932",
+    "gn-3582645",
+    "gn-13286833",
+    "gn-13286769",
+    "gn-13286828",
+    "gn-3581166",
+    "gn-3581601",
+    "osm-blue-creek",
+    "gn-8695292",
+    "gn-3582778"
+   ],
+   "date": "2026-10-19",
+   "start": "16:49",
+   "end": "20:00",
+   "purpose": "BEL dispatched to investigate the cause of an unplanned power outage to restore power supply as soon as possible",
+   "raw_text": "Load Center: Punta Gorda \r\nFeeder: 2, 3,4, 5\r\n Zone: All\r\nAreas to be affected: Laguna Road to Elridgeville including Laguna, Jacintoville and areas along the Barranco Road including San Felipe, Santa Ana, Midway and Barranco.San Antonio, Crique Jute, San Felipe, Santa Ana, Midway, Barranco, and Laguna, Eldridge, Jacinto Ville, Portion of Cattle Landing, Forest Home, San Maros, Dump Area, Big Falls, Yemeri Grove, Hicatee, Silver Creek, Portion of San Pedro Columbia, Mafredi, Blue Creek, Jordan and Aguacate, All areas along New Road, Elridgeville to Cattle Landing including Elridgeville, Forest Home and areas along Wilson Road.\r\nOutage type: Unscheduled.  \r\nPurpose of outage: BEL dispatched to investigate the cause of an unplanned power outage to restore power supply as soon as possible.",
+   "first_seen": "2026-10-19T19:51:47-06:00",
+   "last_seen": "2026-10-19T19:51:47-06:00"
   }
  ]
 }
