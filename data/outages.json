@@ -3,8 +3,31 @@
   "schema_version": 1,
   "source_url": "https://www.bel.com.bz/PowerUpdates/",
   "timezone": "America/Belize",
-  "checked_at": "2026-10-25T08:24:34-06:00",
+  "checked_at": "2026-10-25T12:25:34-06:00",
   "note": "Times are Belize local exactly as BEL printed them. 'ALL' for feeder or zone is a real value, not missing data."
  },
- "outages": []
+ "outages": [
+  {
+   "id": "839262d48be5",
+   "type": "unscheduled",
+   "status": "restored",
+   "district": "Stann Creek.",
+   "load_center": "Dangriga",
+   "feeder": "1",
+   "zone": "1 (portion). Areas affected: portion Dangriga Town which includes Hummingbird Highway between Nurse Lottie Lambey Street and Ecumenical Drive, portion Gwen Nuñez Street of the Hummingbird Highway, Isla Road from Hummingbird Highway to Sampson Street, portion Nurse Ceferina Gamboa Street, Ecumenical Drive, Allan Street, Alonzo B. Ogaldez Street, Teddy Cas Street, Franky Cas Street, Sylvia Flores Street, Simmy Joe Street, Gadsby Ramos Street from Ecumenical Drive to Aranda Crescent, portion Castillo Alley off Ecumenical Drive, portion South Riverside Drive off Ecumenical Street, Stanley Drive, Melinda Road from Ghan’s Avenue to Melinda Farms, Pen Road, Church Street from Pen Road to Sawal Street, Goomagarugoo Street, Roquillo Road, portion Yampa Street off Roquillo Road, Commerce Street from Roquillo Road to 10th Street, Myers Alley, Sister of the Holy Family Street from Myers Alley to its dead end, Sawal Street from 10th Street to Sister of the Holy Family Street, Cassia Nuñez Street, 9th Street, 10th Street, 11th Street, Benguche Avenue, Jane Sanchez Street, 8th Street, 7th Street, 6th Street, 5th Street, 4th Street, 3rd Street, Modesta Noralez Street, 2nd Street, 1st Street, Adeline Valentine Road and San Jose Road",
+   "area_ids": [],
+   "date": "2026-10-25",
+   "start": "09:00",
+   "end": "11:00",
+   "timezone": "America/Belize",
+   "tentative": false,
+   "purpose": null,
+   "source_url": "https://www.bel.com.bz/PowerUpdates/",
+   "published_at": null,
+   "ingested_at": "2026-10-25T12:25:34-06:00",
+   "raw_text": "BEL to urgently replace burning device to restore power supply as soon as possible.\r\n\r\nAffected Areas: \r\nLoad Center: Dangriga.\r\nFeeder: 1.\r\nZone: 1 (portion).\r\nAreas affected: portion Dangriga Town which includes Hummingbird Highway between Nurse Lottie Lambey Street and Ecumenical Drive, portion Gwen Nuñez Street of the Hummingbird Highway, Isla Road from Hummingbird Highway to Sampson Street, portion Nurse Ceferina Gamboa Street, Ecumenical Drive, Allan Street, Alonzo B. Ogaldez Street, Teddy Cas Street, Franky Cas Street, Sylvia Flores Street, Simmy Joe Street, Gadsby Ramos Street from Ecumenical Drive to Aranda Crescent, portion Castillo Alley off Ecumenical Drive, portion South Riverside Drive off Ecumenical Street, Stanley Drive, Melinda Road from Ghan’s Avenue to Melinda Farms, Pen Road, Church Street from Pen Road to Sawal Street, Goomagarugoo Street, Roquillo Road, portion Yampa Street off Roquillo Road, Commerce Street from Roquillo Road to 10th Street, Myers Alley, Sister of the Holy Family Street from Myers Alley to its dead end, Sawal Street from 10th Street to Sister of the Holy Family Street, Cassia Nuñez Street, 9th Street, 10th Street, 11th Street, Benguche Avenue, Jane Sanchez Street, 8th Street, 7th Street, 6th Street, 5th Street, 4th Street, 3rd Street, Modesta Noralez Street, 2nd Street, 1st Street, Adeline Valentine Road and San Jose Road.\r\nOutage type: Emergency.",
+   "first_seen": "2026-10-25T12:25:34-06:00",
+   "last_seen": "2026-10-25T12:25:34-06:00"
+  }
+ ]
 }
