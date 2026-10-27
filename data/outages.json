@@ -3,31 +3,8 @@
   "schema_version": 1,
   "source_url": "https://www.bel.com.bz/PowerUpdates/",
   "timezone": "America/Belize",
-  "checked_at": "2026-10-26T18:29:54-06:00",
+  "checked_at": "2026-10-27T00:20:57-06:00",
   "note": "Times are Belize local exactly as BEL printed them. 'ALL' for feeder or zone is a real value, not missing data."
  },
- "outages": [
-  {
-   "id": "488b4536842b",
-   "type": "unscheduled",
-   "status": "active",
-   "district": "Portion of Stann Creek District, Rural",
-   "load_center": "Dangriga",
-   "feeder": "2",
-   "zone": "4 (portion). Areas affected: Areas along Santa Martha Village, St. Margaret's Village, Sibun Farm, Hershey Fram",
-   "area_ids": [],
-   "date": "2026-10-26",
-   "start": "15:25",
-   "end": "18:30",
-   "timezone": "America/Belize",
-   "tentative": false,
-   "purpose": "BEL team dispatched to replace broken utility pole caused by vehicle accident in the area to restore power supply as soon as possible",
-   "source_url": "https://www.bel.com.bz/PowerUpdates/",
-   "published_at": null,
-   "ingested_at": "2026-10-26T18:29:54-06:00",
-   "raw_text": "Load Center: Dangriga.\r\nFeeder: 2.\r\nZone: 4 (portion).\r\nAreas affected: Areas along Santa Martha Village, St. Margaret's Village, Sibun Farm, Hershey Fram.\r\nOutage type: Unscheduled.  \r\nPurpose of outage: BEL team dispatched to replace broken utility pole caused by vehicle accident in the area to restore power supply as soon as possible.",
-   "first_seen": "2026-10-26T18:29:54-06:00",
-   "last_seen": "2026-10-26T18:29:54-06:00"
-  }
- ]
+ "outages": []
 }

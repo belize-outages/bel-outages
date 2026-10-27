@@ -2,8 +2,8 @@
  "meta": {
   "schema_version": 1,
   "what": "Every BEL notice this scraper has seen finish, kept as evidence of which areas sit on which feeder. Append-only; nothing is removed.",
-  "updated": "2026-10-25T15:50:33-06:00",
-  "count": 41
+  "updated": "2026-10-27T00:20:57-06:00",
+  "count": 42
  },
  "notices": [
   {
@@ -806,6 +806,22 @@
    "raw_text": "BEL to urgently replace burning device to restore power supply as soon as possible.\r\n\r\nAffected Areas: \r\nLoad Center: Dangriga.\r\nFeeder: 1.\r\nZone: 1 (portion).\r\nAreas affected: portion Dangriga Town which includes Hummingbird Highway between Nurse Lottie Lambey Street and Ecumenical Drive, portion Gwen Nuñez Street of the Hummingbird Highway, Isla Road from Hummingbird Highway to Sampson Street, portion Nurse Ceferina Gamboa Street, Ecumenical Drive, Allan Street, Alonzo B. Ogaldez Street, Teddy Cas Street, Franky Cas Street, Sylvia Flores Street, Simmy Joe Street, Gadsby Ramos Street from Ecumenical Drive to Aranda Crescent, portion Castillo Alley off Ecumenical Drive, portion South Riverside Drive off Ecumenical Street, Stanley Drive, Melinda Road from Ghan’s Avenue to Melinda Farms, Pen Road, Church Street from Pen Road to Sawal Street, Goomagarugoo Street, Roquillo Road, portion Yampa Street off Roquillo Road, Commerce Street from Roquillo Road to 10th Street, Myers Alley, Sister of the Holy Family Street from Myers Alley to its dead end, Sawal Street from 10th Street to Sister of the Holy Family Street, Cassia Nuñez Street, 9th Street, 10th Street, 11th Street, Benguche Avenue, Jane Sanchez Street, 8th Street, 7th Street, 6th Street, 5th Street, 4th Street, 3rd Street, Modesta Noralez Street, 2nd Street, 1st Street, Adeline Valentine Road and San Jose Road.\r\nOutage type: Emergency.",
    "first_seen": "2026-10-25T12:25:34-06:00",
    "last_seen": "2026-10-25T12:25:34-06:00"
+  },
+  {
+   "id": "488b4536842b",
+   "type": "unscheduled",
+   "district": "Portion of Stann Creek District, Rural",
+   "load_center": "Dangriga",
+   "feeder": "2",
+   "zone": "4 (portion). Areas affected: Areas along Santa Martha Village, St. Margaret's Village, Sibun Farm, Hershey Fram",
+   "area_ids": [],
+   "date": "2026-10-26",
+   "start": "15:25",
+   "end": "18:30",
+   "purpose": "BEL team dispatched to replace broken utility pole caused by vehicle accident in the area to restore power supply as soon as possible",
+   "raw_text": "Load Center: Dangriga.\r\nFeeder: 2.\r\nZone: 4 (portion).\r\nAreas affected: Areas along Santa Martha Village, St. Margaret's Village, Sibun Farm, Hershey Fram.\r\nOutage type: Unscheduled.  \r\nPurpose of outage: BEL team dispatched to replace broken utility pole caused by vehicle accident in the area to restore power supply as soon as possible.",
+   "first_seen": "2026-10-26T18:29:54-06:00",
+   "last_seen": "2026-10-26T18:29:54-06:00"
   }
  ]
 }
