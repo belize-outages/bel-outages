@@ -3,7 +3,7 @@
   "schema_version": 1,
   "source_url": "https://www.bel.com.bz/PowerUpdates/",
   "timezone": "America/Belize",
-  "checked_at": "2026-10-28T03:45:42-06:00",
+  "checked_at": "2026-10-28T10:41:14-06:00",
   "note": "Times are Belize local exactly as BEL printed them. 'ALL' for feeder or zone is a real value, not missing data."
  },
  "outages": [
@@ -29,7 +29,7 @@
    "ingested_at": "2026-10-28T03:45:42-06:00",
    "raw_text": "Load Center: Orange Walk.\r\nFeeder: All.\r\nZone: All.\r\nAreas to be affected: Entire Orange Walk District including Buena Vista and Caledonia in Corozal District.\r\nOutage type: Scheduled.  \r\nPurpose of outage: BEL to conduct network modifications following planned maintenance work on the transmission system.",
    "first_seen": "2026-10-28T03:45:42-06:00",
-   "last_seen": "2026-10-28T03:45:42-06:00"
+   "last_seen": "2026-10-28T10:41:14-06:00"
   }
  ]
 }
