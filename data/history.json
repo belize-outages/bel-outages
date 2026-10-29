@@ -2,8 +2,8 @@
  "meta": {
   "schema_version": 1,
   "what": "Every BEL notice this scraper has seen finish, kept as evidence of which areas sit on which feeder. Append-only; nothing is removed.",
-  "updated": "2026-10-29T02:34:50-06:00",
-  "count": 43
+  "updated": "2026-10-29T15:11:26-06:00",
+  "count": 44
  },
  "notices": [
   {
@@ -838,6 +838,24 @@
    "raw_text": "Load Center: Belize.\r\nFeeder: 4 & 8.\r\nZone: All.\r\nAreas affected: the portion of Belize City that includes Cleghorn Street, Slaughterhouse Road, Sun Dry Street, portion of Douglas Jones Street, New Road, Queen Street, Victoria Street, New Road, Pickstock Street, Hyde’s Lane, Fort Street, Goldson Lane, Dredge Street, Eyre Street, Cork Street, South Park Street, Taiwan Street, Gabourel Lane, Sister Caritas Lawrence Lane, William Fonseca Street, and the section of Marine Parade from Fort Street to Sister Caritas Lawrence Lane. The portion of Belize City that includes Kelly Street, Fuller’s Lane, Wilson Street, Barrack Road, Princess Margaret Drive from Barrack Road to University Drive, Baymen Avenue, Newtown Barracks, Nurse Seay Street, Simon Lamb Street, Matron Roberts Street, Calle al Mar, St. Joseph Street, St. Peter Street, Landivar Street, Guadalupe Street, Hopkin’s Street, St. James Street, 2nd Street, 3rd Street, C Street, 5th Street, 7th Street, B Street, D Street, 10th Street, 14th Street, A Street, 18th Street, E Street, H Street, St. Charles Street, St. Edward Street, St. John Street, St. Luke Street, St. Mark Street, and St. Matthew Street, the portion of Lizarraga Avenue between Gentle Avenue and Meighan Avenue, Gentle Avenue, Vasquez Avenue, Smith Street, the portion of Lottie Waight Street between Lizarraga Avenue and Meighan Avenue, the portion of Meighan Avenue between Princess Margaret Drive and Lottie Waight Street, and Goldson Avenue.\r\nOutage type: Emergency.  \r\nPurpose of outage: BEL to urgently conduct system reconfiguration to facilitate the repair of electrical equipment.",
    "first_seen": "2026-10-28T19:50:52-06:00",
    "last_seen": "2026-10-28T19:50:52-06:00"
+  },
+  {
+   "id": "b7a12b3038fb",
+   "type": "planned",
+   "district": "Orange Walk District & Portion Corozal District, Rural",
+   "load_center": "Orange Walk",
+   "feeder": "ALL",
+   "zone": "ALL",
+   "area_ids": [
+    "osm-buena-vista"
+   ],
+   "date": "2026-10-29",
+   "start": "06:55",
+   "end": "07:00",
+   "purpose": "BEL to conduct network modifications following planned maintenance work on the transmission system",
+   "raw_text": "Load Center: Orange Walk.\r\nFeeder: All.\r\nZone: All.\r\nAreas to be affected: Entire Orange Walk District including Buena Vista and Caledonia in Corozal District.\r\nOutage type: Scheduled.  \r\nPurpose of outage: BEL to conduct network modifications following planned maintenance work on the transmission system.",
+   "first_seen": "2026-10-28T03:45:42-06:00",
+   "last_seen": "2026-10-29T10:12:17-06:00"
   }
  ]
 }
