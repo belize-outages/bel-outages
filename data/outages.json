@@ -3,8 +3,31 @@
   "schema_version": 1,
   "source_url": "https://www.bel.com.bz/PowerUpdates/",
   "timezone": "America/Belize",
-  "checked_at": "2026-10-31T15:39:59-06:00",
+  "checked_at": "2026-10-31T19:15:25-06:00",
   "note": "Times are Belize local exactly as BEL printed them. 'ALL' for feeder or zone is a real value, not missing data."
  },
- "outages": []
+ "outages": [
+  {
+   "id": "02163cfacba6",
+   "type": "unscheduled",
+   "status": "active",
+   "district": "Portion of Belize District, Rural",
+   "load_center": "West",
+   "feeder": "1",
+   "zone": "4 (portion)",
+   "area_ids": [],
+   "date": "2026-10-31",
+   "start": "19:00",
+   "end": "22:00",
+   "timezone": "America/Belize",
+   "tentative": false,
+   "purpose": "BEL to urgently repair high voltage power line equipment to retention powerline",
+   "source_url": "https://www.bel.com.bz/PowerUpdates/",
+   "published_at": null,
+   "ingested_at": "2026-10-31T19:15:25-06:00",
+   "raw_text": "Load Center: West.\r\nFeeder: 1.\r\n Zone: 4 (portion).\r\nAreas to be affected: Flowers Bank.\r\nOutage type: Emergency.  \r\nPurpose of outage: BEL to urgently repair high voltage power line equipment to retention powerline.",
+   "first_seen": "2026-10-31T19:15:25-06:00",
+   "last_seen": "2026-10-31T19:15:25-06:00"
+  }
+ ]
 }
