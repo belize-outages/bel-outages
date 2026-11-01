@@ -3,7 +3,7 @@
   "schema_version": 1,
   "source_url": "https://www.bel.com.bz/PowerUpdates/",
   "timezone": "America/Belize",
-  "checked_at": "2026-11-01T01:38:48-06:00",
+  "checked_at": "2026-11-01T09:14:31-06:00",
   "note": "Times are Belize local exactly as BEL printed them. 'ALL' for feeder or zone is a real value, not missing data."
  },
  "outages": []
