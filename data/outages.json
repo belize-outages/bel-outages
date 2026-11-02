@@ -3,8 +3,31 @@
   "schema_version": 1,
   "source_url": "https://www.bel.com.bz/PowerUpdates/",
   "timezone": "America/Belize",
-  "checked_at": "2026-11-02T10:15:23-06:00",
+  "checked_at": "2026-11-02T17:37:11-06:00",
   "note": "Times are Belize local exactly as BEL printed them. 'ALL' for feeder or zone is a real value, not missing data."
  },
- "outages": []
+ "outages": [
+  {
+   "id": "4d22fd33505a",
+   "type": "planned",
+   "status": "announced",
+   "district": "Portion of Orange Walk and Corozal District, Rural",
+   "load_center": null,
+   "feeder": null,
+   "zone": null,
+   "area_ids": [],
+   "date": "2026-11-04",
+   "start": "09:00",
+   "end": "11:00",
+   "timezone": "America/Belize",
+   "tentative": false,
+   "purpose": null,
+   "source_url": "https://www.bel.com.bz/PowerUpdates/",
+   "published_at": null,
+   "ingested_at": "2026-11-02T17:37:11-06:00",
+   "raw_text": "Santa Cruz, San Antonio, San Lorenzo, San Roman, San Luis, San Jose, San Pablo, San Juan, Douglas, & portion of Corozal District that includes Buena Vista, Caledonia and Progresso.",
+   "first_seen": "2026-11-02T17:37:11-06:00",
+   "last_seen": "2026-11-02T17:37:11-06:00"
+  }
+ ]
 }
