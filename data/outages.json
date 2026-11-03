@@ -3,14 +3,14 @@
   "schema_version": 1,
   "source_url": "https://www.bel.com.bz/PowerUpdates/",
   "timezone": "America/Belize",
-  "checked_at": "2026-11-03T00:53:45-06:00",
+  "checked_at": "2026-11-03T09:14:31-06:00",
   "note": "Times are Belize local exactly as BEL printed them. 'ALL' for feeder or zone is a real value, not missing data."
  },
  "outages": [
   {
    "id": "0a53c37edc8c",
    "type": "unscheduled",
-   "status": "announced",
+   "status": "restored",
    "district": "Portion of Belize District",
    "load_center": "Ladyville",
    "feeder": "ALL",
@@ -40,12 +40,12 @@
    "ingested_at": "2026-11-03T00:53:45-06:00",
    "raw_text": "Load Center: Ladyville Feeder: All Zone: All Areas to be affected: Mile 1 to Mile 37 on Philip Goldson Highway from Belize Flour Mill up to Rahburn Ridge including West Landivar, Coral Grove, Buttonwood Bay, Belama Phases 1,2,3 & 4, Bella Vista, Driftwood Bay, North End Estate, Courteney Estate, Withfield Towers,  Ladyville, Vista Del Mar, Lord’s Bank, Green Estate, Lake Gardens, Dew Drop Estate, Maxboro, Double Run, Salt Creek, Los Lagos, Sandhill, Maxboro, Gardenia, Biscayne, Crooked Tree, Rhaburn Ridge; all communities along the Old Northern Highway including Boston, Rockstone Pond, Lucky Strike, Santana, St. Anne’s, Chicago, Corozalito and Maskall. Outage type: Emergency \r\nPurpose of outage: BEL to repair electrical equipment at the Westlake Substation to improve the reliability of power supply to our Customers.",
    "first_seen": "2026-11-03T00:53:45-06:00",
-   "last_seen": "2026-11-03T00:53:45-06:00"
+   "last_seen": "2026-11-03T09:14:31-06:00"
   },
   {
    "id": "c352d40e4441",
    "type": "unscheduled",
-   "status": "announced",
+   "status": "restored",
    "district": "Portion of Belize District",
    "load_center": "West",
    "feeder": "1",
@@ -69,7 +69,7 @@
    "ingested_at": "2026-11-03T00:53:45-06:00",
    "raw_text": "Load Center: West Feeder: 1 Zone: All Areas to be affected: All areas along the George Price Highway between Mile 1 and Mile 14 including Westlake, Western Paradise, Sunset Park, Western Pines, Tropical Park, Hattieville, Freetown Sibun, Belizean American Site, Bainesville, Rockville, Butcher Burns, Gracie Rock, Jai Chan, all areas along the Boom Hattieville Road including Fresh Pond and Castleton and all areas along the Belize River Valley including Burrell Boom, Bermudian Landing, Double Head Cabbage, Isabella Bank, Willows Bank, Saint Paul’s Bank, Big Falls, Flowers Bank, Lemonal and Rancho Dolores.\r\nOutage type: Emergency. Purpose of outage: BEL to repair electrical equipment at the Westlake Substation to improve the reliability of power supply to our Customers.",
    "first_seen": "2026-11-03T00:53:45-06:00",
-   "last_seen": "2026-11-03T00:53:45-06:00"
+   "last_seen": "2026-11-03T09:14:31-06:00"
   },
   {
    "id": "4d22fd33505a",
@@ -91,7 +91,7 @@
    "ingested_at": "2026-11-02T17:37:11-06:00",
    "raw_text": "Santa Cruz, San Antonio, San Lorenzo, San Roman, San Luis, San Jose, San Pablo, San Juan, Douglas, & portion of Corozal District that includes Buena Vista, Caledonia and Progresso.",
    "first_seen": "2026-11-02T17:37:11-06:00",
-   "last_seen": "2026-11-03T00:53:45-06:00"
+   "last_seen": "2026-11-03T09:14:31-06:00"
   }
  ]
 }
