@@ -3,14 +3,58 @@
   "schema_version": 1,
   "source_url": "https://www.bel.com.bz/PowerUpdates/",
   "timezone": "America/Belize",
-  "checked_at": "2026-11-05T09:31:51-06:00",
+  "checked_at": "2026-11-05T16:04:00-06:00",
   "note": "Times are Belize local exactly as BEL printed them. 'ALL' for feeder or zone is a real value, not missing data."
  },
  "outages": [
   {
+   "id": "816ceb03943c",
+   "type": "unscheduled",
+   "status": "announced",
+   "district": "Portion of Caye Caulker",
+   "load_center": "Caye Caulker",
+   "feeder": "1",
+   "zone": "1",
+   "area_ids": [],
+   "date": "2026-11-06",
+   "start": "07:00",
+   "end": "07:15",
+   "timezone": "America/Belize",
+   "tentative": false,
+   "purpose": "BEL to conduct urgent repairs to distribution power line equipment to improve the reliability of power supply and to facilitate connection of Customer in the area",
+   "source_url": "https://www.bel.com.bz/PowerUpdates/",
+   "published_at": null,
+   "ingested_at": "2026-11-05T16:04:00-06:00",
+   "raw_text": "Load Center: Caye Caulker.\r\nFeeder: 1.\r\nZone: 1.\r\nAreas to be affected: the portion of Caye Caulker from Chapoose Street to The Split.\r\nOutage type: Emergency.  \r\nPurpose of outage: BEL to conduct urgent repairs to distribution power line equipment to improve the reliability of power supply and to facilitate connection of Customer in the area.",
+   "first_seen": "2026-11-05T16:04:00-06:00",
+   "last_seen": "2026-11-05T16:04:00-06:00"
+  },
+  {
+   "id": "788876f0f374",
+   "type": "unscheduled",
+   "status": "announced",
+   "district": "Portion of Caye Caulker",
+   "load_center": "Caye Caulker",
+   "feeder": "1",
+   "zone": "1",
+   "area_ids": [],
+   "date": "2026-11-06",
+   "start": "11:45",
+   "end": "12:00",
+   "timezone": "America/Belize",
+   "tentative": false,
+   "purpose": "BEL to conduct urgent repairs to distribution power line equipment to improve the reliability of power supply and to facilitate connection of Customer in the area",
+   "source_url": "https://www.bel.com.bz/PowerUpdates/",
+   "published_at": null,
+   "ingested_at": "2026-11-05T16:04:00-06:00",
+   "raw_text": "Load Center: Caye Caulker.\r\nFeeder: 1.\r\nZone: 1.\r\nAreas to be affected: the portion of Caye Caulker from Chapoose Street to The Split.\r\nOutage type: Emergency.  \r\nPurpose of outage: BEL to conduct urgent repairs to distribution power line equipment to improve the reliability of power supply and to facilitate connection of Customer in the area.",
+   "first_seen": "2026-11-05T16:04:00-06:00",
+   "last_seen": "2026-11-05T16:04:00-06:00"
+  },
+  {
    "id": "3cdedbe6658e",
    "type": "planned",
-   "status": "announced",
+   "status": "cancelled",
    "district": "Portion of San Pedro, Ambergris Caye",
    "load_center": "San Pedro",
    "feeder": "3",
@@ -27,7 +71,8 @@
    "ingested_at": "2026-11-04T12:01:41-06:00",
    "raw_text": "Load Center: San Pedro\r\nFeeder: 3\r\nZone: 4\r\nAreas to be affected: the portion of San Pedro from Manuel Heredia Subdivision to the northern end of the island.",
    "first_seen": "2026-11-04T12:01:41-06:00",
-   "last_seen": "2026-11-05T09:31:51-06:00"
+   "last_seen": "2026-11-05T09:31:51-06:00",
+   "cancelled_at": "2026-11-05T16:04:00-06:00"
   }
  ]
 }
