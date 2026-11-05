@@ -3,7 +3,7 @@
   "schema_version": 1,
   "source_url": "https://www.bel.com.bz/PowerUpdates/",
   "timezone": "America/Belize",
-  "checked_at": "2026-11-05T00:54:41-06:00",
+  "checked_at": "2026-11-05T09:31:51-06:00",
   "note": "Times are Belize local exactly as BEL printed them. 'ALL' for feeder or zone is a real value, not missing data."
  },
  "outages": [
@@ -27,7 +27,7 @@
    "ingested_at": "2026-11-04T12:01:41-06:00",
    "raw_text": "Load Center: San Pedro\r\nFeeder: 3\r\nZone: 4\r\nAreas to be affected: the portion of San Pedro from Manuel Heredia Subdivision to the northern end of the island.",
    "first_seen": "2026-11-04T12:01:41-06:00",
-   "last_seen": "2026-11-05T00:54:41-06:00"
+   "last_seen": "2026-11-05T09:31:51-06:00"
   }
  ]
 }
