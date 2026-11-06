@@ -2,8 +2,8 @@
  "meta": {
   "schema_version": 1,
   "what": "Every BEL notice this scraper has seen finish, kept as evidence of which areas sit on which feeder. Append-only; nothing is removed.",
-  "updated": "2026-11-05T00:54:41-06:00",
-  "count": 51
+  "updated": "2026-11-06T17:13:19-06:00",
+  "count": 52
  },
  "notices": [
   {
@@ -1003,6 +1003,22 @@
    "raw_text": "Santa Cruz, San Antonio, San Lorenzo, San Roman, San Luis, San Jose, San Pablo, San Juan, Douglas, & portion of Corozal District that includes Buena Vista, Caledonia and Progresso.",
    "first_seen": "2026-11-02T17:37:11-06:00",
    "last_seen": "2026-11-04T12:01:41-06:00"
+  },
+  {
+   "id": "816ceb03943c",
+   "type": "unscheduled",
+   "district": "Portion of Caye Caulker",
+   "load_center": "Caye Caulker",
+   "feeder": "1",
+   "zone": "1",
+   "area_ids": [],
+   "date": "2026-11-06",
+   "start": "07:00",
+   "end": "07:15",
+   "purpose": "BEL to conduct urgent repairs to distribution power line equipment to improve the reliability of power supply and to facilitate connection of Customer in the area",
+   "raw_text": "Load Center: Caye Caulker.\r\nFeeder: 1.\r\nZone: 1.\r\nAreas to be affected: the portion of Caye Caulker from Chapoose Street to The Split.\r\nOutage type: Emergency.  \r\nPurpose of outage: BEL to conduct urgent repairs to distribution power line equipment to improve the reliability of power supply and to facilitate connection of Customer in the area.",
+   "first_seen": "2026-11-05T16:04:00-06:00",
+   "last_seen": "2026-11-06T12:01:36-06:00"
   }
  ]
 }
