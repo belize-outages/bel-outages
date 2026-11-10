@@ -2,8 +2,8 @@
  "meta": {
   "schema_version": 1,
   "what": "Every BEL notice this scraper has seen finish, kept as evidence of which areas sit on which feeder. Append-only; nothing is removed.",
-  "updated": "2026-11-08T01:26:02-06:00",
-  "count": 54
+  "updated": "2026-11-10T03:56:02-06:00",
+  "count": 55
  },
  "notices": [
   {
@@ -1051,6 +1051,22 @@
    "raw_text": "Load Center: San Pedro\r\nFeeder: 3\r\nZone: 4\r\nAreas to be affected: the portion of San Pedro from Manuel Heredia Subdivision to the northern end of the island.",
    "first_seen": "2026-11-04T12:01:41-06:00",
    "last_seen": "2026-11-07T14:56:00-06:00"
+  },
+  {
+   "id": "b076e8d4cf8d",
+   "type": "unscheduled",
+   "district": "San Pedro Ambergris Caye",
+   "load_center": null,
+   "feeder": "4 Zone All: Portion San Pedro which includes Nurse Shark Street, Angel Coral Street from Obando’s Panades to Black Coral Street, Pelican Street between Nurse Shark and Almond Streets, Ambergris Street between Nurse Shark and Almond Streets, Buccaneer Street between Nurse Shark and Almond Streets, Cococunt Drive from Esmeralda Street to Sea Grape Drive, Crow Street and Manta Ray Street. Coconut Drive from Island Academy to Stingray Street, Villa Drive, Mullet Street, Mar de Tumbo Street and Sea Grape Street from Stingray Street to Escalante Drive, areas along Sea Grape Drive from Escalante Drive to La Serene Beach Resort",
+   "zone": "All: Portion San Pedro which includes Nurse Shark Street, Angel Coral Street from Obando’s Panades to Black Coral Street, Pelican Street between Nurse Shark and Almond Streets, Ambergris Street between Nurse Shark and Almond Streets, Buccaneer Street between Nurse Shark and Almond Streets, Cococunt Drive from Esmeralda Street to Sea Grape Drive, Crow Street and Manta Ray Street. Coconut Drive from Island Academy to Stingray Street, Villa Drive, Mullet Street, Mar de Tumbo Street and Sea Grape Street from Stingray Street to Escalante Drive, areas along Sea Grape Drive from Escalante Drive to La Serene Beach Resort",
+   "area_ids": [],
+   "date": "2026-11-09",
+   "start": "11:21",
+   "end": "14:21",
+   "purpose": "BEL team dispatched to investigate the cause of an unplanned power outage to restore power supply as soon as possible",
+   "raw_text": "Affected areas:\r\nSan Pedro Feeder 4 Zone All: Portion San Pedro which includes Nurse Shark Street, Angel Coral Street from Obando’s Panades to Black Coral Street, Pelican Street between Nurse Shark and Almond Streets, Ambergris Street between Nurse Shark and Almond Streets, Buccaneer Street between Nurse Shark and Almond Streets, Cococunt Drive from Esmeralda Street to Sea Grape Drive, Crow Street and Manta Ray Street. Coconut Drive from Island Academy to Stingray Street, Villa Drive, Mullet Street, Mar de Tumbo Street and Sea Grape Street from Stingray Street to Escalante Drive, areas along Sea Grape Drive from Escalante Drive to  La Serene Beach Resort. Outage type: Unplanned. Purpose of outage: BEL team dispatched to investigate the cause of an unplanned power outage to restore power supply as soon as possible.",
+   "first_seen": "2026-11-09T12:51:14-06:00",
+   "last_seen": "2026-11-09T20:11:08-06:00"
   }
  ]
 }
