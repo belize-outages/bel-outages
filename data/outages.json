@@ -3,14 +3,14 @@
   "schema_version": 1,
   "source_url": "https://www.bel.com.bz/PowerUpdates/",
   "timezone": "America/Belize",
-  "checked_at": "2026-11-09T12:51:14-06:00",
+  "checked_at": "2026-11-09T20:11:08-06:00",
   "note": "Times are Belize local exactly as BEL printed them. 'ALL' for feeder or zone is a real value, not missing data."
  },
  "outages": [
   {
    "id": "b076e8d4cf8d",
    "type": "unscheduled",
-   "status": "active",
+   "status": "restored",
    "district": "San Pedro Ambergris Caye",
    "load_center": null,
    "feeder": "4 Zone All: Portion San Pedro which includes Nurse Shark Street, Angel Coral Street from Obando’s Panades to Black Coral Street, Pelican Street between Nurse Shark and Almond Streets, Ambergris Street between Nurse Shark and Almond Streets, Buccaneer Street between Nurse Shark and Almond Streets, Cococunt Drive from Esmeralda Street to Sea Grape Drive, Crow Street and Manta Ray Street. Coconut Drive from Island Academy to Stingray Street, Villa Drive, Mullet Street, Mar de Tumbo Street and Sea Grape Street from Stingray Street to Escalante Drive, areas along Sea Grape Drive from Escalante Drive to La Serene Beach Resort",
@@ -27,7 +27,7 @@
    "ingested_at": "2026-11-09T12:51:14-06:00",
    "raw_text": "Affected areas:\r\nSan Pedro Feeder 4 Zone All: Portion San Pedro which includes Nurse Shark Street, Angel Coral Street from Obando’s Panades to Black Coral Street, Pelican Street between Nurse Shark and Almond Streets, Ambergris Street between Nurse Shark and Almond Streets, Buccaneer Street between Nurse Shark and Almond Streets, Cococunt Drive from Esmeralda Street to Sea Grape Drive, Crow Street and Manta Ray Street. Coconut Drive from Island Academy to Stingray Street, Villa Drive, Mullet Street, Mar de Tumbo Street and Sea Grape Street from Stingray Street to Escalante Drive, areas along Sea Grape Drive from Escalante Drive to  La Serene Beach Resort. Outage type: Unplanned. Purpose of outage: BEL team dispatched to investigate the cause of an unplanned power outage to restore power supply as soon as possible.",
    "first_seen": "2026-11-09T12:51:14-06:00",
-   "last_seen": "2026-11-09T12:51:14-06:00"
+   "last_seen": "2026-11-09T20:11:08-06:00"
   }
  ]
 }
