@@ -58,7 +58,14 @@ CANCELLED_RETENTION_HOURS = 24
 # stamp in outages.json. Rewriting the file only when a notice changed froze
 # that stamp whenever BEL went quiet, so the banner told visitors the site was
 # broken when BEL simply had nothing to announce. Re-stamp at least this often.
-HEARTBEAT_HOURS = 6
+#
+# Keep this below the shortest gap between scheduled runs, or a run lands before
+# the stamp expires, publishes nothing, and folds its own interval into the next
+# gap. At 6 hours against runs a median 5.1 hours apart that happened nine times
+# in 60 days, each time pushing the published stamp past 12 hours and showing the
+# out-of-date banner while the scraper was running normally. Measured run gaps
+# since the cron went live: minimum 2.0 hours, median 5.1, longest 10.8.
+HEARTBEAT_HOURS = 1
 
 MONTHS = {
     "jan": 1, "feb": 2, "mar": 3, "apr": 4, "may": 5, "jun": 6,
@@ -638,10 +645,20 @@ def self_test():
         False)
     check("redesigned page is not empty", page_is_empty("<h2>Outages</h2><div>soon</div>"), False)
 
-    # The heartbeat that keeps the "checked" stamp honest.
+    # The heartbeat that keeps the "checked" stamp honest. The window checks
+    # pass their threshold explicitly, and the two that exercise the default are
+    # written against HEARTBEAT_HOURS itself, so tuning the constant does not
+    # mean editing the self test and cannot quietly fail every refresh run.
     beat_now = dt.datetime(2026, 9, 17, 12, 0, tzinfo=BELIZE_TZ)
-    check("stamp 5h old is fresh", stamp_expired("2026-09-17T07:00:00-06:00", beat_now), False)
-    check("stamp 7h old is expired", stamp_expired("2026-09-17T05:00:00-06:00", beat_now), True)
+    check("stamp inside the window is fresh",
+          stamp_expired("2026-09-17T07:00:00-06:00", beat_now, hours=6), False)
+    check("stamp past the window is expired",
+          stamp_expired("2026-09-17T05:00:00-06:00", beat_now, hours=6), True)
+    check("default heartbeat expires a stamp older than itself",
+          stamp_expired((beat_now - dt.timedelta(hours=HEARTBEAT_HOURS,
+                                                 minutes=1)).isoformat(), beat_now), True)
+    check("default heartbeat keeps a stamp younger than itself",
+          stamp_expired((beat_now - dt.timedelta(minutes=1)).isoformat(), beat_now), False)
     check("missing stamp is expired", stamp_expired(None, beat_now), True)
     check("last_seen alone is not a change",
           without([{"id": "a", "last_seen": "x"}], "last_seen")

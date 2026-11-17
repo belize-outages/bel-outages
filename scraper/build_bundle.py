@@ -229,16 +229,21 @@ def main():
     # Load shedding: a separate, tentative feed. Kept distinct from the planned
     # outages all the way to the page so it can never be shown as certain.
     ls = []
+    # Carried even when nothing was found. Publishing null here made the page
+    # say "Checked never", which is untrue: the scraper checks on every run and
+    # an empty result is an answer, not a gap in the record.
+    ls_checked = None
     lp = os.path.join(DATA, "loadshedding.json")
     if os.path.exists(lp):
         with io.open(lp, encoding="utf-8") as f:
             ldoc = json.load(f)
         ls = ldoc.get("schedules", [])
+        ls_checked = ldoc.get("meta", {}).get("checked_at")
 
     bundle = {
         "generated": outages["meta"]["checked_at"],
         "loadshedding": ls,
-        "loadshedding_checked": (ldoc["meta"]["checked_at"] if ls else None),
+        "loadshedding_checked": ls_checked,
         "source_url": outages["meta"]["source_url"],
         "timezone": outages["meta"]["timezone"],
         "districts": districts["features"],

@@ -854,8 +854,9 @@
       '<p class="caveat"><strong>Load shedding</strong> is the rolling blackout BEL runs when ' +
       "generation falls short. It is not on BEL's outage page, so it is gathered from Belize " +
       'news reports and is always tentative. ' +
+      ((BEL.loadshedding || []).length ? "" : "None found recently. ") +
       (BEL.loadshedding_checked ? "Last checked " + esc(ago(BEL.loadshedding_checked)) + "."
-                                : "None found recently.") + "</p>" +
+                                : "") + "</p>" +
       (cards ? '<h3 class="hd">Listed by BEL</h3>' + cards : "") +
       '<p class="meta"><a href="' + esc(BEL.source_url) + '" rel="noopener">Source: bel.com.bz/PowerUpdates</a></p>';
     $("sheetBody").scrollTop = 0;
