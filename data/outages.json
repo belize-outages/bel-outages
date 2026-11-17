@@ -3,8 +3,34 @@
   "schema_version": 1,
   "source_url": "https://www.bel.com.bz/PowerUpdates/",
   "timezone": "America/Belize",
-  "checked_at": "2026-11-16T16:11:25-06:00",
+  "checked_at": "2026-11-16T22:32:59-06:00",
   "note": "Times are Belize local exactly as BEL printed them. 'ALL' for feeder or zone is a real value, not missing data."
  },
- "outages": []
+ "outages": [
+  {
+   "id": "f3489b98a82e",
+   "type": "unscheduled",
+   "status": "restored",
+   "district": "Portion of Cayo District, Rural",
+   "load_center": "Belmopan",
+   "feeder": "5",
+   "zone": "1 portion",
+   "area_ids": [
+    "osm-camalote",
+    "osm-teakettle"
+   ],
+   "date": "2026-11-16",
+   "start": "16:41",
+   "end": "19:30",
+   "timezone": "America/Belize",
+   "tentative": false,
+   "purpose": "BEL dispatched to investigate the cause of an unplanned power outage to restore power supply as soon as possible",
+   "source_url": "https://www.bel.com.bz/PowerUpdates/",
+   "published_at": null,
+   "ingested_at": "2026-11-16T22:32:59-06:00",
+   "raw_text": "Load Center: Belmopan.\r\nFeeder: 5. \r\nZone: 1 portion\r\nAreas to be affected: portion of Camalote and Teakettle Village.\r\nOutage type: Unscheduled.  \r\nPurpose of outage: BEL dispatched to investigate the cause of an unplanned power outage to restore power supply as soon as possible.",
+   "first_seen": "2026-11-16T22:32:59-06:00",
+   "last_seen": "2026-11-16T22:32:59-06:00"
+  }
+ ]
 }
