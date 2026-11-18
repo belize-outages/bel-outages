@@ -3,7 +3,7 @@
   "schema_version": 1,
   "source_url": "https://www.bel.com.bz/PowerUpdates/",
   "timezone": "America/Belize",
-  "checked_at": "2026-11-17T22:27:15-06:00",
+  "checked_at": "2026-11-18T08:05:46-06:00",
   "note": "Times are Belize local exactly as BEL printed them. 'ALL' for feeder or zone is a real value, not missing data."
  },
  "outages": [
@@ -27,7 +27,7 @@
    "ingested_at": "2026-11-17T16:55:55-06:00",
    "raw_text": "Load Center: Belize.\r\nFeeder: 2.\r\nZone: 1 (portion).\r\nAreas to be affected: the portion of downtown Belize City that includes Lancaster Street, York Street, and Castle Street.\r\nOutage type: Scheduled.  \r\nPurpose of outage: BEL to install utility pole and conduct upgrades in the area to improve the reliability of power supply to our Customers.",
    "first_seen": "2026-11-17T16:55:55-06:00",
-   "last_seen": "2026-11-17T22:27:15-06:00"
+   "last_seen": "2026-11-18T08:05:46-06:00"
   }
  ]
 }
