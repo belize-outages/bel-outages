@@ -3,53 +3,8 @@
   "schema_version": 1,
   "source_url": "https://www.bel.com.bz/PowerUpdates/",
   "timezone": "America/Belize",
-  "checked_at": "2026-11-18T16:00:14-06:00",
+  "checked_at": "2026-11-18T21:34:27-06:00",
   "note": "Times are Belize local exactly as BEL printed them. 'ALL' for feeder or zone is a real value, not missing data."
  },
- "outages": [
-  {
-   "id": "52168e24abe1",
-   "type": "planned",
-   "status": "restored",
-   "district": "Portion of Belize City",
-   "load_center": "Belize",
-   "feeder": "2",
-   "zone": "1 (portion)",
-   "area_ids": [],
-   "date": "2026-11-18",
-   "start": "08:30",
-   "end": "14:00",
-   "timezone": "America/Belize",
-   "tentative": false,
-   "purpose": "BEL to install utility pole and conduct upgrades in the area to improve the reliability of power supply to our Customers",
-   "source_url": "https://www.bel.com.bz/PowerUpdates/",
-   "published_at": null,
-   "ingested_at": "2026-11-17T16:55:55-06:00",
-   "raw_text": "Load Center: Belize.\r\nFeeder: 2.\r\nZone: 1 (portion).\r\nAreas to be affected: the portion of downtown Belize City that includes Lancaster Street, York Street, and Castle Street.\r\nOutage type: Scheduled.  \r\nPurpose of outage: BEL to install utility pole and conduct upgrades in the area to improve the reliability of power supply to our Customers.",
-   "first_seen": "2026-11-17T16:55:55-06:00",
-   "last_seen": "2026-11-18T16:00:14-06:00"
-  },
-  {
-   "id": "841854f54f80",
-   "type": "planned",
-   "status": "restored",
-   "district": "Belize",
-   "load_center": "San Pedro",
-   "feeder": "3",
-   "zone": "2",
-   "area_ids": [],
-   "date": "2026-11-18",
-   "start": "09:00",
-   "end": "12:00",
-   "timezone": "America/Belize",
-   "tentative": false,
-   "purpose": "BEL to install transformer upgrade to improve power supply in the San Mateo Subdivision",
-   "source_url": "https://www.bel.com.bz/PowerUpdates/",
-   "published_at": null,
-   "ingested_at": "2026-11-18T16:00:14-06:00",
-   "raw_text": "Affected Areas: portion of San Pedro Mateo Subdivision.\r\nLoad Center: San Pedro\r\nFeeder: 3\r\nZone: 2\r\nAreas to be affected: portion of San Pedro from San Mateo Subdivision.\r\nOutage type: Scheduled.  \r\nPurpose of outage: BEL to install transformer upgrade to improve power supply in the San Mateo Subdivision.",
-   "first_seen": "2026-11-18T16:00:14-06:00",
-   "last_seen": "2026-11-18T16:00:14-06:00"
-  }
- ]
+ "outages": []
 }
