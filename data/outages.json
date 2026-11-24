@@ -3,7 +3,7 @@
   "schema_version": 1,
   "source_url": "https://www.bel.com.bz/PowerUpdates/",
   "timezone": "America/Belize",
-  "checked_at": "2026-11-24T04:59:45-06:00",
+  "checked_at": "2026-11-24T15:17:00-06:00",
   "note": "Times are Belize local exactly as BEL printed them. 'ALL' for feeder or zone is a real value, not missing data."
  },
  "outages": [
@@ -27,7 +27,29 @@
    "ingested_at": "2026-11-21T12:01:24-06:00",
    "raw_text": "Load Center: Belize.\r\nFeeder: All.\r\nZone: All.\r\nAreas to be affected: entire Belize City up to Mile 1 on the Philip Goldson Highway and Mile 1 on the George Price Highway.\r\nOutage type: Scheduled.  \r\nPurpose of outage: BEL to replace utility poles and upgrade power lines to improve power supply for our Customers.",
    "first_seen": "2026-11-21T12:01:24-06:00",
-   "last_seen": "2026-11-24T04:59:45-06:00"
+   "last_seen": "2026-11-24T15:17:00-06:00"
+  },
+  {
+   "id": "bf3bee3dded6",
+   "type": "planned",
+   "status": "announced",
+   "district": "Belize City",
+   "load_center": "Belize",
+   "feeder": "ALL",
+   "zone": "ALL",
+   "area_ids": [],
+   "date": "2026-11-29",
+   "start": "14:50",
+   "end": "15:00",
+   "timezone": "America/Belize",
+   "tentative": false,
+   "purpose": "BEL to replace utility poles and upgrade power lines to improve power supply for our Customers",
+   "source_url": "https://www.bel.com.bz/PowerUpdates/",
+   "published_at": null,
+   "ingested_at": "2026-11-24T15:17:00-06:00",
+   "raw_text": "Load Center: Belize.\r\nFeeder: All.\r\nZone: All.\r\nAreas to be affected: entire Belize City up to Mile 1 on the Philip Goldson Highway and Mile 1 on the George Price Highway.\r\nOutage type: Scheduled.  \r\nPurpose of outage: BEL to replace utility poles and upgrade power lines to improve power supply for our Customers.",
+   "first_seen": "2026-11-24T15:17:00-06:00",
+   "last_seen": "2026-11-24T15:17:00-06:00"
   }
  ]
 }
