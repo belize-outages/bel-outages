@@ -3,10 +3,32 @@
   "schema_version": 1,
   "source_url": "https://www.bel.com.bz/PowerUpdates/",
   "timezone": "America/Belize",
-  "checked_at": "2026-11-25T09:40:36-06:00",
+  "checked_at": "2026-11-25T18:26:49-06:00",
   "note": "Times are Belize local exactly as BEL printed them. 'ALL' for feeder or zone is a real value, not missing data."
  },
  "outages": [
+  {
+   "id": "886d11097174",
+   "type": "planned",
+   "status": "announced",
+   "district": "Belize",
+   "load_center": "West",
+   "feeder": "1",
+   "zone": "1 (portion)",
+   "area_ids": [],
+   "date": "2026-11-28",
+   "start": "08:30",
+   "end": "14:00",
+   "timezone": "America/Belize",
+   "tentative": false,
+   "purpose": null,
+   "source_url": "https://www.bel.com.bz/PowerUpdates/",
+   "published_at": null,
+   "ingested_at": "2026-11-25T18:26:49-06:00",
+   "raw_text": "Purpose:\r\nBEL to conduct system upgrade and energize newly built power lines to connect Customer in the area.\r\n\r\nAffected Areas: \r\nLoad Center: West.\r\nFeeder: 1.\r\n Zone: 1 (portion).\r\nAreas to be affected: portion of Sunset Park.\r\nOutage type: Planned",
+   "first_seen": "2026-11-25T18:26:49-06:00",
+   "last_seen": "2026-11-25T18:26:49-06:00"
+  },
   {
    "id": "85e0a7400397",
    "type": "planned",
@@ -27,7 +49,7 @@
    "ingested_at": "2026-11-25T09:40:36-06:00",
    "raw_text": "Load Center: Belize.\r\nFeeder: All.\r\nZone: All.\r\nAreas to be affected: entire Belize City up to Mile 1 on the Philip Goldson Highway and Mile 1 on the George Price Highway.\r\nOutage type: Scheduled.  \r\nPurpose of outage: BEL to replace utility poles and upgrade power lines to improve power supply for our Customers.",
    "first_seen": "2026-11-25T09:40:36-06:00",
-   "last_seen": "2026-11-25T09:40:36-06:00"
+   "last_seen": "2026-11-25T18:26:49-06:00"
   },
   {
    "id": "fe326feb2519",
@@ -95,7 +117,7 @@
    "ingested_at": "2026-11-25T09:40:36-06:00",
    "raw_text": "Load Center: Belize.\r\nFeeder: All.\r\nZone: All.\r\nAreas to be affected: entire Belize City up to Mile 1 on the Philip Goldson Highway and Mile 1 on the George Price Highway.\r\nOutage type: Scheduled.  \r\nPurpose of outage: BEL to replace utility poles and upgrade power lines to improve power supply for our Customers.",
    "first_seen": "2026-11-25T09:40:36-06:00",
-   "last_seen": "2026-11-25T09:40:36-06:00"
+   "last_seen": "2026-11-25T18:26:49-06:00"
   }
  ]
 }
