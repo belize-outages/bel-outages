@@ -3,14 +3,14 @@
   "schema_version": 1,
   "source_url": "https://www.bel.com.bz/PowerUpdates/",
   "timezone": "America/Belize",
-  "checked_at": "2026-11-26T13:39:48-06:00",
+  "checked_at": "2026-11-26T20:53:35-06:00",
   "note": "Times are Belize local exactly as BEL printed them. 'ALL' for feeder or zone is a real value, not missing data."
  },
  "outages": [
   {
    "id": "4eba43267be1",
    "type": "planned",
-   "status": "announced",
+   "status": "cancelled",
    "district": "Portion of Belize District",
    "load_center": "West",
    "feeder": "1",
@@ -27,7 +27,8 @@
    "ingested_at": "2026-11-26T13:39:48-06:00",
    "raw_text": "Load Center: West.\r\nFeeder: 1.\r\nZone: 1.\r\nAreas to be affected: all areas along the George Price Highway from Lord Ridge Cemetery to 8 Miles Community. \r\nOutage type: Scheduled.  \r\nPurpose of outage: BEL to temporarily reroute power supply to allow important maintenance works to be carried out safely.",
    "first_seen": "2026-11-26T13:39:48-06:00",
-   "last_seen": "2026-11-26T13:39:48-06:00"
+   "last_seen": "2026-11-26T13:39:48-06:00",
+   "cancelled_at": "2026-11-26T20:53:35-06:00"
   },
   {
    "id": "886d11097174",
@@ -49,7 +50,7 @@
    "ingested_at": "2026-11-25T18:26:49-06:00",
    "raw_text": "Purpose:\r\nBEL to conduct system upgrade and energize newly built power lines to connect Customer in the area.\r\n\r\nAffected Areas: \r\nLoad Center: West.\r\nFeeder: 1.\r\n Zone: 1 (portion).\r\nAreas to be affected: portion of Sunset Park.\r\nOutage type: Planned",
    "first_seen": "2026-11-25T18:26:49-06:00",
-   "last_seen": "2026-11-26T13:39:48-06:00"
+   "last_seen": "2026-11-26T20:53:35-06:00"
   },
   {
    "id": "3d31cdcb7ea0",
@@ -73,7 +74,29 @@
    "ingested_at": "2026-11-26T13:39:48-06:00",
    "raw_text": "10-minute power interruptions to occur anytime between 5pm and 6pm.\r\nLoad Center: Ladyville.\r\nFeeder: 1.\r\nZone: 3, 4, & 5.\r\nAreas to be affected: areas along the Philip Goldson Highway from Buttonwood Bay to Mile 4.5 including Mayflower Drive, Chetumal Street from Philip Goldson Highway to Park Avenue, entire Bella Vista, Belama Phase 2, Belama Phase 3, and Belama Phase 4. \r\nOutage type: Scheduled.  \r\nPurpose of outage: BEL to temporarily reroute power supply to allow important maintenance works to be carried out safely.",
    "first_seen": "2026-11-26T13:39:48-06:00",
-   "last_seen": "2026-11-26T13:39:48-06:00"
+   "last_seen": "2026-11-26T20:53:35-06:00"
+  },
+  {
+   "id": "af6cdbf62cd8",
+   "type": "planned",
+   "status": "announced",
+   "district": "Portion of Belize District",
+   "load_center": "West",
+   "feeder": "1",
+   "zone": "1",
+   "area_ids": [],
+   "date": "2026-11-28",
+   "start": "17:00",
+   "end": "17:10",
+   "timezone": "America/Belize",
+   "tentative": false,
+   "purpose": "BEL to temporarily reroute power supply to allow important maintenance works to be carried out safely",
+   "source_url": "https://www.bel.com.bz/PowerUpdates/",
+   "published_at": null,
+   "ingested_at": "2026-11-26T20:53:35-06:00",
+   "raw_text": "Load Center: West.\r\nFeeder: 1.\r\nZone: 1.\r\nAreas to be affected: all areas along the George Price Highway from Lord Ridge Cemetery to 8 Miles Community. \r\nOutage type: Scheduled.  \r\nPurpose of outage: BEL to temporarily reroute power supply to allow important maintenance works to be carried out safely.",
+   "first_seen": "2026-11-26T20:53:35-06:00",
+   "last_seen": "2026-11-26T20:53:35-06:00"
   },
   {
    "id": "85e0a7400397",
